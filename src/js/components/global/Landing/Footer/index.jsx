@@ -1,7 +1,8 @@
-import classNames from 'classnames';
 import { connect } from 'react-redux';
 
-import CategoryNavigation from '@/components/global/Footer/_components/CategoryNavigation';
+import classNames from 'classnames';
+
+import CategoryNavigation from '@/components/global/Landing/Footer/_components/CategoryNavigation';
 import Logo from '@/components/primary/Logo';
 import Navigation from '@/components/primary/Navigation';
 import { CommonHeadConstants } from '@/constants/common/head';
@@ -10,7 +11,7 @@ import { PolicyNavigationConstants } from '@/constants/navigations/policy';
 
 import styles from './styles.module.scss';
 
-function Footer({
+function LFooter({
   footerProps: { withCategoryNavigation = true, blackFooter = false } = {},
   variablesList,
   variablesList: { CURRENT_YEAR } = {},
@@ -38,11 +39,7 @@ function Footer({
             </div>
           </div>
           <div className={styles.footer__navigation}>
-            <Navigation
-              className={classNames(styles.footerNav, blackFooter && styles.footerNav_black)}
-              links={PolicyNavigationConstants}
-              location="footer"
-            />
+            <Navigation className={classNames(styles.footerNav, blackFooter && styles.footerNav_black)} links={PolicyNavigationConstants} location="footer" />
           </div>
         </div>
       </footer>
@@ -53,4 +50,4 @@ function Footer({
 export default connect((state) => ({
   variablesList: state.VariablesReducer.variablesList,
   promoBlackCatCardInfo: state.PromoReducer.promoActions.BLACK_CAT_CARD,
-}))(Footer);
+}))(LFooter);

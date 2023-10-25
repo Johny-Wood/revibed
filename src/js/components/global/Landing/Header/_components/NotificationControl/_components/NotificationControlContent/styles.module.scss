@@ -1,0 +1,21 @@
+@import '../../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.notificationsControl {
+  &__content {
+    padding: convert-px2rem(15) 0;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color__gray-5);
+    padding: 0 convert-px2rem(15);
+  }
+
+  &__items {
+    position: relative;
+  }
+}

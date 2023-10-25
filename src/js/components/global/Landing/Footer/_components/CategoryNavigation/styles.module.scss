@@ -1,9 +1,9 @@
-@import '../../../../../../assets/styles/_mixins/breakpoint';
-@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
 
 $footer_padding_x: convert-px2rem(20);
 $footer_padding_y: convert-px2rem(48);
-$footer_max_width: convert-px2rem(1225);
+$footer_max_width: convert-px2rem(1440);
 $footer_font_size: convert-px2rem(12);
 
 $copyright_margin_left: convert-px2rem(10);
@@ -13,8 +13,22 @@ $copyright_margin_left: convert-px2rem(10);
   margin: 0 auto;
   background-color: var(--color__white);
   overflow: hidden;
+  font-size: 16px;
+
+  @include breakpoint($b-tablet__max) {
+    font-size: 12px;
+  }
+
   @include breakpoint($b-laptop) {
     background-color: var(--color__gray-5);
+  }
+
+  @include breakpoint($b-desktop) {
+    font-size: 16px;
+  }
+
+  @include breakpoint($b-mobileS__max) {
+    font-size: 16px;
   }
 
   &.categoryNavigation_black {
@@ -25,12 +39,30 @@ $copyright_margin_left: convert-px2rem(10);
     }
     .categoryNavigation__wrapper {
       padding: convert-px2rem(59) $footer_padding_x convert-px2rem(59);
+
+      @include breakpoint($b-tablet__max) {
+        padding: convert-px2rem(49) $footer_padding_x convert-px2rem(49);
+      }
+
+      @include breakpoint($b-mobileS__max) {
+        padding: convert-px2rem(101) $footer_padding_x convert-px2rem(21);
+      }
     }
   }
 
   &__wrapper {
-    margin: 0 auto;
+    margin: 0 80px;
     width: 100%;
+    // font-size: 12px;
+
+    @include breakpoint($b-tablet__max) {
+      margin: 0 57px;
+    }
+
+    @include breakpoint($b-mobileS__max) {
+      margin: 0;
+    }
+
     @include breakpoint($b-laptop) {
       padding: convert-px2rem(30) $footer_padding_x convert-px2rem(42);
       max-width: calc(#{$footer_max_width} + #{$footer_padding_x} * 2);
@@ -44,7 +76,7 @@ $copyright_margin_left: convert-px2rem(10);
     align-items: flex-start;
     justify-content: flex-start;
 
-    @include breakpoint($b-laptop) {
+    @include breakpoint($b-tablet) {
       flex-direction: row;
       // justify-content: space-between;
       justify-content: flex-start;
@@ -55,7 +87,7 @@ $copyright_margin_left: convert-px2rem(10);
 
   &__category {
     @include breakpoint($b-tabletS__max) {
-      width: 100% !important;
+      // width: 100% !important;
     }
     @include breakpoint($b-laptop) {
       // width: calc(100% / 4 - #{convert-px2rem(23)});
@@ -63,18 +95,19 @@ $copyright_margin_left: convert-px2rem(10);
     }
 
     @include breakpoint($b-tabletS__max) {
-      border-bottom: 1px solid var(--color__gray-4);
+      // border-bottom: 1px solid var(--color__gray-4);
     }
 
     &:first-child {
       @include breakpoint($b-tabletS__max) {
-        border-top: 1px solid var(--color__gray-4);
+        // border-top: 1px solid var(--color__gray-4);
       }
     }
 
     &__name {
       position: relative;
-      @include breakpoint($b-tabletS__max) {
+      // @include breakpoint($b-tabletS__max) {
+      @include breakpoint($b-tablet__max) {
         text-align: left !important;
         padding: convert-px2rem(7.5) convert-px2rem(10) convert-px2rem(7.5);
       }
@@ -96,11 +129,13 @@ $copyright_margin_left: convert-px2rem(10);
       align-items: flex-start;
       justify-content: flex-start;
       margin: convert-px2rem(-3) 0 convert-px2rem(3);
-      @include breakpoint($b-tabletS__max) {
+
+      // @include breakpoint($b-tabletS__max) {
+      @include breakpoint($b-tablet__max) {
         padding: 0 convert-px2rem(10);
       }
 
-      @include breakpoint($b-laptop) {
+      @include breakpoint($b-tabletS) {
         margin: convert-px2rem(4) 0 0;
       }
 
@@ -138,7 +173,8 @@ $copyright_margin_left: convert-px2rem(10);
     text-align: right;
 
     &__category__links {
-      @include breakpoint($b-tabletS__max) {
+      // @include breakpoint($b-tabletS__max) {
+      @include breakpoint($b-tablet__max) {
         align-items: flex-end !important;
       }
     }
