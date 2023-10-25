@@ -1,0 +1,22 @@
+{
+  "PROJECT_CUT_PRICE_SORT_NAME": {
+    "en": "Cut Price",
+    "ru": "Cut Price"
+  },
+  "PROJECT_CREATED_AT_SORT": {
+    "en": "Time Created",
+    "ru": "Time Created"
+  },
+  "PROJECT_MEDIA_PRICE_SORT": {
+    "en": "Item Total",
+    "ru": "Item Total"
+  },
+  "PROJECT_CONTRIBUTORS_COUNT_SORT": {
+    "en": "Contributors",
+    "ru": "Contributors"
+  },
+  "PROJECT_FOUNDED_PERCENTAGE_SORT": {
+    "en": "Funded %",
+    "ru": "Funded %"
+  }
+}

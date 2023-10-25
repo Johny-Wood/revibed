@@ -1,0 +1,82 @@
+@import '../_mixins/convert-px2rem';
+
+.fade-to-top-300-animation {
+  $duration: 300ms;
+
+  &-enter {
+    opacity: 0;
+    transform: translateY(12%) !important;
+
+    &-active {
+      opacity: 1;
+      transform: translateY(0) !important;
+      transition:
+        transform $duration ease,
+        opacity $duration ease;
+    }
+  }
+
+  &-exit {
+    &-active {
+      opacity: 0;
+      transform: translateY(12%) !important;
+      transition:
+        transform $duration ease,
+        opacity $duration ease;
+    }
+  }
+}
+
+.fade-to-top-1000-animation {
+  $duration: 1000ms;
+
+  &-enter {
+    opacity: 0;
+    transform: translateY(convert-px2rem(10)) !important;
+
+    &-active {
+      opacity: 1;
+      transform: translateY(0) !important;
+      transition:
+        transform $duration ease,
+        opacity $duration ease;
+    }
+  }
+
+  &-exit {
+    &-active {
+      opacity: 0;
+      transform: translateY(convert-px2rem(10)) !important;
+      transition:
+        transform $duration ease,
+        opacity $duration ease;
+    }
+  }
+}
+
+.fade-to-top-2000-animation {
+  $duration: 2000ms;
+
+  &-enter {
+    opacity: 0;
+    transform: translateY(convert-px2rem(8)) !important;
+
+    &-active {
+      opacity: 1;
+      transform: translateY(0) !important;
+      transition:
+        transform $duration ease,
+        opacity $duration ease;
+    }
+  }
+
+  &-exit {
+    &-active {
+      opacity: 0;
+      transform: translateY(convert-px2rem(8)) !important;
+      transition:
+        transform $duration ease,
+        opacity $duration ease;
+    }
+  }
+}

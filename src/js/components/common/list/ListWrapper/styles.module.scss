@@ -1,0 +1,104 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.itemsList {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  @include breakpoint($b-laptop) {
+    min-height: convert-px2rem(425);
+  }
+
+  &__control {
+    @include breakpoint($b-tabletS__max) {
+      margin-left: convert-px2rem(51);
+    }
+    @include breakpoint($b-laptop) {
+      min-height: convert-px2rem(45);
+    }
+  }
+
+  &__sort {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 7;
+    margin-left: auto;
+    @include breakpoint($b-laptop) {
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 5;
+    @include breakpoint($b-laptop) {
+      min-height: convert-px2rem(35);
+    }
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    flex-grow: 2;
+    @include breakpoint($b-tabletS__max) {
+      margin-top: convert-px2rem(5);
+    }
+
+    :global {
+      .preloader-process {
+        z-index: 9999;
+      }
+    }
+  }
+
+  &__list {
+    width: calc(100% + #{convert-px2rem(25)});
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    position: relative;
+    padding-top: convert-px2rem(15);
+    margin: convert-px2rem(-17.5) convert-px2rem(-12.5);
+
+    @include breakpoint($b-tablet) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    @include breakpoint($b-laptop) {
+      padding-top: convert-px2rem(20);
+    }
+  }
+
+  &__block {
+    margin: convert-px2rem(17.5) convert-px2rem(12.5);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    @include breakpoint($b-laptop) {
+      margin: convert-px2rem(20) convert-px2rem(12.5);
+    }
+  }
+
+  &__footer {
+    margin-top: convert-px2rem(20);
+  }
+}

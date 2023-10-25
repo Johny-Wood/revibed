@@ -1,0 +1,27 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.wantListPlanPackages {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  margin: convert-px2rem(20) 0;
+
+  &__action {
+    text-align: center;
+    @include breakpoint($b-laptop) {
+      text-align: right;
+    }
+
+    :global {
+      .button {
+        @include breakpoint($b-tabletS__max) {
+          width: 100%;
+          max-width: convert-px2rem(360);
+        }
+      }
+    }
+  }
+}

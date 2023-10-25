@@ -1,0 +1,61 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.sliderArrow {
+  position: absolute;
+  top: 45%;
+  width: convert-px2rem(16);
+  height: convert-px2rem(29);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @include breakpoint($b-laptop) {
+    transform: translateY(-50%);
+    width: convert-px2rem(30);
+    height: convert-px2rem(56);
+  }
+
+  &_mobile {
+    transform: none;
+    top: auto;
+    bottom: convert-px2rem(16);
+    @include breakpoint($b-tabletS__max) {
+      width: convert-px2rem(17);
+      bottom: convert-px2rem(20);
+    }
+  }
+
+  :global {
+    .icon {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__right {
+    right: 0;
+
+    &_mobile {
+      right: convert-px2rem(100);
+    }
+
+    :global {
+      .icon {
+        transform: rotate(180deg) translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  &__left {
+    left: 0;
+
+    &_mobile {
+      left: auto;
+      right: convert-px2rem(200);
+      @include breakpoint($b-tabletS__max) {
+        right: convert-px2rem(150);
+      }
+    }
+  }
+}

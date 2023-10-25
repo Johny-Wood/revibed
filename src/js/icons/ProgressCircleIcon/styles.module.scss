@@ -1,0 +1,11 @@
+@import '../../../assets/styles/_mixins/convert-px2rem';
+
+.progressCircle {
+  position: relative;
+  z-index: 6;
+  transform: scaleX(-1) rotate(-55deg);
+
+  &__path {
+    transition: 500ms ease;
+  }
+}

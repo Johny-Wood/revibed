@@ -1,0 +1,32 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.userBalance {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+
+  &__koin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    .userBalance__value {
+      color: var(--color__black) !important;
+    }
+  }
+
+  &__title {
+    margin-bottom: convert-px2rem(1);
+  }
+
+  &__value {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+  }
+}

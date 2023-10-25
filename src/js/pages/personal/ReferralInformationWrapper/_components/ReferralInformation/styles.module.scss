@@ -1,0 +1,78 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.referralInfo {
+  &__title {
+    font-size: convert-px2rem(20);
+    line-height: convert-px2rem(20);
+    letter-spacing: convert-px2rem(0.02);
+    @include breakpoint($b-laptop) {
+      letter-spacing: convert-px2rem(0.2);
+    }
+  }
+
+  &__intro {
+    max-width: convert-px2rem(532);
+    margin-top: convert-px2rem(20);
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    @include breakpoint($b-laptop) {
+      flex-direction: row;
+    }
+
+    :global {
+      .input {
+        padding: 1em convert-px2rem(20);
+      }
+    }
+  }
+
+  &__link {
+    margin-top: convert-px2rem(30);
+    max-width: convert-px2rem(488);
+    @include breakpoint($b-laptop) {
+      margin-top: convert-px2rem(40);
+      max-width: convert-px2rem(645);
+    }
+
+    &Title {
+      display: block;
+      margin-bottom: convert-px2rem(5);
+    }
+
+    :global {
+      .input {
+        flex-direction: row;
+
+        & > .text {
+          max-width: convert-px2rem(400);
+          flex-grow: 2;
+          margin-right: convert-px2rem(10);
+        }
+      }
+    }
+
+    .buttonCopy {
+      :global {
+        .text {
+          font-family: var(--font-family__Inter-Medium);
+        }
+      }
+    }
+
+    .buttonSendReferral {
+      min-width: convert-px2rem(150) !important;
+      @include breakpoint($b-tabletS__max) {
+        width: 100%;
+      }
+      @include breakpoint($b-laptop) {
+        margin-left: convert-px2rem(5);
+      }
+    }
+  }
+}

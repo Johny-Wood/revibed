@@ -1,0 +1,89 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.wantListImportInstructionStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: convert-px2rem(275);
+  margin-bottom: convert-px2rem(40);
+  @include breakpoint($b-laptop) {
+    margin-bottom: convert-px2rem(20);
+  }
+  @include breakpoint($b-tabletS__max) {
+    &:last-child {
+      margin-bottom: convert-px2rem(20);
+    }
+  }
+
+  &__circle {
+    $size: 225;
+
+    border: convert-px2rem(5) solid #000;
+    position: relative;
+    border-radius: 50%;
+    width: convert-px2rem($size);
+    height: convert-px2rem($size);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: convert-px2rem(45) convert-px2rem(10) convert-px2rem(10);
+    margin-bottom: convert-px2rem(15);
+
+    &:before {
+      position: absolute;
+      top: convert-px2rem(-5);
+      left: convert-px2rem(-6);
+      content: '';
+      width: calc(100% + #{convert-px2rem(10)});
+      height: calc(100% + #{convert-px2rem(10)});
+      border-radius: 50%;
+      box-shadow: convert-px2rem(9) 0 1px #000;
+    }
+  }
+
+  &__id {
+    font-size: convert-px2rem(28);
+    line-height: convert-px2rem(50);
+    font-family: var(--font-family__Inter-Light);
+  }
+
+  &__title {
+    font-size: convert-px2rem(20);
+    line-height: convert-px2rem(26);
+    text-transform: uppercase;
+    font-family: var(--font-family__FuturaPT-SemiBold);
+    margin-top: convert-px2rem(5);
+  }
+
+  &__info {
+    padding: 0 convert-px2rem(25);
+  }
+
+  &__text {
+    font-family: var(--font-family__Inter-Medium);
+  }
+
+  .buttonViewVideo {
+    margin-top: convert-px2rem(15);
+
+    :global {
+      .text {
+        font-family: var(--font-family__Inter-Medium);
+
+        &:before {
+          display: inline-block;
+          content: '';
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: convert-px2rem(5) 0 convert-px2rem(5) convert-px2rem(10);
+          border-color: transparent transparent transparent currentColor;
+          margin-right: convert-px2rem(8);
+        }
+      }
+    }
+  }
+}

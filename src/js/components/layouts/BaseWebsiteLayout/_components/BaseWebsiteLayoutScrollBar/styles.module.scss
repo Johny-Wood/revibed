@@ -1,0 +1,26 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.mainScrollbar {
+  position: relative;
+  z-index: 100;
+
+  &_hide {
+    width: calc(100vw + 20px);
+  }
+
+  :global {
+    .ScrollbarsCustom-Content {
+      position: relative;
+    }
+  }
+}
+
+.page {
+  width: 100vw;
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}

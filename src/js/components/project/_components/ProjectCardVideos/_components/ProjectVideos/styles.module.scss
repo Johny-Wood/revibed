@@ -1,0 +1,12 @@
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectVideo {
+  width: 100%;
+  height: 100%;
+
+  &__frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}

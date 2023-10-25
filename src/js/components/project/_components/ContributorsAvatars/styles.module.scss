@@ -1,0 +1,42 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.contributorsAvatars {
+  &__title {
+    margin-bottom: convert-px2rem(5);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    .contributor {
+      width: auto;
+      border-radius: 50%;
+      border: convert-px2rem(2) solid var(--color__white);
+
+      &:not(:first-child) {
+        margin-left: convert-px2rem(-5);
+      }
+    }
+
+    .userAvatar {
+      margin: 0;
+    }
+
+    .buttonShowContributors {
+      width: convert-px2rem(26);
+      height: convert-px2rem(26);
+      z-index: 0;
+      margin-left: convert-px2rem(-5);
+
+      :global {
+        .icon {
+          width: convert-px2rem(10);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.telegramBotConnectIndication {
+  background-color: var(--color__white);
+  padding: convert-px2rem(10) convert-px2rem(13);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color__gray-5);
+  border-radius: convert-px2rem(50);
+
+  &_connected {
+    .telegramBotConnectIndication {
+      &__status {
+        background-color: var(--color__OPEN);
+      }
+    }
+  }
+
+  &__status {
+    width: convert-px2rem(10);
+    min-width: convert-px2rem(10);
+    height: convert-px2rem(10);
+    background-color: var(--color__LAST_CALL);
+    border-radius: 50%;
+    margin-right: convert-px2rem(7);
+  }
+}

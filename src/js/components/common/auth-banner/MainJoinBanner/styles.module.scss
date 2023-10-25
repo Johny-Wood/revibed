@@ -1,0 +1,71 @@
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../assets/styles/_mixins/breakpoint';
+
+.mainJoinBanner {
+  align-items: center;
+  padding: convert-px2rem(22.5) convert-px2rem(15) convert-px2rem(12.5);
+
+  &__title {
+    margin-bottom: convert-px2rem(5);
+    font-family: var(--font-family__Inter-Medium);
+  }
+
+  &__content {
+    min-height: convert-px2rem(40);
+  }
+
+  &__successTitle {
+    display: block;
+    margin-top: convert-px2rem(10);
+    font-size: convert-px2rem(18);
+    line-height: convert-px2rem(25);
+    font-family: var(--font-family__Inter-Bold);
+  }
+
+  &__form {
+    max-width: convert-px2rem(415);
+
+    &_success {
+      max-width: convert-px2rem(615);
+    }
+
+    :global {
+      .input {
+        padding: convert-px2rem(10) convert-px2rem(15) !important;
+
+        &-label {
+          top: convert-px2rem(10);
+        }
+
+        &-block {
+          margin-bottom: convert-px2rem(10) !important;
+        }
+      }
+
+      .button {
+        min-width: convert-px2rem(95) !important;
+        padding: convert-px2rem(10) convert-px2rem(20) !important;
+
+        .text {
+          line-height: convert-px2rem(20);
+          font-size: convert-px2rem(14);
+        }
+      }
+    }
+  }
+
+  &__background {
+    &:before {
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    }
+
+    img {
+      @include breakpoint($b-tabletS__max) {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}

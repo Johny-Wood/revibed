@@ -1,0 +1,13 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.dialogNewMessageReply {
+  color: var(--color__gray-2);
+  border-left: 2px solid var(--color__gray-3);
+  padding-left: convert-px2rem(5);
+  margin-top: convert-px2rem(5);
+
+  &__name {
+    font-family: var(--font-family__Inter-Medium);
+  }
+}

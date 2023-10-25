@@ -1,0 +1,59 @@
+@import '../../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.MarketplaceListWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__scrolLayout {
+    height: convert-px2rem(280);
+    width: calc(100% + #{convert-px2rem(40)});
+    margin: 0 convert-px2rem(-40/2);
+    @include breakpoint($b-laptop) {
+      height: convert-px2rem(299 + 15);
+    }
+  }
+
+  &__container {
+    flex-grow: 1;
+    position: relative;
+    margin-top: convert-px2rem(5);
+    @include breakpoint($b-laptop) {
+      margin-top: convert-px2rem(15);
+    }
+  }
+
+  &__scrolContent {
+    width: 100%;
+  }
+
+  &__wrapper {
+    min-height: convert-px2rem(280);
+    @include breakpoint($b-laptop) {
+      min-height: convert-px2rem(299 + 15);
+    }
+  }
+
+  &__list {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    width: calc(100% + #{convert-px2rem(-40 + 17)});
+    margin-left: convert-px2rem(40/2 - 17/2);
+    margin-right: convert-px2rem(40/2 - 17/2);
+    margin-top: 0;
+    @include breakpoint($b-laptop) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__block {
+    margin: convert-px2rem(10) convert-px2rem(10/2);
+
+    @include breakpoint($b-laptop) {
+      margin: convert-px2rem(10) convert-px2rem(17/2);
+    }
+  }
+}

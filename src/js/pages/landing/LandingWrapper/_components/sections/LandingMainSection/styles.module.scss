@@ -1,0 +1,78 @@
+@import '../../../../../../../assets/styles/_mixins/convert-landing-px2vh';
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+
+.landingMainSection {
+  padding: convert-landing-px2vh-mobile(80) convert-landing-px2vh-mobile(20);
+  justify-content: flex-end;
+  margin-bottom: convert-landing-px2vh-mobile(140);
+  @include breakpoint($b-laptop) {
+    padding: convert-landing-px2vh(65);
+    margin-bottom: convert-landing-px2vh(140);
+  }
+
+  &__wrapper {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__intro {
+    margin-top: convert-landing-px2vh-mobile(25);
+    font-size: convert-landing-px2vh-mobile(22);
+    line-height: convert-landing-px2vh-mobile(26);
+    @include breakpoint($b-laptop) {
+      margin-top: convert-landing-px2vh(45);
+      font-size: convert-landing-px2vh(45);
+      line-height: convert-landing-px2vh(54);
+    }
+  }
+
+  &__text {
+    text-align: center;
+    font-size: convert-landing-px2vh-mobile(18);
+    line-height: convert-landing-px2vh-mobile(22);
+    margin-top: convert-landing-px2vh-mobile(40);
+    @include breakpoint($b-laptop) {
+      font-size: convert-landing-px2vh(24);
+      line-height: convert-landing-px2vh(30);
+      margin-top: convert-landing-px2vh(70);
+    }
+
+    p {
+      &:last-child {
+        margin-top: convert-landing-px2vh(10);
+      }
+    }
+  }
+
+  &__scrollControl {
+    @include breakpoint($b-tabletS__max) {
+      margin-bottom: -4vh;
+    }
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+
+  :global {
+    .logo {
+      svg {
+        width: convert-landing-px2vh-mobile(270);
+        height: auto;
+        @include breakpoint($b-laptop) {
+          width: convert-landing-px2vh(632);
+        }
+      }
+    }
+  }
+}

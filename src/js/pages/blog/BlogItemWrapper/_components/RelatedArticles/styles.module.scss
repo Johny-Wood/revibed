@@ -1,0 +1,38 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.RelatedArticles {
+  margin-top: convert-px2rem(30);
+  border-top: 1px solid #e9e9e9;
+  padding: convert-px2rem(50) 0 0;
+  position: relative;
+
+  h2 {
+    text-align: center;
+    font-size: convert-px2rem(24);
+    line-height: 1.25;
+    @include breakpoint($b-tabletS__max) {
+      margin-bottom: convert-px2rem(35);
+    }
+  }
+
+  &__preload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: convert-px2rem(550);
+    width: 100%;
+  }
+
+  &__container {
+    max-width: convert-px2rem(513 * 2 + 40 + 40);
+  }
+
+  &__wrapper {
+    margin: 0 convert-px2rem(-20);
+    width: calc(100% + #{convert-px2rem(40)});
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,24 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.status__label.status__label_secured {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color__WANTED);
+  color: var(--color__white);
+  font-family: var(--font-family__Inter-Medium);
+
+  &.status__label_without_description {
+    padding-left: convert-px2rem(6) !important;
+    padding-right: convert-px2rem(6) !important;
+  }
+
+  .icon {
+    margin-top: convert-px2rem(1);
+  }
+
+  .text {
+    padding-left: convert-px2rem(4);
+  }
+}

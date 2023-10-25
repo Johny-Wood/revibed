@@ -1,0 +1,8 @@
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.coin {
+  display: inline;
+  vertical-align: middle;
+  margin-left: convert-px2rem(1);
+
+}

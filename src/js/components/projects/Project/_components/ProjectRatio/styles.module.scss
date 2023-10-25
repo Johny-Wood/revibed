@@ -1,0 +1,41 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectRatio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__have,
+  &__want {
+    padding: convert-px2rem(1) convert-px2rem(3);
+    border-radius: convert-px2rem(4);
+    margin-top: convert-px2rem(5);
+    min-width: convert-px2rem(17);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__value {
+    line-height: 1.25;
+    letter-spacing: normal;
+  }
+
+  &__have {
+    background-color: var(--color_MESSAGE_SUCCESS);
+    margin-right: convert-px2rem(2);
+  }
+
+  &__want {
+    background-color: var(--color_MESSAGE_DECLINE);
+  }
+}

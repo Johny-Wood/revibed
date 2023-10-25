@@ -1,0 +1,43 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.searchInput {
+  margin: 0;
+
+  .spin,
+  .searchInput__buttonSearchReset,
+  .searchInput__searchUnit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    height: 100%;
+    padding: 0 convert-px2rem(10) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__buttonSearchReset {
+    padding-right: convert-px2rem(17) !important;
+    padding-left: convert-px2rem(17) !important;
+  }
+
+  &__searchUnit {
+    padding-right: convert-px2rem(14) !important;
+    padding-left: convert-px2rem(14) !important;
+
+    svg {
+      width: convert-px2rem(16);
+      height: auto;
+    }
+  }
+
+  :global {
+    .input {
+      justify-content: center !important;
+      padding-right: convert-px2rem(39) !important;
+    }
+  }
+}

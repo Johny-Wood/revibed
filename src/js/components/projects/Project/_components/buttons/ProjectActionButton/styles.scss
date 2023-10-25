@@ -1,0 +1,193 @@
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+
+.project-action-button {
+  min-width: convert-px2rem(120) !important;
+  height: convert-px2rem(45);
+  opacity: 1 !important;
+  border: none !important;
+  transition: none !important;
+  overflow: hidden;
+  background: var(--color__black) !important;
+  padding-left: convert-px2rem(15) !important;
+  padding-right: convert-px2rem(15) !important;
+  @include breakpoint($b-laptop) {
+    height: convert-px2rem(50);
+    padding-left: convert-px2rem(20) !important;
+    padding-right: convert-px2rem(20) !important;
+  }
+
+  &:hover {
+    @include breakpoint($b-laptop) {
+      &:before {
+        opacity: 0;
+      }
+
+      .text {
+        font-family: var(--font-family__Inter-Medium);
+      }
+    }
+  }
+
+  &_with_golden_coin {
+    background: var(--color__golden-coin) !important;
+    @include breakpoint($b-laptop) {
+      min-width: convert-px2rem(158) !important;
+    }
+
+    &.button-only-icon {
+      svg {
+        margin-top: 0 !important;
+        width: convert-px2rem(20) !important;
+      }
+    }
+
+    &:hover {
+      @include breakpoint($b-laptop) {
+        svg {
+          path {
+            fill: var(--color__white);
+          }
+        }
+
+        .text {
+          background: transparent;
+          -webkit-text-fill-color: inherit;
+          color: var(--color__white) !important;
+        }
+      }
+    }
+
+    .text {
+      background: var(--color__golden-coin);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: var(--font-family__Inter-Medium);
+    }
+
+    svg {
+      width: convert-px2rem(20) !important;
+      @include breakpoint($b-laptop) {
+        margin-top: convert-px2rem(2) !important;
+        width: convert-px2rem(23.8) !important;
+      }
+    }
+  }
+
+  &_with_gems {
+    background: var(--color__gem) !important;
+
+    &:hover {
+      @include breakpoint($b-laptop) {
+        svg {
+          path {
+            fill: var(--color__white);
+          }
+        }
+
+        .text {
+          background: transparent;
+          -webkit-text-fill-color: inherit;
+          color: var(--color__white) !important;
+        }
+      }
+    }
+
+    .text {
+      background: var(--color__gem);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: var(--font-family__Inter-Medium);
+    }
+
+    svg {
+      margin-top: convert-px2rem(4) !important;
+      width: convert-px2rem(20.16) !important;
+      @include breakpoint($b-laptop) {
+        width: convert-px2rem(23.16) !important;
+      }
+    }
+  }
+
+  &_more {
+    .text {
+    }
+  }
+
+  &.button-without-icon {
+    min-width: convert-px2rem(120) !important;
+  }
+
+  &.button-only-icon {
+    $size: convert-px2rem(32);
+    height: $size;
+    width: $size;
+    min-width: $size !important;
+    padding: 0 !important;
+
+    &:before {
+      $borderSize: 1;
+      top: convert-px2rem($borderSize);
+      left: convert-px2rem($borderSize);
+      width: calc(100% - #{convert-px2rem($borderSize * 2)});
+      height: calc(100% - #{convert-px2rem($borderSize * 2)});
+      transform-origin: 50% 50%;
+    }
+
+    svg {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: convert-px2rem(15.36) !important;
+    }
+
+    &.project-action-button_with_gems {
+      svg {
+        margin-top: convert-px2rem(2) !important;
+        width: convert-px2rem(14.72);
+      }
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    $borderSize: 2;
+    top: convert-px2rem($borderSize);
+    left: convert-px2rem($borderSize);
+    width: calc(100% - #{convert-px2rem($borderSize * 2)});
+    height: calc(100% - #{convert-px2rem($borderSize * 2)});
+    background-color: var(--color__white);
+    border-radius: 4.57em;
+    transition: opacity var(--transition-duration) ease,
+    transform var(--transition-duration) ease;
+    transform-origin: 50% 100%;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &:not(.project-action-button_in) {
+    .text {
+      font-size: convert-px2rem(15) !important;
+    }
+  }
+
+  .text {
+    letter-spacing: normal !important;
+    transition: none !important;
+    font-family: var(--font-family__Inter-SemiBold);
+    min-width: convert-px2rem(72);
+  }
+
+  svg {
+    width: convert-px2rem(20.02);
+    height: auto !important;
+    margin-right: convert-px2rem(8) !important;
+    @include breakpoint($b-laptop) {
+      width: convert-px2rem(24.02);
+    }
+
+    path {
+      transition: none !important;
+    }
+  }
+}

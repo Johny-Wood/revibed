@@ -1,0 +1,27 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.notificationEvent_adminHand {
+  color: var(--color__black);
+
+  a {
+    cursor: pointer;
+    color: var(--color__blue);
+    transition: opacity var(--transition-duration) ease;
+
+    &:hover {
+      @include breakpoint($b-laptop) {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  u {
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    transition:
+      opacity var(--transition-duration) ease,
+      color var(--transition-duration) ease,
+      border-color var(--transition-duration) ease;
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "GENRE": {
+    "en": "Genre",
+    "ru": "Genre"
+  },
+  "STYLE": {
+    "en": "Style",
+    "ru": "Style"
+  },
+  "FORMAT": {
+    "en": "Format",
+    "ru": "Format"
+  },
+  "PRICE": {
+    "en": "Price range",
+    "ru": "Price range"
+  },
+  "STATUS": {
+    "en": "Status",
+    "ru": "Status"
+  },
+  "COUNTRY": {
+    "en": "Country",
+    "ru": "Country"
+  },
+  "YEAR": {
+    "en": "Year",
+    "ru": "Year"
+  },
+  "FORMAT_DESCRIPTION": {
+    "en": "Format description",
+    "ru": "Format description"
+  },
+  "PRIVATE": {
+    "en": "Type",
+    "ru": "Type"
+  }
+}

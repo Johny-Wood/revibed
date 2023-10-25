@@ -1,0 +1,126 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.startPlayVideo {
+  $size: convert-px2rem(56);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: convert-px2rem(10);
+  width: $size;
+  height: $size;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &_disabled {
+  }
+
+  &:not(.startPlayVideo_disabled):hover {
+    opacity: 1;
+  }
+
+  & > * {
+    transition: opacity var(--transition-duration) ease;
+    position: relative;
+    z-index: 5;
+  }
+
+  &_playing {
+    .startPlayVideo__content {
+      &:before {
+        animation: player-playing-pulse 2s infinite;
+      }
+    }
+  }
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color__white);
+      border-radius: 50%;
+      transition: transform var(--transition-duration) ease;
+    }
+  }
+
+  .triangle {
+    margin-left: convert-px2rem(4);
+    $size: 13;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: convert-px2rem(7.5) 0 convert-px2rem(7.5) convert-px2rem($size);
+    border-color: transparent transparent transparent var(--color__black);
+  }
+
+  .line {
+    display: block;
+    background-color: var(--color__black);
+  }
+
+  .lines {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .line {
+      width: convert-px2rem(4);
+      height: convert-px2rem(14);
+      margin: 0 convert-px2rem(2);
+    }
+  }
+
+  :global {
+    .button__disabled {
+      $size: convert-px2rem(36);
+      border-radius: 50%;
+      width: $size;
+      height: $size;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .progress-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scaleX(-1) rotate(-55deg);
+      width: convert-px2rem(38);
+      height: convert-px2rem(38);
+    }
+  }
+}
+
+@keyframes player-playing-pulse {
+  0% {
+    box-shadow: 0 0 0 0 #e5e0e0;
+  }
+
+  70% {
+    box-shadow: 0 0 0 convert-px2rem(10) transparent;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}

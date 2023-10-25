@@ -1,0 +1,60 @@
+@import '../../../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.CashbackWrapperTotalInfoSlots {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: convert-px2rem(20);
+
+  &__covers {
+    display: flex;
+    align-items: center;
+  }
+
+  &__remains {
+    margin-left: convert-px2rem(20);
+
+    &_last {
+      color: #03838C;
+    }
+  }
+
+  &__cover {
+    $size: convert-px2rem(30);
+    width: $size;
+    min-width: $size;
+    height: $size;
+
+    &Container {
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: convert-px2rem(5) !important;
+
+      &_empty {
+        background-color: var(--color__gray-5);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:before, &:after {
+          content: '';
+          position: absolute;
+          background-color: var(--color__gray-2);
+        }
+
+        &:before {
+          width: convert-px2rem(13);
+          height: 1px;
+        }
+
+        &:after {
+          height: convert-px2rem(13);
+          width: 1px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectNames {
+  position: relative;
+  max-width: convert-px2rem(420);
+  line-height: 1.15;
+  width: 100%;
+  color: currentColor !important;
+
+  &__project__names__title {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: convert-px2rem(20);
+    line-height: 1.35;
+
+    &_inline {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: auto !important;
+      white-space: unset !important;
+
+      .projectNames__project {
+        &__title {
+          margin-bottom: 0 !important;
+        }
+
+        &__title,
+        &__names__title,
+        &__album__title {
+          display: contents !important;
+          width: auto !important;
+          white-space: unset !important;
+        }
+      }
+    }
+  }
+
+  &_artists_shadow {
+    .projectNames__project__title {
+      a {
+        width: 100%;
+      }
+    }
+  }
+
+  &_album_shadow {
+    & > * {
+      display: block;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .projectNames {
+      &__project {
+        &__title,
+        &__names__title,
+        &__album__title {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  &__project {
+    &__title {
+      font-family: var(--font-family__Inter-Bold);
+    }
+
+    &__title,
+    &__names__title,
+    &__album__title {
+      max-width: 100%;
+    }
+  }
+}

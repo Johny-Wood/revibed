@@ -1,0 +1,21 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.LiveBar {
+  $width: convert-px2rem(360 + 25);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: $width;
+  margin: 0 auto;
+  @include breakpoint($b-tabletS__max) {
+    margin-top: convert-px2rem(5);
+  }
+  @include breakpoint($b-laptop) {
+    width: $width;
+    min-width: $width;
+    margin-left: convert-px2rem(25 + 50);
+  }
+}

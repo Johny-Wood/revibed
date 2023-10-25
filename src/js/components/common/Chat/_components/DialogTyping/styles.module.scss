@@ -1,0 +1,42 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+$durationDots: 1.3s;
+
+.dialogTyping {
+  font-size: convert-px2rem(12);
+  color: var(--color__gray-2);
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &__point {
+    opacity: 0;
+    animation: dot $durationDots infinite;
+    animation-delay: 0.2s;
+
+    &:first-child {
+      opacity: 0;
+      animation: dot $durationDots infinite;
+      animation-delay: 0s;
+    }
+
+    &:last-child {
+      opacity: 0;
+      animation: dot $durationDots infinite;
+      animation-delay: 0.3s;
+    }
+  }
+}
+
+@keyframes dot {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,15 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.MainProjectsPageWrapper {
+  &__marketplace {
+    padding-bottom: convert-px2rem(15);
+    @include breakpoint($b-laptop) {
+      padding-bottom: convert-px2rem(10);
+    }
+  }
+
+  &__join {
+    padding-top: 0;
+  }
+}

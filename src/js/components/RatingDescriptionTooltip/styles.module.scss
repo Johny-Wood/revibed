@@ -1,0 +1,32 @@
+@import '../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../assets/styles/_mixins/breakpoint';
+
+.userRatingInfo {
+  &__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  :global {
+    .tooltip {
+      vertical-align: top;
+
+      &__content {
+        width: convert-px2rem(180);
+        padding: convert-px2rem(12);
+
+        b {
+          display: block;
+          margin-bottom: convert-px2rem(5);
+        }
+      }
+
+      &__text {
+        font-size: convert-px2rem(13);
+        line-height: convert-px2rem(16);
+      }
+    }
+  }
+}

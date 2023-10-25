@@ -1,0 +1,23 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.MarketplaceAndPreOrdersSearch {
+  $side-bar_width: convert-px2rem(23);
+  $offset: calc(20% + #{$side-bar_width} + #{convert-px2rem(57 + 20)});
+
+  width: calc(100% - #{convert-px2rem(20)});
+  height: convert-px2rem(50);
+  position: absolute;
+  top: convert-px2rem(10);
+  right: convert-px2rem(10);
+  @include breakpoint($b-laptop) {
+    width: calc(100% - #{$offset});
+    top: convert-px2rem(30);
+    right: convert-px2rem(20);
+  }
+
+  &__input {
+    height: 100%;
+    padding-left: convert-px2rem(10) !important;
+  }
+}

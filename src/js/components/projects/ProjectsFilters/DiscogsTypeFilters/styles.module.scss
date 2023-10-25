@@ -1,0 +1,87 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.filters {
+  position: relative;
+  width: 100%;
+  backface-visibility: hidden;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: convert-px2rem(100);
+  padding-bottom: convert-px2rem(10);
+  @include breakpoint($b-laptop) {
+    min-height: convert-px2rem(600);
+  }
+
+  &__title {
+    padding: 0 convert-px2rem(10) convert-px2rem(17);
+  }
+
+  &__categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding-right: convert-px2rem(13);
+    @include breakpoint($b-tabletS__max) {
+      padding: 0 convert-px2rem(10);
+    }
+  }
+
+  &__selected {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: convert-px2rem(10) convert-px2rem(10) convert-px2rem(11);
+    @include breakpoint($b-laptop) {
+      padding: convert-px2rem(10) convert-px2rem(13) convert-px2rem(11) convert-px2rem(10);
+    }
+
+    &Reset {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: convert-px2rem(3);
+
+      &__item {
+        cursor: pointer;
+        width: 100%;
+        margin: convert-px2rem(2.5) 0;
+        background-color: var(--color__gray-1);
+        border-radius: convert-px2rem(21);
+        padding: convert-px2rem(7.5) convert-px2rem(13) convert-px2rem(7.5) convert-px2rem(15);
+        transition: background-color var(--transition-duration) ease;
+
+        @include breakpoint($b-laptop) {
+          width: calc(100% + #{convert-px2rem(13)});
+        }
+
+        &:hover {
+          @include breakpoint($b-laptop) {
+            background-color: var(--color__gray-2);
+          }
+        }
+      }
+    }
+  }
+
+  :global {
+    .ScrollbarsCustom {
+      &-TrackY {
+        width: convert-px2rem(3) !important;
+      }
+    }
+
+    .preloader-process__container {
+      justify-content: flex-start;
+      padding: convert-px2rem(38) 0;
+    }
+  }
+}

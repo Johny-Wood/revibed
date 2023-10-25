@@ -1,0 +1,18 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.notificationEvent__event {
+  display: block;
+  width: 100%;
+
+  :global {
+    .icon-event {
+      position: absolute;
+      top: convert-px2rem(17);
+      left: convert-px2rem(14);
+      width: convert-px2rem(16);
+      min-width: convert-px2rem(16);
+      height: convert-px2rem(16);
+    }
+  }
+}

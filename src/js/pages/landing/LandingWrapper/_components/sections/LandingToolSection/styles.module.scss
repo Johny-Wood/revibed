@@ -1,0 +1,17 @@
+@import '../../../../../../../assets/styles/_mixins/convert-landing-px2vh';
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+
+.landingToolSection {
+  &__wrapper {
+    max-width: convert-landing-px2vh-mobile(620);
+    @include breakpoint($b-laptop) {
+      max-width: convert-landing-px2vh(620);
+    }
+  }
+
+  &_landingText {
+    @include breakpoint($b-laptop) {
+      max-width: convert-landing-px2vh(555);
+    }
+  }
+}

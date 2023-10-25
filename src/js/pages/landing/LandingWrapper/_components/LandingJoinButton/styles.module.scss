@@ -1,0 +1,60 @@
+@import '../../../../../../assets/styles/_mixins/convert-landing-px2vh';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.landingJoinNow {
+  margin: 20vh 0 2vh;
+  height: convert-landing-px2vh(41);
+  @include breakpoint($b-laptop) {
+    margin: 14vh 0 6vh;
+    height: convert-landing-px2vh(63);
+  }
+
+  &_fixed {
+    height: auto;
+    margin: 0;
+    position: fixed;
+    top: convert-landing-px2vh-mobile(60);
+    right: convert-landing-px2vh-mobile(20);
+    @include breakpoint($b-laptop) {
+      top: convert-landing-px2vh(50);
+      right: convert-landing-px2vh(65);
+    }
+
+    :global {
+      .landing-join-now-button {
+        min-width: convert-landing-px2vh-mobile(150) !important;
+        @include breakpoint($b-laptop) {
+          min-width: convert-landing-px2vh(220) !important;
+        }
+
+        .text {
+          @include breakpoint($b-tabletS__max) {
+            font-size: convert-landing-px2vh-mobile(14) !important;
+          }
+        }
+      }
+    }
+  }
+
+  :global {
+    .landing-join-now-button {
+      min-width: convert-landing-px2vh-mobile(150) !important;
+      padding: convert-landing-px2vh-mobile(8) !important;
+      background-color: #9b51e0;
+      overflow: hidden;
+      @include breakpoint($b-laptop) {
+        min-width: convert-landing-px2vh(230) !important;
+        padding: convert-landing-px2vh(19) convert-landing-px2vh(10) !important;
+      }
+
+      .text {
+        color: var(--color__white);
+        font-family: var(--font-family__Inter-Medium);
+        font-size: convert-landing-px2vh-mobile(15) !important;
+        @include breakpoint($b-laptop) {
+          font-size: convert-landing-px2vh(20) !important;
+        }
+      }
+    }
+  }
+}

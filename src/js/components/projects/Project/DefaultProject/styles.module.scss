@@ -1,0 +1,510 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+$cover_size: 240;
+
+.project {
+  position: relative;
+  background-color: var(--color__white);
+  border: 1px solid var(--color__gray-4);
+  padding: convert-px2rem(12);
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transition: border-color var(--transition-duration) ease;
+  @include breakpoint($b-tabletS__max) {
+    flex-wrap: wrap;
+  }
+  @include breakpoint($b-laptop) {
+    padding: convert-px2rem(20);
+  }
+
+  &:hover {
+    @include breakpoint($b-laptop) {
+      border-color: var(--color__gray-3);
+    }
+  }
+
+  &Intro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    top: convert-px2rem(15);
+    right: convert-px2rem(12);
+    z-index: 5;
+
+    @include breakpoint($b-laptop) {
+      top: convert-px2rem(20);
+      right: convert-px2rem(20);
+    }
+
+    .notificationCount {
+      border-radius: 50%;
+      min-width: convert-px2rem(9);
+      width: convert-px2rem(9);
+      height: convert-px2rem(9);
+      margin-left: convert-px2rem(12);
+    }
+  }
+
+  &Info {
+    position: relative;
+    flex-grow: 2;
+    @include breakpoint($b-tabletS__max) {
+      width: 100%;
+    }
+    @include breakpoint($b-laptop) {
+      min-height: convert-px2rem(250);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: stretch;
+    }
+  }
+
+  &ContentBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    @include breakpoint($b-tabletS__max) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &Header {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    @include breakpoint($b-tabletS__max) {
+      width: calc(100% - #{convert-px2rem(135)});
+    }
+
+    .projectNamesTitles {
+      font-size: convert-px2rem(16);
+      width: 100%;
+
+      @include breakpoint($b-laptop) {
+        font-size: convert-px2rem(18);
+      }
+    }
+  }
+
+  &Footer {
+    width: 100%;
+    margin-top: convert-px2rem(10);
+    @include breakpoint($b-laptop) {
+      margin-top: convert-px2rem(15);
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: convert-px2rem(10);
+    }
+  }
+
+  &Join {
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    padding: 0 convert-px2rem(1);
+    @include breakpoint($b-tabletS__max) {
+      margin-bottom: convert-px2rem(2);
+    }
+    @include breakpoint($b-laptop) {
+      justify-content: space-between;
+      min-height: convert-px2rem(32);
+    }
+  }
+
+  &Cuts {
+    justify-content: flex-end;
+  }
+
+  &StatusInformation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    .projectCuts {
+      margin-right: convert-px2rem(25);
+    }
+  }
+
+  &DraftControl {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    &__buttonEditDraft {
+      :global {
+        .text {
+          color: var(--color__blue);
+          font-family: var(--font-family__Inter-Bold);
+        }
+      }
+    }
+
+    :global {
+      .button_string {
+        .text {
+          font-size: convert-px2rem(12);
+        }
+      }
+    }
+  }
+
+  &Tags {
+    margin-top: 0;
+    @include breakpoint($b-tabletS__max) {
+      margin-bottom: convert-px2rem(15);
+    }
+
+    @include breakpoint($b-laptop) {
+      margin-top: convert-px2rem(5);
+    }
+
+    :global {
+      .tooltip {
+        z-index: 5;
+
+        &__content {
+          @include breakpoint($b-tabletS__max) {
+            width: calc(100vw - #{convert-px2rem(44)});
+          }
+        }
+      }
+    }
+  }
+
+  &Collected {
+    margin-right: auto;
+
+    &__value {
+      @include breakpoint($b-tabletS__max) {
+        font-size: convert-px2rem(12);
+      }
+    }
+  }
+
+  &Names {
+    max-width: convert-px2rem(420);
+  }
+
+  &Cover {
+    box-shadow: 0 convert-px2rem(4) convert-px2rem(20) rgba(0, 0, 0, 0.25);
+    @include breakpoint($b-tabletS__max) {
+      box-shadow: 0 convert-px2rem(4) convert-px2rem(10) rgba(0, 0, 0, 0.25);
+      margin-bottom: 0;
+      width: convert-px2rem(110);
+      min-width: convert-px2rem(110);
+      height: convert-px2rem(110);
+    }
+
+    &Container {
+      @include breakpoint($b-tabletS__max) {
+        margin-right: convert-px2rem(10);
+      }
+
+      .notificationCount {
+        $size: convert-px2rem(20);
+        position: absolute;
+        top: convert-px2rem(-7.5);
+        right: convert-px2rem(-5);
+        min-width: $size;
+        height: $size;
+        line-height: $size;
+        @include breakpoint($b-laptop) {
+          top: convert-px2rem(-10);
+          right: convert-px2rem(-10);
+        }
+      }
+    }
+  }
+
+  &LifeTime {
+    :global {
+      .icon {
+        @include breakpoint($b-tabletS__max) {
+          width: convert-px2rem(16);
+          min-width: convert-px2rem(16);
+          height: convert-px2rem(16);
+        }
+      }
+    }
+  }
+
+  &CardAbout {
+    padding-bottom: convert-px2rem(10);
+    @include breakpoint($b-laptop) {
+      padding-bottom: convert-px2rem(20);
+    }
+
+    &__contributor {
+      background-color: transparent;
+    }
+
+    &__showMore {
+      max-width: convert-px2rem(715);
+      letter-spacing: 0.02em;
+      margin-top: convert-px2rem(10);
+    }
+  }
+
+  &CutSize__description {
+    @include breakpoint($b-tabletS__max) {
+      font-size: convert-px2rem(12);
+    }
+  }
+
+  &CutSize__value {
+    @include breakpoint($b-tabletS__max) {
+      font-size: convert-px2rem(16);
+    }
+  }
+
+  &ContributorCount {
+    &__value {
+      font-size: convert-px2rem(14);
+    }
+  }
+
+  &__buttonShare {
+    @include breakpoint($b-tabletS__max) {
+      padding: 0 !important;
+    }
+  }
+
+  :global {
+    .project-status {
+      .status__name {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &_draft {
+    padding-bottom: convert-px2rem(25);
+
+    .projectHeader {
+      :global {
+        .project-status-information {
+          bottom: convert-px2rem(25);
+        }
+      }
+    }
+
+    .projectCover {
+      opacity: 0.5;
+    }
+  }
+
+  &_live {
+    .project {
+      &Info {
+        min-height: auto !important;
+      }
+
+      &Footer__info {
+        min-height: convert-px2rem(50);
+      }
+
+      &Cover {
+        @include breakpoint($b-laptop) {
+          width: convert-px2rem(154);
+          min-width: convert-px2rem(154);
+          height: convert-px2rem(154);
+        }
+
+        &Container {
+          @include breakpoint($b-laptop) {
+            margin-right: convert-px2rem(20);
+          }
+        }
+      }
+
+      &LeftTime {
+        :global {
+          .icon {
+            @include breakpoint($b-tabletS__max) {
+              margin-top: convert-px2rem(-1);
+              margin-right: convert-px2rem(3);
+              width: convert-px2rem(15);
+              min-width: convert-px2rem(15);
+              height: convert-px2rem(15);
+            }
+          }
+        }
+      }
+
+      &AvailableSlots {
+        @include breakpoint($b-tabletS__max) {
+          font-size: convert-px2rem(13);
+        }
+      }
+    }
+
+    :global {
+      .project-status {
+        margin-bottom: convert-px2rem(6);
+
+        .status__name {
+          font-family: var(--font-family__Inter-Medium);
+        }
+      }
+
+      .button-buy-cut,
+      .button-start-project {
+        margin-left: convert-px2rem(12);
+      }
+    }
+  }
+
+  &_default {
+    @include breakpoint($b-laptop) {
+      flex-direction: column;
+    }
+
+    .project {
+      &Cover {
+        @include breakpoint($b-laptop) {
+          width: convert-px2rem($cover_size);
+          height: convert-px2rem($cover_size);
+        }
+
+        &Container {
+          @include breakpoint($b-laptop) {
+            margin: 0 0 convert-px2rem(12);
+          }
+        }
+      }
+
+      &Footer__info {
+        min-height: convert-px2rem(41);
+      }
+
+      &Names {
+        margin-top: convert-px2rem(8);
+        max-width: convert-px2rem(210);
+      }
+
+      &Header {
+        .projectNamesTitles {
+          font-size: convert-px2rem(16);
+        }
+      }
+
+      &ContentBlock {
+        flex-wrap: wrap;
+      }
+
+      &Info {
+        @include breakpoint($b-laptop) {
+          width: 100%;
+          min-height: auto;
+        }
+      }
+
+      &Join {
+        align-items: center;
+      }
+
+      &Collected {
+        &__value {
+          font-size: convert-px2rem(12);
+        }
+      }
+
+      &ContributorCount {
+        font-size: convert-px2rem(12);
+
+        &__value {
+          font-size: convert-px2rem(12);
+        }
+      }
+
+      &Tags {
+        font-size: convert-px2rem(12);
+        line-height: convert-px2rem(19);
+        max-width: convert-px2rem(360);
+        @include breakpoint($b-laptop) {
+          margin-top: convert-px2rem(10);
+          max-width: convert-px2rem(240);
+        }
+      }
+
+      &AvailableSlots {
+        font-size: convert-px2rem(13);
+      }
+
+      &CutSize {
+        margin: 0;
+        font-size: convert-px2rem(16);
+      }
+
+      &LeftTime {
+        font-size: convert-px2rem(12);
+
+        :global {
+          .icon {
+            margin-top: convert-px2rem(-1);
+            margin-right: convert-px2rem(3);
+            width: convert-px2rem(15);
+            min-width: convert-px2rem(15);
+            height: convert-px2rem(15);
+          }
+        }
+      }
+    }
+
+    :global {
+      .project-status {
+        .status {
+          &_LEGACY {
+            .status__name {
+              padding-left: convert-px2rem(10);
+            }
+          }
+
+          &__name {
+            padding-left: convert-px2rem(8);
+            padding-right: convert-px2rem(8);
+          }
+        }
+      }
+
+      .button-buy-cut,
+      .button-start-project {
+        @include breakpoint($b-laptop) {
+          margin-left: convert-px2rem(8) !important;
+          height: convert-px2rem(41) !important;
+          min-width: convert-px2rem(102) !important;
+          padding: convert-px2rem(12.5) convert-px2rem(14) !important;
+        }
+
+        .text {
+          @include breakpoint($b-laptop) {
+            font-size: convert-px2rem(14) !important;
+          }
+        }
+      }
+    }
+  }
+}

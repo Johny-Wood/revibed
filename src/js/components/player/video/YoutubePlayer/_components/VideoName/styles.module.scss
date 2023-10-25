@@ -1,0 +1,12 @@
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.videoPlayerNames {
+  min-height: convert-px2rem(43);
+
+  .project__title,
+  .project__album__title {
+    font-size: convert-px2rem(14);
+    line-height: 1.25;
+    color: var(--color__black);
+  }
+}

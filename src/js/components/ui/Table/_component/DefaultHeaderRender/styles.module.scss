@@ -1,0 +1,14 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.tableSelect {
+  margin-left: auto;
+  margin-top: convert-px2rem(6);
+  margin-bottom: convert-px2rem(10);
+  position: relative;
+  z-index: 55;
+
+  * {
+    font-size: convert-px2rem(14);
+  }
+}

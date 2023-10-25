@@ -1,0 +1,43 @@
+@import '../../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.ripperCabinetMediaSold {
+  .inputs {
+    &__wrapper {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid var(--color__gray-4);
+      @include breakpoint($b-tablet) {
+        display: flex;
+      }
+    }
+  }
+
+  .inputsItem {
+    flex: 0 0 51.3%;
+
+    &:first-child {
+      flex: 0 0 48.7%;
+      padding-bottom: convert-px2rem(20);
+      @include breakpoint($b-tablet) {
+        padding-bottom: convert-px2rem(0);
+      }
+    }
+
+    &__name {
+      font-family: var(--font-family__Inter-Bold);
+      font-size: convert-px2rem(14);
+      line-height: 1.43 * 100%;
+      max-width: convert-px2rem(200);
+      letter-spacing: 0.02em;
+      margin-bottom: convert-px2rem(5);
+    }
+
+    &__descript {
+      max-width: convert-px2rem(200);
+      font-size: convert-px2rem(14);
+      line-height: 1.43 * 100%;
+      letter-spacing: 0.02em;
+    }
+  }
+}

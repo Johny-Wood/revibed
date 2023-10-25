@@ -1,0 +1,182 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.createProjectBonus {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding: convert-px2rem(10);
+  background: var(--color__gray-4);
+  position: relative;
+  font-size: convert-px2rem(13);
+  line-height: convert-px2rem(18);
+  @include breakpoint($b-laptop) {
+    padding: convert-px2rem(18.5) convert-px2rem(20);
+    font-size: convert-px2rem(15);
+  }
+
+  &_GEM {
+    &.createProjectBonus {
+      &_checked {
+        background: var(--color__gem);
+      }
+    }
+
+    .createProjectBonus {
+      &__title {
+        background: var(--color__gem);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    :global {
+      .button {
+        background: var(--color__gem) !important;
+
+        .text {
+          background: var(--color__gem);
+        }
+      }
+    }
+  }
+
+  &_GOLDEN_COIN {
+    &.createProjectBonus {
+      &_checked {
+        background: var(--color__golden-coin);
+      }
+    }
+
+    .createProjectBonus {
+      &__title {
+        background: var(--color__golden-coin);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    :global {
+      .button {
+        background: var(--color__golden-coin) !important;
+
+        .text {
+          background: var(--color__golden-coin);
+        }
+      }
+    }
+  }
+
+  &_error {
+    background: var(--color__red);
+  }
+
+  &:not(.createProjectBonus_error) {
+    &:hover {
+      @include breakpoint($b-laptop) {
+        &:after {
+          background-color: var(--color__gray-6);
+        }
+      }
+    }
+  }
+
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  &:after {
+    $border: 1px;
+    content: '';
+    position: absolute;
+    top: $border;
+    left: $border;
+    width: calc(100% - #{$border * 2});
+    height: calc(100% - #{$border * 2});
+    background-color: var(--color__white);
+    transition: background-color var(--transition-duration) ease;
+  }
+
+  &__info {
+    margin-right: auto;
+    line-height: convert-px2rem(20);
+  }
+
+  &__title {
+    margin-bottom: convert-px2rem(3);
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  :global {
+    .point {
+      @include breakpoint($b-tabletS__max) {
+        display: none;
+      }
+    }
+
+    .link {
+      font-size: convert-px2rem(13);
+      line-height: convert-px2rem(16);
+      @include breakpoint($b-laptop) {
+        font-size: convert-px2rem(14);
+      }
+    }
+
+    .button {
+      min-width: convert-px2rem(102);
+      opacity: 1 !important;
+      font-family: var(--font-family__Inter-SemiBold) !important;
+      @include breakpoint($b-laptop) {
+        min-width: convert-px2rem(142);
+      }
+
+      &:hover {
+        @include breakpoint($b-laptop) {
+          &:before {
+            opacity: 0;
+          }
+
+          .text {
+            font-family: var(--font-family__Inter-Medium) !important;
+            background: transparent;
+            -webkit-text-fill-color: inherit;
+            color: var(--color__white) !important;
+          }
+        }
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        $borderSize: 2;
+        top: convert-px2rem($borderSize);
+        left: convert-px2rem($borderSize);
+        width: calc(100% - #{convert-px2rem($borderSize * 2)});
+        height: calc(100% - #{convert-px2rem($borderSize * 2)});
+        background-color: var(--color__white);
+        transition:
+          opacity var(--transition-duration) ease,
+          transform var(--transition-duration) ease;
+        transform-origin: 50% 100%;
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .text {
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: var(--color__white) !important;
+      }
+    }
+  }
+}

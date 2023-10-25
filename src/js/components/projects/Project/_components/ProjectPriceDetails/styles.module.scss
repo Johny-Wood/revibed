@@ -1,0 +1,75 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectPriceDetails {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  * {
+    letter-spacing: 0.01em;
+  }
+
+  :global {
+    .coin {
+      margin-left: convert-px2rem(2) !important;
+
+      &-value {
+        font-size: convert-px2rem(13) !important;
+      }
+    }
+  }
+
+  &__value {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: convert-px2rem(13);
+    line-height: 1;
+  }
+
+  &__estimated {
+    color: var(--color__gray-2);
+    font-family: var(--font-family__Inter-Regular);
+    margin-left: convert-px2rem(8);
+  }
+
+  &__title {
+    margin-bottom: convert-px2rem(15);
+  }
+
+  &__table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: convert-px2rem(3) 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--color__gray-4);
+
+      .projectPriceDetails {
+        &__description {
+          color: var(--color__gray-2);
+        }
+      }
+    }
+
+    &:last-child {
+      font-family: var(--font-family__Inter-Bold);
+    }
+  }
+
+  &__description {
+    width: 60%;
+    font-size: convert-px2rem(13);
+    max-width: convert-px2rem(200);
+  }
+}

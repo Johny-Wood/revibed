@@ -1,0 +1,6 @@
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.countrySelectFlag {
+  margin-right: convert-px2rem(5);
+  min-width: convert-px2rem(20);
+}

@@ -1,0 +1,26 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.ProjectUploadFilesPopup {
+  :global {
+    .textarea-block {
+      .input {
+        min-height: convert-px2rem(100) !important;
+      }
+    }
+  }
+
+  .uploader__buttonAttachFile {
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    margin-top: convert-px2rem(5);
+    min-width: convert-px2rem(140) !important;
+
+    :global {
+      .button {
+        width: 100%;
+      }
+    }
+  }
+}

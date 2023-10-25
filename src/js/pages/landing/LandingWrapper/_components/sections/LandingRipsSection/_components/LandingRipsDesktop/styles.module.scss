@@ -1,0 +1,100 @@
+@import '../../../../../../../../../assets/styles/_mixins/convert-landing-px2vh';
+@import '../../../../../../../../../assets/styles/_mixins/breakpoint';
+
+.landingRipsSection {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: convert-landing-px2vh(1553);
+
+  &__vinyl {
+    $size: convert-landing-px2vh(3092);
+    width: $size;
+    height: $size;
+    position: absolute;
+    bottom: 0.5%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+
+    &__wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform: rotate(0);
+      transform-origin: 50% 50%;
+      transition: transform 200ms linear;
+      will-change: transform;
+    }
+
+    &__img {
+      $size: convert-landing-px2vh(3092);
+      width: $size;
+      height: $size;
+      transform: rotate(-150deg);
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
+    }
+  }
+
+  &__content {
+    &__rip,
+    &__telegram {
+      position: absolute;
+      z-index: 2;
+
+      p {
+        font-size: convert-landing-px2vh(20);
+        line-height: convert-landing-px2vh(30);
+        color: #000000;
+      }
+    }
+
+    &__rip,
+    &__telegram {
+      width: convert-landing-px2vh(550);
+    }
+
+    &__rip {
+      left: 60%;
+      top: 53%;
+      transform: rotate(90deg) translate3d(0, 0, 0);
+    }
+
+    &__telegram {
+      left: 22.3%;
+      top: 34.7%;
+      transform: rotate(270deg) translate3d(0, 0, 0);
+    }
+  }
+
+  &__title {
+    &__rip,
+    &__telegram {
+      position: absolute;
+      z-index: 2;
+    }
+
+    &__rip {
+      left: 53%;
+      top: 27%;
+      transform: rotate(90deg);
+
+      svg {
+        width: convert-landing-px2vh(560);
+        height: auto;
+      }
+    }
+
+    &__telegram {
+      left: 28%;
+      top: 54%;
+      transform: rotate(270deg);
+
+      svg {
+        width: convert-landing-px2vh(640);
+        height: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectCardProjectInfo {
+  width: 100%;
+  padding-bottom: convert-px2rem(20);
+  @include breakpoint($b-laptop) {
+    padding-bottom: convert-px2rem(50);
+  }
+}

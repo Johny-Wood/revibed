@@ -1,0 +1,200 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.dialogMessage {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &_MY_MESSAGE {
+    &.dialogMessage_locationAdmin {
+      justify-content: flex-end;
+
+      &.dialogMessage_focused {
+        .dialogMessage {
+          &__block {
+            animation: message_focused_my ease 2s;
+          }
+        }
+      }
+
+      .dialogMessage {
+        &__block {
+          background-color: var(--color_MY_MESSAGE);
+        }
+
+        &__menu {
+          right: auto;
+          left: convert-px2rem(-20);
+        }
+
+        &__context {
+          right: auto;
+          left: convert-px2rem(-15);
+          @include breakpoint($b-laptop) {
+            margin-left: convert-px2rem(-155);
+          }
+        }
+      }
+    }
+  }
+
+  &_NOT_MY_MESSAGE {
+    &.dialogMessage_locationAdmin {
+    }
+  }
+
+  &_locationAdmin {
+    margin: convert-px2rem(5) 0;
+    border-radius: convert-px2rem(5);
+    white-space: pre-line;
+
+    .dialogMessage {
+      &__block {
+        background-color: var(--color_ME_MESSAGE);
+        padding: convert-px2rem(15);
+        border-radius: convert-px2rem(5);
+        width: convert-px2rem(325);
+        @include breakpoint($b-laptop) {
+          width: convert-px2rem(395);
+        }
+      }
+
+      &__header {
+        justify-content: space-between;
+      }
+
+      &__date {
+        font-size: convert-px2rem(12);
+      }
+
+      &__updateDate {
+        margin-right: convert-px2rem(5);
+      }
+
+      &__message {
+        width: calc(100% - #{convert-px2rem(60)});
+      }
+    }
+  }
+
+  &_focused {
+    animation: message_focused ease 2s;
+
+    .dialogMessage {
+      &__block {
+        animation: message_focused_not_my ease 2s;
+      }
+    }
+  }
+
+  &__block {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__date {
+    color: var(--color__gray-2);
+  }
+
+  &__content {
+    margin-top: convert-px2rem(10);
+  }
+
+  &__menu {
+    width: auto;
+    position: absolute;
+    top: convert-px2rem(-5);
+    left: auto;
+    right: convert-px2rem(-20);
+    padding: convert-px2rem(10);
+  }
+
+  &__message {
+    width: calc(100% - #{convert-px2rem(60)});
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__indicator {
+    width: convert-px2rem(11);
+    margin-left: convert-px2rem(5);
+    position: relative;
+
+    :global {
+      .icon {
+        &-message-read {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+      }
+    }
+  }
+
+  .message {
+    word-break: break-word;
+    width: 100%;
+    color: var(--color__gray-1);
+    white-space: pre-line;
+  }
+}
+
+@keyframes message_focused {
+  0% {
+    background-color: transparent;
+  }
+  20% {
+    background-color: rgba(170, 215, 241, 0.4);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes message_focused_my {
+  0% {
+    background-color: var(--color_MY_MESSAGE);
+  }
+  20% {
+    background-color: rgba(170, 215, 241, 0.4);
+  }
+  100% {
+    background-color: var(--color_MY_MESSAGE);
+  }
+}
+
+@keyframes message_focused_not_my {
+  0% {
+    background-color: var(--color_ME_MESSAGE);
+  }
+  20% {
+    background-color: rgba(170, 215, 241, 0.4);
+  }
+  100% {
+    background-color: var(--color_ME_MESSAGE);
+  }
+}

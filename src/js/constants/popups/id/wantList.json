@@ -1,0 +1,9 @@
+{
+  "AddWantListReleasePopup": "AddWantListReleasePopup",
+  "AddWantListReleaseForWatchPopup": "AddWantListReleaseForWatchPopup",
+  "RemoveWantListReleaseForWatchPopup": "RemoveWantListReleaseForWatchPopup",
+  "RemoveWantListReleasePopup": "RemoveWantListReleasePopup",
+  "WantListImportSuccessPopup": "WantListImportSuccessPopup",
+  "ChangePlanWantListPopup": "ChangePlanWantListPopup",
+  "WantListSubscriptionNoPlacesPopup": "WantListSubscriptionNoPlacesPopup"
+}

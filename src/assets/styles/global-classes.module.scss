@@ -1,0 +1,34 @@
+@import './_mixins/breakpoint';
+@import './_mixins/convert-px2rem';
+
+.lineThrough {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: convert-px2rem(-2);
+    top: 50%;
+    width: calc(100% + #{convert-px2rem(4)});
+    height: 1px;
+    background-color: currentColor;
+  }
+}
+
+.underlineDashed {
+  border-bottom: 1px dashed currentColor !important;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.relative {
+  position: relative;
+}
+
+.breakWord {
+  * {
+    word-break: break-word;
+  }
+}

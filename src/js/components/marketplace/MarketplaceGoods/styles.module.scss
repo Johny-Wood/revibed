@@ -1,0 +1,89 @@
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../assets/styles/_mixins/breakpoint';
+
+.marketplaceGoods {
+  width: 100%;
+  font-size: convert-px2rem(12);
+  line-height: convert-px2rem(16);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  @include breakpoint($b-laptop) {
+    width: convert-px2rem(162);
+  }
+
+  &__footer {
+    margin-top: convert-px2rem(8);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 0.02em;
+  }
+
+  &__button {
+    font-family: var(--font-family__Inter-SemiBold);
+    text-align: left;
+
+    :global {
+      .text {
+        letter-spacing: 0.02em;
+      }
+    }
+  }
+
+  &__label {
+    color: var(--color__gray-2);
+  }
+
+  .project {
+    &Cover {
+      $size: convert-px2rem(165);
+      min-width: $size;
+      width: 100%;
+      height: $size;
+      box-shadow: 0 convert-px2rem(4) convert-px2rem(20) rgba(0, 0, 0, 0.25);
+      @include breakpoint($b-laptop) {
+        $size: convert-px2rem(162);
+        min-width: $size;
+        width: $size;
+        height: $size;
+      }
+
+      &Container {
+        margin: 0;
+        @include breakpoint($b-tabletS__max) {
+          width: 100%;
+        }
+      }
+    }
+
+    &Names {
+      margin-top: convert-px2rem(10);
+      min-height: convert-px2rem(35);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &__title,
+      &__album__title {
+        font-size: convert-px2rem(12);
+        line-height: convert-px2rem(16);
+        min-height: convert-px2rem(16);
+      }
+
+      &__title {
+        margin-bottom: convert-px2rem(3);
+      }
+    }
+
+    &CutSize {
+      margin: 0 0 0 convert-px2rem(8);
+      font-size: convert-px2rem(12);
+      line-height: convert-px2rem(16);
+      font-family: var(--font-family__Inter-SemiBold);
+    }
+  }
+}

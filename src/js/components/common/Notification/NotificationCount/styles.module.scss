@@ -1,0 +1,24 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+$fontSize: convert-px2rem(12);
+$size: convert-px2rem(16);
+
+.notificationCount {
+  overflow: hidden;
+  background-color: var(--color__red-1);
+  color: var(--color__white);
+  font-size: $fontSize;
+  font-family: var(--font-family__Inter-Regular);
+  text-align: center;
+  line-height: $size;
+  padding: 0 convert-px2rem(4);
+  border-radius: convert-px2rem(40);
+  transition: opacity var(--transition-duration) ease;
+  white-space: pre-line;
+  letter-spacing: 0;
+  height: $size;
+  min-width: $size;
+  z-index: 2;
+  margin-left: convert-px2rem(5);
+}

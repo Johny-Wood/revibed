@@ -1,0 +1,34 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.banners {
+  width: 100vw;
+  margin-top: convert-px2rem(10);
+  @include breakpoint($b-laptop) {
+    margin-top: convert-px2rem(30);
+  }
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &Slider {
+    width: 100%;
+
+    &_sliderList {
+      transition: opacity 1200ms ease;
+    }
+  }
+
+  &__siteWrapper {
+    padding-top: 0;
+    padding-bottom: 0;
+    @include breakpoint($b-tabletS__max) {
+      padding: 0;
+    }
+  }
+}

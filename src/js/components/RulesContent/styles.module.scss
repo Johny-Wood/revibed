@@ -1,0 +1,16 @@
+@import '../../../assets/styles/_mixins/convert-px2rem';
+
+.termsPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+
+  &__lastRevised {
+    letter-spacing: 0.02em;
+    color: var(--color__gray-2);
+    padding-top: convert-px2rem(10);
+    margin-bottom: convert-px2rem(30);
+  }
+}

@@ -1,0 +1,69 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.profileBarAwards {
+  width: 100%;
+  padding-top: convert-px2rem(25);
+  border-bottom: 1px solid var(--color__gray-4);
+  padding-bottom: convert-px2rem(25);
+
+  &__content {
+    margin: convert-px2rem(calc((25 / 2) * -1)) 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    @include breakpoint($b-laptop) {
+      margin: convert-px2rem(calc((25 / 2) * -1)) convert-px2rem(-15);
+      width: calc(100% + #{convert-px2rem(30)});
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+  }
+
+  &__item {
+    position: relative;
+    width: calc(100% / 5);
+    font-size: convert-px2rem(16);
+    padding: convert-px2rem(calc(25 / 2)) convert-px2rem(5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    @include breakpoint($b-laptop) {
+      width: calc(100% / 3);
+    }
+  }
+
+  &__decoration {
+    $size: convert-px2rem(58);
+    position: relative;
+    min-width: $size;
+    width: $size;
+    height: $size;
+
+    & > svg {
+      width: 100% !important;
+      height: auto !important;
+      margin: 0 !important;
+    }
+  }
+
+  .userRatingInfo {
+    &__icon {
+      position: absolute;
+      top: convert-px2rem(26);
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      svg {
+        margin: 0 !important;
+        width: convert-px2rem(20) !important;
+        height: auto !important;
+      }
+    }
+
+    &__count {
+      margin-top: convert-px2rem(5);
+    }
+  }
+}

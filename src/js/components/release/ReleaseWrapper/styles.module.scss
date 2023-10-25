@@ -1,0 +1,215 @@
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../assets/styles/_mixins/breakpoint';
+
+.release {
+  width: 100%;
+
+  &WantListHeader {
+    margin-bottom: 0;
+
+    @include breakpoint($b-laptop) {
+      border-top: 1px solid var(--color__gray-4);
+    }
+
+    &__plan {
+      margin-top: 0;
+      justify-content: flex-end !important;
+    }
+  }
+
+  &Item {
+    width: 100%;
+    margin-top: convert-px2rem(20);
+    @include breakpoint($b-laptop) {
+      min-height: convert-px2rem(320);
+    }
+
+    .projectCover {
+      @include breakpoint($b-tabletS__max) {
+        $size: convert-px2rem(135);
+        min-width: $size;
+        width: $size;
+        height: $size;
+      }
+
+      &Container {
+        @include breakpoint($b-tabletS__max) {
+          margin-bottom: 0;
+          margin-right: convert-px2rem(20);
+        }
+      }
+    }
+
+    .projectNames {
+      @include breakpoint($b-tabletS__max) {
+        margin-top: convert-px2rem(20);
+      }
+
+      &__title,
+      &__album__title {
+        @include breakpoint($b-tabletS__max) {
+          width: 100%;
+          font-size: convert-px2rem(18);
+        }
+      }
+
+      &__title {
+        margin-right: convert-px2rem(10);
+      }
+
+      &__album__title {
+        margin-top: convert-px2rem(4);
+        @include breakpoint($b-tabletS__max) {
+          font-size: convert-px2rem(16);
+        }
+      }
+    }
+
+    .projectRatio {
+      @include breakpoint($b-tabletS__max) {
+        align-items: flex-end;
+      }
+
+      &__value {
+        font-size: convert-px2rem(13);
+      }
+    }
+
+    .discogsLink {
+      width: convert-px2rem(20);
+      min-width: convert-px2rem(20);
+      height: convert-px2rem(20);
+
+      @include breakpoint($b-laptop) {
+        width: convert-px2rem(25);
+        min-width: convert-px2rem(25);
+        height: convert-px2rem(25);
+      }
+    }
+
+    &__left {
+      @include breakpoint($b-tabletS__max) {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    &__info {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-bottom: convert-px2rem(10);
+      @include breakpoint($b-laptop) {
+        flex-direction: row;
+        padding-bottom: convert-px2rem(50);
+      }
+
+      .projectCover {
+        &Container {
+          margin-bottom: convert-px2rem(20);
+        }
+      }
+    }
+
+    &__controls {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      :global {
+        .tooltip {
+          margin-left: convert-px2rem(10);
+        }
+      }
+
+      .buttonRemove {
+        @include breakpoint($b-laptop) {
+          padding: convert-px2rem(5) convert-px2rem(18) !important;
+        }
+
+        svg {
+          width: convert-px2rem(12);
+          height: auto;
+          @include breakpoint($b-laptop) {
+            width: convert-px2rem(14);
+          }
+        }
+      }
+
+      .buttonAdd {
+        padding-left: convert-px2rem(14) !important;
+        padding-right: convert-px2rem(14) !important;
+
+        :global {
+          .text {
+            font-family: var(--font-family__Inter-Medium);
+          }
+
+          .icon {
+            margin-right: convert-px2rem(5);
+          }
+        }
+      }
+    }
+
+    &__right {
+      flex-grow: 1;
+      @include breakpoint($b-tabletS__max) {
+        width: 100%;
+      }
+    }
+
+    &__control {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+      @include breakpoint($b-tabletS__max) {
+        margin-bottom: convert-px2rem(20);
+      }
+    }
+
+    .projectCardDetails {
+      @include breakpoint($b-laptop) {
+        padding-top: convert-px2rem(5);
+      }
+
+      &__container {
+        @include breakpoint($b-tabletS__max) {
+          margin-top: convert-px2rem(5);
+          padding-bottom: convert-px2rem(5);
+        }
+      }
+
+      &__item {
+        &:first-child {
+          border-top: none;
+        }
+
+        &:last-child {
+          @include breakpoint($b-tabletS__max) {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+
+  &Items {
+    min-height: convert-px2rem(200);
+    @include breakpoint($b-laptop) {
+      min-height: convert-px2rem(250);
+    }
+  }
+}

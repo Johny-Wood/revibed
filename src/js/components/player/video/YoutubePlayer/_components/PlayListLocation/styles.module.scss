@@ -1,0 +1,9 @@
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.videoPlayerLocation {
+  width: 100%;
+  font-size: convert-px2rem(12);
+  line-height: 1.25;
+  color: var(--color__gray-2) !important;
+  font-family: var(--font-family__Inter-Light);
+}

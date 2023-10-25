@@ -1,0 +1,63 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.mainPageDecorations {
+  &Image {
+    background-color: var(--color__black);
+
+    &:before,
+    &:after {
+      display: none !important;
+    }
+
+    &:after {
+      display: block !important;
+      background: linear-gradient(
+        200.6deg,
+        rgba(0, 0, 0, 0.79) 13.66%,
+        rgba(0, 0, 0, 0.81) 35.36%,
+        rgba(0, 0, 0, 0.77) 63.65%,
+        rgba(0, 0, 0, 0.7) 88.07%
+      );
+    }
+
+    &__bg {
+      $height: convert-px2rem(600);
+      $aspect: 882 / 860;
+
+      width: calc(#{$height} * #{$aspect}) !important;
+      max-width: calc(#{$height} * #{$aspect}) !important;
+      min-width: calc(#{$height} * #{$aspect}) !important;
+      min-height: $height !important;
+      height: $height !important;
+      transform: translate(1%, 5%);
+      @include breakpoint($b-tablet) {
+        $height: convert-px2rem(700);
+        $aspect: 1057 / 700;
+
+        width: calc(#{$height} * #{$aspect}) !important;
+        max-width: calc(#{$height} * #{$aspect}) !important;
+        min-width: calc(#{$height} * #{$aspect}) !important;
+        min-height: $height !important;
+        height: $height !important;
+        transform: translate(5%, 0);
+      }
+      @include breakpoint($b-laptop) {
+        $height: convert-px2rem(1000);
+        $aspect: 1764 / 900;
+
+        width: calc(#{$height} * #{$aspect}) !important;
+        max-width: calc(#{$height} * #{$aspect}) !important;
+        min-width: calc(#{$height} * #{$aspect}) !important;
+        min-height: $height !important;
+        height: $height !important;
+        transform: translate(1%, -16.5%);
+      }
+    }
+  }
+
+  &Bg {
+    filter: none !important;
+    transform: rotate(1deg);
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "name",
+  "username": "username",
+  "email": "email",
+  "about": "about",
+  "countryId": "countryId",
+  "password": "password",
+  "passwordConfirm": "passwordConfirm",
+  "currentPassword": "currentPassword",
+  "newPassword": "newPassword",
+  "newPasswordRepeat": "newPasswordRepeat"
+}

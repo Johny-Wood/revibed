@@ -1,0 +1,15 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../variables';
+
+.formAuthSingUp {
+  @include breakpoint($b-laptop__max) {
+    padding: $form_padding__top--b-laptop__max $form_padding-x $form_padding__bottom;
+  }
+
+  &__formContent {
+    @include breakpoint($b-laptop__max) {
+      margin: $form_margin-bottom__title--b-laptop__max auto 0;
+    }
+  }
+}

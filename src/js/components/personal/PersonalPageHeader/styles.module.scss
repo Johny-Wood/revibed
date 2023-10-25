@@ -1,0 +1,27 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.personalPageHeader {
+  padding-top: convert-px2rem(10);
+  margin-bottom: convert-px2rem(30);
+  color: var(--color__black);
+  letter-spacing: 0.04em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  @include breakpoint($b-tabletS__max) {
+    margin-bottom: convert-px2rem(3);
+  }
+
+  b {
+    margin-right: convert-px2rem(5);
+  }
+
+  :global {
+    .tooltip {
+      margin-left: convert-px2rem(5);
+    }
+  }
+}

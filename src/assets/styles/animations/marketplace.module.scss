@@ -1,0 +1,71 @@
+@import "../_mixins/convert-px2rem";
+
+.marketplaceAnimation {
+  $duration: 400ms;
+
+  &Enter {
+    opacity: 0;
+    transform: translateX(-10%);
+
+    &_active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity $duration ease, transform $duration ease;
+    }
+  }
+
+  &Exit {
+    opacity: 1;
+    transform: translateY(0);
+
+    &_active {
+      opacity: 0;
+      transform: translateY(-10%);
+      transition: opacity $duration ease, transform $duration ease;
+    }
+  }
+}
+
+.marketplaceAnimationNext {
+  $duration: 800ms;
+
+  &Enter {
+    transform: translateX(convert-px2rem(calc((190 + 8.5 * 2) * 6))) !important;
+
+    &_active {
+      transform: translateX(0) !important;
+      transition: transform $duration ease !important;
+    }
+  }
+
+  &Exit {
+    transform: translateX(convert-px2rem(calc(((190 + 8.5 * 2) * 6)) * -1)) !important;
+
+    &_active {
+      transform: translateX(convert-px2rem(calc(((190 + 8.5 * 2) * 6)) * -2)) !important;
+      transition: transform $duration ease !important;
+    }
+  }
+}
+
+.marketplaceAnimationPrev {
+  $duration: 800ms;
+
+  &Enter {
+    transform: translateX(convert-px2rem(calc((190 + 8.5 * 2) * 6) * -1)) !important;
+
+    &_active {
+      transform: translateX(0) !important;
+      transition: transform $duration ease !important;
+    }
+  }
+
+  &Exit {
+    transform: translateX(convert-px2rem(calc(((190 + 8.5 * 2) * 6)) * -1)) !important;
+
+    &_active {
+      transform: translateX(0) !important;
+      transition: transform $duration ease !important;
+    }
+  }
+}

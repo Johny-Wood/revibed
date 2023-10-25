@@ -1,0 +1,95 @@
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+$size30: convert-px2rem(30);
+$size50: convert-px2rem(50);
+
+.userAvatar {
+  margin-right: convert-px2rem(8);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  picture,
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  & > * {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  &_bg {
+    &_purple {
+      background-color: var(--color__purple);
+
+      &.userAvatar_border {
+        border-color: var(--color__purple);
+      }
+    }
+
+    &_black {
+      background-color: var(--color__black);
+
+      &.userAvatar_border {
+        border-color: var(--color__black);
+      }
+    }
+
+    &_white {
+      background-color: var(--color__white);
+    }
+
+    &_transparent {
+      background-color: transparent;
+    }
+  }
+
+  &_rounded {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &_border {
+    border: 1px solid var(--color__gray-4);
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &_size {
+    &_30 {
+      min-width: $size30;
+      width: $size30;
+      height: $size30;
+    }
+
+    &_50 {
+      min-width: $size50;
+      width: $size50;
+      height: $size50;
+    }
+
+    &_stretch {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  :global {
+    .user-icon {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+}

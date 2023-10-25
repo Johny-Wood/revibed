@@ -1,0 +1,41 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.sliderItem {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  &_mobile {
+    picture {
+      max-height: 64%;
+      object-fit: contain;
+    }
+  }
+
+  picture {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: auto;
+      width: auto;
+      max-width: 100%;
+      max-height: 100%;
+      margin: 0 auto;
+      display: block;
+      object-fit: contain;
+    }
+  }
+}

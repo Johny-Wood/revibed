@@ -1,0 +1,243 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.draftProject {
+  max-width: convert-px2rem(920);
+  margin: 0 auto;
+
+  &__title {
+    font-size: convert-px2rem(30);
+    font-family: var(--font-family__Inter-Black);
+    line-height: calc(40 / 30);
+  }
+
+  &__formGroup {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .uploadBlock {
+    margin-bottom: convert-px2rem(10);
+    margin-right: convert-px2rem(15);
+  }
+
+  .uploadList {
+    width: auto !important;
+
+    &__container {
+      padding-bottom: 0;
+    }
+
+    &__image {
+      border: 1px solid var(--color__gray-4);
+      border-radius: 0;
+    }
+
+    &__item {
+      margin-top: 0;
+      width: convert-px2rem(96);
+      height: convert-px2rem(96);
+    }
+  }
+
+  .createProjectPrice {
+    width: 100%;
+    max-width: convert-px2rem(450);
+    @include breakpoint($b-laptop) {
+      width: 50%;
+      margin-bottom: convert-px2rem(25);
+    }
+
+    &__sale {
+      color: var(--color__gray-3);
+      font-size: convert-px2rem(16);
+      position: absolute;
+      right: 0;
+      top: convert-px2rem(-22);
+    }
+
+    &__full {
+      &_useGem {
+        background: var(--color__gem);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      &_useGoldenCoin {
+        background: var(--color__golden-coin);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    &__info {
+      max-width: convert-px2rem(157);
+    }
+
+    &__details__button {
+      font-size: convert-px2rem(12);
+      width: convert-px2rem(75);
+    }
+
+    &__item {
+      width: 100%;
+      border-bottom: 1px solid var(--color__gray-4);
+      padding: 0 0 convert-px2rem(15) 0;
+      margin-bottom: convert-px2rem(25);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    &__details {
+      min-width: convert-px2rem(150);
+      text-align: right;
+    }
+
+    &__row {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    &__description {
+      max-width: convert-px2rem(115);
+      width: 100%;
+    }
+  }
+
+  .createProjectInstruction {
+    color: #000;
+    max-width: convert-px2rem(800);
+    margin-top: convert-px2rem(25);
+  }
+
+  .doubleButtons {
+    width: 100%;
+    align-items: center;
+    margin-top: convert-px2rem(35);
+    flex-wrap: wrap;
+    @include breakpoint($b-tabletS__max) {
+      flex-direction: column;
+      margin-top: convert-px2rem(25);
+      max-width: convert-px2rem(500);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @include breakpoint($b-laptop) {
+      margin-bottom: convert-px2rem(65);
+    }
+
+    :global {
+      .button {
+        margin-right: convert-px2rem(15);
+        min-width: convert-px2rem(220) !important;
+
+        @include breakpoint($b-tabletS__max) {
+          width: 100%;
+          margin: convert-px2rem(5) 0;
+        }
+
+        &:nth-child(2) {
+          @include breakpoint($b-tabletS__max) {
+            margin-right: 0;
+          }
+        }
+      }
+
+      .button_string {
+        padding: convert-px2rem(12.5);
+
+        @include breakpoint($b-tabletS__max) {
+          margin: convert-px2rem(5) 0;
+          width: 100%;
+          justify-content: center;
+        }
+
+        .text {
+          font-size: convert-px2rem(16);
+        }
+      }
+    }
+  }
+
+  :global {
+    .checkbox-agree {
+      .checkbox__text {
+        font-size: convert-px2rem(14);
+      }
+    }
+
+    .inputs {
+      margin-top: convert-px2rem(5);
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      .input-block {
+        z-index: auto;
+      }
+
+      &.column-1,
+      &.column-2,
+      &.column-3 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        @include breakpoint($b-laptop) {
+          margin-left: convert-px2rem(-10);
+          margin-right: convert-px2rem(-10);
+          width: calc(100% + #{convert-px2rem(20)});
+        }
+
+        .select,
+        & > .input-block,
+        & > .input-with-button {
+          @include breakpoint($b-laptop) {
+            margin-left: convert-px2rem(10);
+            margin-right: convert-px2rem(10);
+          }
+
+          &.input-w-100pct {
+            @include breakpoint($b-laptop) {
+              width: calc(100% - #{convert-px2rem(20)});
+            }
+          }
+        }
+      }
+
+      &.column-2 {
+        .select,
+        & > .input-block {
+          @include breakpoint($b-laptop) {
+            width: calc(50% - #{convert-px2rem(20)});
+            flex-grow: unset;
+          }
+        }
+      }
+
+      &.column-3 {
+        .select,
+        & > .input-block {
+          @include breakpoint($b-laptop) {
+            width: calc(100% / 3 - #{convert-px2rem(20)});
+          }
+        }
+      }
+    }
+  }
+}

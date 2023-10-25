@@ -1,0 +1,17 @@
+@import '../../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+$offset: 4;
+
+.userProjectsInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin: convert-px2rem(5) convert-px2rem(-$offset) 0;
+  width: calc(100% + #{convert-px2rem($offset * 2)});
+
+  &__item {
+    margin: 0 convert-px2rem($offset);
+  }
+}

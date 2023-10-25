@@ -1,0 +1,21 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.popupDoubleButtons {
+  margin-top: convert-px2rem(30);
+  margin-left: convert-px2rem(-10);
+  margin-right: convert-px2rem(-10);
+  width: calc(100% + #{convert-px2rem(20)});
+  min-width: auto !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  :global {
+    .button {
+      margin: 0 convert-px2rem(10);
+      width: calc(50% - #{convert-px2rem(20)}) !important;
+      min-width: auto !important;
+    }
+  }
+}

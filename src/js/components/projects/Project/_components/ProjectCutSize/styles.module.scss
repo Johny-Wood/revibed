@@ -1,0 +1,26 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectCutSize {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  color: var(--color__gray-2);
+
+  @include breakpoint($b-laptop) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  &__block {
+    color: var(--color__black);
+    font-size: convert-px2rem(22);
+    font-family: var(--font-family__Inter-Bold);
+    letter-spacing: normal;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}

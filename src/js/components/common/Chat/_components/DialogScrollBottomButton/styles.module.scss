@@ -1,0 +1,27 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.dialogScrollBottomButton {
+  position: absolute;
+  bottom: convert-px2rem(15);
+  right: convert-px2rem(10);
+  width: convert-px2rem(40);
+  height: convert-px2rem(40);
+  min-width: convert-px2rem(40);
+  overflow: visible;
+  border: 1px solid var(--color__gray-4) !important;
+  background-color: var(--color__white) !important;
+
+  &:hover {
+    @include breakpoint($b-laptop) {
+      background-color: var(--color__gray-5) !important;
+    }
+  }
+
+  :global {
+    .icon {
+      margin-top: convert-px2rem(2) !important;
+      transform: rotate(180deg);
+    }
+  }
+}

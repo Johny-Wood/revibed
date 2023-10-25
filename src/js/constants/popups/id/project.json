@@ -1,0 +1,18 @@
+{
+  "ProjectInvitePopup": "ProjectInvitePopup",
+  "EditDraftProjectSuccessPopup": "EditDraftProjectSuccessPopup",
+  "PublishProjectSuccessPopup": "PublishProjectSuccessPopup",
+  "ProjectNotFoundPopup": "ProjectNotFoundPopup",
+  "DeleteDraftProjectSuccessPopup": "DeleteDraftProjectSuccessPopup",
+  "DeleteDraftProjectPopup": "DeleteDraftProjectPopup",
+  "CreateProjectsDisabledPopup": "CreateProjectsDisabledPopup",
+  "InsufficientFundsPopup": "InsufficientFundsPopup",
+  "MultiCutPopup": "MultiCutPopup",
+  "ProjectSharePopup": "ProjectSharePopup",
+  "ProjectUploadFilesPopup": "ProjectUploadFilesPopup",
+  "AddAdditionalExpensesPopup": "AddAdditionalExpensesPopup",
+  "ProjectRipperSavePopup": "ProjectRipperSavePopup",
+  "ItemsForSaleProjectsPopup": "ItemsForSaleProjectsPopup",
+  "ContributorsPopup": "ContributorsPopup",
+  "HotOffersWithoutBonusErrorPopup": "HotOffersWithoutBonusErrorPopup"
+}

@@ -1,0 +1,49 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.purchasesOrder {
+  width: 100%;
+
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    line-height: convert-px2rem(16);
+    padding-bottom: convert-px2rem(15);
+    border-bottom: 1px solid var(--color__gray-4);
+    margin-bottom: convert-px2rem(10);
+    @include breakpoint($b-mobileS__max) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    @include breakpoint($b-laptop) {
+      padding-bottom: convert-px2rem(20);
+    }
+  }
+
+  &__id {
+    @include breakpoint($b-mobileS__max) {
+      margin-bottom: convert-px2rem(10);
+    }
+  }
+
+  &__detail {
+    &:not(:last-child) {
+      margin-right: convert-px2rem(15);
+      @include breakpoint($b-laptop) {
+        margin-right: convert-px2rem(25);
+      }
+    }
+  }
+
+  &__footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: convert-px2rem(15);
+  }
+}

@@ -1,0 +1,121 @@
+@import '../_mixins/convert-px2rem';
+
+.w {
+  &-auto {
+    width: auto !important;
+  }
+
+  &-100pct {
+    width: 100% !important;
+
+    &_min {
+      min-width: 100% !important;
+    }
+  }
+
+  &-10 {
+    min-width: convert-px2rem(10) !important;
+    width: convert-px2rem(10) !important;
+    max-width: convert-px2rem(10) !important;
+  }
+
+  &-20 {
+    min-width: convert-px2rem(20) !important;
+    width: convert-px2rem(20) !important;
+    max-width: convert-px2rem(20) !important;
+  }
+
+  &-28 {
+    min-width: convert-px2rem(28) !important;
+    width: convert-px2rem(28) !important;
+    max-width: convert-px2rem(28) !important;
+  }
+
+  &-280 {
+    width: convert-px2rem(280) !important;
+
+    &_max {
+      max-width: convert-px2rem(280) !important;
+    }
+  }
+
+  &-295 {
+    width: convert-px2rem(295) !important;
+
+    &_max {
+      max-width: convert-px2rem(295) !important;
+    }
+  }
+
+  &-300 {
+    width: convert-px2rem(300) !important;
+
+    &_max {
+      max-width: convert-px2rem(300) !important;
+    }
+  }
+
+  &-305 {
+    width: convert-px2rem(305) !important;
+
+    &_max {
+      max-width: convert-px2rem(305) !important;
+    }
+  }
+
+  &-315 {
+    width: convert-px2rem(315) !important;
+
+    &_max {
+      max-width: convert-px2rem(315) !important;
+    }
+  }
+
+  &-330 {
+    width: convert-px2rem(330) !important;
+
+    &_max {
+      max-width: convert-px2rem(330) !important;
+    }
+  }
+
+  &-340 {
+    width: convert-px2rem(340) !important;
+
+    &_max {
+      max-width: convert-px2rem(340) !important;
+    }
+  }
+
+  &-360 {
+    width: convert-px2rem(360) !important;
+
+    &_max {
+      max-width: convert-px2rem(360) !important;
+    }
+  }
+
+  &-400 {
+    width: convert-px2rem(400) !important;
+
+    &_max {
+      max-width: convert-px2rem(400) !important;
+    }
+  }
+
+  &-440 {
+    width: convert-px2rem(440) !important;
+
+    &_max {
+      max-width: convert-px2rem(440) !important;
+    }
+  }
+
+  &-700 {
+    width: convert-px2rem(700) !important;
+
+    &_max {
+      max-width: convert-px2rem(700) !important;
+    }
+  }
+}

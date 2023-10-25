@@ -1,0 +1,65 @@
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.rangeSeparator {
+  background-color: var(--color__gray-5);
+  height: 1px;
+  width: convert-px2rem(10);
+  min-width: convert-px2rem(10);
+  margin: 0 convert-px2rem(5);
+}
+
+.inputRange {
+  height: convert-px2rem(12);
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100% - #{convert-px2rem(10)});
+
+  &__block {
+    width: 100%;
+
+    .inputMulti {
+      width: 100%;
+      margin-bottom: convert-px2rem(10);
+      display: flex;
+      align-items: center;
+
+      :global {
+        .input-block {
+          margin: 0;
+          width: calc(50% - #{convert-px2rem(10)});
+        }
+      }
+    }
+
+    .rangeTrack {
+      margin-left: convert-px2rem(8);
+      margin-right: convert-px2rem(8);
+      width: calc(100% - #{convert-px2rem(16)});
+      height: convert-px2rem(20);
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      &__line {
+        align-self: center;
+        border-radius: convert-px2rem(4);
+        width: 100%;
+        height: convert-px2rem(4);
+        position: relative;
+
+        div {
+          $size: convert-px2rem(15);
+          width: $size;
+          height: $size;
+          border-radius: 50%;
+          background-color: var(--color__black);
+        }
+      }
+    }
+  }
+
+  &__label {
+    display: none !important;
+  }
+}

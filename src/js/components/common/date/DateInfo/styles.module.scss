@@ -1,0 +1,25 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectLifeTime {
+  font-family: var(--font-family__Inter-Medium);
+
+  @include breakpoint($b-tabletS__max) {
+    font-size: convert-px2rem(12);
+    margin-left: convert-px2rem(10);
+  }
+
+  .timer__value,
+  .timer__separator {
+    font-family: var(--font-family__Inter-Medium);
+  }
+
+  :global {
+    .icon {
+      width: convert-px2rem(17);
+      min-width: convert-px2rem(17);
+      height: convert-px2rem(17);
+      margin-right: convert-px2rem(5);
+    }
+  }
+}

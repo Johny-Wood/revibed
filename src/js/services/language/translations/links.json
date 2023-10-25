@@ -1,0 +1,134 @@
+{
+  "marketplace": {
+    "en": "Marketplace",
+    "ru": "Marketplace"
+  },
+  "feed": {
+    "en": "Feed",
+    "ru": "Feed"
+  },
+  "liveFeed": {
+    "en": "Live feed",
+    "ru": "Live feed"
+  },
+  "projects": {
+    "en": "Pre-orders",
+    "ru": "Pre-orders"
+  },
+  "faq": {
+    "en": "FAQ",
+    "ru": "FAQ"
+  },
+  "howItWorks": {
+    "en": "How It Works",
+    "ru": "How It Works"
+  },
+  "help": {
+    "en": "Help",
+    "ru": "Help"
+  },
+  "joinUs": {
+    "en": "Join Us",
+    "ru": "Join Us"
+  },
+  "yourWantList": {
+    "en": "Your wantlist",
+    "ru": "Your wantlist"
+  },
+  "wantList": {
+    "en": "Wantlist",
+    "ru": "Wantlist"
+  },
+  "cookiesPolicy": {
+    "en": "Cookies Policy",
+    "ru": "Cookies Policy"
+  },
+  "termsOfUse": {
+    "en": "Terms&nbsp;of&nbsp;Use",
+    "ru": "Terms&nbsp;of&nbsp;Use"
+  },
+  "privacyPolicy": {
+    "en": "Privacy Policy",
+    "ru": "Privacy Policy"
+  },
+  "aboutUs": {
+    "en": "About Us",
+    "ru": "About Us"
+  },
+  "news": {
+    "en": "News",
+    "ru": "News"
+  },
+  "blog": {
+    "en": "Blog",
+    "ru": "Blog"
+  },
+  "fundingNow": {
+    "en": "Fund NOW",
+    "ru": "Fund NOW"
+  },
+  "contactUs": {
+    "en": "Ask Question",
+    "ru": "Ask Question"
+  },
+  "support": {
+    "en": "Support",
+    "ru": "Support"
+  },
+  "facebook": {
+    "en": "Facebook",
+    "ru": "Facebook"
+  },
+  "instagram": {
+    "en": "Instagram",
+    "ru": "Instagram"
+  },
+  "soundcloud": {
+    "en": "Soundcloud",
+    "ru": "Soundcloud"
+  },
+  "follow": {
+    "en": "Follow Us",
+    "ru": "Follow Us"
+  },
+  "help&Support": {
+    "en": "Help & Support",
+    "ru": "Help & Support"
+  },
+  "explore&Join": {
+    "en": "Explore & Join",
+    "ru": "Explore & Join"
+  },
+  "getFreeKoins": {
+    "en": "Get free koins",
+    "ru": "Get free koins"
+  },
+  "account": {
+    "en": "Account",
+    "ru": "Account"
+  },
+  "telegramBot": {
+    "en": "Telegram Bot",
+    "ru": "Telegram Bot"
+  },
+  "wantlistSettings": {
+    "en": "Wantlist Settings",
+    "ru": "Wantlist Settings"
+  },
+  "notifications": {
+    "en": "Notifications",
+    "ru": "Notifications"
+  },
+  "settingsNotifications": {
+    "en": "Notifications",
+    "ru": "Notifications"
+  },
+  "followers": {
+    "en": "Followers",
+    "ru": "Followers"
+  },
+  "following": {
+    "en": "Following",
+    "ru": "Following"
+  }
+}

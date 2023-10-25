@@ -1,0 +1,51 @@
+@import '../../../assets/styles/_mixins/convert-px2rem';
+
+.confirmPhone {
+  width: 100%;
+  position: relative;
+  z-index: 5;
+
+  .popupHeader {
+    margin-top: convert-px2rem(-25);
+    padding: 0 0 convert-px2rem(25);
+  }
+
+  :global {
+    .content-text {
+      margin-left: auto;
+      margin-right: auto;
+      color: var(--color__gray-1);
+    }
+  }
+
+  :global {
+    .confirm-phone__example {
+      text-align: center;
+
+      .title_l {
+        position: relative;
+      }
+
+      .icon {
+        position: absolute;
+        top: convert-px2rem(12);
+        right: convert-px2rem(-45);
+      }
+    }
+  }
+
+  :global {
+    .button_string {
+      &.disabled,
+      &:disabled {
+        opacity: 1 !important;
+        cursor: default !important;
+        color: var(--color__gray-2) !important;
+      }
+
+      .button__disabled {
+        opacity: 0 !important;
+      }
+    }
+  }
+}

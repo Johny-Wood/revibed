@@ -1,0 +1,20 @@
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+
+.AddWantListReleasePopup {
+  :global {
+    .checkbox-block {
+      width: auto;
+      margin: 0;
+    }
+  }
+
+  &__buttonAddWantListRelease {
+    :global {
+      .text {
+        color: var(--color__gray-2);
+        font-size: convert-px2rem(12);
+      }
+    }
+  }
+}

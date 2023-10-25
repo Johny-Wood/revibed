@@ -1,0 +1,78 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.blackCatCardLinkButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  @include breakpoint($b-laptop) {
+    margin: convert-px2rem(50) 0;
+    padding-left: convert-px2rem(57);
+  }
+
+  a {
+    border-radius: convert-px2rem(6);
+    background-color: var(--color__black);
+    height: convert-px2rem(32);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: convert-px2rem(2) convert-px2rem(6);
+    @include breakpoint($b-laptop) {
+      padding: convert-px2rem(2) convert-px2rem(11);
+      height: convert-px2rem(40);
+    }
+
+    &:not(:last-child) {
+      margin-right: convert-px2rem(8);
+    }
+  }
+
+  &__openAccount {
+    svg {
+      width: convert-px2rem(90);
+      height: auto;
+
+      @include breakpoint($b-tablet) {
+        width: convert-px2rem(100);
+        height: auto;
+      }
+      @include breakpoint($b-laptop) {
+        width: auto;
+      }
+    }
+  }
+
+  &__googlePlay {
+    svg {
+      width: convert-px2rem(90);
+      height: auto;
+
+      @include breakpoint($b-tablet) {
+        width: convert-px2rem(100);
+        height: auto;
+      }
+      @include breakpoint($b-laptop) {
+        width: auto;
+      }
+    }
+  }
+
+  &__appStore {
+    svg {
+      width: convert-px2rem(90);
+      height: auto;
+
+      @include breakpoint($b-tablet) {
+        width: convert-px2rem(100);
+        height: auto;
+      }
+      @include breakpoint($b-laptop) {
+        width: auto;
+      }
+    }
+  }
+}

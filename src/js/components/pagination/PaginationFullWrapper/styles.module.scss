@@ -1,0 +1,98 @@
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../assets/styles/_mixins/breakpoint';
+
+.pagination {
+  &Total {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    @include breakpoint($b-laptop) {
+      width: auto;
+      justify-content: flex-start;
+    }
+
+    .pagination {
+      margin-left: convert-px2rem(20);
+    }
+  }
+
+  &Container {
+    .pagination {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      &Prev {
+        margin-right: convert-px2rem(15) !important;
+        @include breakpoint($b-laptop) {
+          margin-right: convert-px2rem(10) !important;
+        }
+      }
+
+      &Next {
+        margin-left: convert-px2rem(15) !important;
+        @include breakpoint($b-laptop) {
+          margin-left: convert-px2rem(10) !important;
+        }
+      }
+    }
+
+    .paginationTotal {
+      min-height: convert-px2rem(25);
+      @include breakpoint($b-tabletS__max) {
+        flex-direction: column;
+      }
+
+      .totalItems {
+        @include breakpoint($b-laptop) {
+          min-width: convert-px2rem(100);
+        }
+      }
+
+      .pagination {
+        @include breakpoint($b-tabletS__max) {
+          margin-top: convert-px2rem(10);
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  &_fullWithSizeContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    @include breakpoint($b-laptop) {
+      padding-top: convert-px2rem(10);
+    }
+  }
+
+  &_fullContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+    @include breakpoint($b-tabletS__max) {
+      min-height: convert-px2rem(46);
+    }
+  }
+
+  &__fullWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: convert-px2rem(15) 0;
+    flex-grow: 2;
+    @include breakpoint($b-tabletS__max) {
+      justify-content: center;
+      margin: convert-px2rem(15) 0 0;
+    }
+  }
+}

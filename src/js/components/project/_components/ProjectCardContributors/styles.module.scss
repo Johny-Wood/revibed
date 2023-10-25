@@ -1,0 +1,101 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectCardContributors {
+  padding: 0 0 convert-px2rem(15);
+  @include breakpoint($b-laptop) {
+    border-top: 1px solid var(--color__gray-4);
+    padding: convert-px2rem(10) 0 0;
+    margin-bottom: convert-px2rem(15);
+  }
+
+  &__title {
+    font-size: convert-px2rem(14);
+    line-height: convert-px2rem(20);
+  }
+
+  &__showMore {
+    font-family: var(--font-family__Inter-Bold);
+    color: var(--color__blue);
+    transition: opacity var(--transition-duration) ease;
+
+    &:hover {
+      @include breakpoint($b-laptop) {
+        opacity: var(--hover-opacity);
+      }
+    }
+  }
+
+  &__item {
+    margin: convert-px2rem(10) 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    @include breakpoint($b-laptop) {
+      padding-right: convert-px2rem(13);
+    }
+  }
+
+  &__list {
+    position: relative;
+    width: 100%;
+    padding: convert-px2rem(15) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    @include breakpoint($b-laptop) {
+      width: calc(100% + #{convert-px2rem(13)});
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: convert-px2rem(20);
+      z-index: 2;
+      @include breakpoint($b-laptop) {
+        width: calc(100% - #{convert-px2rem(13)});
+      }
+    }
+
+    &:before {
+      top: 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    &:after {
+      bottom: 0;
+      background: linear-gradient(0deg, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    :global {
+      .ReactCollapse--collapse {
+        width: 100% !important;
+      }
+    }
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .nickname__name {
+    display: inline-block;
+    font-size: convert-px2rem(14);
+  }
+
+  :global {
+    .ScrollbarsCustom {
+      &-TrackY {
+        width: convert-px2rem(4) !important;
+      }
+    }
+  }
+}

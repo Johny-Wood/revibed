@@ -1,0 +1,53 @@
+@import '../../../../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.MarketplaceListControl {
+  display: inline-flex;
+  align-self: flex-end;
+  height: convert-px2rem(32);
+  margin-top: convert-px2rem(-37);
+  position: relative;
+  z-index: 20000;
+
+  &__button {
+    border-radius: convert-px2rem(6);
+    padding: convert-px2rem(6) convert-px2rem(12) !important;
+    height: convert-px2rem(32);
+    font-family: var(--font-family__Inter-Medium);
+  }
+
+  &__pagination {
+    @include breakpoint($b-tabletS__max) {
+      position: absolute;
+      top: convert-px2rem(132);
+      right: convert-px2rem(-10);
+      width: 100vw;
+      justify-content: space-between;
+      padding: 0 convert-px2rem(7);
+    }
+    @include breakpoint($b-laptop) {
+      margin-right: convert-px2rem(10);
+    }
+
+    &_next, &_prev {
+      border-radius: convert-px2rem(6);
+      min-width: convert-px2rem(32) !important;
+      width: convert-px2rem(32);
+      height: convert-px2rem(32);
+      margin: 0 convert-px2rem(2) !important;
+
+      &:first-child {
+        margin-left: 0 !important;
+      }
+
+      &:last-child {
+        margin-right: 0 !important;
+      }
+
+      svg {
+        margin: 0 !important;
+        width: convert-px2rem(8) !important;
+      }
+    }
+  }
+}

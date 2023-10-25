@@ -1,0 +1,19 @@
+.pageUnsubscribe {
+  justify-content: flex-start;
+
+  &__siteWrapper {
+    align-items: center;
+    height: 100%;
+    flex-grow: 2;
+  }
+
+  :global {
+    .preloader-process {
+      top: 0;
+
+      &__container {
+        height: 100% !important;
+      }
+    }
+  }
+}

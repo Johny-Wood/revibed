@@ -1,0 +1,27 @@
+.videoPlayerAnimation {
+  &Enter {
+    opacity: 0;
+    transform: translateY(10%);
+
+    &_active {
+      opacity: 1;
+      transform: translateY(0);
+      transition:
+        opacity 400ms ease,
+        transform 400ms ease !important;
+    }
+  }
+
+  &Exit {
+    opacity: 1;
+    transform: translateY(0);
+
+    &_active {
+      opacity: 0;
+      transform: translateY(10%);
+      transition:
+        opacity 400ms ease,
+        transform 400ms ease !important;
+    }
+  }
+}

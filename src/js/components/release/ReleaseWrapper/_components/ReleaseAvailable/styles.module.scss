@@ -1,0 +1,39 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.releaseAvailable {
+  width: 100%;
+  @include breakpoint($b-laptop) {
+    padding-top: convert-px2rem(20);
+  }
+
+  &__get {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: convert-px2rem(50);
+    margin-top: convert-px2rem(50);
+
+    :global {
+      .button {
+        max-width: convert-px2rem(360);
+        @include breakpoint($b-tabletS__max) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  :global {
+    .preloader-process_color_dots_gray {
+      .preloader-process {
+        &__container {
+          padding: convert-px2rem(40) 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,197 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.statuses {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  .project-status {
+    margin-right: convert-px2rem(5);
+  }
+}
+
+.project-status {
+  color: var(--color__gray-2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+
+  &__description {
+    margin-right: convert-px2rem(3);
+  }
+
+  .status {
+    text-transform: lowercase;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: convert-px2rem(99);
+    color: var(--color__white) !important;
+    transition: opacity var(--transition-duration) ease !important;
+
+    &:not(.status_with_filter):not(.disabled):not(:disabled) {
+      opacity: 1 !important;
+    }
+
+    &.status_with_filter {
+      cursor: pointer;
+    }
+
+    &.status_without_filter {
+      cursor: unset;
+    }
+
+    &__name {
+      margin-top: convert-px2rem(-1);
+      font-size: convert-px2rem(13);
+      padding: convert-px2rem(1) convert-px2rem(10);
+      line-height: convert-px2rem(19);
+      min-width: convert-px2rem(45);
+      letter-spacing: 0.01em;
+      text-align: center;
+      font-family: var(--font-family__Inter-Medium);
+      white-space: nowrap;
+    }
+
+    &_with_filter {
+      cursor: pointer;
+
+      &:hover {
+        @include breakpoint($b-laptop) {
+          opacity: var(--hover-opacity);
+        }
+      }
+    }
+
+    &_LEGACY {
+      .status {
+        &__name {
+          padding-left: convert-px2rem(12);
+        }
+      }
+    }
+
+    &_OPEN {
+      background-color: var(--color__OPEN);
+    }
+
+    &_CLOSED {
+      background-color: var(--color__CLOSED);
+    }
+
+    &_LAST_CALL {
+      background-color: var(--color__LAST_CALL);
+    }
+
+    &_VOTE_FOR_SALE {
+      background-color: var(--color__VOTE_FOR_SALE);
+    }
+
+    &_IN_MODERATION {
+      background-color: var(--color__IN_MODERATION);
+    }
+
+    &_REJECTED {
+      background-color: var(--color__REJECTED);
+    }
+
+    &_IN_TRANSIT {
+      background-color: var(--color__IN_TRANSIT);
+    }
+
+    &_LISTED {
+      background-color: var(--color__LISTED);
+    }
+
+    &_WANTED {
+      background-color: var(--color__WANTED);
+      color: var(--color__black) !important;
+    }
+
+    &_SOLD {
+      background-color: var(--color__SOLD);
+    }
+
+    &_DRAFT {
+      background-color: var(--color__DRAFT);
+    }
+
+    &_REFUND_PENDING {
+      background-color: var(--color__REFUND_PENDING);
+    }
+
+    &_ARRIVED {
+      background-color: var(--color__ARRIVED);
+    }
+
+    &_RIPPED {
+      background-color: var(--color__RIPPED);
+    }
+
+    &_RECORD_KEPT {
+      background-color: var(--color__RECORD_KEPT);
+    }
+
+    &_LEGACY {
+      background-color: var(--color__white);
+      color: var(--color__black) !important;
+      box-shadow: 0 0 0 1px var(--color__gray-3);
+    }
+
+    &_LATE_ENTRY {
+      background: var(--color__LATE_ENTRY);
+    }
+
+    &_COMING_SOON {
+      background-color: var(--color__COMING_SOON) !important;
+
+      .status__name {
+        font-family: var(--font-family__Inter-Medium-Italic) !important;
+        font-size: convert-px2rem(14);
+        background: var(--color__COMING_SOON_text);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+    }
+  }
+}
+
+.status__label {
+  margin-left: convert-px2rem(5);
+  border-radius: convert-px2rem(99);
+  padding-left: convert-px2rem(8) !important;
+  padding-right: convert-px2rem(8) !important;
+  height: convert-px2rem(21);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--transition-duration) ease;
+  font-size: convert-px2rem(13);
+  line-height: convert-px2rem(19);
+  letter-spacing: 0.01em;
+  transform: translate3d(0, 0, 0);
+  z-index: 5;
+
+  &_without_description {
+    width: convert-px2rem(24);
+    height: convert-px2rem(24);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  .icon {
+    width: convert-px2rem(12);
+    height: auto;
+  }
+}

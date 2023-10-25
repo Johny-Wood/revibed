@@ -1,0 +1,201 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.filter {
+  width: 100%;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  &_disabled {
+    .filter__header {
+      cursor: default;
+
+      & > * {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &:not(.filter_disabled) {
+    .filter__header {
+      cursor: pointer;
+
+      &:hover {
+        @include breakpoint($b-laptop) {
+          opacity: var(--hover-opacity);
+        }
+      }
+
+      & > * {
+        transition: opacity var(--transition-duration) ease;
+      }
+    }
+  }
+
+  &:first-child {
+    .filter__header {
+      @include breakpoint($b-tabletS__max) {
+        border-top: none;
+      }
+    }
+  }
+
+  &__header {
+    border-top: 1px solid var(--color__gray-4);
+    padding: convert-px2rem(10) 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    transition: opacity var(--transition-duration) ease;
+    @include breakpoint($b-laptop) {
+      margin-left: convert-px2rem(10);
+    }
+
+    :global {
+      .icon {
+        transition: transform var(--transition-duration) ease;
+        will-change: transform;
+      }
+    }
+  }
+
+  &__category {
+    font-family: var(--font-family__Inter-Bold);
+    display: block;
+    flex-grow: 2;
+    padding-right: convert-px2rem(10);
+  }
+
+  &__name {
+    transition: color var(--transition-duration) ease;
+    padding-right: convert-px2rem(5);
+  }
+
+  &__value {
+    color: var(--color__gray-2);
+    transition: color var(--transition-duration) ease;
+  }
+
+  &__collapse {
+    position: relative;
+    padding-top: convert-px2rem(10) !important;
+    width: calc(100% + #{convert-px2rem(8)}) !important;
+
+    @include breakpoint($b-laptop) {
+      width: calc(100% + #{convert-px2rem(10)}) !important;
+    }
+
+    :global {
+      .ReactCollapse--content {
+        padding-bottom: convert-px2rem(14.5) !important;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: calc(100% + #{convert-px2rem(10)});
+    padding-right: convert-px2rem(10);
+    padding-left: convert-px2rem(10);
+    margin-left: convert-px2rem(-10);
+    overflow: hidden;
+    @include breakpoint($b-laptop) {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    &Item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin: convert-px2rem(2.5) 0;
+      transition: opacity var(--transition-duration) ease;
+      line-height: convert-px2rem(20);
+
+      &:not(.filter__listItem_disable) {
+        cursor: pointer;
+      }
+
+      &_disabled {
+        opacity: 0.5;
+      }
+
+      &_active {
+        .filter__name,
+        .filter__value {
+          color: var(--color__blue);
+          font-family: var(--font-family__Inter-Bold);
+        }
+      }
+
+      &:not(.filter__listItem_disabled):not(.filter__listItem_active) {
+        &:hover {
+          @include breakpoint($b-laptop) {
+            opacity: var(--hover-opacity);
+          }
+        }
+      }
+    }
+  }
+
+  &__filterCategoryButtons {
+    max-width: convert-px2rem(255);
+    width: 100%;
+    height: convert-px2rem(20);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    @include breakpoint($b-tabletS__max) {
+      padding-right: convert-px2rem(10);
+    }
+  }
+
+  &__buttonFilterShowMore {
+    font-family: var(--font-family__Inter-Bold);
+    font-size: convert-px2rem(12);
+    margin-top: convert-px2rem(4);
+    @include breakpoint($b-laptop) {
+      margin-left: convert-px2rem(10);
+    }
+  }
+
+  &__buttonResetCategoryFilter {
+    padding: 0 !important;
+    margin-left: auto;
+    transition: opacity var(--transition-duration) ease;
+
+    &:hover {
+      @include breakpoint($b-laptop) {
+        opacity: var(--hover-opacity);
+      }
+    }
+
+    :global {
+      .text {
+        font-size: convert-px2rem(12);
+        margin-right: convert-px2rem(5);
+      }
+
+      .icon-close {
+        width: convert-px2rem(10);
+        height: convert-px2rem(10);
+
+        &:hover {
+          @include breakpoint($b-laptop) {
+            opacity: 1 !important;
+          }
+        }
+      }
+    }
+  }
+}

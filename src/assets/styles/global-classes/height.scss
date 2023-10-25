@@ -1,0 +1,11 @@
+@import '../_mixins/convert-px2rem';
+
+.h {
+  &-1 {
+    height: 1px;
+  }
+
+  &-2 {
+    height: convert-px2rem(2);
+  }
+}

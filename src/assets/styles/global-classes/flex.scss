@@ -1,0 +1,98 @@
+@import '../_mixins/breakpoint';
+@import '../_mixins/convert-px2rem';
+
+.f-inline {
+  display: inline-flex !important;
+}
+
+.f-grow {
+  &-1 {
+    flex-grow: 1 !important;
+  }
+}
+
+.f-wrap {
+  flex-wrap: wrap !important;
+}
+
+.f-x-center {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.f-x-start {
+  display: flex !important;
+  justify-content: flex-start !important;
+}
+
+.f-x-end {
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+.f-x-between {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.f-y-center {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.f-y-start {
+  display: flex !important;
+  align-items: flex-start !important;
+}
+
+.f-y-end {
+  display: flex !important;
+  align-items: flex-end !important;
+}
+
+.f {
+  &_direction {
+    &_column {
+      display: flex !important;
+      flex-direction: column !important;
+
+      &_mobile {
+        display: flex !important;
+        flex-direction: row !important;
+        @include breakpoint($b-tablet__max) {
+          flex-direction: column !important;
+        }
+      }
+
+      &.f-y-center {
+        justify-content: center !important;
+      }
+
+      &.f-x-center {
+        align-items: center !important;
+      }
+    }
+  }
+
+  &_direction {
+    &_row {
+      flex-direction: row !important;
+
+      &_reverse {
+        flex-direction: row-reverse !important;
+      }
+    }
+  }
+}
+
+.i-f {
+  &_y-center {
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  &_y-end {
+    display: inline-flex !important;
+    align-items: flex-end !important;
+  }
+}

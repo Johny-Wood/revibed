@@ -1,0 +1,52 @@
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../assets/styles/_mixins/breakpoint';
+
+.aboutUsJoinBanner {
+  min-height: convert-px2rem(390);
+  padding: convert-px2rem(100) convert-px2rem(20);
+  @include breakpoint($b-laptop) {
+    min-height: convert-px2rem(606);
+    padding: convert-px2rem(200) convert-px2rem(20);
+  }
+
+  &__title {
+    font-size: convert-px2rem(32);
+    line-height: convert-px2rem(40);
+    margin-bottom: convert-px2rem(50);
+    @include breakpoint($b-tabletS__max) {
+      font-family: var(--font-family__Inter-Black);
+    }
+    @include breakpoint($b-laptop) {
+      font-size: convert-px2rem(40);
+      line-height: convert-px2rem(48);
+    }
+
+    span {
+      display: block;
+      font-family: var(--font-family__Inter-Black);
+    }
+  }
+
+  &__text {
+    text-align: center;
+    font-size: convert-px2rem(16);
+    line-height: convert-px2rem(20);
+    @include breakpoint($b-laptop) {
+      font-size: convert-px2rem(20);
+      line-height: convert-px2rem(25);
+    }
+  }
+
+  &__form {
+    max-width: convert-px2rem(535);
+    align-items: center;
+  }
+
+  &__background {
+    img {
+      @include breakpoint($b-tabletS__max) {
+        object-position: left;
+      }
+    }
+  }
+}

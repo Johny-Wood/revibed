@@ -1,0 +1,55 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.CashbackWrapperBanner {
+  width: 100%;
+  background-color: #000000;
+  height: convert-px2rem(100);
+  padding: convert-px2rem(40);
+  margin-bottom: convert-px2rem(30);
+  text-align: center;
+  color: var(--color__white);
+  font-size: convert-px2rem(18);
+  font-family: var(--font-family__FuturaPT-SemiBold);
+  line-height: convert-px2rem(20);
+  letter-spacing: convert-px2rem(0.25);
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include breakpoint($b-mobileS__max) {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: convert-px2rem(15) convert-px2rem(160) convert-px2rem(15) convert-px2rem(15);
+  }
+
+  &__icon {
+    display: inline-block;
+    min-width: convert-px2rem(227);
+    max-width: convert-px2rem(227) !important;
+
+    @include breakpoint($b-mobileS__max) {
+      min-width: convert-px2rem(200);
+      max-width: convert-px2rem(200) !important;
+      position: absolute;
+      right: convert-px2rem(-30);
+      top: convert-px2rem(-30);
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  span {
+    @include breakpoint($b-mobileS__max) {
+      //max-width: convert-px2rem(200);
+      display: block;
+    }
+  }
+}

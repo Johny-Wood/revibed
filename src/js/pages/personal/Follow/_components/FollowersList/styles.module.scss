@@ -1,0 +1,34 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.followers {
+  width: 100%;
+
+  $offset: 10;
+
+  .itemsList {
+    &__list {
+      padding-top: 0;
+      width: calc(100% + #{convert-px2rem($offset)});
+      margin: convert-px2rem(-7.5) convert-px2rem(-$offset / 2);
+      @include breakpoint($b-tablet) {
+        margin: convert-px2rem(-15) convert-px2rem(-$offset / 2);
+      }
+      @include breakpoint($b-laptop) {
+        padding-top: convert-px2rem(5 + 20);
+      }
+    }
+
+    &__block {
+      margin: convert-px2rem(7.5) convert-px2rem($offset / 2);
+      width: calc(100% / 1 - #{convert-px2rem($offset)});
+      @include breakpoint($b-tablet) {
+        margin: convert-px2rem(15) convert-px2rem($offset / 2);
+        width: calc(100% / 2 - #{convert-px2rem($offset)});
+      }
+      @include breakpoint($b-tabletS) {
+        width: calc(100% / 4 - #{convert-px2rem($offset)});
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.authBlock {
+  background-color: var(--color__white);
+  box-shadow: 0 1px convert-px2rem(15) rgba(0, 0, 0, 0.15);
+  padding: convert-px2rem(70) convert-px2rem(10);
+  @include breakpoint($b-tabletS__max) {
+    max-width: convert-px2rem(600);
+  }
+  @include breakpoint($b-tablet) {
+    padding: convert-px2rem(100) convert-px2rem(50);
+  }
+  @include breakpoint($b-laptop) {
+    padding: convert-px2rem(170) convert-px2rem(100);
+  }
+
+  h3 {
+    padding: 0 convert-px2rem(10);
+  }
+
+  h1 {
+    font-family: var(--font-family__FuturaDemiC);
+    font-size: convert-px2rem(24);
+    @include breakpoint($b-laptop) {
+      font-size: convert-px2rem(30);
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.sliderList {
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+  justify-content: flex-start;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition:
+    opacity 300ms ease,
+    transform 300ms ease;
+
+  &__prev {
+    opacity: 0;
+    left: 0;
+  }
+
+  &__next {
+    opacity: 0;
+    left: 0;
+  }
+
+  &__active {
+    margin: 0;
+  }
+
+  &:not(.sliderList__active) {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+}

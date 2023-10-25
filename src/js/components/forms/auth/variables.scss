@@ -1,0 +1,19 @@
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+$form_margin__y: convert-px2rem(15);
+$form_padding__top: convert-px2rem(45);
+$form_padding__top--b-laptop__max: convert-px2rem(24);
+$form_padding__bottom: convert-px2rem(25);
+$form_padding-x: convert-px2rem(20);
+$form_box-shadow: 0 convert-px2rem(4) convert-px2rem(90) rgba(0, 0, 0, 0.2);
+
+$form_margin-top__intro: convert-px2rem(6);
+$form_margin-bottom__intro: convert-px2rem(9);
+$form_font-size__intro: convert-px2rem(12);
+
+$form_margin-bottom__title: convert-px2rem(35);
+$form_margin-bottom__title--b-laptop__max: convert-px2rem(20);
+$form_margin-y__button: convert-px2rem(25);
+
+$form_width--b-laptop: convert-px2rem(435);
+$form_width--b-mobile: convert-px2rem(355);

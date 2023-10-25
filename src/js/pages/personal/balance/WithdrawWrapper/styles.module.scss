@@ -1,0 +1,37 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.withdraw {
+  width: 100%;
+
+  :global {
+    .tooltip {
+      margin-left: 0;
+    }
+
+    .inputs {
+      .input-block {
+        margin: convert-px2rem(7) 0;
+
+        &:not(.from-select) .label {
+          color: #828282;
+        }
+      }
+
+      .checkbox-block {
+        .checkbox__text {
+          letter-spacing: 0.02em;
+        }
+      }
+    }
+  }
+
+  &__section {
+    margin-top: convert-px2rem(60);
+    @include breakpoint($b-tabletS__max) {
+      max-width: convert-px2rem(800);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

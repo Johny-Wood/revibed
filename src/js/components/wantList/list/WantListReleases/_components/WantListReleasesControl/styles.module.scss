@@ -1,0 +1,37 @@
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.wantListReleasesControl {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  :global {
+    .tooltip {
+      margin-right: convert-px2rem(10);
+
+      &__content {
+        &:after {
+          max-width: convert-px2rem(42);
+        }
+      }
+    }
+
+    .button {
+      min-width: convert-px2rem(42) !important;
+      padding: convert-px2rem(6.5) convert-px2rem(9) !important;
+
+      &.button_add-release {
+        padding: convert-px2rem(6) convert-px2rem(6) convert-px2rem(6) convert-px2rem(8) !important;
+      }
+    }
+  }
+
+  .selectedCount {
+    margin-left: convert-px2rem(15);
+
+    & > * {
+      font-size: convert-px2rem(13);
+    }
+  }
+}

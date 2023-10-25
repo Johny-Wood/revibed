@@ -1,0 +1,46 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.notificationEvent {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: var(--color__black);
+
+  &_active {
+    animation: notification-event-focused ease 1s 500ms;
+    animation-fill-mode: forwards;
+  }
+
+  &__wrapper {
+    min-height: convert-px2rem(50);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex-grow: 2;
+  }
+
+  &__content {
+    text-align: left;
+    width: 100%;
+  }
+
+  &__date {
+    font-size: convert-px2rem(12);
+    margin-top: convert-px2rem(2);
+  }
+}
+
+@keyframes notification-event-focused {
+  0% {
+    background-color: var(--color__white);
+  }
+  80%,
+  100% {
+    background-color: #fffdec;
+  }
+}

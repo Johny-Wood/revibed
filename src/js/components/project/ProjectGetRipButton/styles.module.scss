@@ -1,0 +1,37 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectGetRip {
+  width: 100%;
+  z-index: 999;
+  background-color: var(--color__white);
+
+  &_fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: convert-px2rem(15);
+    box-shadow: 0 convert-px2rem(-1) convert-px2rem(6) rgba(0, 0, 0, 0.25);
+
+    .projectGetRip__button {
+      margin: 0;
+    }
+  }
+
+  &__button {
+    width: 100% !important;
+    margin: convert-px2rem(30) 0 convert-px2rem(10);
+
+    &_unavailable {
+      background-color: var(--color__gray-5);
+      padding: convert-px2rem(15);
+      text-align: center;
+
+      :global {
+        .text {
+          color: var(--color__gray-1) !important;
+        }
+      }
+    }
+  }
+}

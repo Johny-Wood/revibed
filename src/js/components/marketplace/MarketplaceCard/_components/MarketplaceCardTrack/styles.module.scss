@@ -1,0 +1,138 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.marketplaceCardTrack {
+  width: calc(100% + #{convert-px2rem(20)});
+  margin-left: convert-px2rem(-10);
+  margin-right: convert-px2rem(-10);
+  padding: 0 convert-px2rem(10);
+  transition: background-color var(--transition-duration) ease;
+
+  &:hover {
+    @include breakpoint($b-laptop) {
+      background-color: var(--color__gray-6);
+    }
+  }
+
+  &_playing {
+    .marketplaceCardTrack {
+      &__name {
+        font-family: var(--font-family__Inter-Bold);
+      }
+
+      &__duration {
+        color: var(--color__gray-2);
+      }
+    }
+  }
+
+  &_active {
+    animation: track-focused ease 1s 500ms;
+    animation-fill-mode: forwards;
+  }
+
+  &__content {
+    padding: convert-px2rem(10) 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid var(--color__gray-5);
+  }
+
+  &__info {
+    &:not(:last-child) {
+      margin-right: convert-px2rem(10);
+      @include breakpoint($b-laptop) {
+        margin-right: convert-px2rem(30);
+      }
+    }
+  }
+
+  &__play {
+    $size: 35;
+    position: relative;
+    margin-right: convert-px2rem(10) !important;
+    width: convert-px2rem($size);
+
+    .startPlayVideo {
+      position: static;
+      padding: 0;
+      width: convert-px2rem($size);
+      height: convert-px2rem($size);
+    }
+  }
+
+  &__name {
+    max-width: 43%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    @include breakpoint($b-laptop) {
+      max-width: 40%;
+    }
+
+    &__name {
+      width: auto;
+    }
+  }
+
+  &__duration {
+    margin-left: convert-px2rem(5);
+    color: var(--color__gray-3);
+  }
+
+  &__quality {
+    width: 15%;
+    margin-left: auto;
+  }
+
+  &__price {
+    text-align: right;
+    min-width: 15%;
+    @include breakpoint($b-laptop) {
+      min-width: 10%;
+    }
+  }
+
+  &__buy {
+    min-width: convert-px2rem(85);
+    max-width: convert-px2rem(85);
+    height: convert-px2rem(35);
+    text-transform: uppercase;
+    font-size: convert-px2rem(11);
+    font-family: var(--font-family__Inter-Medium);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    @include breakpoint($b-laptop) {
+      width: convert-px2rem(95);
+      max-width: convert-px2rem(95);
+    }
+
+    :global {
+      .button {
+        width: 100%;
+        min-width: auto !important;
+
+        .text {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+@keyframes track-focused {
+  0% {
+    background-color: var(--color__white);
+  }
+  80%,
+  100% {
+    background-color: var(--color_PACKAGE_PURPLE);
+  }
+}

@@ -1,0 +1,297 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.table {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: convert-px2rem(5);
+
+  &_with_field_table_name {
+    .table {
+      &Item {
+        @include breakpoint($b-tabletS__max) {
+          flex-direction: column;
+          align-items: flex-end;
+          padding: convert-px2rem(19) convert-px2rem(5) 0;
+        }
+
+        &:first-child {
+          @include breakpoint($b-tabletS__max) {
+            border-top: 1px solid var(--color__gray-5);
+          }
+        }
+
+        &__element {
+          @include breakpoint($b-tabletS__max) {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            margin-right: 0 !important;
+            width: 100%;
+            max-width: 100% !important;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: convert-px2rem(10);
+
+            * {
+              justify-content: flex-end !important;
+              text-align: right !important;
+            }
+
+            .tableBody__text {
+              max-width: 80%;
+            }
+          }
+        }
+      }
+
+      &Column__name {
+        color: var(--color__gray-2);
+        font-size: convert-px2rem(12);
+      }
+    }
+  }
+
+  &Body {
+    position: relative;
+    color: #000;
+
+    &__text {
+      font-size: convert-px2rem(12);
+      @include breakpoint($b-laptop) {
+        font-size: convert-px2rem(14);
+      }
+
+      :global {
+        .preloader-process {
+          z-index: 51;
+        }
+      }
+    }
+  }
+
+  &Header {
+    z-index: 55;
+    padding: convert-px2rem(7) convert-px2rem(10);
+    background-color: var(--color__gray-6);
+
+    @include breakpoint($b-laptop) {
+      position: sticky;
+      top: 0;
+    }
+
+    &__text {
+      font-size: convert-px2rem(12);
+    }
+
+    &__element {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      cursor: default;
+      @include breakpoint($b-tabletS__max) {
+        flex-basis: auto !important;
+      }
+
+      &:not(:last-child) {
+        margin-right: convert-px2rem(10);
+        @include breakpoint($b-tablet) {
+          margin-right: convert-px2rem(15);
+        }
+      }
+
+      &_SORT {
+        .tableHeader__text {
+          cursor: pointer;
+          transition:
+            opacity var(--transition-duration) ease,
+            color var(--transition-duration) ease;
+
+          &:hover {
+            @include breakpoint($b-laptop) {
+              opacity: var(--hover-opacity);
+            }
+          }
+        }
+      }
+
+      &_ASC {
+        color: var(--color__black);
+
+        :global {
+          .coin {
+            path,
+            circle,
+            line {
+              stroke: var(--color__black) !important;
+            }
+          }
+
+          .icon {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      &_DESC {
+        color: var(--color__black);
+
+        :global {
+          .coin {
+            path,
+            circle,
+            line {
+              stroke: var(--color__black) !important;
+            }
+          }
+
+          .icon {
+            transform: rotate(0);
+          }
+        }
+      }
+
+      :global {
+        .icon {
+          margin-right: convert-px2rem(5);
+          transition: transform var(--transition-duration) ease;
+        }
+      }
+    }
+
+    &__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      color: var(--color__gray-2);
+
+      :global {
+        .coin {
+          path,
+          circle,
+          line {
+            stroke: var(--color__gray-2);
+            @include breakpoint($b-tabletS__max) {
+              stroke: var(--color__black);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &Item {
+    display: flex;
+    justify-content: space-between;
+    padding: convert-px2rem(10);
+    align-items: center;
+    min-height: convert-px2rem(50);
+    box-sizing: border-box;
+    background-color: var(--color__white);
+    transition: opacity var(--transition-duration) ease;
+    border-bottom: 1px solid var(--color__gray-5);
+
+    :global {
+      .tooltip {
+        margin: convert-px2rem(5) 0 0 !important;
+
+        .tooltip {
+          &__text {
+            text-align: left !important;
+          }
+
+          &__button {
+            svg {
+              width: convert-px2rem(13);
+              height: convert-px2rem(13);
+              @include breakpoint($b-laptop) {
+                width: convert-px2rem(15);
+                height: convert-px2rem(15);
+              }
+            }
+          }
+
+          &__content {
+            text-align: left;
+            left: auto !important;
+            right: convert-px2rem(-10) !important;
+          }
+
+          &__triangle {
+            left: auto !important;
+            right: convert-px2rem(8) !important;
+          }
+        }
+      }
+    }
+
+    &:first-child,
+    &:nth-child(2) {
+      :global {
+        .tooltip {
+          &.tooltip_showed {
+            z-index: 52;
+            transition: z-index var(--transition-duration) ease;
+          }
+
+          .tooltip {
+            &__content {
+              top: auto !important;
+              bottom: convert-px2rem(-20) !important;
+              transform: translateY(100%);
+            }
+
+            &__triangle {
+              top: convert-px2rem(-15) !important;
+              bottom: auto !important;
+              transform: rotate(90deg) !important;
+              right: convert-px2rem(13) !important;
+            }
+          }
+        }
+      }
+    }
+
+    &__element {
+      width: 100%;
+      line-height: 1.25;
+      height: 100%;
+      position: relative;
+      @include breakpoint($b-tabletS__max) {
+        flex-basis: auto !important;
+      }
+
+      &:not(:last-child) {
+        margin-right: convert-px2rem(10);
+        @include breakpoint($b-tablet) {
+          margin-right: convert-px2rem(15);
+        }
+      }
+
+      &:first-child {
+        p {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  :global {
+    .tooltip {
+      z-index: 51;
+    }
+
+    .preloader-process:not(.preloader-process_element) {
+      z-index: 200;
+      top: convert-px2rem(1);
+
+      .preloader-process__container {
+        padding: convert-px2rem(20) convert-px2rem(10);
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+export const WebSocketSubscriptionIdsConstants = {
+  USER_INFO: 'USER_INFO',
+  CHAT: 'CHAT',
+  PROJECT: 'PROJECT',
+  PROJECT_PUBLIC: 'PROJECT_PUBLIC',
+  BASE: 'BASE',
+  VOTING: 'VOTING',
+  EVENTS: 'EVENTS',
+  TRENDING_PROJECTS: 'TRENDING_PROJECTS',
+};

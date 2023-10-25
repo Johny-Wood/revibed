@@ -1,0 +1,32 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.button {
+  &AddWatch,
+  &DeleteWatch {
+    padding-left: convert-px2rem(5) !important;
+    padding-right: convert-px2rem(5) !important;
+    min-width: convert-px2rem(100) !important;
+
+    :global {
+      .text {
+        font-family: var(--font-family__Inter-Medium);
+      }
+    }
+
+    & > {
+      svg {
+        width: convert-px2rem(24);
+        margin-right: convert-px2rem(6);
+      }
+    }
+  }
+
+  &AddWatch {
+    & > {
+      svg {
+        height: auto;
+      }
+    }
+  }
+}

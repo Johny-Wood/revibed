@@ -1,0 +1,9 @@
+{
+  "EmailMustBeConfirmedWarningPopup": "EmailMustBeConfirmedWarningPopup",
+  "EmailAlreadyExistsPopup": "EmailAlreadyExistsPopup",
+  "EmailSentToPopup": "EmailSentToPopup",
+  "ConfirmedEmailPopup": "ConfirmedEmailPopup",
+  "EmailAlreadyConfirmedPopup": "EmailAlreadyConfirmedPopup",
+  "EmailSentToSuccessPopup": "EmailSentToSuccessPopup",
+  "ResetPasswordPopup": "ResetPasswordPopup"
+}

@@ -1,0 +1,6 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.uploadFiles__button {
+  min-width: convert-px2rem(113) !important;
+}

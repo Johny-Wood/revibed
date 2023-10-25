@@ -1,0 +1,37 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.aboutUsSection {
+  width: 100%;
+  background-color: var(--color__white);
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: convert-px2rem(1204);
+    padding: 0 convert-px2rem(20);
+    @include breakpoint($b-tabletS__max) {
+      text-align: center;
+    }
+    @include breakpoint($b-laptop) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  img {
+    display: block;
+  }
+
+  &__column {
+    .aboutUsSection__wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

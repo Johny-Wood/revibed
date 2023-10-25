@@ -1,0 +1,99 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.ItemsForSaleProjectsPopup {
+  align-items: flex-start;
+  padding-top: convert-px2rem(160);
+
+  .popup {
+    &Header {
+      @include breakpoint($b-tabletS__max) {
+        padding-top: convert-px2rem(10);
+      }
+    }
+
+    &Content {
+      position: relative;
+      @include breakpoint($b-tabletS__max) {
+        padding-top: convert-px2rem(15);
+      }
+    }
+
+    &In {
+      overflow: visible;
+      padding-bottom: convert-px2rem(30);
+      @include breakpoint($b-laptop) {
+        padding-left: convert-px2rem(35);
+        padding-right: convert-px2rem(35);
+      }
+    }
+  }
+
+  .itemsForSale {
+    position: relative;
+    width: 100%;
+    min-height: convert-px2rem(30);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    &__noItems {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    &__add {
+      width: 100%;
+      margin-top: convert-px2rem(40);
+      padding: convert-px2rem(20);
+      border: 1px solid var(--color__gray-4);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      &__description {
+        margin-bottom: convert-px2rem(30);
+      }
+
+      :global {
+        .button {
+          .icon {
+            rect {
+              transition: stroke var(--transition-duration) ease;
+            }
+          }
+
+          &:not(.disabled):not(:disabled):hover {
+            @include breakpoint($b-laptop) {
+              rect {
+                stroke: var(--color__white) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .wantListReleasesItems {
+    min-height: convert-px2rem(100);
+    @include breakpoint($b-laptop) {
+      padding-top: convert-px2rem(10);
+    }
+
+    &__item {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    &__noResult {
+      padding: 0;
+    }
+  }
+}

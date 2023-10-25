@@ -1,0 +1,137 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  position: relative;
+
+  @include breakpoint($b-tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: convert-px2rem(-10);
+    margin-right: convert-px2rem(-10);
+    width: calc(100% + #{convert-px2rem(20)});
+  }
+  @include breakpoint($b-laptop) {
+    width: 100%;
+    margin: 0;
+  }
+
+  &_direction_row {
+    @include breakpoint($b-laptop) {
+      width: calc(100% + #{convert-px2rem(30)});
+      margin-left: convert-px2rem(-15);
+      margin-right: convert-px2rem(-15);
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  &_direction_column {
+    @include breakpoint($b-laptop) {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__footer {
+    width: 100%;
+    @include breakpoint($b-laptop) {
+      margin-top: convert-px2rem(10);
+    }
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    @include breakpoint($b-laptop) {
+      min-height: convert-px2rem(35);
+    }
+  }
+}
+
+.projectsList {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  @include breakpoint($b-laptop) {
+    margin-bottom: convert-px2rem(10);
+  }
+
+  &__results {
+    min-height: convert-px2rem(100);
+  }
+
+  &__control {
+    &_withDiscogsFilters {
+      @include breakpoint($b-tabletS__max) {
+        margin-left: convert-px2rem(51);
+      }
+    }
+  }
+
+  &__projectSort {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 7;
+    margin-left: auto;
+    @include breakpoint($b-laptop) {
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    &__sortBy {
+      width: auto;
+      @include breakpoint($b-laptop) {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+.projectBlock {
+  width: 100%;
+  min-width: convert-px2rem(280);
+  margin: convert-px2rem(10) 0;
+  display: flex;
+  flex-direction: column;
+  @include breakpoint($b-tablet) {
+    width: calc(100% / 2 - #{convert-px2rem(20)});
+    margin-left: convert-px2rem(10);
+    margin-right: convert-px2rem(10);
+  }
+  @include breakpoint($b-laptop) {
+    width: 100%;
+    margin: convert-px2rem(10) 0;
+  }
+
+  &_default {
+    @include breakpoint($b-tabletS) {
+      width: calc(100% / 3 - #{convert-px2rem(30)});
+      max-width: calc(100% / 3 - #{convert-px2rem(30)});
+      margin: convert-px2rem(10) convert-px2rem(15);
+    }
+  }
+
+  &_custom {
+    width: 100%;
+    margin-top: 0 !important;
+    margin-bottom: convert-px2rem(10) !important;
+    @include breakpoint($b-laptop) {
+      margin-top: convert-px2rem(15) !important;
+      margin-bottom: convert-px2rem(15) !important;
+    }
+  }
+}

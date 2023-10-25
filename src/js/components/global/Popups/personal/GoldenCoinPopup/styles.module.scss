@@ -1,0 +1,18 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.GoldenCoinPopup {
+  .popupIn {
+    padding: convert-px2rem(35) convert-px2rem(15) convert-px2rem(25);
+  }
+
+  :global {
+    .golden-icon-bg {
+      top: convert-px2rem(-80);
+      right: convert-px2rem(-280);
+      @include breakpoint($b-tablet) {
+        right: convert-px2rem(-250);
+      }
+    }
+  }
+}

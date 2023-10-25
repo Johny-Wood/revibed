@@ -1,0 +1,46 @@
+@import './variables';
+
+.authForm {
+  &__buttonBlock {
+    width: 100%;
+    margin: $form_margin-y__button 0;
+    display: flex;
+
+    :global {
+      .button {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  &__forgotPassword {
+    width: 100%;
+    text-align: right;
+    font-size: convert-px2rem(12);
+
+    :global {
+      .button-text {
+        letter-spacing: 0.01em;
+      }
+    }
+  }
+
+  &__intro {
+    color: var(--color__gray-1);
+    margin: $form_margin-top__intro auto $form_margin-bottom__intro;
+
+    &__text {
+      font-size: $form_font-size__intro;
+      letter-spacing: 0.01em;
+      line-height: 1.667em;
+    }
+  }
+}

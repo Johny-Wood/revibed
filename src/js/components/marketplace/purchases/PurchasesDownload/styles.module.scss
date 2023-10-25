@@ -1,0 +1,28 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.purchaseDownloadButton {
+  min-width: convert-px2rem(105) !important;
+
+  &_large {
+    min-width: convert-px2rem(160) !important;
+
+    :global {
+      .text {
+        font-size: convert-px2rem(14) !important;
+      }
+    }
+  }
+
+  :global {
+    .text {
+      font-size: convert-px2rem(12);
+      font-family: var(--font-family__Inter-Medium);
+    }
+
+    .progress-circle {
+      width: auto;
+      height: 100%;
+    }
+  }
+}

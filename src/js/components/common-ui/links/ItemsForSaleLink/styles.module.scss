@@ -1,0 +1,31 @@
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../assets/styles/_mixins/breakpoint';
+
+.buttonItemsForSale {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: convert-px2rem(26);
+
+  &:hover {
+    @include breakpoint($b-laptop) {
+      .text {
+        border-color: transparent;
+      }
+    }
+  }
+
+  :global {
+    .text {
+      border-bottom: 1px solid currentColor;
+      transition: border-color var(--transition-duration) ease;
+    }
+
+    svg {
+      margin-right: convert-px2rem(7);
+      width: convert-px2rem(18);
+      height: convert-px2rem(18);
+      opacity: 1 !important;
+    }
+  }
+}

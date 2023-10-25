@@ -1,0 +1,50 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.formSettings {
+  width: 100%;
+  padding: convert-px2rem(35) 0 convert-px2rem(5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  @include breakpoint($b-laptop) {
+    align-items: flex-start;
+    padding: convert-px2rem(30) 0 convert-px2rem(30);
+  }
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  h4 {
+    width: 100%;
+    border-top: 1px solid var(--color__gray-4);
+    padding-top: convert-px2rem(10);
+    margin-bottom: 0;
+    @include breakpoint($b-laptop) {
+      margin-bottom: convert-px2rem(25);
+    }
+  }
+
+  &Content {
+    align-items: flex-start;
+    width: 100%;
+    margin: 0;
+    @include breakpoint($b-tabletS__max) {
+      margin-top: convert-px2rem(15);
+    }
+
+    &_shortColumn {
+      width: 100%;
+      max-width: convert-px2rem(500);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      @include breakpoint($b-laptop) {
+        max-width: convert-px2rem(345);
+      }
+    }
+  }
+}

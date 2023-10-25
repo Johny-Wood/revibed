@@ -1,0 +1,61 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.profileBarUser {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid var(--color__gray-4);
+
+  &__avatar {
+    position: relative;
+
+    .editFieldsButton {
+      position: absolute;
+      top: convert-px2rem(-3);
+      right: convert-px2rem(3);
+    }
+  }
+
+  &__name {
+    min-height: convert-px2rem(28);
+  }
+
+  &__info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    .nickname {
+      :global {
+        .flag-icon {
+          * {
+            $size: convert-px2rem(18);
+            min-width: $size !important;
+            width: $size !important;
+            min-height: $size !important;
+            height: $size !important;
+          }
+        }
+      }
+
+      &__name {
+        line-height: 1.25;
+        font-size: convert-px2rem(20);
+        max-width: convert-px2rem(240);
+        @include breakpoint($b-laptop) {
+          max-width: convert-px2rem(180);
+        }
+      }
+    }
+  }
+
+  .userAvatar {
+    margin-right: 0;
+    margin-bottom: convert-px2rem(20);
+  }
+}

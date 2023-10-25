@@ -1,0 +1,44 @@
+.t-ellipsis {
+  max-width: 100%;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+
+.t-uppercase {
+  text-transform: uppercase;
+}
+
+.t-capitalize {
+  text-transform: capitalize;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.t-right {
+  text-align: right;
+}
+
+.t-left {
+  text-align: left;
+}
+
+.t-medium {
+  font-family: var(--font-family__Inter-Medium);
+
+  &_italic {
+    font-family: var(--font-family__Inter-Medium-Italic);
+  }
+}
+
+.t-bold {
+  font-family: var(--font-family__Inter-Bold);
+}
+
+.t-semi-bold {
+  font-family: var(--font-family__Inter-SemiBold);
+}

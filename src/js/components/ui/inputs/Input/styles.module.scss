@@ -1,0 +1,57 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.input {
+  .selectList {
+    position: absolute;
+    top: calc(100% - #{convert-px2rem(67 - 61)});
+    width: calc(100% - #{convert-px2rem(20)});
+    left: auto;
+    right: -1px;
+    z-index: 7;
+    background-color: var(--color__white);
+    box-shadow: 0 convert-px2rem(2) convert-px2rem(15) rgba(0, 0, 0, 0.2);
+
+    :global {
+      .select-option-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        min-height: convert-px2rem(35);
+      }
+
+      .select-option_no-item {
+        padding: convert-px2rem(5) convert-px2rem(10);
+      }
+
+      .button {
+        width: 100%;
+        height: 100%;
+        background-color: var(--color__white);
+        justify-content: flex-start;
+        padding: convert-px2rem(5) convert-px2rem(10);
+        opacity: 1 !important;
+
+        &:hover {
+          @include breakpoint($b-laptop) {
+            background-color: var(--color__gray-5);
+          }
+        }
+
+        .text {
+          color: var(--color__black);
+          font-size: convert-px2rem(14);
+        }
+      }
+
+      .i-selected {
+        position: absolute;
+        right: convert-px2rem(20);
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

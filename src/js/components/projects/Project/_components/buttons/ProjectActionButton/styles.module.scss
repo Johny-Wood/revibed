@@ -1,0 +1,22 @@
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+
+.ProjectActionButton {
+  &_in {
+    color: var(--color__gray-2);
+    background-color: transparent !important;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &:before {
+      display: none;
+    }
+
+    &__text {
+      font-size: convert-px2rem(16) !important;
+      font-family: var(--font-family__Inter-Regular) !important;
+    }
+  }
+}

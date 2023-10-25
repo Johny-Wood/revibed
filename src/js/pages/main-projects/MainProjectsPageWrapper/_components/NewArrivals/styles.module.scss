@@ -1,0 +1,9 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.newArrivals {
+  width: 100%;
+  @include breakpoint($b-laptop) {
+    padding-top: convert-px2rem(10);
+  }
+}

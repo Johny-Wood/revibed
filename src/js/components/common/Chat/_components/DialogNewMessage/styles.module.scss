@@ -1,0 +1,406 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.newMessage {
+  display: flex;
+  width: 100%;
+  background-color: var(--color__white);
+
+  &_comments {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    @include breakpoint($b-tabletS__max) {
+      margin: 0 !important;
+      z-index: 999;
+      padding: convert-px2rem(10) convert-px2rem(15);
+      border-top: 1px solid var(--color__gray-3);
+    }
+    @include breakpoint($b-laptop) {
+      position: relative;
+      margin-top: convert-px2rem(10);
+    }
+
+    .newMessage {
+      &__container {
+        max-width: calc(100% - #{convert-px2rem(48)});
+        @include breakpoint($b-laptop) {
+          max-width: calc(100% - #{convert-px2rem(60)});
+        }
+      }
+    }
+
+    .upload__attachDescription {
+      color: var(--color__gray-2);
+      margin-left: convert-px2rem(5);
+      @include breakpoint($b-mobileS__max) {
+        font-size: convert-px2rem(13);
+        margin-right: convert-px2rem(10);
+      }
+    }
+
+    .uploadBlock {
+      border: none;
+    }
+
+    .buttonAttachFile {
+      width: auto;
+      height: auto;
+      border: none;
+
+      :global {
+        .icon {
+          width: auto;
+          height: auto;
+          @include breakpoint($b-mobileS__max) {
+            width: convert-px2rem(10);
+          }
+        }
+      }
+    }
+
+    :global {
+      .button_cancel,
+      .button_send {
+        min-height: convert-px2rem(30);
+        min-width: convert-px2rem(80) !important;
+        @include breakpoint($b-laptop) {
+          min-width: convert-px2rem(100) !important;
+        }
+
+        .text {
+          margin: 0 auto;
+          font-size: convert-px2rem(12);
+        }
+      }
+
+      .button_cancel {
+        min-width: auto !important;
+        margin-right: convert-px2rem(50);
+      }
+    }
+
+    .emojiContainer {
+      right: auto;
+      bottom: auto;
+      left: convert-px2rem(-17);
+      top: convert-px2rem(-8);
+      padding-right: convert-px2rem(10);
+
+      &__block {
+        order: -1;
+        margin-left: 0;
+      }
+
+      &__section {
+        padding: convert-px2rem(12) 0 convert-px2rem(12) convert-px2rem(50);
+      }
+    }
+
+    .newMessage__input {
+      :global {
+        .input__placeholder {
+          left: convert-px2rem(15);
+          top: convert-px2rem(15);
+        }
+
+        .input,
+        .text {
+          min-height: convert-px2rem(38);
+          max-height: convert-px2rem(38 * 5);
+        }
+      }
+    }
+  }
+
+  &_dialog {
+    background-color: var(--color__white);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    flex-grow: 2;
+    min-height: convert-px2rem(40);
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    @include breakpoint($b-laptop) {
+      min-height: convert-px2rem(50);
+    }
+
+    .newMessage {
+      &__reply {
+        font-size: convert-px2rem(12);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+
+        &Block {
+          width: calc(100% - #{convert-px2rem(10)});
+          position: relative;
+          border: 1px solid var(--color__gray-5);
+          background-color: var(--color__white);
+          border-radius: convert-px2rem(5);
+          margin: convert-px2rem(5);
+          padding: convert-px2rem(9) convert-px2rem(10) convert-px2rem(6);
+        }
+      }
+
+      &__name {
+        font-family: var(--font-family__Inter-Medium);
+      }
+
+      &__input {
+        flex-grow: 2;
+        position: relative;
+        margin: 0 convert-px2rem(10);
+        width: 73.2%;
+        @include breakpoint($b-laptop) {
+          width: auto;
+          max-width: convert-px2rem(675);
+        }
+
+        :global {
+          .input {
+            border: 1px solid var(--color__gray-4);
+            background-color: var(--color__gray-5);
+            border-radius: convert-px2rem(5);
+          }
+        }
+      }
+    }
+
+    .upload {
+      &Block {
+        .buttonAttachFile {
+          @include breakpoint($b-tabletS__max) {
+            height: convert-px2rem(40);
+          }
+        }
+      }
+
+      &List {
+        padding: convert-px2rem(5) 0;
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: convert-px2rem(-10);
+        @include breakpoint($b-laptop) {
+          padding: convert-px2rem(5) 0 0;
+          margin-left: convert-px2rem(10);
+          margin-right: convert-px2rem(10);
+        }
+
+        &__container {
+          margin-right: 0;
+          margin-left: 0;
+          padding-right: convert-px2rem(10);
+          padding-bottom: 0 !important;
+        }
+      }
+    }
+
+    .emojiContainerBlock {
+      position: absolute;
+      right: 0;
+      bottom: convert-px2rem(13);
+    }
+
+    .newMessage__input {
+      :global {
+        .input,
+        .text {
+          min-height: convert-px2rem(38);
+          max-height: convert-px2rem(38 * 5);
+          @include breakpoint($b-laptop) {
+            min-height: convert-px2rem(48);
+            max-height: convert-px2rem(48 * 5);
+          }
+        }
+
+        .input__placeholder {
+          @include breakpoint($b-laptop) {
+            top: convert-px2rem(15);
+            left: convert-px2rem(15);
+          }
+        }
+
+        .text {
+          @include breakpoint($b-laptop) {
+            padding: convert-px2rem(14) convert-px2rem(35) convert-px2rem(14) convert-px2rem(15);
+          }
+        }
+      }
+    }
+
+    :global {
+      .button {
+        margin: 0;
+        height: convert-px2rem(40);
+        @include breakpoint($b-laptop) {
+          height: convert-px2rem(50);
+        }
+
+        &_send {
+          min-width: convert-px2rem(40) !important;
+          padding: convert-px2rem(5) !important;
+          border-radius: convert-px2rem(6);
+          @include breakpoint($b-laptop) {
+            min-width: convert-px2rem(165) !important;
+          }
+        }
+      }
+    }
+  }
+
+  &__input {
+    width: 100%;
+    position: relative;
+
+    :global {
+      input,
+      textarea {
+        padding: convert-px2rem(9) convert-px2rem(10);
+
+        &::-webkit-input-placeholder {
+          color: var(--color__gray-3);
+        }
+
+        &::-moz-placeholder {
+          color: var(--color__gray-3);
+        }
+
+        &:-ms-input-placeholder {
+          color: var(--color__gray-3);
+        }
+
+        &:-moz-placeholder {
+          color: var(--color__gray-3);
+        }
+      }
+
+      .input {
+        border: 1px solid var(--color__gray-4);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 0;
+
+        &__placeholder {
+          color: var(--color__gray-3);
+          position: absolute;
+          top: convert-px2rem(8);
+          left: convert-px2rem(11);
+          z-index: 0;
+        }
+
+        &-block {
+          margin: 0;
+
+          .text {
+            width: 100%;
+            padding: convert-px2rem(7) convert-px2rem(10);
+            position: relative;
+            z-index: 5;
+            @include breakpoint($b-laptop) {
+              padding: convert-px2rem(14) convert-px2rem(35) convert-px2rem(14) convert-px2rem(14);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  :global {
+    .input {
+      .text {
+        display: inline-block;
+
+        * {
+          display: inline !important;
+        }
+      }
+    }
+  }
+
+  .uploadList {
+    width: 100% !important;
+  }
+
+  &__container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  &__inputBlock {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &__controlBlock {
+    margin-top: convert-px2rem(10);
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    &__doubleButtons {
+      width: auto;
+      margin-left: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 100%;
+    color: var(--color__gray-2);
+    padding: convert-px2rem(10) 0;
+    margin: convert-px2rem(10) 0 0;
+    border-top: 1px solid var(--color__gray-4);
+
+    :global {
+      .text {
+        font-size: convert-px2rem(12);
+      }
+    }
+  }
+
+  .newMessage__reply {
+    &Close {
+      z-index: 5;
+      position: absolute;
+      top: convert-px2rem(5);
+      right: convert-px2rem(5);
+      width: convert-px2rem(20);
+      height: convert-px2rem(20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid var(--color__gray-4);
+
+      :global {
+        .icon {
+          width: convert-px2rem(10);
+          height: convert-px2rem(10);
+        }
+      }
+    }
+  }
+}

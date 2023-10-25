@@ -1,0 +1,142 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.emojiContainer {
+  width: convert-px2rem(358);
+  border: 1px solid var(--color__gray-4);
+  border-radius: convert-px2rem(5);
+  padding-right: convert-px2rem(40);
+  position: absolute;
+  right: convert-px2rem(-16);
+  bottom: convert-px2rem(-13);
+  background-color: var(--color__white);
+  z-index: 100;
+
+  :global {
+    .emoji {
+      vertical-align: middle;
+      margin: 0;
+    }
+  }
+
+  &__block {
+    margin-left: convert-px2rem(12);
+    margin-right: convert-px2rem(12);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+
+  &__section {
+    padding: convert-px2rem(12) 0 convert-px2rem(12) convert-px2rem(15);
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--color__gray-4);
+    }
+  }
+
+  &__title {
+    font-size: convert-px2rem(12);
+    line-height: convert-px2rem(13);
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  &__group {
+    width: 100%;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--color__gray-4);
+    }
+
+    &:not(:first-child) {
+      .emojiContainer {
+        &__groups {
+          span {
+            margin-top: convert-px2rem(6);
+          }
+        }
+      }
+    }
+  }
+
+  &__groups {
+    padding-left: convert-px2rem(15);
+
+    span {
+      display: block;
+      margin: 0 0 convert-px2rem(8) 0;
+      color: var(--color__gray-2);
+      font-size: convert-px2rem(12);
+      letter-spacing: 0.01em;
+    }
+  }
+
+  &__content {
+    padding: convert-px2rem(10) 0 convert-px2rem(8);
+  }
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: convert-px2rem(10);
+    padding-bottom: convert-px2rem(5);
+  }
+
+  &__icon {
+    margin: convert-px2rem(1);
+    cursor: pointer;
+    transition: background-color var(--transition-duration) ease;
+    background-color: transparent;
+    border-radius: convert-px2rem(3);
+    padding: convert-px2rem(3);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      display: block;
+      padding: convert-px2rem(4) convert-px2rem(2);
+      font-size: convert-px2rem(24);
+      vertical-align: middle;
+      line-height: 1;
+      font-family: emoji, san-serif, serif;
+      letter-spacing: normal;
+      text-align: center;
+    }
+
+    &:hover {
+      @include breakpoint($b-laptop) {
+        background-color: var(--color__gray-5);
+      }
+    }
+  }
+
+  :global {
+    .ScrollbarsCustom {
+      &-Track {
+        width: convert-px2rem(5) !important;
+        background: transparent !important;
+      }
+
+      &-Thumb {
+        border-radius: convert-px2rem(4) !important;
+        background-color: var(--color__gray-3) !important;
+      }
+    }
+  }
+}

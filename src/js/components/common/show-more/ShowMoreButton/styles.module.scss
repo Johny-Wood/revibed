@@ -1,0 +1,28 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.showMoreButton {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  letter-spacing: 0.01em;
+  background-color: transparent;
+  cursor: pointer;
+  transition: opacity var(--transition-duration) ease;
+  margin-top: convert-px2rem(3);
+
+  &:hover {
+    @include breakpoint($b-laptop) {
+      opacity: 0.5;
+    }
+  }
+
+  :global {
+    .text {
+      font-size: convert-px2rem(12);
+      font-family: var(--font-family__Inter-Bold);
+    }
+  }
+}

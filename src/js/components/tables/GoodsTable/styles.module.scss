@@ -1,0 +1,66 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.goodsTable {
+  .projectCover {
+    $size: convert-px2rem(50);
+
+    min-width: $size;
+    width: $size;
+    height: $size;
+
+    &Container {
+      margin-right: convert-px2rem(10);
+      @include breakpoint($b-laptop) {
+        margin-right: convert-px2rem(15);
+      }
+    }
+  }
+
+  .projectNames {
+    max-width: convert-px2rem(130);
+    @include breakpoint($b-laptop) {
+      max-width: convert-px2rem(250);
+    }
+
+    &__title,
+    &__album__title {
+      font-size: convert-px2rem(14);
+      min-height: convert-px2rem(16);
+    }
+  }
+
+  .tracksCount {
+    @include breakpoint($b-tablet) {
+      margin-left: convert-px2rem(10);
+    }
+    @include breakpoint($b-tabletS__max) {
+      &:before {
+        content: '(';
+      }
+      &:after {
+        content: ')';
+      }
+    }
+  }
+
+  .table {
+    &Item {
+      background-color: var(--color__white) !important;
+      border-bottom: 1px solid var(--color__gray-5);
+      align-items: center;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      @include breakpoint($b-tabletS__max) {
+        padding-top: convert-px2rem(15);
+        padding-bottom: convert-px2rem(15);
+      }
+    }
+
+    &Body {
+      &__text {
+        font-size: convert-px2rem(14);
+      }
+    }
+  }
+}

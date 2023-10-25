@@ -1,0 +1,20 @@
+@import '../_mixins/font-face';
+
+@include font-face('Inter-Light', '/fonts/Inter/Inter-Light/Inter-Light', normal, normal, 'oldie');
+
+@include font-face('Inter-Regular', '/fonts/Inter/Inter-Regular/Inter-Regular', normal, normal, 'oldie');
+
+@include font-face('Inter-Regular-Italic', '/fonts/Inter/Inter-Regular-Italic/Inter-Regular-Italic', normal, normal, 'oldie');
+
+@include font-face('Inter-Medium', '/fonts/Inter/Inter-Medium/Inter-Medium', normal, normal, 'oldie');
+
+@include font-face('Inter-Medium-Italic', '/fonts/Inter/Inter-Medium-Italic/Inter-Medium-Italic', normal, normal, 'oldie');
+
+@include font-face('Inter-SemiBold', '/fonts/Inter/Inter-SemiBold/Inter-SemiBold', normal, normal, 'oldie');
+@include font-face('Inter-Bold', '/fonts/Inter/Inter-Bold/Inter-Bold', normal, normal, 'oldie');
+
+@include font-face('Inter-Black', '/fonts/Inter/Inter-Black/Inter-Black', normal, normal, 'oldie');
+
+@include font-face('FuturaDemiC', '/fonts/FuturaDemiC/FuturaDemiC', normal, normal, 'oldie');
+
+@include font-face('FuturaPT-SemiBold', '/fonts/FuturaPT/FuturaPT-SemiBold/FuturaPT-SemiBold', normal, normal, 'oldie');

@@ -1,0 +1,35 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.purchases {
+  @include breakpoint($b-laptop) {
+    padding-top: convert-px2rem(25);
+  }
+
+  .itemsList {
+    &__list {
+      padding-top: 0;
+      width: 100%;
+      margin: 0;
+    }
+
+    &__block {
+      width: 100%;
+      margin: 0 0 convert-px2rem(35 - 15);
+      @include breakpoint($b-laptop) {
+        margin: 0 0 convert-px2rem(40 - 15);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .no-result {
+    .icon {
+      width: convert-px2rem(43);
+      height: auto;
+    }
+  }
+}

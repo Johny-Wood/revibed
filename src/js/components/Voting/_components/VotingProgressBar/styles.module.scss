@@ -1,0 +1,36 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.votingProgressBar {
+  width: 100%;
+  height: convert-px2rem(6);
+  border-radius: convert-px2rem(5);
+  margin-top: convert-px2rem(4);
+  background-color: var(--color__gray-6);
+  position: relative;
+  transition: opacity var(--transition-duration) ease;
+  opacity: 0;
+
+  &_shown {
+    opacity: 1;
+  }
+
+  &__value {
+    width: 0;
+    height: convert-px2rem(6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--color__gray-3);
+    transition: width var(--transition-duration) ease;
+    border-radius: convert-px2rem(5);
+
+    &_not_voted {
+      background-color: var(--color__gray-4);
+    }
+
+    &_win {
+      background-color: var(--color__OPEN);
+    }
+  }
+}

@@ -1,0 +1,207 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+$dragon-drop-size: convert-px2rem(96);
+
+.uploader {
+  &__inputBlock {
+    margin: 0;
+    width: 0;
+
+    :global {
+      .input {
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        padding: 0;
+        border: none;
+      }
+    }
+  }
+
+  .uploadBlock {
+    position: relative;
+    min-height: convert-px2rem(50);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition:
+      opacity var(--transition-duration) ease,
+      border-color var(--transition-duration) ease,
+      background-color var(--transition-duration) ease;
+
+    &_only_button {
+      min-height: auto;
+
+      &_error {
+        :global {
+          .button {
+            color: var(--color__red);
+          }
+        }
+      }
+
+      .uploader__buttonAttachFile {
+        height: auto !important;
+        border: none !important;
+
+        :global {
+          .button {
+            min-width: convert-px2rem(140) !important;
+          }
+        }
+      }
+    }
+
+    &_disabled {
+      opacity: 0.5;
+
+      .uploader__label {
+        cursor: default;
+      }
+    }
+  }
+
+  &__buttonAttachFile {
+    cursor: pointer;
+    transition: opacity var(--transition-duration) ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: convert-px2rem(20);
+    height: convert-px2rem(50);
+    min-width: convert-px2rem(20) !important;
+    border-radius: convert-px2rem(5);
+    padding: 0 !important;
+
+    &:hover {
+      @include breakpoint($b-laptop) {
+        opacity: var(--hover-opacity);
+      }
+    }
+
+    @include breakpoint($b-laptop) {
+      border: 1px solid var(--color__gray-4);
+      width: convert-px2rem(50);
+      min-width: convert-px2rem(50) !important;
+    }
+
+    :global {
+      .icon {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .uploadList {
+    max-width: calc(100% - #{convert-px2rem(15 + 96)});
+    width: 100% !important;
+
+    &__container {
+      flex-wrap: wrap !important;
+    }
+
+    &__item {
+      margin-bottom: convert-px2rem(10);
+    }
+  }
+
+  &_dragonDrop {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .uploadBlock {
+      width: $dragon-drop-size;
+      height: $dragon-drop-size;
+      background-color: var(--color__white);
+      border: 1px solid var(--color__gray-4);
+      display: inline-block;
+
+      &:not(.disabled):hover {
+        @include breakpoint($b-laptop) {
+          background-color: var(--color__gray-6);
+        }
+      }
+
+      &_error {
+        border-color: var(--color__red) !important;
+
+        :global {
+          .icon-file {
+            *:not(.without-fill) {
+              fill: var(--color__red) !important;
+            }
+          }
+        }
+
+        .uploader__label {
+          color: var(--color__red) !important;
+
+          .upload__attachDescription {
+            color: var(--color__red) !important;
+          }
+        }
+      }
+    }
+  }
+
+  &_dragonDropFile {
+    width: 100%;
+
+    .uploadBlock {
+      width: 100%;
+      min-height: convert-px2rem(116);
+      border: 1px dashed #979797;
+      border-radius: convert-px2rem(8);
+
+      .upload__attachDescription {
+        color: #000;
+        margin: convert-px2rem(14) 0 0;
+        letter-spacing: convert-px2rem(0.25);
+      }
+
+      :global {
+        .icon-file {
+          width: convert-px2rem(30);
+          height: auto !important;
+        }
+      }
+    }
+  }
+
+  &__label {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .upload__attachDescription {
+    color: var(--color__gray-2);
+    margin-right: convert-px2rem(5);
+  }
+
+  :global {
+    .input-block {
+      margin: 0;
+
+      .input {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        display: none !important;
+      }
+    }
+  }
+}

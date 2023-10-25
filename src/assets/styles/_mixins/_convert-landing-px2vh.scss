@@ -1,0 +1,13 @@
+@function convert-landing-px2vh($property) {
+  $diff: 9.8;
+  $value: calc(1vh * #{$property} / #{$diff});
+
+  @return $value;
+}
+
+@function convert-landing-px2vh-mobile($property) {
+  $diff: 8.288425;
+  $value: calc(1vh * #{$property} / #{$diff});
+
+  @return $value;
+}

@@ -1,0 +1,245 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.marketplaceCardInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  :global {
+    .project-status {
+      margin-bottom: convert-px2rem(20);
+      @include breakpoint($b-laptop) {
+        margin-bottom: convert-px2rem(15);
+      }
+
+      .status {
+        text-transform: none;
+      }
+    }
+  }
+
+  &_preorder {
+    .project {
+      &Cover {
+        @include breakpoint($b-laptop) {
+          $size: convert-px2rem(207);
+
+          min-width: $size;
+          width: $size;
+          height: $size;
+        }
+      }
+
+      &Tags {
+        margin-top: convert-px2rem(12);
+      }
+    }
+  }
+
+  &__main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    @include breakpoint($b-tabletS__max) {
+      align-items: center;
+    }
+    @include breakpoint($b-laptop) {
+      flex-direction: row;
+    }
+  }
+
+  &__wanted {
+    margin-top: convert-px2rem(10);
+    font-size: convert-px2rem(12);
+  }
+
+  &__wait__owner {
+    width: 100%;
+    padding: convert-px2rem(12);
+    background-color: var(--color__gray-6);
+    border-radius: convert-px2rem(4);
+    margin-top: convert-px2rem(30);
+    border: 1px dashed var(--color__gray-3);
+    @include breakpoint($b-laptop) {
+      padding: convert-px2rem(20);
+    }
+  }
+
+  &__details {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    @include breakpoint($b-tabletS__max) {
+      align-items: center;
+      text-align: center;
+    }
+
+    .project {
+      &Tags {
+        max-width: convert-px2rem(400);
+      }
+
+      &Names {
+        @include breakpoint($b-tabletS__max) {
+          margin-top: convert-px2rem(30);
+        }
+
+        &__titles {
+          @include breakpoint($b-tabletS__max) {
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+
+  &__buyButtons {
+    margin-top: convert-px2rem(30);
+
+    :global {
+      .tooltip {
+        margin: 0;
+
+        &_showed {
+          .icon-arrow {
+            transform: rotate(0);
+          }
+        }
+
+        .tooltip {
+          &__button {
+            opacity: 1 !important;
+
+            &:hover {
+              opacity: 1 !important;
+            }
+          }
+
+          &__content {
+            width: auto;
+          }
+        }
+      }
+
+      .button {
+        font-family: var(--font-family__Inter-Medium);
+
+        .text {
+          font-size: convert-px2rem(14) !important;
+        }
+      }
+    }
+  }
+
+  &__buyButton {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    :global {
+      .button__content {
+        position: relative;
+        min-width: convert-px2rem(160);
+      }
+
+      .text {
+        padding-left: convert-px2rem(20) !important;
+        padding-right: convert-px2rem(20) !important;
+      }
+    }
+  }
+
+  &__purchasedButton {
+    min-width: convert-px2rem(160) !important;
+  }
+
+  &__buyPrice {
+    padding-left: convert-px2rem(15) !important;
+    padding-right: convert-px2rem(15) !important;
+    min-width: auto !important;
+    position: relative;
+    color: var(--color__white);
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: convert-px2rem(-18);
+      left: 0;
+      width: 1px;
+      height: convert-px2rem(50);
+      background-color: var(--color__gray-1);
+    }
+  }
+
+  &__value {
+    margin: convert-px2rem(4) 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__footer {
+    margin-top: convert-px2rem(30);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .project {
+    &Cover {
+      $size: convert-px2rem(185);
+
+      min-width: $size;
+      width: $size;
+      height: $size;
+      box-shadow: 0 convert-px2rem(4) convert-px2rem(20) rgba(0, 0, 0, 0.25);
+
+      &Container {
+        @include breakpoint($b-tabletS__max) {
+          margin-bottom: convert-px2rem(20);
+        }
+        @include breakpoint($b-laptop) {
+          margin-right: convert-px2rem(30);
+        }
+      }
+    }
+
+    &__title {
+      width: 100%;
+    }
+
+    &Tags {
+      margin-top: convert-px2rem(15);
+      @include breakpoint($b-tabletS__max) {
+        justify-content: center;
+        margin-left: convert-px2rem(10);
+        margin-right: convert-px2rem(10);
+      }
+      @include breakpoint($b-laptop) {
+        margin-top: convert-px2rem(20);
+      }
+    }
+  }
+
+  :global {
+    .link {
+      border-color: var(--color__gray-4);
+
+      .text {
+        padding-bottom: convert-px2rem(3);
+      }
+    }
+  }
+}

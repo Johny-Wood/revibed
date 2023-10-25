@@ -1,0 +1,9 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.releaseBackButton {
+  @include breakpoint($b-laptop) {
+    padding-left: convert-px2rem(10);
+    padding-top: convert-px2rem(20);
+  }
+}

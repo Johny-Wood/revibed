@@ -1,0 +1,16 @@
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+
+.wantListHeaderControl {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  @include breakpoint($b-laptop) {
+    margin-bottom: convert-px2rem(15);
+    min-height: convert-px2rem(50);
+  }
+}

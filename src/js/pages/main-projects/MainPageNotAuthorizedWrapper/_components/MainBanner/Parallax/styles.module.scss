@@ -1,0 +1,156 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.Parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  // @include breakpoint($b-tabletS__max) {
+  //   width: 100%;
+  //   height: 100%;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  // }
+  @include breakpoint($b-mobileS__max) {
+    display: none;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    @include breakpoint($b-tabletS__max) {
+     top: -8%;
+    }
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__imageLg {
+    .Parallax__imageItem {
+      width: convert-px2rem(89);
+      height: convert-px2rem(89);
+      @include breakpoint($b-tabletS__max) {
+        width: convert-px2rem(65);
+        height: convert-px2rem(65);
+      }
+      &:nth-child(1) {
+        top: 55%;
+        left: 15%;
+        @include breakpoint($b-tabletS__max) {
+          top: 65%;
+        left: 10%;
+        }
+      }
+      &:nth-child(2) {
+        top: 62%;
+        right: 12%;
+        animation-direction: reverse;
+      }
+    }
+  }
+
+  &__imageMd {
+    .Parallax__imageItem {
+      width: convert-px2rem(60);
+      height: convert-px2rem(60);
+      @include breakpoint($b-tabletS__max) {
+        width: convert-px2rem(43);
+        height: convert-px2rem(43);
+      }
+      &:nth-child(1) {
+        top: 31%;
+        left: 13%;
+        animation-direction: reverse;
+      }
+      &:nth-child(2) {
+        top: 40%;
+        right: 5%;
+        animation-direction: reverse;
+      }
+      &:nth-child(3) {
+        top: 78%;
+        left: 7%;
+        animation-direction: reverse;
+      }
+      &:nth-child(4) {
+        top: 94%;
+        right: 7%;
+      }
+    }
+  }
+
+  &__imageSm {
+    .Parallax__imageItem {
+      width: convert-px2rem(34);
+      height: convert-px2rem(34);
+      @include breakpoint($b-tabletS__max) {
+        width: convert-px2rem(24);
+        height: convert-px2rem(24);
+      }
+      &:nth-child(1) {
+        top: 25%;
+        left: 6.5%;
+        animation-direction: reverse;
+      }
+      &:nth-child(2) {
+        top: 25%;
+        right: 9%;
+      }
+      &:nth-child(3) {
+        top: 41%;
+        right: 19%;
+      }
+      &:nth-child(4) {
+        top: 52%;
+        left: 5.5%;
+        animation-direction: reverse;
+      }
+      &:nth-child(5) {
+        top: 76%;
+        left: 17.5%;
+        animation-direction: reverse;
+      }
+      &:nth-child(6) {
+        top: 70%;
+        right: 4%;
+      }
+      &:nth-child(7) {
+        top: 83%;
+        right: 17.5%;
+        animation-direction: reverse;
+      }
+      &:nth-child(8) {
+        top: 96%;
+        left: 13.5%;
+        animation-direction: reverse;
+      }
+    }
+  }
+
+  &__imageItem {
+    position: absolute;
+    animation: infiniteRotate 2.4s linear infinite;
+  }
+}
+
+@keyframes infiniteRotate {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,154 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.howItWorks {
+  width: 100%;
+  margin-top: convert-px2rem(70);
+
+  &__title {
+    font-family: var(--font-family__FuturaDemiC);
+    font-size: convert-px2rem(36);
+    line-height: 1.25 * 100%;
+    margin: 0 0 convert-px2rem(10);
+    @include breakpoint($b-laptop) {
+      font-size: convert-px2rem(40);
+      margin: 0 0 convert-px2rem(10);
+    }
+  }
+
+  &__description {
+    font-size: convert-px2rem(14);
+    line-height: 1.43 * 100%;
+    letter-spacing: 0.02em;
+    max-width: convert-px2rem(450);
+    margin: 0 auto convert-px2rem(15);
+    @include breakpoint($b-laptop) {
+      margin: 0 auto;
+    }
+  }
+
+  &__pictureItWorks {
+    margin-top: convert-px2rem(20);
+    @include breakpoint($b-laptop) {
+      margin-top: convert-px2rem(50);
+    }
+
+    &__imageBox {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: convert-px2rem(1229);
+      height: calc(100vw * 801 / 1229);
+      max-height: convert-px2rem(calc(1229 * 801 / 1229));
+      position: relative;
+    }
+
+    &__btn {
+      opacity: 1 !important;
+      display: inline-block;
+      @include breakpoint($b-laptop) {
+        margin: 0 auto convert-px2rem(30);
+      }
+    }
+  }
+
+  &__videoInstruction {
+    padding: convert-px2rem(35) 0 convert-px2rem(24);
+    @include breakpoint($b-laptop) {
+      padding: convert-px2rem(70) 0 convert-px2rem(65);
+    }
+
+    &__box {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      @include breakpoint($b-tabletS) {
+        flex-direction: row;
+      }
+    }
+
+    &__instructionItem {
+      flex: 0 1 100%;
+      @include breakpoint($b-tabletS) {
+        flex: 0 1 0.4897 * 100%;
+      }
+
+      &__name {
+        font-family: var(--font-family__Inter-SemiBold);
+        text-align: left;
+        margin: 0 0 convert-px2rem(10) 0;
+        letter-spacing: -0.005em;
+        font-size: convert-px2rem(16);
+        line-height: 1.5625 * 100%;
+
+        @include breakpoint($b-tabletS) {
+          margin: 0 0 convert-px2rem(20) 0;
+        }
+      }
+
+      &__video {
+        position: relative;
+        width: 100%;
+        padding: 0 0 54.7%;
+        @include breakpoint($b-tablet) {
+          height: convert-px2rem(381);
+          padding: 0;
+        }
+
+        iframe {
+          position: absolute;
+          width: 100% !important;
+          height: 100% !important;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+
+    &__instructionItem + &__instructionItem {
+      margin: convert-px2rem(20) 0 0 0;
+      @include breakpoint($b-tabletS) {
+        margin: 0 0 0 convert-px2rem(30);
+      }
+    }
+  }
+
+  &__question {
+    padding: convert-px2rem(30) 0;
+    background-color: var(--color__gray-6);
+    @include breakpoint($b-laptop) {
+      padding: convert-px2rem(50) 0;
+    }
+
+    &__title {
+      font-family: var(--font-family__FuturaDemiC);
+      font-size: convert-px2rem(30);
+      margin: 0 0 convert-px2rem(20);
+      @include breakpoint($b-laptop) {
+        font-size: convert-px2rem(36);
+        margin: 0 0 convert-px2rem(20);
+      }
+    }
+
+    &__descript {
+      margin: 0 0 convert-px2rem(25);
+      max-width: convert-px2rem(450);
+    }
+
+    &__btnBox {
+      display: flex;
+    }
+
+    :global {
+      .question__btn {
+        padding-left: convert-px2rem(20) !important;
+        padding-right: convert-px2rem(20) !important;
+        min-width: auto !important;
+        border: 1px solid var(--color__SOLD) !important;
+        margin: 0 convert-px2rem(5);
+        background-color: transparent;
+      }
+    }
+  }
+}

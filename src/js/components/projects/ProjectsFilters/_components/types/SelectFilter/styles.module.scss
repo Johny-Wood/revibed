@@ -1,0 +1,8 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectFilterSelect {
+  &:not(:last-child) {
+    margin-right: convert-px2rem(12);
+  }
+}

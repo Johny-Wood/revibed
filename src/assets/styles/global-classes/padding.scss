@@ -1,0 +1,49 @@
+@import '../_mixins/convert-px2rem';
+
+.p-top {
+  &-1 {
+    padding-top: convert-px2rem(1) !important;
+  }
+
+  &-10 {
+    padding-top: convert-px2rem(10) !important;
+  }
+
+  &-13 {
+    padding-top: convert-px2rem(13) !important;
+  }
+
+  &-15 {
+    padding-top: convert-px2rem(15) !important;
+  }
+
+  &-20 {
+    padding-top: convert-px2rem(20) !important;
+  }
+
+  &-30 {
+    padding-top: convert-px2rem(30) !important;
+  }
+}
+
+.p-bottom {
+  &-2 {
+    padding-bottom: convert-px2rem(2) !important;
+  }
+
+  &-10 {
+    padding-bottom: convert-px2rem(10) !important;
+  }
+
+  &-15 {
+    padding-bottom: convert-px2rem(15) !important;
+  }
+
+  &-20 {
+    padding-bottom: convert-px2rem(20) !important;
+  }
+
+  &-30 {
+    padding-bottom: convert-px2rem(30) !important;
+  }
+}

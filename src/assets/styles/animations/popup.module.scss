@@ -1,0 +1,117 @@
+@import '../_mixins/convert-px2rem';
+
+$duration: 300ms;
+$durationOpacity: 200ms;
+$durationTransform: 225ms;
+$translateY: convert-px2rem(-10);
+$overlayBackgroundActive: rgba(26, 26, 26, 0.3);
+$overlayBackground: rgba(26, 26, 26, 0);
+
+.popupAnimation {
+  &Enter {
+    :global {
+      .popup {
+        &-in {
+          opacity: 0 !important;
+          transform: translateY($translateY) !important;
+        }
+
+        &-block {
+          background-color: $overlayBackground !important;
+        }
+      }
+    }
+
+    &_active {
+      :global {
+        .popup {
+          &-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            transition:
+              transform $durationTransform ease,
+              opacity $durationOpacity ease;
+          }
+
+          &-block {
+            background-color: $overlayBackgroundActive !important;
+            transition: background-color $duration ease;
+          }
+        }
+      }
+    }
+
+    &_done {
+      :global {
+        .popup {
+          &-block {
+            background-color: $overlayBackgroundActive !important;
+          }
+        }
+      }
+    }
+  }
+
+  &Exit {
+    :global {
+      .popup {
+        &-block {
+          background-color: $overlayBackgroundActive !important;
+        }
+      }
+    }
+
+    &_active {
+      :global {
+        .popup {
+          &-in {
+            opacity: 0 !important;
+            transform: translateY($translateY) !important;
+            transition:
+              transform $durationTransform ease,
+              opacity $durationOpacity ease 25ms;
+          }
+
+          &-block {
+            background-color: $overlayBackground !important;
+            transition: background-color $duration ease;
+          }
+        }
+      }
+    }
+  }
+}
+
+.onlyPopupAnimation {
+  &Enter {
+    :global {
+      .popup-animate {
+        transform: translateY(100%) !important;
+      }
+    }
+
+    &_active {
+      :global {
+        .popup-animate {
+          transform: translateY(0) !important;
+          transition:
+            transform $duration ease,
+            opacity $duration ease !important;
+        }
+      }
+    }
+  }
+
+  &Exit {
+    &_active {
+      :global {
+        .popup-animate {
+          transform: translateY(100%) !important;
+          transition:
+            transform $duration ease,
+            opacity $duration ease !important;
+        }
+      }
+    }
+  }
+}

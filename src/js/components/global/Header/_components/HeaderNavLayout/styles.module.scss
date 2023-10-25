@@ -1,0 +1,24 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+$navigation_margin-x__header: convert-px2rem(10);
+$navigation_margin-x__footer: convert-px2rem(5);
+$navigation_font-size__header: convert-px2rem(16);
+$navigation_font-size__footer: convert-px2rem(12);
+
+.headerNavLayout {
+  margin-right: auto;
+  margin-left: auto;
+
+  :global {
+    .link {
+      margin: 0 $navigation_margin-x__header;
+      color: var(--color__black);
+      font-family: var(--font-family__Inter-Medium);
+
+      .text {
+        font-size: $navigation_font-size__header;
+      }
+    }
+  }
+}

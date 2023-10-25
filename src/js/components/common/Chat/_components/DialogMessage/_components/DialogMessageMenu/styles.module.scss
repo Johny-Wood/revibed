@@ -1,0 +1,48 @@
+@import '../../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.dialogMessageContext {
+  width: convert-px2rem(155);
+  position: absolute;
+  z-index: 5;
+  top: convert-px2rem(30);
+  right: convert-px2rem(-15);
+  background-color: var(--color__white);
+
+  @include breakpoint($b-laptop) {
+    top: convert-px2rem(3);
+    margin-right: convert-px2rem(-155);
+  }
+
+  :global {
+    .button {
+      position: relative;
+      z-index: 5;
+      padding: convert-px2rem(8) convert-px2rem(10);
+      border: 1px solid var(--color__gray-3) !important;
+      background-color: var(--color__white) !important;
+      width: 100%;
+      transition:
+        background-color var(--transition-duration) ease,
+        font-weight var(--transition-duration) ease;
+      justify-content: flex-start !important;
+
+      .text {
+        color: var(--color__black) !important;
+        margin: 0 !important;
+      }
+
+      &:disabled {
+        cursor: default;
+      }
+
+      &:not(:disabled):not(.disabled):not(.selected) {
+        &:hover {
+          @include breakpoint($b-laptop) {
+            background-color: var(--color__gray-4) !important;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@import '../../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.blackCatCardCopyCode {
+  padding: convert-px2rem(10) convert-px2rem(15) convert-px2rem(10) convert-px2rem(20);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color_PACKAGE_PURPLE);
+  border-radius: convert-px2rem(66);
+  max-width: convert-px2rem(417);
+  width: 100%;
+  @include breakpoint($b-tabletS__max) {
+    margin: 0 auto;
+    padding: convert-px2rem(8) convert-px2rem(12) convert-px2rem(8) convert-px2rem(20);
+    width: 90%;
+  }
+
+  &__text {
+    font-size: convert-px2rem(22);
+    line-height: convert-px2rem(27);
+    padding-right: convert-px2rem(20);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  :global {
+    .button_copy {
+      border-radius: convert-px2rem(100);
+      padding: convert-px2rem(7.5);
+      min-width: convert-px2rem(100) !important;
+      width: convert-px2rem(100);
+
+      .text {
+        font-family: var(--font-family__Inter-Medium);
+        @include breakpoint($b-tabletS__max) {
+          font-size: convert-px2rem(14);
+        }
+      }
+    }
+  }
+}

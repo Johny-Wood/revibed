@@ -1,0 +1,31 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectTypePreviewControl {
+  margin-left: convert-px2rem(12);
+
+  :global {
+    button.button {
+      &:not(.active):hover {
+        @include breakpoint($b-laptop) {
+          opacity: 1 !important;
+          & > .icon {
+            opacity: 0.8;
+          }
+        }
+      }
+
+      &.active {
+        background: var(--color__gray-5) !important;
+      }
+
+      &:nth-child(odd):not(:last-child) {
+        border-right: none !important;
+      }
+
+      &:nth-child(even):not(:first-child) {
+        border-left: none !important;
+      }
+    }
+  }
+}

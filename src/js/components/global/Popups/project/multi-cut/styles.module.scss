@@ -1,0 +1,66 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.MultiCutPopup {
+  .popup {
+    &Content {
+      padding-top: 0;
+      max-width: convert-px2rem(355);
+      margin: 0 auto;
+    }
+
+    &In {
+      @include breakpoint($b-laptop) {
+        padding: convert-px2rem(15) convert-px2rem(35) convert-px2rem(35);
+      }
+    }
+
+    &InfoText {
+      margin-top: convert-px2rem(18);
+      color: var(--color__gray-2);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    &DoubleButtons {
+      width: 100%;
+      margin-top: convert-px2rem(10);
+    }
+  }
+
+  &__multiCutInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: convert-px2rem(16);
+  }
+
+  &__value {
+    font-size: convert-px2rem(20);
+  }
+
+  &__participantUseGemError {
+    padding-top: convert-px2rem(10);
+    font-size: convert-px2rem(12);
+  }
+
+  :global {
+    .input-block {
+      width: 100% !important;
+
+      .input {
+        width: 100% !important;
+      }
+    }
+
+    .golden-icon-bg {
+      top: convert-px2rem(-35);
+      right: convert-px2rem(-270);
+    }
+  }
+}

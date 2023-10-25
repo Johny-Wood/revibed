@@ -1,0 +1,18 @@
+{
+  "NAME": {
+    "en": "Name",
+    "ru": "Name"
+  },
+  "TOTAL_INVESTED": {
+    "en": "Total Invested",
+    "ru": "Total Invested"
+  },
+  "FOUNDED": {
+    "en": "Founded",
+    "ru": "Founded"
+  },
+  "CONTRIBUTED": {
+    "en": "Contributed",
+    "ru": "Contributed"
+  }
+}

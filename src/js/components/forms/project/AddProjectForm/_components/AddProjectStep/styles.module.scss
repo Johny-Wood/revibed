@@ -1,0 +1,72 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+$step-number_size: convert-px2rem(30);
+
+.draftProjectStep {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: convert-px2rem(25);
+  @include breakpoint($b-laptop) {
+    margin-top: convert-px2rem(30);
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: convert-px2rem(15);
+    position: relative;
+
+    h2 {
+      line-height: normal;
+      letter-spacing: -0.005em;
+      @include breakpoint($b-tabletS__max) {
+        flex-grow: 1;
+      }
+    }
+
+    :global {
+      .checkbox {
+        &-block {
+          margin: 0 0 0 auto;
+          @include breakpoint($b-laptop) {
+            margin: convert-px2rem(5) 0 0 convert-px2rem(30);
+          }
+
+          .checkbox {
+            @include breakpoint($b-tabletS__max) {
+              max-width: convert-px2rem(145);
+              align-items: flex-end;
+              margin-top: convert-px2rem(5);
+            }
+          }
+        }
+
+        &__text {
+          font-size: convert-px2rem(14) !important;
+          color: var(--color__black);
+        }
+      }
+    }
+  }
+
+  &__number {
+    border: 2.5px solid var(--color__black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--color__white);
+    margin-right: convert-px2rem(10);
+    width: $step-number_size;
+    min-width: $step-number_size;
+    height: $step-number_size;
+  }
+}

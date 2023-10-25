@@ -1,0 +1,13 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.buttonApplyFilter {
+  z-index: 500;
+  position: absolute;
+  top: 0;
+  transform: translateY(100vh);
+  left: calc(100% + #{convert-px2rem(18)});
+  @include breakpoint($b-laptop) {
+    left: calc(100% + #{convert-px2rem(8)});
+  }
+}

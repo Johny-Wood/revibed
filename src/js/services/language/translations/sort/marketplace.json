@@ -1,0 +1,18 @@
+{
+  "MARKETPLACE_GOODS_PRICE": {
+    "en": "Album price",
+    "ru": "Album price"
+  },
+  "MARKETPLACE_CREATED_AT": {
+    "en": "Date",
+    "ru": "Date"
+  },
+  "MARKETPLACE_ALBUM_NAME": {
+    "en": "Album",
+    "ru": "Album"
+  },
+  "MARKETPLACE_IN_SALE_STATUS": {
+    "en": "Status",
+    "ru": "Status"
+  }
+}

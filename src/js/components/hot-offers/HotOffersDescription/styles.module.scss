@@ -1,0 +1,48 @@
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../assets/styles/_mixins/breakpoint';
+
+.hotOffersDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: convert-px2rem(30);
+  background: var(--color__white);
+  box-shadow: 0 convert-px2rem(3) convert-px2rem(15) rgba(0, 0, 0, 0.1);
+  border-radius: convert-px2rem(8);
+
+  &__title {
+    margin-bottom: convert-px2rem(20);
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    p {
+      letter-spacing: 0.02em;
+
+      &:not(:first-child) {
+        margin-top: convert-px2rem(20);
+      }
+    }
+  }
+
+  .showMore {
+    word-break: unset;
+
+    &__button {
+      margin-top: convert-px2rem(20);
+
+      :global {
+        .text {
+          color: var(--color__gray-3);
+          font-size: convert-px2rem(14);
+        }
+      }
+    }
+  }
+}

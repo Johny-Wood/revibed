@@ -1,0 +1,10 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectCardTabs {
+  border-color: var(--color__gray-4);
+
+  &__tabContent {
+    min-height: convert-px2rem(600);
+  }
+}

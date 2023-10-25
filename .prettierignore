@@ -1,0 +1,12 @@
+.idea/
+
+.next/
+.husky/
+
+node_modules/
+public/
+
+.yarn
+.eslintrc.cjs
+
+src/assets/styles/_mixins/_breakpoint

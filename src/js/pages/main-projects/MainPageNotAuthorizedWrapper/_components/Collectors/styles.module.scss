@@ -1,0 +1,175 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.Collector {
+  padding-top: convert-px2rem(100);
+  @include breakpoint($b-tabletS__max) {
+    padding-top: convert-px2rem(52);
+  }
+  @include breakpoint($b-mobileS__max) {
+    padding-top: convert-px2rem(80);
+  }
+  overflow: hidden;
+  position: relative;
+  background-color: #6297dc;
+
+  &__wrapper {
+    align-items: center;
+    padding-bottom: 0;
+    @include breakpoint($b-mobileS__max) {
+      padding-left: convert-px2rem(16);
+      padding-right: convert-px2rem(16);
+    }
+  }
+
+  &__title {
+    color: #000;
+    text-align: center;
+    font-size: convert-px2rem(30);
+    line-height: 113.333%;
+    letter-spacing: convert-px2rem(0.6);
+    font-family: var(--font-family__Inter-Black);
+    @include breakpoint($b-mobileS__max) {
+      font-size: convert-px2rem(22);
+    }
+  }
+
+  &__desc {
+    margin: convert-px2rem(40) auto 0;
+    max-width: convert-px2rem(582);
+    font-size: convert-px2rem(16);
+    text-align: center;
+    line-height: 137.5%;
+    letter-spacing: convert-px2rem(0.8);
+    @include breakpoint($b-tabletS__max) {
+      font-size: convert-px2rem(12);
+      max-width: convert-px2rem(370);
+      letter-spacing: convert-px2rem(0.6);
+      margin: convert-px2rem(16) auto 0;
+    }
+    @include breakpoint($b-mobileS__max) {
+      font-size: convert-px2rem(12);
+      max-width: convert-px2rem(280);
+      margin: convert-px2rem(20) auto 0;
+    }
+  }
+
+  &__cards {
+    margin: convert-px2rem(40) auto 0;
+    gap: convert-px2rem(11);
+    justify-content: center;
+    max-width: convert-px2rem(920);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(convert-px2rem(172), 1fr));
+    @include breakpoint($b-tabletS__max) {
+      margin: convert-px2rem(30) auto 0;
+      grid-template-columns: repeat(auto-fit, minmax(convert-px2rem(122), 1fr));
+      max-width: convert-px2rem(680);
+    }
+    @include breakpoint($b-mobileS__max) {
+      gap: convert-px2rem(20);
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    width: convert-px2rem(172);
+    height: convert-px2rem(172);
+    padding: convert-px2rem(7);
+    @include breakpoint($b-tabletS__max) {
+      width: convert-px2rem(122);
+      height: convert-px2rem(122);
+    }
+    @include breakpoint($b-mobileS__max) {
+      padding: convert-px2rem(10);
+      aspect-ratio: 1;
+      width: 100%;
+      height: auto;
+    }
+
+    &:nth-child(5n + 1) {
+      background: #5ab0ff;
+    }
+    &:nth-child(5n + 2) {
+      background: #ffc658;
+    }
+    &:nth-child(5n + 3) {
+      background: #ff9776;
+    }
+    &:nth-child(5n + 4) {
+      background: #41c853;
+    }
+    &:nth-child(5n + 5) {
+      background: #ff707e;
+    }
+  }
+
+  &__cardName {
+    color: #000;
+    font-size: convert-px2rem(16);
+   font-family: var(--font-family__Inter-Bold);
+    line-height: convert-px2rem(20);
+    letter-spacing: convert-px2rem(0.8);
+    @include breakpoint($b-tabletS__max) {
+      padding: 0 convert-px2rem(10) 0 0;
+      font-size: convert-px2rem(14);
+    }
+    @include breakpoint($b-mobileS__max) {
+      padding: 0 convert-px2rem(10) 0 0;
+      font-size: convert-px2rem(16);
+    }
+  }
+
+  &__cardImage {
+    margin: auto 0 0 auto;
+    width: convert-px2rem(75);
+    height: convert-px2rem(75);
+    @include breakpoint($b-tabletS__max) {
+      width: convert-px2rem(53);
+      height: convert-px2rem(53);
+    }
+    @include breakpoint($b-mobileS__max) {
+      width: convert-px2rem(71);
+      height: convert-px2rem(71);
+    }
+  }
+
+  &__licensed {
+    margin-top: convert-px2rem(190);
+    display: flex;
+    align-items: flex-end;
+    column-gap: convert-px2rem(10);
+    @include breakpoint($b-tabletS__max) { 
+      margin-top: convert-px2rem(111);
+      font-size:  convert-px2rem(12);
+      & svg {
+        width: convert-px2rem(120);
+      }
+    }
+    @include breakpoint($b-mobileS__max) { 
+      margin-top: convert-px2rem(142);
+      & svg {
+        width: convert-px2rem(128);
+      }
+    }
+  }
+}
+
+@keyframes infiniteRotate {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

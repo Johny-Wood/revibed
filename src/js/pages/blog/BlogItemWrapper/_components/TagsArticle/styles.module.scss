@@ -1,0 +1,22 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.blogItemTags {
+  width: 100%;
+
+  .blogItemTags {
+    &__list {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-top: convert-px2rem(20);
+    }
+
+    &__tag {
+      margin: convert-px2rem(10) convert-px2rem(10) 0 0 !important;
+    }
+  }
+}

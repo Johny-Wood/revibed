@@ -1,0 +1,31 @@
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../assets/styles/_mixins/breakpoint';
+
+.marketplace {
+  .itemsList {
+    &__list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-top: convert-px2rem(20 - 12);
+    }
+
+    &__sideBar {
+      @include breakpoint($b-laptop) {
+        margin-top: convert-px2rem(-125);
+      }
+    }
+
+    &__block {
+      width: calc(100% / 2 - #{convert-px2rem(25)});
+      @include breakpoint(600px) {
+        width: calc(100% / 3 - #{convert-px2rem(25)});
+      }
+      @include breakpoint($b-tablet) {
+        width: calc(100% / 4 - #{convert-px2rem(25)});
+      }
+      @include breakpoint($b-tabletS) {
+        width: calc(100% / 5 - #{convert-px2rem(25)});
+      }
+    }
+  }
+}

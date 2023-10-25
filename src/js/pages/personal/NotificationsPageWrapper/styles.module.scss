@@ -1,0 +1,10 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.NotificationsPageWrapper {
+  position: relative;
+  z-index: 5;
+  margin: 0;
+  padding: 0;
+  min-height: convert-px2rem(16);
+}

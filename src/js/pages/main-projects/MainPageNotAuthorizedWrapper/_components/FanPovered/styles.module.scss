@@ -1,0 +1,348 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.FanPovered {
+  padding-top: convert-px2rem(100);
+  padding-bottom: convert-px2rem(100);
+  position: relative;
+  background-color: #6297dc;
+  @include breakpoint($b-tabletS__max) {
+    padding-top: convert-px2rem(100);
+    padding-bottom: convert-px2rem(30);
+  }
+  @include breakpoint($b-mobileS__max) {
+    padding-top: convert-px2rem(90);
+    padding-bottom: convert-px2rem(10);
+  }
+
+  &__wrapper {
+    align-items: center;
+  }
+
+  &__imageWrapper {
+    position: relative;
+
+    max-width: convert-px2rem(445);
+    @include breakpoint($b-tabletS__max) {
+      max-width: convert-px2rem(316);
+    }
+    @include breakpoint($b-mobileS__max) {
+      max-width: convert-px2rem(270);
+    }
+    width: 100%;
+    text-align: right;
+    margin: 0 auto;
+    &::before {
+      content: '';
+      z-index: 3;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: convert-px2rem(25);
+      background-color: #6297dc;
+      border-top: convert-px2rem(1) solid #000;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    z-index: 1;
+  
+    transition: translate 1s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    translate: -2.5rem 0;
+    &.FanPovered__imageAnimate {
+      translate: 0.5rem 0;
+      animation: infiniteRotate 2.4s linear infinite;
+    }
+    &:nth-child(even) {
+      animation-direction: reverse;
+    }
+    &:nth-child(1) {
+      bottom: convert-px2rem(-10);
+      left: convert-px2rem(30);
+      @include breakpoint($b-tabletS__max) {
+        bottom: convert-px2rem(-5);
+        left: convert-px2rem(18);
+        width: convert-px2rem(24);
+        height: convert-px2rem(24);
+      }
+      @include breakpoint($b-mobileS__max) {
+        bottom: convert-px2rem(-5);
+        left: convert-px2rem(10);
+        width: convert-px2rem(24);
+        height: convert-px2rem(24);
+      }
+    }
+    &:nth-child(2) {
+      bottom: convert-px2rem(12);
+      left: convert-px2rem(3);
+      @include breakpoint($b-tabletS__max) {
+        bottom: convert-px2rem(8);
+        left: convert-px2rem(0);
+        width: convert-px2rem(42);
+        height: convert-px2rem(42);
+      }
+      @include breakpoint($b-mobileS__max) {
+        left: convert-px2rem(-5);
+        width: convert-px2rem(42);
+        height: convert-px2rem(42);
+      }
+    }
+    &:nth-child(3) {
+      bottom: convert-px2rem(34);
+      left: convert-px2rem(50);
+      @include breakpoint($b-tabletS__max) {
+        bottom: convert-px2rem(22);
+        left: convert-px2rem(32);
+        width: convert-px2rem(30);
+        height: convert-px2rem(30);
+      }
+      @include breakpoint($b-mobileS__max) {
+        bottom: convert-px2rem(22);
+        left: convert-px2rem(27);
+        width: convert-px2rem(26);
+        height: convert-px2rem(26);
+      }
+    }
+    &:nth-child(4) {
+      bottom: convert-px2rem(18);
+      left: convert-px2rem(80);
+      @include breakpoint($b-tabletS__max) {
+        bottom: convert-px2rem(12);
+        left: convert-px2rem(52);
+        width: convert-px2rem(50);
+        height: convert-px2rem(50);
+      }
+      @include breakpoint($b-mobileS__max) {
+        bottom: convert-px2rem(12);
+        left: convert-px2rem(45);
+        width: convert-px2rem(42);
+        height: convert-px2rem(42);
+      }
+    }
+    &:nth-child(5) {
+      bottom: convert-px2rem(60);
+      left: convert-px2rem(30);
+      @include breakpoint($b-tabletS__max) {
+        bottom: convert-px2rem(40);
+        left: convert-px2rem(14);
+        width: convert-px2rem(75);
+        height: convert-px2rem(75);
+      }
+      @include breakpoint($b-mobileS__max) {
+        bottom: convert-px2rem(35);
+        left: convert-px2rem(9);
+        width: convert-px2rem(68);
+        height: convert-px2rem(68);
+      }
+    }
+    &:nth-child(6) {
+      bottom: convert-px2rem(115);
+      left: convert-px2rem(120);
+      @include breakpoint($b-tabletS__max) {
+        bottom: convert-px2rem(80);
+        left: convert-px2rem(75);
+        width: convert-px2rem(25);
+        height: convert-px2rem(25);
+      }
+      @include breakpoint($b-mobileS__max) {
+        bottom: convert-px2rem(75);
+        left: convert-px2rem(65);
+        width: convert-px2rem(20);
+        height: convert-px2rem(20);
+      }
+    }
+    &:nth-child(7) {
+      top: convert-px2rem(-10);
+      left: convert-px2rem(140);
+      @include breakpoint($b-tabletS__max) {
+        top: convert-px2rem(-12);
+        left: convert-px2rem(90);
+        width: convert-px2rem(42);
+        height: convert-px2rem(42);
+      }
+      @include breakpoint($b-mobileS__max) {
+        top: convert-px2rem(-10);
+        left: convert-px2rem(76);
+        width: convert-px2rem(36);
+        height: convert-px2rem(36);
+      }
+    }
+  }
+
+  &__imageMain {
+    position: relative;
+    z-index: 2;
+    margin-right: convert-px2rem(4);
+    transform: rotate(7deg);
+    width: convert-px2rem(248);
+    height: convert-px2rem(180);
+    transition: translate 1s cubic-bezier(0.19, 1, 0.22, 1) 0s, transform 1s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    translate: 1.2rem 0;
+    margin-bottom: convert-px2rem(-10);
+    margin-right: convert-px2rem(15);
+    &.FanPovered__imageMainAnimate {
+      transform: rotate(12deg);
+      translate: 0 0;
+    }
+    @include breakpoint($b-tabletS__max) {
+      margin-bottom: convert-px2rem(-10);
+      width: convert-px2rem(180);
+      height: convert-px2rem(125);
+    }
+    @include breakpoint($b-mobileS__max) {
+      margin-bottom: convert-px2rem(-10);
+      margin-right: convert-px2rem(5);
+      width: convert-px2rem(160);
+      height: convert-px2rem(115);
+    }
+  }
+
+  &__title {
+    margin-top: convert-px2rem(37);
+    color: #000;
+    text-align: center;
+    font-size: convert-px2rem(30);
+    line-height: 113.333%;
+    letter-spacing: convert-px2rem(0.6);
+    font-family: var(--font-family__Inter-Black);
+    @include breakpoint($b-tabletS__max) {
+      margin-top: convert-px2rem(26);
+      font-size: convert-px2rem(22);
+    }
+    @include breakpoint($b-mobileS__max) {
+      margin-top: convert-px2rem(26);
+      font-size: convert-px2rem(22);
+    }
+  }
+
+  &__desc {
+    margin: convert-px2rem(40) auto 0;
+    font-size: convert-px2rem(16);
+    max-width: convert-px2rem(508);
+    font-weight: 400;
+    text-align: center;
+    line-height: 137.5%;
+    letter-spacing: convert-px2rem(0.8);
+    & br {
+      display: none;
+    }
+    @include breakpoint($b-tabletS__max) {
+      margin: convert-px2rem(26) auto 0;
+      font-size: convert-px2rem(12);
+      max-width: convert-px2rem(360);
+      letter-spacing: convert-px2rem(0.6);
+    }
+    @include breakpoint($b-mobileS__max) {
+      margin: convert-px2rem(20) auto 0;
+      font-size: convert-px2rem(12);
+      & br {
+        display: block;
+      }
+    }
+  }
+
+  &__footer {
+    margin-top: convert-px2rem(100);
+    display: flex;
+    gap: convert-px2rem(46);
+    @include breakpoint($b-tabletS__max) {
+      margin-top: convert-px2rem(71);
+      gap: convert-px2rem(32);
+    }
+    @include breakpoint($b-mobileS__max) {
+      margin-top: convert-px2rem(35);
+
+      flex-direction: column;
+      gap: convert-px2rem(41);
+    }
+  }
+
+  &__footerSeparator {
+    width: convert-px2rem(1);
+    height: inherit;
+    display: block;
+    flex-shrink: 0;
+    background-color: #666;
+    @include breakpoint($b-mobileS__max) {
+      display: none;
+    }
+  }
+
+  &__footerCol {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    max-width: convert-px2rem(330);
+    min-height: 100%;
+    @include breakpoint($b-tabletS__max) {
+      max-width: convert-px2rem(236);
+    }
+    @include breakpoint($b-mobileS__max) {
+      max-width: 100%;
+    }
+  }
+
+  &__footerText {
+    font-size: convert-px2rem(14);
+    line-height: 142.857%;
+    letter-spacing: convert-px2rem(0.7);
+    text-transform: uppercase;
+    margin-bottom: convert-px2rem(25);
+    @include breakpoint($b-tabletS__max) {
+      margin-bottom: convert-px2rem(20);
+      font-size: convert-px2rem(10);
+      line-height: 130%;
+      letter-spacing: convert-px2rem(0.5);
+    }
+    @include breakpoint($b-mobileS__max) {
+      margin-bottom: convert-px2rem(15);
+      font-size: convert-px2rem(12);
+      line-height: 125%;
+    }
+  }
+
+  &__button {
+    margin-top: auto;
+    border-radius: convert-px2rem(10);
+    font-size: convert-px2rem(16);
+    padding: convert-px2rem(15) convert-px2rem(40) !important;
+    font-family: var(--font-family__Inter-Bold);
+    &::after {
+      border-radius: inherit;
+    }
+    background-color: #000 !important;
+    @include breakpoint($b-tabletS__max) {
+      padding: convert-px2rem(10) convert-px2rem(20) !important;
+      min-width: convert-px2rem(160) !important;
+      min-height: convert-px2rem(35);
+      font-size: convert-px2rem(12);
+      letter-spacing: convert-px2rem(0.6);
+    }
+    @include breakpoint($b-mobileS__max) {
+      min-width: convert-px2rem(220) !important;
+      font-size: convert-px2rem(12);
+      min-height: convert-px2rem(50);
+      letter-spacing: convert-px2rem(0.6);
+    }
+  }
+}
+
+@keyframes infiniteRotate {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

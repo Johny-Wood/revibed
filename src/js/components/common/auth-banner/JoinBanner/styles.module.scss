@@ -1,0 +1,96 @@
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../assets/styles/_mixins/breakpoint';
+
+.joinBanner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  &__background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+    img {
+      object-fit: cover;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(3, 3, 3, 0.78) 0%, rgba(0, 0, 0, 0.99) 100%);
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        270deg,
+        rgba(0, 0, 0, 0.84) 0%,
+        rgba(12, 12, 12, 0.63) 18.32%,
+        rgba(4, 4, 4, 0.63) 56.57%,
+        rgba(0, 0, 0, 0.8) 103.44%
+      );
+    }
+  }
+
+  &__form {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title {
+    color: var(--color__white);
+  }
+
+  &__content {
+  }
+
+  &__text {
+    color: var(--color__white);
+  }
+
+  &__button {
+    background-color: var(--color__purple2) !important;
+    min-width: convert-px2rem(96) !important;
+    border-top-right-radius: convert-px2rem(50);
+    border-bottom-right-radius: convert-px2rem(50);
+    overflow: hidden;
+    @include breakpoint($b-laptop) {
+      min-width: convert-px2rem(134) !important;
+    }
+  }
+
+  :global {
+    .input-block {
+      display: flex;
+
+      .input {
+        border: none !important;
+        border-top-left-radius: convert-px2rem(50);
+        border-bottom-left-radius: convert-px2rem(50);
+        overflow: hidden;
+      }
+    }
+  }
+}

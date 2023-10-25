@@ -1,0 +1,11 @@
+@function convert-px2rem($property, $font-size: var(--font-size__small-int)) {
+  $value: calc(1rem * #{$property} / #{var(--font-size__small-int)});
+
+  @return $value;
+}
+
+//@function convert-px2em( $property, $font-size: var(--font-size__small-int)) {
+//  $value: calc(1em * #{$property} / #{var(--font-size__small-int)});
+//
+//  @return $value;
+//}

@@ -1,0 +1,16 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.wantListImportInProcess {
+  width: 100%;
+  padding-bottom: convert-px2rem(15);
+  margin-top: convert-px2rem(30);
+  @include breakpoint($b-laptop) {
+    padding-bottom: convert-px2rem(40);
+    margin-top: convert-px2rem(-15);
+  }
+
+  &__spinProcess {
+    margin-bottom: convert-px2rem(25);
+  }
+}

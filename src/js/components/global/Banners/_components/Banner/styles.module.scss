@@ -1,0 +1,33 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.banner {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: convert-px2rem(80);
+  @include breakpoint($b-laptop) {
+    height: convert-px2rem(70);
+  }
+
+  .banner__wrapper {
+    opacity: 1 !important;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  :global {
+    .link {
+      &.active {
+        color: var(--color__black) !important;
+      }
+    }
+  }
+}

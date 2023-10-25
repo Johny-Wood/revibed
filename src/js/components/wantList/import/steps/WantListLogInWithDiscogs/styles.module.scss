@@ -1,0 +1,28 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.wantListImportDiscogsLogin {
+  .discogsLoginButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .buttonLoginDiscogs,
+  .buttonUpdateLoginDiscogs {
+    min-width: convert-px2rem(200) !important;
+  }
+
+  .buttonLoginDiscogs {
+    margin-bottom: convert-px2rem(30);
+  }
+
+  .buttonLogoutDiscogs {
+    margin: convert-px2rem(13) 0 convert-px2rem(30) convert-px2rem(15);
+    padding: convert-px2rem(10) !important;
+  }
+
+  .discogsLogin {
+    padding-top: convert-px2rem(13);
+  }
+}

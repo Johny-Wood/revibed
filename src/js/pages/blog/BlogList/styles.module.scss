@@ -1,0 +1,13 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.BlogList {
+  width: calc(100% + #{convert-px2rem(40)});
+  margin: 0 convert-px2rem(-20);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  text-align: left;
+}

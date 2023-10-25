@@ -1,0 +1,17 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.pageContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  @include breakpoint($b-laptop) {
+    min-height: convert-px2rem(577);
+  }
+
+  &__wrapper {
+    padding-bottom: 0 !important;
+  }
+}

@@ -1,0 +1,140 @@
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../assets/styles/_mixins/breakpoint';
+
+.tabsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  @include breakpoint($b-tabletS__max) {
+    margin-left: convert-px2rem(-10);
+    margin-right: convert-px2rem(-10);
+    width: calc(100% + #{convert-px2rem(20)});
+  }
+
+  &_type {
+    &_DEFAULT {
+      :global {
+        .tab-button {
+          margin: 0 convert-px2rem(14);
+          padding-top: convert-px2rem(11);
+          padding-bottom: convert-px2rem(11);
+          min-height: convert-px2rem(44);
+          border-bottom: convert-px2rem(2) solid transparent;
+          justify-content: center;
+          text-align: center;
+
+          .button__content {
+            display: flex;
+            justify-content: center;
+          }
+
+          &.active {
+            border-color: var(--color__gray-1) !important;
+            font-family: var(--font-family__Inter-Bold);
+          }
+
+          .text {
+            white-space: nowrap;
+            text-align: center;
+            position: absolute;
+          }
+
+          .text_double {
+            visibility: hidden;
+            pointer-events: none;
+            position: static;
+            opacity: 0 !important;
+            font-family: var(--font-family__Inter-Bold);
+          }
+        }
+      }
+
+      &.tabsContainer {
+        &_with_border {
+          border-bottom: 1px solid var(--color__gray-4);
+
+          :global {
+            .tab-button {
+              border-bottom: 2px solid transparent;
+            }
+          }
+        }
+      }
+
+      .tabNotificationCount {
+        top: 0;
+        right: convert-px2rem(-15);
+      }
+    }
+
+    &_TAGS {
+      :global {
+        .tab-button {
+          margin: 0 convert-px2rem(5);
+          padding: convert-px2rem(6) convert-px2rem(10);
+          border-radius: convert-px2rem(6);
+          font-family: var(--font-family__Inter-Regular);
+          background-color: var(--color__gray-5);
+          @include breakpoint($b-laptop) {
+            margin: 0 convert-px2rem(7.5);
+          }
+
+          &.active {
+            color: var(--color__white) !important;
+            background-color: var(--color__black);
+          }
+        }
+      }
+
+      .tabNotificationCount {
+        top: convert-px2rem(-5);
+        right: convert-px2rem(-8);
+      }
+    }
+  }
+
+  &__horizontalScrollLayout {
+    height: convert-px2rem(44);
+
+    &__content {
+      @include breakpoint($b-tabletS__max) {
+        padding-left: convert-px2rem(10);
+        padding-right: convert-px2rem(10);
+      }
+    }
+  }
+
+  &__navigation {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .tabNotificationCount {
+    position: absolute;
+  }
+
+  :global {
+    .tab-button {
+      color: var(--color__black);
+      position: relative;
+      text-align: center;
+      width: max-content;
+      transition: border-color var(--transition-duration) ease,
+      background-color var(--transition-duration) ease,
+      color var(--transition-duration) ease,
+      opacity var(--transition-duration) ease !important;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

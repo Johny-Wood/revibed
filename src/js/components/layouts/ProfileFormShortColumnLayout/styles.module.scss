@@ -1,0 +1,14 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.formSettingsContent_shortColumn {
+  width: 100%;
+  max-width: convert-px2rem(500);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  @include breakpoint($b-laptop) {
+    max-width: convert-px2rem(345);
+  }
+}

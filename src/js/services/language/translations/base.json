@@ -1,0 +1,74 @@
+{
+  "title": {
+    "en": "Revibed",
+    "ru": "Revibed"
+  },
+  "login": {
+    "en": "Log In",
+    "ru": "Log In"
+  },
+  "signUp": {
+    "en": "Sign Up",
+    "ru": "Sign Up"
+  },
+  "loading": {
+    "en": "Loading...",
+    "ru": "Loading..."
+  },
+  "ROLE": {
+    "en": "Role",
+    "ru": "Role"
+  },
+  "founder": {
+    "en": "Founder",
+    "ru": "Founder"
+  },
+  "ripper": {
+    "en": "Ripper",
+    "ru": "Ripper"
+  },
+  "myPurchases": {
+    "en": "My purchases",
+    "ru": "My purchases"
+  },
+  "myPreOrders": {
+    "en": "Pre-orders",
+    "ru": "Pre-orders"
+  },
+  "myProjectsInModeration": {
+    "en": "In moderation",
+    "ru": "In moderation"
+  },
+  "contributor": {
+    "en": "Contributor",
+    "ru": "Contributor"
+  },
+  "contactAdmin": {
+    "en": "Contact admin",
+    "ru": "Contact admin"
+  },
+  "balance": {
+    "en": "Balance",
+    "ru": "Balance"
+  },
+  "invites": {
+    "en": "Invites",
+    "ru": "Invites"
+  },
+  "statistics": {
+    "en": "Statistics",
+    "ru": "Statistics"
+  },
+  "friends": {
+    "en": "Friends",
+    "ru": "Friends"
+  },
+  "settings": {
+    "en": "Settings",
+    "ru": "Settings"
+  },
+  "logout": {
+    "en": "Log out",
+    "ru": "Log out"
+  }
+}

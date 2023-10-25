@@ -1,0 +1,101 @@
+:root {
+  // ---------------------------
+  // Colors
+  // ---------------------------
+  --color__blue: #0066ff;
+  --color__blue-2: #007fc7;
+  --color__green: #009444;
+  --color__red: #f20829;
+  --color__red-1: #ff0000;
+  --color__black: #1a1a1a;
+  --color__white: #ffffff;
+  --color__gold: #e2be01;
+  --color__purple: #3d0079;
+  --color__purple2: #9b51e0;
+
+  --color__gray-0: #e5e5e5;
+  --color__gray-1: #4f4f4f;
+  --color__gray-2: #828282;
+  --color__gray-2_1: #979797;
+  --color__gray-3: #bdbdbd;
+  --color__gray-4: #e0e0e0;
+  --color__gray-5: #f1f1f1;
+  --color__gray-6: #f8f8f8;
+  --color__gray-7: #ececec;
+  --color__gray-8: #d9d9d9;
+  --color__gray-custom: #f9f9f9;
+  --color__gem: linear-gradient(180deg, #d3b13a 0%, rgba(238, 111, 70, 0.88) 100%);
+  --color__golden-coin: linear-gradient(180deg, #ffc46a 0%, #bd7b0c 100%);
+  --color__golden-coin2: linear-gradient(180deg, #d3b13a 0%, rgba(238, 111, 70, 0.88) 100%);
+  --color__invite-friends: linear-gradient(180deg, #f6d660 0%, #8dc63f 100%);
+  --color__cutom-tag: linear-gradient(101.67deg, #48cce0 9.23%, #505add 34.87%, #be40c0 62.35%, #fba82b 90.18%);
+  --color__purple-gradient: linear-gradient(90deg, #ff4f52 0%, #393adc 100%);
+
+  --color__blue_3: #0038c7;
+
+  --color__OPEN: #009444;
+  --color__LAST_CALL: #ca0000;
+  --color__IN_TRANSIT: #0038c7;
+  --color__LISTED: #1a1a1a;
+  --color__SOLD: #828282;
+  --color__CLOSED: var(--color__purple);
+  --color__DRAFT: #bdbdbd;
+  --color__WANTED: #e2be00;
+  --color__IN_MODERATION: #03a1ab;
+  --color__REJECTED: #ff7a00;
+  --color__REFUND_PENDING: #80bacc;
+  --color__ARRIVED: #000077;
+  --color__RIPPED: #52c162;
+  --color__RECORD_KEPT: #a57f60;
+  --color__LEGACY: var(--color__gray-4);
+  --color__VOTE_FOR_SALE: #ffc107;
+  --color__LATE_ENTRY: var(--color__golden-coin);
+  --color__COMING_SOON: #fffdec;
+  --color__COMING_SOON_text: var(--color__golden-coin);
+
+  --color_PACKAGE_GRAY: var(--color__gray-6);
+  --color_PACKAGE_RED: #fffbdc;
+  --color_PACKAGE_BLUE: #dcf4ff;
+  --color_PACKAGE_PURPLE: #ebeeff;
+
+  // System message colors
+  --color_MESSAGE_DEFAULT: #ffffff;
+  --color_MESSAGE_SUCCESS: #e1ffdc;
+  --color_MESSAGE_DECLINE: #ffd7d7;
+  --color_MESSAGE_INFORMATION: #dcf4ff;
+  --color_MY_MESSAGE: #fcf9e2;
+  --color_ME_MESSAGE: #f6fcff;
+
+  // ---------------------------
+  // Typography
+  // ---------------------------
+  --font-family__Inter-Light: 'Inter-Light', sans-serif;
+  --font-family__Inter-Regular: 'Inter-Regular', sans-serif;
+  --font-family__Inter-Regular-Italic: 'Inter-Regular-Italic', sans-serif;
+  --font-family__Inter-Medium: 'Inter-Medium', sans-serif;
+  --font-family__Inter-Medium-Italic: 'Inter-Medium-Italic', sans-serif;
+  --font-family__Inter-SemiBold: 'Inter-SemiBold', sans-serif;
+  --font-family__Inter-Bold: 'Inter-Bold', sans-serif;
+  --font-family__Inter-Black: 'Inter-Black', sans-serif;
+
+  --font-family__FuturaDemiC: 'FuturaDemiC', sans-serif;
+
+  --font-family__FuturaPT-SemiBold: 'FuturaPT-SemiBold', sans-serif;
+
+  --font-size__small--b-mobile: 12px;
+  --font-size__small: calc(var(--font-size__small-int) * 1px);
+  --font-size__normal: 16px;
+  --font-size__large: 18px;
+
+  --font-line-height: 20px;
+
+  // ---------------------------
+  // Effects
+  // ---------------------------
+  --transition-duration: 220ms;
+
+  --font-size__small-int: 14;
+
+  --hover-opacity: 0.7;
+  --disabled-opacity: 0.5;
+}

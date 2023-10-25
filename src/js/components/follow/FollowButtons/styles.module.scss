@@ -1,0 +1,24 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+button.followButton {
+  border-radius: convert-px2rem(2);
+
+  &_following {
+    :global {
+      .button__content .text {
+        color: var(--color__gray-3) !important;
+      }
+    }
+
+    &:not(.in_process):not(:disabled):not(.disabled):not(.active):hover {
+      @include breakpoint($b-laptop) {
+        :global {
+          .button__content .text {
+            color: var(--color__gray-3) !important;
+          }
+        }
+      }
+    }
+  }
+}

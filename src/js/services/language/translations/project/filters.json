@@ -1,0 +1,54 @@
+{
+  "GENRE": {
+    "en": "Genre",
+    "ru": "Genre"
+  },
+  "STYLE": {
+    "en": "Style",
+    "ru": "Style"
+  },
+  "FORMAT": {
+    "en": "Format",
+    "ru": "Format"
+  },
+  "PRICE": {
+    "en": "Price range",
+    "ru": "Price range"
+  },
+  "YEAR_RANGE": {
+    "en": "Year",
+    "ru": "Year"
+  },
+  "STATUS": {
+    "en": "Status",
+    "ru": "Status"
+  },
+  "UNREADABLE": {
+    "en": "Unread",
+    "ru": "Unread"
+  },
+  "COUNTRY": {
+    "en": "Country",
+    "ru": "Country"
+  },
+  "YEAR": {
+    "en": "Year",
+    "ru": "Year"
+  },
+  "FORMAT_DESCRIPTION": {
+    "en": "Format description",
+    "ru": "Format description"
+  },
+  "PRIVATE": {
+    "en": "Type",
+    "ru": "Type"
+  },
+  "CUSTOM_TAG": {
+    "en": "Tools",
+    "ru": "Tools"
+  },
+  "PARTICIPANT_TYPE": {
+    "en": "Type",
+    "ru": "Type"
+  }
+}

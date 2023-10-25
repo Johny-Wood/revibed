@@ -1,0 +1,25 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.sliderControls {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  color: var(--color__white);
+  font-size: convert-px2rem(24);
+  margin: 0;
+  @include breakpoint($b-laptop) {
+    margin: convert-px2rem(25) 0 convert-px2rem(25) 0;
+  }
+
+  &_mobile {
+    position: absolute;
+    bottom: convert-px2rem(23);
+    left: 0;
+    @include breakpoint($b-tabletS__max) {
+      font-size: convert-px2rem(16);
+    }
+  }
+}

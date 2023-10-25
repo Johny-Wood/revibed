@@ -1,0 +1,6 @@
+export const CommonScrollbarLocationsConstants = {
+  MAIN_SCROLL: 'MAIN_SCROLL',
+  DIALOG_SCROLL: 'DIALOG_SCROLL',
+  POPUP_SCROLL: 'POPUP_SCROLL',
+  LANDING_POPUP_SCROLL: 'LANDING_POPUP_SCROLL',
+};

@@ -1,0 +1,201 @@
+@import '@/assets/styles/_mixins/breakpoint';
+@import '@/assets/styles/_mixins/convert-px2rem';
+
+$bigSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 7);
+$smallSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 7 - #{convert-px2rem(10)});
+
+.MainCardContainer {
+  width: $smallSize;
+  padding: convert-px2rem(12) convert-px2rem(10);
+  @include breakpoint($b-laptop) {
+    width: $bigSize;
+  }
+}
+
+.MainCard {
+  transform-origin: 0 50%;
+  width: 100%;
+  max-width: $smallSize;
+  border-radius: convert-px2rem(6);
+  background-color: var(--color__white);
+  margin: 0 convert-px2rem(1.5);
+  @include breakpoint($b-laptop) {
+    max-width: $bigSize;
+  }
+
+  &_recommended {
+    background-color: var(--color_PACKAGE_PURPLE);
+
+    .nickname__name {
+      font-size: convert-px2rem(12) !important;
+    }
+  }
+
+  &_secured {
+    background-color: rgba(226, 190, 0, 0.15);
+
+    .nickname__name {
+      font-size: convert-px2rem(12) !important;
+    }
+  }
+
+  &__details {
+    margin-top: convert-px2rem(2);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    :global {
+      * {
+        letter-spacing: 0.001em;
+        font-size: convert-px2rem(11);
+      }
+
+      .c-last-call {
+        * {
+          color: var(--color__LAST_CALL);
+        }
+      }
+
+      .c-gray-2 {
+        * {
+          color: var(--color__gray-2);
+        }
+      }
+    }
+  }
+
+  &__date {
+    margin: 0;
+  }
+
+  .projectRoleInfo {
+    width: 100%;
+    margin-bottom: convert-px2rem(11);
+
+    &__name {
+      margin-right: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    &__contributorDescription,
+    &__bought {
+      font-size: convert-px2rem(10);
+      line-height: convert-px2rem(14);
+    }
+
+    &__params {
+      width: calc(100% - #{convert-px2rem(35)});
+    }
+
+    .nickname__name {
+      font-size: convert-px2rem(11);
+      line-height: convert-px2rem(14);
+      width: auto;
+      max-width: convert-px2rem(80);
+      @include breakpoint($b-laptop) {
+        max-width: convert-px2rem(95);
+      }
+
+      &__flag {
+        * {
+          $size: convert-px2rem(14);
+          min-width: $size !important;
+          width: $size !important;
+          min-height: $size !important;
+          height: $size !important;
+        }
+      }
+    }
+
+    .userAvatar {
+      margin-right: convert-px2rem(5);
+    }
+
+    :global {
+      .link {
+        width: auto;
+        max-width: convert-px2rem(80);
+        @include breakpoint($b-laptop) {
+          max-width: convert-px2rem(95);
+        }
+      }
+    }
+  }
+
+  &UpTo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: convert-px2rem(11);
+
+    &_OPEN {
+      color: var(--color__OPEN);
+
+      .MainCardUpTo__triangle {
+        border-color: transparent transparent var(--color__OPEN) transparent;
+      }
+    }
+
+    &_LAST_CALL {
+      color: var(--color__LAST_CALL);
+
+      .MainCardUpTo__triangle {
+        border-color: transparent transparent var(--color__LAST_CALL) transparent;
+      }
+    }
+
+    &__triangle {
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 convert-px2rem(6) convert-px2rem(10.4) convert-px2rem(6);
+    }
+  }
+
+  .projectCover {
+    $size: convert-px2rem(145);
+    min-width: $size;
+    width: $size;
+    height: $size;
+    margin: 0 auto;
+    box-shadow: 0 convert-px2rem(4) convert-px2rem(10) rgba(0, 0, 0, 0.3);
+    @include breakpoint($b-laptop) {
+      $size: convert-px2rem(155);
+      min-width: $size;
+      width: $size;
+      height: $size;
+    }
+
+    &Container {
+      margin: 0;
+    }
+  }
+
+  .projectNames {
+    padding-top: convert-px2rem(12);
+    min-height: convert-px2rem(45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__project__title,
+    &__project__album__title {
+      font-size: convert-px2rem(12);
+      line-height: convert-px2rem(16);
+      margin-bottom: 0;
+    }
+  }
+
+  :global {
+    .status__label {
+      position: absolute;
+      top: convert-px2rem(-10);
+      right: convert-px2rem(-10);
+    }
+  }
+}

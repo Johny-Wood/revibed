@@ -1,0 +1,11 @@
+export { default as PopupCartIdsConstants } from './cart.json';
+export { default as PopupCommonIdsConstants } from './common.json';
+export { default as PopupEmailIdsConstants } from './email.json';
+export { default as PopupPasswordIdsConstants } from './password.json';
+export { default as PopupPaymentsIdsConstants } from './payments.json';
+export { default as PopupPersonalIdsConstants } from './personal.json';
+export { default as PopupProjectIdsConstants } from './project.json';
+export { default as PopupRipperIdsConstants } from './ripper.json';
+export { default as PopupTokenIdsConstants } from './token.json';
+export { default as PopupWantListIdsConstants } from './wantList.json';
+export { default as PopupFileConstants } from './file.json';

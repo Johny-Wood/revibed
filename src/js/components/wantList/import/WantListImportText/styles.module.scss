@@ -1,0 +1,13 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.formWantListImportText {
+  margin-bottom: convert-px2rem(30);
+  max-width: convert-px2rem(614);
+  line-height: convert-px2rem(24);
+  letter-spacing: convert-px2rem(0.22);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

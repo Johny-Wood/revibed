@@ -1,0 +1,31 @@
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.buttonGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+
+  :global {
+    .button,
+    .tooltip {
+      margin: 0 !important;
+
+      &:not(:last-child) {
+        border-right-color: transparent;
+      }
+
+      &:not(:last-child) {
+        .button {
+          border-right-color: transparent;
+        }
+      }
+    }
+
+    .tooltip {
+      &:not(:first-child) {
+        margin-left: -1px !important;
+      }
+    }
+  }
+}

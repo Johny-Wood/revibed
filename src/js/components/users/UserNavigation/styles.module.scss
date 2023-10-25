@@ -1,0 +1,28 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.userTabs {
+  margin-bottom: convert-px2rem(20);
+
+  :global {
+    .tab-button {
+      border-bottom-width: convert-px2rem(2);
+      @include breakpoint($b-tabletS__max) {
+        margin: 0 convert-px2rem(12);
+      }
+
+      &.button-only-icon {
+        margin-left: auto;
+        padding-right: 0 !important;
+        @include breakpoint($b-laptop) {
+          padding-left: 0 !important;
+        }
+      }
+
+      .icon {
+        width: convert-px2rem(16);
+        height: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectProcess {
+  margin-top: convert-px2rem(10);
+  width: 100%;
+  height: convert-px2rem(5);
+  background-color: var(--color__gray-5);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: convert-px2rem(50);
+  overflow: hidden;
+
+  span {
+    transition:
+      width 0.5s ease,
+      background-color var(--transition-duration) ease;
+    height: 100%;
+    width: 0;
+    border-radius: convert-px2rem(50);
+  }
+}

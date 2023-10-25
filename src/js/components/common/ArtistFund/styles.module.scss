@@ -1,0 +1,28 @@
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.artistFund {
+  width: 100%;
+  min-height: convert-px2rem(56);
+  margin-bottom: convert-px2rem(30);
+  position: relative;
+
+  &Content {
+    background: var(--color__gray-6);
+    border: 1px solid var(--color__gray-5);
+    border-radius: convert-px2rem(50);
+    padding: convert-px2rem(17) convert-px2rem(25);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    &__description {
+      padding-right: convert-px2rem(10);
+    }
+
+    &__value {
+      padding-left: convert-px2rem(10);
+      font-family: var(--font-family__Inter-Medium);
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.discogsLoginBlock {
+  .discogsLogin {
+    &__buttons {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .nickname {
+      font-family: var(--font-family__Inter-Bold) !important;
+    }
+  }
+
+  .buttonLogoutDiscogs {
+    min-width: auto !important;
+    width: auto !important;
+    margin-top: convert-px2rem(15);
+
+    :global {
+      .icon-info {
+        width: convert-px2rem(13);
+        height: auto;
+        margin-top: convert-px2rem(1);
+
+        * {
+          fill: #000000 !important;
+        }
+      }
+
+      .text {
+        font-size: convert-px2rem(13);
+      }
+    }
+  }
+}

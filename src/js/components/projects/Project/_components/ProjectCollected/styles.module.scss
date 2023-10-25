@@ -1,0 +1,15 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectCollected {
+  &.c-gray-3 {
+    * {
+      color: var(--color__gray-3) !important;
+    }
+  }
+
+  &__shipping {
+    font-size: convert-px2rem(12);
+    min-height: 1.5em;
+    display: inline-block;
+  }
+}

@@ -1,0 +1,19 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.purchase {
+  padding-top: convert-px2rem(5);
+
+  &__backButton {
+    margin-top: 0 !important;
+    margin-bottom: convert-px2rem(40) !important;
+  }
+
+  .purchasesOrder {
+    &__id {
+      font-size: convert-px2rem(16);
+      font-family: var(--font-family__Inter-Bold);
+      margin-right: auto;
+    }
+  }
+}

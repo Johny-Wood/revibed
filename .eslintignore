@@ -1,0 +1,16 @@
+.idea/
+
+.next/
+.husky/
+
+node_modules/
+public/
+
+.yarn
+.eslintrc.cjs
+
+.env
+.env.example
+
+src/assets/styles/_mixins/_breakpoint
+

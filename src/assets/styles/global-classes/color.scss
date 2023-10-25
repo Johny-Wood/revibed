@@ -1,0 +1,141 @@
+.c {
+  &-white {
+    color: var(--color__white);
+  }
+
+  &-gray-1 {
+    color: var(--color__gray-1);
+    fill: var(--color__gray-1);
+
+    & > * {
+      fill: var(--color__gray-1);
+    }
+  }
+
+  &-gray-2 {
+    color: var(--color__gray-2);
+    fill: var(--color__gray-2);
+  }
+
+  &-gray-3 {
+    color: var(--color__gray-3);
+    fill: var(--color__gray-3);
+  }
+
+  &-gray-4 {
+    color: var(--color__gray-4);
+    fill: var(--color__gray-4);
+  }
+
+  &-gray-5 {
+    color: var(--color__gray-5);
+    fill: var(--color__gray-5);
+  }
+
+  &-gray-6 {
+    color: var(--color__gray-6);
+    fill: var(--color__gray-6);
+  }
+
+  &-blue {
+    color: var(--color__blue);
+    fill: var(--color__gray-blue);
+  }
+
+  &-red {
+    color: var(--color__red);
+    fill: var(--color__red);
+  }
+
+  &-gold {
+    color: var(--color__gold);
+    fill: var(--color__gold);
+  }
+
+  &-gem {
+    background: var(--color__gem);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+  }
+
+  &-golden-coin {
+    background: var(--color__golden-coin);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+  }
+
+  &-invite-friends {
+    background: var(--color__invite-friends);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+  }
+
+  &-black {
+    color: var(--color__black);
+    fill: var(--color__black);
+  }
+
+  &-black-exactly {
+    color: #000000;
+    fill: #000000;
+  }
+
+  &-white {
+    color: var(--color__white);
+    fill: var(--color__white);
+  }
+
+  &-open {
+    color: var(--color__OPEN);
+    fill: var(--color__OPEN);
+
+    & > * {
+      fill: var(--color__OPEN);
+    }
+
+    & > .text {
+      color: var(--color__OPEN);
+    }
+  }
+
+  &-last-call {
+    color: var(--color__LAST_CALL);
+    fill: var(--color__LAST_CALL);
+
+    & > * {
+      fill: var(--color__LAST_CALL);
+    }
+
+    & > .text {
+      color: var(--color__LAST_CALL);
+    }
+  }
+
+  &-ripped {
+    color: var(--color__RIPPED);
+    fill: var(--color__RIPPED);
+  }
+
+  &-rejected,
+  &-cancelled {
+    color: var(--color__REJECTED);
+    fill: var(--color__REJECTED);
+  }
+
+  &-green,
+  &-completed {
+    color: var(--color__green);
+    fill: var(--color__green);
+
+    & > * {
+      fill: var(--color__green);
+    }
+
+    & > .text {
+      color: var(--color__green);
+    }
+  }
+}

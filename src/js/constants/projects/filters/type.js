@@ -1,0 +1,8 @@
+export const ProjectsFilterTypes = {
+  RANGE: 'RANGE',
+  COLLAPSE_LIST: 'COLLAPSE_LIST',
+  SELECT: 'SELECT',
+  MULTI_APPLY: 'MULTI_APPLY',
+  SWITCH_BUTTON: 'SWITCH_BUTTON',
+  TAGS: 'TAGS',
+};

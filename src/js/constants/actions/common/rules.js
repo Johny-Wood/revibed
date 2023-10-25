@@ -1,0 +1,4 @@
+export const RulesActionsConstants = {
+  LOAD_RULES_IN_PROCESS: 'LOAD_RULES_IN_PROCESS',
+  LOAD_RULES_SUCCESS: 'LOAD_RULES_SUCCESS',
+};

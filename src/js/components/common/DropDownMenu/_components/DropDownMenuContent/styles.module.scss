@@ -1,0 +1,15 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.dropDownMenu {
+  &__list {
+    width: convert-px2rem(168);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    border: 1px solid var(--color__gray-3);
+    background-color: var(--color__white);
+    box-shadow: 0 1px convert-px2rem(15) rgba(0, 0, 0, 0.1);
+  }
+}

@@ -1,0 +1,77 @@
+@import '../../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.packageList {
+  margin-bottom: convert-px2rem(35 - 12);
+  width: 100%;
+}
+
+.package {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  padding: convert-px2rem(15);
+  margin-bottom: convert-px2rem(12);
+  border-radius: convert-px2rem(25);
+  transition: opacity var(--transition-duration) ease;
+  cursor: pointer;
+
+  @include breakpoint($b-tabletS__max) {
+    margin-bottom: convert-px2rem(8);
+  }
+
+  &:hover {
+    @include breakpoint($b-laptop) {
+      opacity: var(--hover-opacity);
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: flex-start;
+    align-items: center;
+    width: calc(100% - #{convert-px2rem(30)});
+    @include breakpoint($b-laptop) {
+      width: calc(100% - #{convert-px2rem(50)});
+    }
+  }
+
+  &__name {
+    margin-right: convert-px2rem(10);
+    width: 50%;
+    max-width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @include breakpoint($b-laptop) {
+      width: 30%;
+      max-width: 30%;
+      margin-right: convert-px2rem(25);
+    }
+  }
+
+  &__priceCoin {
+    flex-grow: 2;
+    text-align: center;
+    margin-right: convert-px2rem(10);
+    @include breakpoint($b-laptop) {
+      margin-right: convert-px2rem(25);
+    }
+  }
+
+  &__priceEuro {
+    margin-left: auto;
+  }
+
+  .radioButtonBlock {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-right: convert-px2rem(10);
+    @include breakpoint($b-laptop) {
+      margin-right: convert-px2rem(25);
+    }
+  }
+}

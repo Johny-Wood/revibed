@@ -1,0 +1,21 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.popupHeader {
+  width: 100%;
+  padding-top: convert-px2rem(30);
+  position: relative;
+  z-index: 5;
+
+  &__title {
+    font-size: convert-px2rem(30);
+    line-height: convert-px2rem(34);
+    min-height: convert-px2rem(50);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family__FuturaPT-SemiBold);
+    letter-spacing: normal;
+  }
+}

@@ -1,0 +1,56 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.imageLiteBox {
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(26, 26, 26, 0.9);
+  z-index: 99999999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  &__video {
+    max-width: 95%;
+    max-height: 95%;
+    width: calc(53vmin * (560 / 315));
+    height: 53vmin;
+  }
+
+  &__close {
+    position: absolute;
+    z-index: 5;
+    bottom: auto;
+    top: convert-px2rem(20);
+    right: convert-px2rem(20);
+    width: convert-px2rem(30);
+    height: convert-px2rem(30);
+
+    @include breakpoint($b-laptop) {
+      bottom: auto;
+      top: convert-px2rem(70);
+      right: convert-px2rem(70);
+      width: convert-px2rem(56);
+      height: convert-px2rem(56);
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__slider {
+    max-width: 90%;
+    width: 100%;
+    height: 100%;
+    @include breakpoint($b-laptop) {
+      padding: convert-px2rem(5) convert-px2rem(70);
+      height: convert-px2rem(736);
+    }
+  }
+}

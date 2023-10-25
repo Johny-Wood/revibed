@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /personal/
+
+# Host
+Host: https://new-kollektive.undv.ru
+
+# Sitemaps
+Sitemap: https://new-kollektive.undv.ru/sitemap.xml

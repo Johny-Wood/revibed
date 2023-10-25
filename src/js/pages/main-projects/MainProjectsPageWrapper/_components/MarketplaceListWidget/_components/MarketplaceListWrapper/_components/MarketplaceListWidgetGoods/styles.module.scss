@@ -1,0 +1,55 @@
+@import '../../../../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.MarketplaceListWidgetGoods {
+  $size: convert-px2rem(190);
+  $sizeMobile: convert-px2rem(160);
+
+  width: $sizeMobile;
+
+  @include breakpoint($b-laptop) {
+    width: $size;
+  }
+
+  .MarketplaceListWidgetGoods {
+    &__cover {
+      min-width: $sizeMobile;
+      width: $sizeMobile;
+      height: $sizeMobile;
+
+      @include breakpoint($b-laptop) {
+        min-width: $size;
+        width: $size;
+        height: $size;
+      }
+    }
+
+    &__names {
+      margin-top: convert-px2rem(10);
+      min-height: convert-px2rem(36);
+
+      @include breakpoint($b-laptop) {
+        margin-top: convert-px2rem(15);
+        min-height: convert-px2rem(44);
+      }
+    }
+
+    &__albumTitle,
+    &__title,
+    &__cutSize,
+    &__footer {
+      font-size: convert-px2rem(12);
+      @include breakpoint($b-laptop) {
+        font-size: convert-px2rem(14);
+        line-height: convert-px2rem(20);
+      }
+    }
+
+    &__footer {
+      margin-top: convert-px2rem(8);
+      @include breakpoint($b-laptop) {
+        margin-top: convert-px2rem(10);
+      }
+    }
+  }
+}

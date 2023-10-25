@@ -1,0 +1,14 @@
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.inProcess {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  :global {
+    .icon_spin {
+      width: convert-px2rem(30);
+    }
+  }
+}

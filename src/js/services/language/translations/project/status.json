@@ -1,0 +1,118 @@
+{
+  "OPEN": {
+    "en": "Open",
+    "ru": "Open"
+  },
+  "LAST_CALL": {
+    "en": "Last call",
+    "ru": "Last call"
+  },
+  "IN_TRANSIT": {
+    "en": "In transit",
+    "ru": "In transit"
+  },
+  "LISTED": {
+    "en": "Listed",
+    "ru": "Listed"
+  },
+  "WANTED": {
+    "en": "Wanted",
+    "ru": "Wanted"
+  },
+  "CLOSED": {
+    "en": "Closed",
+    "ru": "Closed"
+  },
+  "SOLD": {
+    "en": "Sold",
+    "ru": "Sold"
+  },
+  "DRAFT": {
+    "en": "Draft",
+    "ru": "Draft"
+  },
+  "IN_MODERATION": {
+    "en": "In moderation",
+    "ru": "In moderation"
+  },
+  "REJECTED": {
+    "en": "Rejected",
+    "ru": "Rejected"
+  },
+  "REFUND_PENDING": {
+    "en": "Refund pending",
+    "ru": "Refund pending"
+  },
+  "ARRIVED": {
+    "en": "Arrived",
+    "ru": "Arrived"
+  },
+  "SHIPPED": {
+    "en": "Shipped",
+    "ru": "Shipped"
+  },
+  "NOT_AS_DESCRIBED": {
+    "en": "Not as described, Voting",
+    "ru": "Not as described, Voting"
+  },
+  "RIP_PENDING": {
+    "en": "Rip pending",
+    "ru": "Rip pending"
+  },
+  "RIPPED": {
+    "en": "Archived",
+    "ru": "Archived"
+  },
+  "RECORD_KEPT": {
+    "en": "Holding/Kept",
+    "ru": "Holding/Kept"
+  },
+  "FOUND_CLOSED": {
+    "en": "Found closed",
+    "ru": "Found closed"
+  },
+  "RIPPED_BY_RIPPER": {
+    "en": "Ripped by ripper",
+    "ru": "Ripped by ripper"
+  },
+  "VOTE_FOR_SALE": {
+    "en": "Vote for sale",
+    "ru": "Vote for sale"
+  },
+  "TO_BE_LISTED": {
+    "en": "To be listed",
+    "ru": "To be listed"
+  },
+  "SENT_TO_BUYER": {
+    "en": "Sent to buyer",
+    "ru": "Sent to buyer"
+  },
+  "SOLD_SUCCESSFULLY": {
+    "en": "Sold successfully",
+    "ru": "Sold successfully"
+  },
+  "TO_BE_SENT_BACK": {
+    "en": "To be sent back",
+    "ru": "To be sent back"
+  },
+  "SENT_BACK": {
+    "en": "Sent back",
+    "ru": "Sent back"
+  },
+  "LEGACY": {
+    "en": "Legacy",
+    "ru": "Legacy"
+  },
+  "RECEIVED_BY_RIPPER": {
+    "en": "Received by ripper",
+    "ru": "Received by ripper"
+  },
+  "LATE_ENTRY": {
+    "en": "Hot offer",
+    "ru": "Hot offer"
+  },
+  "COMING_SOON": {
+    "en": "Coming soon",
+    "ru": "Coming soon"
+  }
+}

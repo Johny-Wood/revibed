@@ -1,0 +1,5 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.wantListSearch {
+  width: convert-px2rem(274);
+}

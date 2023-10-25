@@ -1,0 +1,100 @@
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+$size: convert-px2rem(15);
+$label-offset: convert-px2rem(12);
+$checker-size: convert-px2rem(6);
+$checker-weight: convert-px2rem(2);
+$font-size__text: convert-px2rem(12);
+$size-rounded: convert-px2rem(20);
+
+.radioButton {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+
+  &Block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: convert-px2rem(15) 0;
+
+    &_rounded {
+      width: $size-rounded;
+      margin: 0;
+
+      .radioButton__ok {
+        width: $size-rounded;
+        height: $size-rounded;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &__text {
+    padding-left: $label-offset;
+    font-size: $font-size__text !important;
+    cursor: pointer;
+    display: block;
+    letter-spacing: 0.01em;
+    color: var(--color__gray-2);
+
+    :global {
+      .link {
+        color: var(--color__black);
+      }
+    }
+  }
+
+  &__indicator {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &__ok {
+    cursor: pointer;
+    border: 1px solid var(--color__gray-3);
+    background-color: var(--color__white);
+    position: relative;
+    width: $size;
+    height: $size;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &_check {
+      width: convert-px2rem(6);
+      height: convert-px2rem(6);
+      background-color: var(--color__black);
+      opacity: 0;
+      border-radius: 50%;
+      transition: opacity var(--transition-duration) ease;
+
+      &_blue {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: convert-px2rem(18);
+        min-height: convert-px2rem(18);
+
+        svg {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  input:checked {
+    & + .radioButton__ok .radioButton__ok_check {
+      opacity: 1;
+    }
+  }
+}

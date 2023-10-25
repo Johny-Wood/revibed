@@ -1,0 +1,12 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.headerAuthControls {
+  display: flex;
+  align-items: center;
+
+  &__right {
+    position: relative;
+    z-index: 100;
+  }
+}

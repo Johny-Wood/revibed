@@ -1,0 +1,9 @@
+.processInfo {
+  position: relative;
+  z-index: 15;
+  color: var(--color__black);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

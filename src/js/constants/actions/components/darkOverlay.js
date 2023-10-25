@@ -1,0 +1,3 @@
+export const DarkOverlayActionsConstants = {
+  TOGGLE_SHOW_DARK_BACKGROUND_OVERLAY: 'TOGGLE_SHOW_DARK_BACKGROUND_OVERLAY',
+};

@@ -1,0 +1,15 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-landing-px2vh';
+
+.landingSectionText {
+  font-size: convert-landing-px2vh-mobile(20);
+  line-height: convert-landing-px2vh-mobile(24);
+  font-family: var(--font-family__Inter-Light);
+  @include breakpoint($b-tabletS__max) {
+    text-align: center;
+  }
+  @include breakpoint($b-laptop) {
+    font-size: convert-landing-px2vh(20);
+    line-height: convert-landing-px2vh(24);
+  }
+}

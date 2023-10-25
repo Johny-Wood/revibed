@@ -1,0 +1,182 @@
+.fade-200-animation {
+  $duration: 200ms;
+
+  &-enter {
+    opacity: 0 !important;
+
+    &-active {
+      opacity: 1 !important;
+      transition: opacity $duration ease !important;
+    }
+  }
+
+  &-exit {
+    opacity: 1 !important;
+
+    &-active {
+      opacity: 0 !important;
+      transition: opacity $duration ease !important;
+      pointer-events: none;
+    }
+  }
+}
+
+.fade-300-animation {
+  $duration: 300ms;
+
+  &-enter {
+    opacity: 0;
+
+    &-active {
+      opacity: 1;
+      transition: opacity $duration ease !important;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+
+    &-active {
+      opacity: 0 !important;
+      transition: opacity $duration ease !important;
+      pointer-events: none;
+    }
+  }
+}
+
+.fade-400-animation {
+  $duration: 400ms;
+
+  &-enter {
+    opacity: 0;
+
+    &-active {
+      opacity: 1;
+      transition: opacity $duration ease !important;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+
+    &-active {
+      opacity: 0 !important;
+      transition: opacity $duration ease !important;
+      pointer-events: none;
+    }
+  }
+}
+
+.fade-delay-400-animation {
+  $delay: 50ms;
+  $duration: 300ms;
+
+  &-enter {
+    opacity: 0;
+
+    &-active {
+      opacity: 1;
+      transition: opacity $duration ease $delay !important;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+
+    &-active {
+      opacity: 0 !important;
+      transition: opacity $duration ease !important;
+      pointer-events: none;
+    }
+  }
+}
+
+.fade-500-animation {
+  &-enter {
+    opacity: 0;
+
+    &-active {
+      opacity: 1;
+      transition: opacity 300ms ease 300ms !important;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+
+    &-active {
+      opacity: 0 !important;
+      transition: opacity 300ms ease 300ms !important;
+      pointer-events: none;
+    }
+  }
+}
+
+.fade-600-animation {
+  $duration: 600ms;
+
+  &-enter {
+    opacity: 0;
+
+    &-active {
+      opacity: 1;
+      transition: opacity $duration ease !important;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+
+    &-active {
+      opacity: 0 !important;
+      transition: opacity $duration ease !important;
+      pointer-events: none;
+    }
+  }
+}
+
+.fade-1000-animation {
+  $duration: 1000ms;
+
+  &-enter {
+    opacity: 0;
+
+    &-active {
+      opacity: 1;
+      transition: opacity $duration ease !important;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+
+    &-active {
+      opacity: 0 !important;
+      transition: opacity $duration ease !important;
+      pointer-events: none;
+    }
+  }
+}
+
+.fade-2000-animation {
+  $duration: 2000ms;
+
+  &-enter {
+    opacity: 0;
+
+    &-active {
+      opacity: 1;
+      transition: opacity $duration ease !important;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+
+    &-active {
+      opacity: 0 !important;
+      transition: opacity $duration ease !important;
+      pointer-events: none;
+    }
+  }
+}

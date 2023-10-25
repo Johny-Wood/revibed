@@ -1,0 +1,197 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.aboutUs {
+  width: 100%;
+
+  .wantlistTool__link {
+    line-height: 1.25;
+  }
+
+  &__section {
+    &_1 {
+      padding: 0 0 convert-px2rem(95);
+
+      @include breakpoint($b-laptop) {
+        padding: convert-px2rem(85) 0;
+      }
+
+      &__primary {
+        filter: drop-shadow(0 convert-px2rem(1) convert-px2rem(30) rgba(0, 0, 0, 0.1));
+        @include breakpoint($b-tabletS__max) {
+          margin-top: convert-px2rem(10);
+          margin-left: convert-px2rem(-55);
+        }
+      }
+
+      &__secondary {
+        filter: drop-shadow(0 convert-px2rem(4) convert-px2rem(20) rgba(0, 0, 0, 0.1));
+        position: absolute;
+        bottom: convert-px2rem(-85);
+        right: convert-px2rem(-70);
+
+        @include breakpoint($b-laptop) {
+          bottom: convert-px2rem(-130);
+          right: convert-px2rem(35);
+        }
+      }
+    }
+
+    &_2 {
+      padding: 0 0 convert-px2rem(495);
+      @include breakpoint($b-laptop) {
+        padding: convert-px2rem(105) 0 convert-px2rem(115);
+      }
+
+      &__primary {
+        filter: drop-shadow(0 convert-px2rem(4) convert-px2rem(30) rgba(0, 0, 0, 0.2));
+        position: absolute;
+        top: 100%;
+        transform: translateY(convert-px2rem(15));
+        left: convert-px2rem(-150);
+        @include breakpoint($b-laptop) {
+          top: 50%;
+          transform: translateY(-50%);
+          left: auto;
+          right: convert-px2rem(-185);
+        }
+      }
+    }
+
+    &_3 {
+      padding: 0 0 convert-px2rem(70);
+      @include breakpoint($b-laptop) {
+        padding: convert-px2rem(85) 0;
+      }
+
+      &__primary {
+        filter: drop-shadow(0 convert-px2rem(1) convert-px2rem(30) rgba(0, 0, 0, 0.1));
+        @include breakpoint($b-tabletS__max) {
+          margin-left: convert-px2rem(-50);
+        }
+      }
+
+      &__secondary {
+        filter: drop-shadow(0 convert-px2rem(4) convert-px2rem(20) rgba(0, 0, 0, 0.1));
+        position: absolute;
+        bottom: convert-px2rem(-70);
+        left: convert-px2rem(80);
+        @include breakpoint($b-laptop) {
+          bottom: convert-px2rem(-190);
+          left: auto;
+          right: convert-px2rem(15);
+        }
+      }
+    }
+
+    &_4 {
+      padding: 0 0 convert-px2rem(405);
+      @include breakpoint($b-laptop) {
+        padding: convert-px2rem(165) 0 convert-px2rem(195);
+      }
+
+      &__primary {
+        position: absolute;
+        top: convert-px2rem(20);
+        left: convert-px2rem(25);
+        @include breakpoint($b-laptop) {
+          left: auto;
+          right: convert-px2rem(-300);
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+
+      &__secondary {
+        filter: drop-shadow(0 convert-px2rem(4) convert-px2rem(20) rgba(0, 0, 0, 0.1));
+        position: absolute;
+        left: convert-px2rem(-160);
+        top: convert-px2rem(65);
+        @include breakpoint($b-laptop) {
+          left: convert-px2rem(70);
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    &_5 {
+      padding: 0 0 convert-px2rem(100);
+      @include breakpoint($b-laptop) {
+        padding: convert-px2rem(85) 0;
+      }
+
+      &__primary {
+        filter: drop-shadow(0 convert-px2rem(1) convert-px2rem(30) rgba(0, 0, 0, 0.1));
+        @include breakpoint($b-tabletS__max) {
+          margin-left: convert-px2rem(-15);
+        }
+      }
+
+      &__secondary {
+        &_1,
+        &_2 {
+          filter: drop-shadow(0 convert-px2rem(4) convert-px2rem(20) rgba(0, 0, 0, 0.1));
+          position: absolute;
+        }
+
+        &_1 {
+          bottom: convert-px2rem(-70);
+          left: convert-px2rem(39);
+          @include breakpoint($b-laptop) {
+            bottom: convert-px2rem(-120);
+            left: auto;
+            right: convert-px2rem(215);
+          }
+        }
+
+        &_2 {
+          z-index: 2;
+          bottom: convert-px2rem(-20);
+          left: convert-px2rem(160);
+          @include breakpoint($b-laptop) {
+            bottom: convert-px2rem(-50);
+            left: auto;
+            right: convert-px2rem(50);
+          }
+        }
+      }
+    }
+
+    &_6 {
+      padding: 0 0 convert-px2rem(540);
+      @include breakpoint($b-laptop) {
+        padding: convert-px2rem(195) 0 convert-px2rem(175);
+      }
+
+      &__text {
+        max-width: convert-px2rem(500);
+      }
+
+      &__primary {
+        filter: drop-shadow(0 convert-px2rem(4) convert-px2rem(30) rgba(0, 0, 0, 0.2));
+        background-color: var(--color__white);
+        position: absolute;
+        left: convert-px2rem(-110);
+        top: convert-px2rem(20);
+        @include breakpoint($b-laptop) {
+          top: 50%;
+          transform: translateY(-50%);
+          left: auto;
+          right: convert-px2rem(-30);
+        }
+      }
+
+      &__secondary {
+        filter: drop-shadow(0 convert-px2rem(4) convert-px2rem(20) rgba(0, 0, 0, 0.1));
+        position: absolute;
+        top: convert-px2rem(115);
+        left: convert-px2rem(-155);
+        @include breakpoint($b-laptop) {
+          top: convert-px2rem(-160);
+          left: convert-px2rem(75);
+        }
+      }
+    }
+  }
+}

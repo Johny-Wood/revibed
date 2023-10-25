@@ -1,0 +1,26 @@
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.timer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  * {
+    word-break: normal !important;
+  }
+
+  &__value {
+    display: block;
+    text-align: right;
+  }
+
+  &__seconds {
+    text-align: left;
+  }
+
+  &__value,
+  &__separator {
+    font-family: 'Arial', sans-serif;
+  }
+}

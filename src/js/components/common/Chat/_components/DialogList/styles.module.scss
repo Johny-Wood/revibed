@@ -1,0 +1,12 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.dialog__messages {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 2;
+  width: 100%;
+  padding-right: convert-px2rem(10);
+  padding-bottom: convert-px2rem(10);
+}

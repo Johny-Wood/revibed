@@ -1,0 +1,21 @@
+.fadeSiteAnimation {
+  $duration: 300ms;
+
+  &Enter {
+    opacity: 1 !important;
+
+    &_active {
+      opacity: 0 !important;
+      transition: opacity $duration ease !important;
+    }
+  }
+
+  &Exit {
+    opacity: 1 !important;
+
+    &_active {
+      opacity: 0 !important;
+      transition: opacity $duration ease !important;
+    }
+  }
+}

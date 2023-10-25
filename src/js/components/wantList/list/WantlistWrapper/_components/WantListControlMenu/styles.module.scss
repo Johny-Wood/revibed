@@ -1,0 +1,36 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.wantListControlMenu {
+  @include breakpoint($b-tabletS__max) {
+    margin-right: convert-px2rem(10);
+  }
+
+  .dropDownMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color__gray-6);
+    width: convert-px2rem(36);
+    height: convert-px2rem(28);
+
+    &__list {
+      width: convert-px2rem(200);
+      top: convert-px2rem(38);
+    }
+
+    &__button {
+      button {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

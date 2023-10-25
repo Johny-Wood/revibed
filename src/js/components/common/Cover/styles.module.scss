@@ -1,0 +1,116 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectCover {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border: none;
+  background-color: var(--color__gray-4);
+  box-shadow: 0 convert-px2rem(1) convert-px2rem(20) rgba(0, 0, 0, 0.15);
+  min-width: convert-px2rem(125);
+  width: convert-px2rem(125);
+  height: convert-px2rem(125);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 1 !important;
+  @include breakpoint($b-laptop) {
+    min-width: convert-px2rem(195);
+    width: convert-px2rem(195);
+    height: convert-px2rem(195);
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  * {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+  }
+
+  & > * {
+    display: block;
+  }
+
+  &Container {
+    display: block;
+    position: relative;
+    transition: opacity var(--transition-duration) ease;
+    @include breakpoint($b-laptop) {
+      margin-right: convert-px2rem(35);
+    }
+
+    .startPlayVideo {
+      transition:
+        opacity var(--transition-duration) ease,
+        transform var(--transition-duration) ease;
+      opacity: 0 !important;
+      pointer-events: none;
+
+      &:not(.startPlayVideo_disabled):hover {
+        .startPlayVideo__content {
+          &:after {
+            @include breakpoint($b-laptop) {
+              transform: scale(1 + 0.15) !important;
+            }
+          }
+        }
+      }
+    }
+
+    &:not(.projectCoverContainer_with_video):not(.projectCoverContainer_with_liteBox) {
+      &:hover {
+        @include breakpoint($b-laptop) {
+          opacity: var(--hover-opacity);
+        }
+      }
+    }
+
+    &_with_liteBox {
+    }
+
+    &_with_video {
+      .startPlayVideo {
+        opacity: 1 !important;
+        pointer-events: auto;
+        transform: translate3d(0, 0, 0);
+
+        @include breakpoint($b-laptop) {
+          opacity: 0 !important;
+          pointer-events: none;
+        }
+      }
+
+      &.projectCoverContainer_playing {
+        .projectCover {
+          opacity: 0.65 !important;
+        }
+
+        .startPlayVideo {
+          opacity: 1 !important;
+          pointer-events: auto !important;
+        }
+      }
+
+      &:hover {
+        .startPlayVideo {
+          @include breakpoint($b-laptop) {
+            opacity: 1 !important;
+            pointer-events: auto;
+          }
+        }
+
+        .startPlayVideo_disabled {
+          @include breakpoint($b-laptop) {
+            opacity: 0.8 !important;
+          }
+        }
+      }
+    }
+  }
+}

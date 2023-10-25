@@ -1,0 +1,100 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.headerSearch {
+  position: relative;
+  margin-left: convert-px2rem(15);
+  height: convert-px2rem(50);
+  min-width: convert-px2rem(50);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__content {
+    position: absolute;
+    height: convert-px2rem(50);
+    width: convert-px2rem(345);
+    min-width: convert-px2rem(345);
+    top: 0;
+    left: 0;
+    background-color: var(--color__gray-5);
+    transform-origin: 0 50%;
+  }
+
+  &__block {
+    height: convert-px2rem(50);
+  }
+
+  &__input {
+    height: 100%;
+    padding-left: convert-px2rem(10) !important;
+  }
+
+  &__preview {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+
+    :global {
+      .icon {
+        width: convert-px2rem(20);
+        height: auto;
+      }
+    }
+  }
+
+  :global {
+    .icon {
+      path {
+        transition: fill var(--transition-duration) ease;
+      }
+    }
+  }
+}
+
+.responseAnimation {
+  $durationOpacity: 200ms;
+  $initialOpacity: 0;
+  $opacity: 1;
+
+  $delay: 0ms;
+  $durationScale: 200ms;
+  $initialScale: scale(0);
+  $scale: scale(1);
+
+  &Enter {
+    transform: $initialScale !important;
+    opacity: $initialOpacity !important;
+
+    &_active {
+      transform: $scale !important;
+      opacity: $opacity !important;
+      transition:
+        transform $durationScale $delay ease-in-out,
+        opacity $durationOpacity $delay ease-in-out !important;
+    }
+
+    &_done {
+      transform: $scale !important;
+      opacity: $opacity !important;
+    }
+  }
+
+  &Exit {
+    transform: $scale !important;
+    opacity: $opacity !important;
+
+    &_active {
+      transform: $initialScale !important;
+      opacity: $initialOpacity !important;
+      transition:
+        transform $durationScale ease-in-out,
+        opacity $durationOpacity ease-in-out !important;
+    }
+  }
+}

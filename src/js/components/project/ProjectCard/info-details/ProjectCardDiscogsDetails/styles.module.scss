@@ -1,0 +1,97 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.projectCardDiscogsDetails {
+  width: 100%;
+
+  &__info {
+    width: 100%;
+  }
+
+  &__table {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    padding: convert-px2rem(5) 0;
+    @include breakpoint($b-laptop) {
+      flex-direction: row;
+      align-items: center;
+      border-top: 1px solid var(--color__gray-4);
+      border-bottom: 1px solid var(--color__gray-4);
+    }
+  }
+
+  &__block {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    @include breakpoint($b-laptop) {
+      flex-direction: row;
+      padding: 0 convert-px2rem(10);
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    &:last-child {
+      .projectCardDiscogsDetails {
+        &__item {
+          &:last-child {
+            @include breakpoint($b-tabletS__max) {
+              border-bottom: 1px solid var(--color__gray-4);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+
+    &:not(:last-child) {
+      @include breakpoint($b-laptop) {
+        border-right: 1px solid var(--color__gray-3);
+      }
+    }
+
+    &:last-child {
+      padding-left: convert-px2rem(10);
+    }
+
+    &:first-child {
+      padding-right: convert-px2rem(10);
+    }
+
+    &:not(:last-child):not(:first-child) {
+      padding: 0 convert-px2rem(10);
+    }
+
+    @include breakpoint($b-tabletS__max) {
+      border-top: 1px solid var(--color__gray-4);
+      padding: convert-px2rem(3) 0 !important;
+    }
+    @include breakpoint($b-laptop) {
+      justify-content: space-between;
+    }
+  }
+
+  &__description {
+    color: var(--color__gray-1);
+    @include breakpoint($b-tabletS__max) {
+      min-width: 35%;
+      margin-right: convert-px2rem(14);
+    }
+  }
+}

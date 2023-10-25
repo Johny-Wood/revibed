@@ -1,0 +1,51 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.inputBlockNumberSplit {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+
+  :global {
+    .input-block {
+      margin-left: convert-px2rem(5);
+      margin-right: convert-px2rem(5);
+      width: convert-px2rem(40);
+      text-align: center;
+
+      &.active-label {
+        .input {
+          &:before {
+            opacity: 0;
+          }
+        }
+      }
+
+      .input {
+        height: convert-px2rem(50);
+        position: relative;
+        padding: 0 !important;
+
+        &:before {
+          content: '';
+          position: absolute;
+          bottom: convert-px2rem(15);
+          left: 50%;
+          transform: translateX(-50%);
+          width: convert-px2rem(14);
+          height: 1px;
+          background-color: var(--color__gray-2);
+          z-index: 4;
+          transition: opacity var(--transition-duration) ease;
+        }
+
+        input {
+          font-size: convert-px2rem(16);
+          text-align: center;
+        }
+      }
+    }
+  }
+}

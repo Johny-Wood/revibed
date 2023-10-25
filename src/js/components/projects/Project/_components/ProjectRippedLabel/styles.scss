@@ -1,0 +1,16 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.status__label_RIPPED {
+  background-color: var(--color__RIPPED);
+  font-family: var(--font-family__Inter-Medium);
+  font-size: convert-px2rem(13);
+
+  &.not-participant {
+    background-color: var(--color__gray-3);
+  }
+
+  .icon {
+    margin-top: convert-px2rem(2);
+  }
+}

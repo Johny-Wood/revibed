@@ -1,0 +1,87 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.pagination {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .paginationMoreIndicator {
+    cursor: auto !important;
+
+    &:hover {
+      @include breakpoint($b-laptop) {
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  .paginationNumber {
+    margin: 0 convert-px2rem(5) !important;
+
+    &_active {
+      &:hover {
+        @include breakpoint($b-laptop) {
+          opacity: 1 !important;
+        }
+      }
+
+      :global {
+        .text {
+          color: var(--color__black) !important;
+        }
+      }
+    }
+  }
+
+  .paginationPrev,
+  .paginationNext {
+    :global {
+      .text {
+        color: var(--color__black) !important;
+      }
+
+      svg {
+        width: convert-px2rem(10.5);
+        height: auto;
+      }
+    }
+  }
+
+  .paginationPrev {
+    margin-right: convert-px2rem(10);
+
+    :global {
+      .icon {
+        margin-right: convert-px2rem(8);
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  .paginationNext {
+    margin-left: convert-px2rem(10);
+
+    :global {
+      .icon {
+        margin-left: convert-px2rem(8);
+        transform: rotate(0);
+      }
+    }
+  }
+
+  :global {
+    .button.primary.small {
+      min-width: auto;
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+
+      .text {
+        font-family: var(--font-family__Inter-Bold);
+        color: var(--color__gray-2);
+      }
+    }
+  }
+}

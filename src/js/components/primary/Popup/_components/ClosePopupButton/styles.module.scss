@@ -1,0 +1,22 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.popupClose {
+  position: absolute;
+  top: convert-px2rem(15);
+  right: convert-px2rem(15);
+  width: convert-px2rem(15);
+  height: convert-px2rem(15);
+  transition: opacity var(--transition-duration) ease;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  z-index: 10;
+
+  &:hover {
+    @include breakpoint($b-laptop) {
+      opacity: var(--hover-opacity);
+    }
+  }
+}

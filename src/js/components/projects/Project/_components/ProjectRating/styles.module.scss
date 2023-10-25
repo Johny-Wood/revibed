@@ -1,0 +1,63 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.projectRating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: convert-px2rem(5);
+  position: absolute;
+  top: convert-px2rem(-32);
+  left: convert-px2rem(4);
+
+  &__number {
+    font-size: convert-px2rem(16);
+    margin-right: convert-px2rem(8);
+  }
+
+  &__triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  &__step {
+    display: block;
+    margin-left: convert-px2rem(3);
+    line-height: 1.5;
+  }
+
+  &__new__step {
+    color: var(--color__OPEN);
+    padding: 0 convert-px2rem(5);
+    background-color: var(--color_MESSAGE_SUCCESS);
+    border-radius: convert-px2rem(4);
+  }
+
+  &_up {
+    .projectRating {
+      &__triangle {
+        border-width: 0 convert-px2rem(6.5) convert-px2rem(11);
+        border-color: transparent transparent var(--color__green) transparent;
+      }
+
+      &__step {
+        color: var(--color__green);
+      }
+    }
+  }
+
+  &_down {
+    .projectRating {
+      &__triangle {
+        border-width: convert-px2rem(11) convert-px2rem(6.5) 0;
+        border-color: var(--color__red) transparent transparent transparent;
+      }
+
+      &__step {
+        color: var(--color__red);
+      }
+    }
+  }
+}

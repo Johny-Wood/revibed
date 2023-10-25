@@ -1,0 +1,8 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.blackCatCardInstruction__disclaimer {
+  font-size: convert-px2rem(12);
+  line-height: convert-px2rem(24);
+  margin-top: convert-px2rem(20);
+}

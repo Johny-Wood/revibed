@@ -1,0 +1,27 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.userPage {
+  .sideBar {
+    @include breakpoint($b-tabletS__max) {
+      width: 100%;
+    }
+  }
+
+  .personalDashboard {
+    @include breakpoint($b-tabletS__max) {
+      width: 100%;
+    }
+    @include breakpoint($b-laptop) {
+      margin: 0 convert-px2rem(13) convert-px2rem(20) convert-px2rem(10);
+    }
+  }
+
+  .userWrapper {
+    width: 100%;
+    flex-grow: 2;
+    @include breakpoint($b-laptop) {
+      margin-top: convert-px2rem(110);
+    }
+  }
+}

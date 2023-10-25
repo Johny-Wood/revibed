@@ -1,0 +1,70 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.cartPage {
+  .wrapper__content {
+    max-width: convert-px2rem(950);
+    margin: 0 auto;
+  }
+
+  .personal-page-header {
+    font-size: convert-px2rem(20) !important;
+    line-height: convert-px2rem(24);
+  }
+}
+
+.cartWrapper {
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding-bottom: convert-px2rem(50);
+    @include breakpoint($b-tabletS__max) {
+      margin-top: convert-px2rem(30);
+      padding-bottom: convert-px2rem(10);
+    }
+  }
+
+  &__control {
+    max-width: convert-px2rem(500);
+    width: 100%;
+    margin-top: convert-px2rem(25);
+    @include breakpoint($b-laptop) {
+      margin-top: convert-px2rem(35);
+    }
+
+    :global {
+      .button {
+        padding-left: convert-px2rem(12) !important;
+        padding-right: convert-px2rem(12) !important;
+        @include breakpoint($b-laptop) {
+          padding-left: convert-px2rem(30) !important;
+          padding-right: convert-px2rem(30) !important;
+        }
+        @include breakpoint($b-tabletS__max) {
+          width: calc(50% - #{convert-px2rem(7.5)});
+
+          .text {
+            font-size: convert-px2rem(14);
+          }
+        }
+
+        &:not(:first-child) {
+          margin-left: convert-px2rem(15);
+        }
+      }
+    }
+  }
+
+  &__noItems {
+    @include breakpoint($b-tabletS__max) {
+      padding: convert-px2rem(70) convert-px2rem(30);
+    }
+
+    &__title {
+      font-size: convert-px2rem(16);
+    }
+  }
+}

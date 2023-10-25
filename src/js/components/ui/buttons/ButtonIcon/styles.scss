@@ -1,0 +1,58 @@
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.button {
+  &-only-icon {
+    padding-left: 0;
+    padding-right: 0;
+    min-width: auto !important;
+    align-items: center !important;
+
+    &.rounded {
+      border-radius: 50% !important;
+    }
+
+    &.large {
+      padding-left: convert-px2rem(13);
+      padding-right: convert-px2rem(13);
+    }
+
+    svg {
+      margin: 0 !important;
+    }
+  }
+
+  &-with-icon {
+    &.icon {
+      &-right {
+        .text {
+          margin-right: convert-px2rem(10);
+        }
+      }
+    }
+
+    svg {
+      overflow: visible;
+      position: relative;
+    }
+
+    &.icon-top {
+      flex-direction: column-reverse;
+    }
+
+    &.icon-left {
+      flex-direction: row;
+
+      svg {
+        margin-right: convert-px2rem(9);
+      }
+    }
+
+    &.icon-bottom {
+      flex-direction: column;
+    }
+
+    &.icon-right {
+      flex-direction: row-reverse;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.filterTabs {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid var(--color__gray-3);
+
+  :global {
+    button.button {
+      &.active {
+        background-color: var(--color__gray-5) !important;
+      }
+
+      .text {
+        color: var(--color__black) !important;
+      }
+    }
+
+    .button {
+      padding: convert-px2rem(5) convert-px2rem(10) !important;
+      height: convert-px2rem(33);
+
+      &:not(.active):hover {
+        @include breakpoint($b-laptop) {
+          opacity: 0.8;
+          background-color: var(--color__white) !important;
+        }
+      }
+    }
+  }
+}

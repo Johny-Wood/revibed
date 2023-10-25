@@ -1,0 +1,52 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.blogShareArticle {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: convert-px2rem(50);
+  @include breakpoint($b-laptop) {
+    margin-top: convert-px2rem(70);
+  }
+
+  .blogShareArticle {
+    &__title {
+      font-size: convert-px2rem(18);
+      line-height: convert-px2rem(24);
+      margin-bottom: convert-px2rem(15);
+    }
+
+    &__link {
+      $size: convert-px2rem(50);
+      width: $size;
+      height: $size;
+      background-color: var(--color__gray-6);
+      border-radius: 50%;
+      margin-right: convert-px2rem(15);
+      opacity: 1 !important;
+
+      &:hover {
+        @include breakpoint($b-laptop) {
+          background-color: var(--color__gray-4);
+        }
+      }
+
+      &:first-child {
+        svg {
+          $size: convert-px2rem(18);
+          width: $size;
+        }
+      }
+
+      svg {
+        $size: convert-px2rem(22);
+        width: $size;
+        height: auto;
+      }
+    }
+  }
+}

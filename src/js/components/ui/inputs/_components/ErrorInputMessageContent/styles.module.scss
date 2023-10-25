@@ -1,0 +1,19 @@
+.inputErrorMsgAnimation {
+  &Enter {
+    opacity: 0;
+
+    &_active {
+      opacity: 1;
+      transition: opacity 200ms ease;
+    }
+  }
+
+  &Exit {
+    opacity: 0;
+
+    &_active {
+      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+  }
+}

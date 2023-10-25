@@ -1,0 +1,43 @@
+@import '../../../../../../../../../assets/styles/_mixins/convert-landing-px2vh';
+@import '../../../../../../../../../assets/styles/_mixins/breakpoint';
+
+.landingRipsSectionMobile {
+  width: 100%;
+  background-color: var(--color__white);
+  color: #000;
+  font-size: convert-landing-px2vh-mobile(20);
+  line-height: convert-landing-px2vh-mobile(24);
+  font-family: var(--font-family__Inter-Light);
+  padding-bottom: convert-landing-px2vh-mobile(50);
+  position: relative;
+
+  p {
+    br {
+      display: none;
+    }
+  }
+
+  &__step {
+    padding: convert-landing-px2vh-mobile(170) convert-landing-px2vh-mobile(52) convert-landing-px2vh-mobile(85)
+      convert-landing-px2vh-mobile(45);
+    max-width: convert-landing-px2vh-mobile(618);
+  }
+
+  &__title {
+    font-family: var(--font-family__Inter-Bold);
+    font-size: convert-landing-px2vh-mobile(45);
+    margin-bottom: convert-landing-px2vh-mobile(70);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  &__buttonScrollDownContainer {
+    margin: 0 auto;
+
+    svg {
+      opacity: 0.8;
+    }
+  }
+}

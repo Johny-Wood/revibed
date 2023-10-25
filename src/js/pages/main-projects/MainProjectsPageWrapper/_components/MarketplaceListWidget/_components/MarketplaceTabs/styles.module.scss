@@ -1,0 +1,8 @@
+@import '../../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.MarketplaceTabs {
+  @include breakpoint($b-tabletS__max) {
+    margin-top: convert-px2rem(-10);
+  }
+}

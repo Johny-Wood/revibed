@@ -1,0 +1,21 @@
+@import '../../../../../../assets/styles/_mixins/convert-landing-px2vh';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.landingHeaderLogo {
+  position: absolute;
+  top: convert-landing-px2vh-mobile(70);
+  left: convert-landing-px2vh-mobile(20);
+  z-index: 10;
+  @include breakpoint($b-tabletS__max) {
+    width: convert-landing-px2vh-mobile(130);
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+  @include breakpoint($b-laptop) {
+    top: convert-landing-px2vh(65);
+    left: convert-landing-px2vh(65);
+  }
+}

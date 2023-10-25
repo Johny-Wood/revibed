@@ -1,0 +1,93 @@
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+
+.mobileMenu {
+  position: absolute;
+  width: 100%;
+  top: convert-px2rem(60);
+  left: 0;
+  z-index: 40;
+  background-color: var(--color__white);
+  filter: drop-shadow(0 convert-px2rem(10) convert-px2rem(10) rgba(0, 0, 0, 0.03));
+
+  :global {
+    .button-start-project {
+      width: 100%;
+      border-top: 1px solid var(--color__gray-3) !important;
+      background: var(--color__gray-5) !important;
+      height: convert-px2rem(70);
+      padding: convert-px2rem(23) convert-px2rem(17);
+
+      &:before {
+        display: none;
+      }
+
+      .text {
+        font-family: var(--font-family__Inter-Bold) !important;
+        width: auto;
+        color: var(--color__black);
+        font-size: convert-px2rem(16) !important;
+      }
+    }
+  }
+
+  .navHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    :global {
+      .link:not(:disabled):not(.disabled):hover {
+        @include breakpoint($b-laptop) {
+          opacity: 1;
+        }
+      }
+
+      .link {
+        background-color: var(--color__white);
+        text-align: center;
+        width: 100%;
+        font-family: var(--font-family__Inter-Bold);
+        border-top: 1px solid var(--color__gray-3);
+        padding: convert-px2rem(15);
+        will-change: opacity;
+        margin: -1px 0 0;
+        display: block;
+
+        &_not_authorized {
+          &:first-child,
+          &:nth-child(2) {
+            max-width: 50%;
+          }
+
+          &:first-child {
+            background-color: var(--color__gray-5);
+          }
+
+          &:nth-child(2) {
+            background-color: var(--color__gray-4);
+          }
+        }
+
+        &:last-child {
+          border-bottom: 1px solid var(--color__gray-3);
+        }
+
+        &.disabled {
+          opacity: 1;
+
+          .text {
+            opacity: 0.5;
+          }
+        }
+
+        .text {
+          font-size: convert-px2rem(14);
+        }
+      }
+    }
+  }
+}

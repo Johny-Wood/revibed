@@ -1,0 +1,45 @@
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+$dot_size: convert-px2rem(10);
+$dot_offset: convert-px2rem(2.5);
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color__gray-4);
+  z-index: 999999999;
+
+  &__dots {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__dot {
+    width: $dot_size;
+    height: $dot_size;
+    margin: $dot_offset;
+    border-radius: 50%;
+    background-color: var(--color__gray-5);
+
+    &_red {
+      background-color: var(--color__red);
+    }
+
+    &_blue {
+      background-color: var(--color__blue);
+    }
+
+    &_green {
+      background-color: var(--color__green);
+    }
+  }
+}

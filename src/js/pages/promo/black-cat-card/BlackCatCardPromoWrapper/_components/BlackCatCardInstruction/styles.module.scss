@@ -1,0 +1,72 @@
+@import '../../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.blackCatCardInstruction {
+  margin-top: convert-px2rem(30);
+  max-width: convert-px2rem(645);
+  width: 100%;
+  @include breakpoint($b-tabletS__max) {
+    padding-left: convert-px2rem(20);
+    padding-right: convert-px2rem(20);
+  }
+  @include breakpoint($b-laptop) {
+    margin-top: convert-px2rem(50);
+  }
+
+  &__list {
+    line-height: convert-px2rem(25);
+    padding-bottom: convert-px2rem(40);
+    margin-top: convert-px2rem(20);
+    @include breakpoint($b-laptop) {
+      font-size: convert-px2rem(18);
+      line-height: 175%;
+      border-bottom: 1px solid var(--color__gray-5);
+      padding-bottom: convert-px2rem(50);
+      margin-bottom: convert-px2rem(10);
+      margin-top: convert-px2rem(20);
+    }
+
+    h2 {
+      @include breakpoint($b-tabletS__max) {
+        font-size: convert-px2rem(16);
+      }
+    }
+
+    ul,
+    ol {
+      margin-left: convert-px2rem(20) !important;
+
+      li {
+        &:before {
+          right: 100%;
+        }
+      }
+    }
+  }
+
+  &__blackCardEEA {
+    width: convert-px2rem(243);
+    margin-bottom: convert-px2rem(30);
+    @include breakpoint($b-tabletS__max) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .text-content {
+    margin: 0;
+
+    li {
+      margin-top: 0 !important;
+    }
+  }
+
+  ul {
+    margin-left: convert-px2rem(20) !important;
+  }
+}

@@ -1,0 +1,61 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.blogItem {
+  width: calc(100% - #{convert-px2rem(40)});
+  margin: convert-px2rem(15) convert-px2rem(20);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  @include breakpoint($b-tablet) {
+    width: calc(100% / 2 - #{convert-px2rem(40)});
+    margin: convert-px2rem(25) convert-px2rem(20);
+  }
+
+  &__preview {
+    width: 100%;
+    height: convert-px2rem(195);
+    @include breakpoint($b-tablet) {
+      height: convert-px2rem(255);
+    }
+    @include breakpoint($b-tabletS) {
+      height: convert-px2rem(305);
+    }
+
+    &Container {
+      width: 100%;
+      margin: 0;
+    }
+
+    svg {
+      width: 55%;
+      max-width: convert-px2rem(280);
+
+      text {
+        fill: var(--color__gray-3);
+      }
+    }
+  }
+
+  &__title {
+    font-family: var(--font-family__Inter-Black);
+    font-size: convert-px2rem(22);
+    line-height: convert-px2rem(24);
+    margin-top: convert-px2rem(20);
+    @include breakpoint($b-laptop) {
+      font-size: convert-px2rem(30);
+      line-height: convert-px2rem(40);
+      margin-top: convert-px2rem(25);
+    }
+  }
+
+  &__date {
+    color: var(--color__gray-2);
+    margin-top: convert-px2rem(6);
+
+    @include breakpoint($b-laptop) {
+      line-height: convert-px2rem(32);
+    }
+  }
+}

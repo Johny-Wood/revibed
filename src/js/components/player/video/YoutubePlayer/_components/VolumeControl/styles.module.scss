@@ -1,0 +1,81 @@
+@import '../../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.videoPlayerVolumeVideo {
+  position: relative;
+  z-index: 8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: convert-px2rem(39);
+  margin-right: convert-px2rem(-7);
+
+  &__button {
+    position: relative;
+    z-index: 9;
+    padding: convert-px2rem(10);
+
+    &__icon_toggle {
+      width: convert-px2rem(6);
+    }
+  }
+
+  &__range {
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+    left: convert-px2rem(5);
+    transform-origin: 0 0;
+    height: convert-px2rem(115 + 45);
+    width: convert-px2rem(31);
+    padding-bottom: convert-px2rem(45);
+
+    &__content {
+      height: 100%;
+      background-color: var(--color__white);
+      border-radius: convert-px2rem(2);
+      padding: convert-px2rem(14) convert-px2rem(10);
+      box-shadow: convert-px2rem(-1) convert-px2rem(1) convert-px2rem(16) rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: convert-px2rem(38);
+        left: convert-px2rem(8);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: convert-px2rem(8) convert-px2rem(7) 0 convert-px2rem(7);
+        border-color: var(--color__white) transparent transparent transparent;
+      }
+    }
+
+    .rangeThumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: convert-px2rem(10);
+      height: convert-px2rem(10);
+      border-radius: 50%;
+      background-color: var(--color__black);
+      cursor: pointer;
+    }
+
+    .rangeTrack {
+      display: flex;
+      width: convert-px2rem(3);
+      height: 100%;
+      border-radius: convert-px2rem(2);
+
+      &__line {
+        align-self: center;
+        border-radius: convert-px2rem(2);
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
