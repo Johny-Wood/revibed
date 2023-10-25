@@ -4,9 +4,9 @@
 $footer_padding_x: convert-px2rem(20);
 $footer_padding_y: convert-px2rem(20);
 $footer_max_width: convert-px2rem(1225);
-$footer_font_size: convert-px2rem(12);
+$footer_font_size: convert-px2rem(16);
 $navigation_margin-x__footer: convert-px2rem(5);
-$navigation_font-size__footer: convert-px2rem(12);
+$navigation_font-size__footer: convert-px2rem(16);
 $copyright_margin_left: convert-px2rem(10);
 
 .footer {
@@ -64,6 +64,7 @@ $copyright_margin_left: convert-px2rem(10);
     justify-content: center;
 
     // @include breakpoint($b-tabletS__max) {
+
     @include breakpoint($b-mobileS__max) {
       padding: convert-px2rem(24) convert-px2rem(5);
       width: 100%;
@@ -115,6 +116,14 @@ $copyright_margin_left: convert-px2rem(10);
     &__text {
       font-size: $footer_font_size;
 
+      @include breakpoint($b-tablet__max) {
+        font-size: convert-px2rem(10);
+      }
+
+      @include breakpoint($b-mobileS__max) {
+        font-size: convert-px2rem(12);
+      }
+
       // @include breakpoint($b-tabletS__max) {
       @include breakpoint($b-mobileS__max) {
         margin-top: convert-px2rem(5);
@@ -130,12 +139,13 @@ $copyright_margin_left: convert-px2rem(10);
   flex-wrap: wrap;
   width: 100%;
   max-width: 40em;
+  font-size: convert-px2rem(16);
 
   // @include breakpoint($b-tabletS__max) {
   @include breakpoint($b-mobileS__max) {
     flex-direction: column;
     align-items: end;
-    row-gap: calc(1rem * 16 / var(--font-size__small-int));
+    row-gap: calc(1rem * 12 / var(--font-size__small-int));
   }
 
   &.footerNav_black {
@@ -168,6 +178,14 @@ $copyright_margin_left: convert-px2rem(10);
         flex-grow: 2;
         display: block;
         font-size: $navigation_font-size__footer;
+
+        @include breakpoint($b-tablet__max) {
+          font-size: convert-px2rem(10);
+        }
+
+        @include breakpoint($b-mobileS__max) {
+          font-size: convert-px2rem(12);
+        }
 
         // @include breakpoint($b-tabletS__max) {
         @include breakpoint($b-mobileS__max) {

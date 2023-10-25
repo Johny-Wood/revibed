@@ -3,7 +3,7 @@
 
 $footer_padding_x: convert-px2rem(20);
 $footer_padding_y: convert-px2rem(48);
-$footer_max_width: convert-px2rem(1225);
+$footer_max_width: convert-px2rem(1440);
 $footer_font_size: convert-px2rem(12);
 
 $copyright_margin_left: convert-px2rem(10);
@@ -39,12 +39,23 @@ $copyright_margin_left: convert-px2rem(10);
     }
     .categoryNavigation__wrapper {
       padding: convert-px2rem(59) $footer_padding_x convert-px2rem(59);
+
+      @include breakpoint($b-tablet__max) {
+        padding: convert-px2rem(49) $footer_padding_x convert-px2rem(49);
+      }
+
+      @include breakpoint($b-tabletS__max) {
+        padding: convert-px2rem(101) $footer_padding_x convert-px2rem(21);
+      }
+
     }
   }
 
   &__wrapper {
     margin: 0 auto;
     width: 100%;
+    font-size: 12px;
+
     @include breakpoint($b-laptop) {
       padding: convert-px2rem(30) $footer_padding_x convert-px2rem(42);
       max-width: calc(#{$footer_max_width} + #{$footer_padding_x} * 2);
