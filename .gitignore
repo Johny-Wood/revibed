@@ -2,3 +2,6 @@ node_modules
 .git
 .next
 .yarn
+.env
+.yarnrc.yml
+yarn.lock
