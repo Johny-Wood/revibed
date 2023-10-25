@@ -15,7 +15,7 @@ $copyright_margin_left: convert-px2rem(10);
   overflow: hidden;
   font-size: 16px;
 
-  @include breakpoint($b-laptop__max) {
+  @include breakpoint($b-tablet__max) {
     font-size: 12px;
   }
 
@@ -44,17 +44,16 @@ $copyright_margin_left: convert-px2rem(10);
         padding: convert-px2rem(49) $footer_padding_x convert-px2rem(49);
       }
 
-      @include breakpoint($b-tabletS__max) {
+      @include breakpoint($b-mobileS__max) {
         padding: convert-px2rem(101) $footer_padding_x convert-px2rem(21);
       }
-
     }
   }
 
   &__wrapper {
     margin: 0 auto;
     width: 100%;
-    font-size: 12px;
+    // font-size: 12px;
 
     @include breakpoint($b-laptop) {
       padding: convert-px2rem(30) $footer_padding_x convert-px2rem(42);
