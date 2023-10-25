@@ -3,15 +3,15 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import { Collapse } from 'react-collapse';
+// import { Collapse } from 'react-collapse';
 import { connect } from 'react-redux';
 
-import { MobileLayout } from '@/components/layouts/ViewportLayouts';
+// import { MobileLayout } from '@/components/layouts/ViewportLayouts';
 import LinkDefault from '@/components/ui/links/LinkDefault';
 import LinkRoute from '@/components/ui/links/LinkRoute';
 import TranslateHook from '@/hooks/translate/TranslateHook';
 import ViewportHook from '@/hooks/viewport/ViewportHook';
-import ArrowIcon from '@/icons/arrows/ArrowIcon';
+// import ArrowIcon from '@/icons/arrows/ArrowIcon';
 
 import styles from './styles.module.scss';
 
@@ -29,8 +29,7 @@ const renderCategoryLinks = ({ category, userIsAuthorized }) =>
     if (!userIsAuthorized && notNotAuthorized) {
       return null;
     }
-
-    const linkContent = () =>
+const linkContent = () =>
       !!image && <Image src={image.src} blurDataURL={image.blurDataURL} placeholder="blur" alt={alt} width={114} height={83} />;
 
     if (external) {
@@ -82,15 +81,15 @@ const CategoryNavigation = ({
                   onClick={() => (isNotDesktop ? setShowedCategory(showedCategory !== categoryName ? categoryName : '') : {})}
                 >
                   {t(categoryName)}
-                  {toggle && (
-                    <MobileLayout>
-                      <div className="i-arrow">
-                        <ArrowIcon isOpened={showedCategory === categoryName} />
-                      </div>
-                    </MobileLayout>
-                  )}
+                  {/* {toggle && ( */}
+                  {/*   <MobileLayout> */}
+                  {/*     <div className="i-arrow"> */}
+                  {/*       <ArrowIcon isOpened={showedCategory === categoryName} /> */}
+                  {/*     </div> */}
+                  {/*   </MobileLayout> */}
+                  {/* )} */}
                 </div>
-                <Collapse isOpened={showedCategory === categoryName || !isNotDesktop || !toggle}>
+                {/* <Collapse isOpened={showedCategory === categoryName || !isNotDesktop || !toggle}> */}
                   <div
                     className={classNames([
                       styles.categoryNavigation__category__links,
@@ -102,7 +101,7 @@ const CategoryNavigation = ({
                       userIsAuthorized,
                     })}
                   </div>
-                </Collapse>
+                {/* </Collapse> */}
               </div>
             );
           })}

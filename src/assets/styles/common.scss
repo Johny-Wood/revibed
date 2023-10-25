@@ -313,7 +313,8 @@ nav {
 .wrapper__content {
   position: relative;
   flex-grow: 2;
-  @include breakpoint($b-tabletS__max) {
+
+  @include breakpoint($b-desktop__max) {
     width: 100%;
   }
 }
