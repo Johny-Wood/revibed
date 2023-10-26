@@ -47,7 +47,7 @@ function MainCards({ events }) {
               </div>
               <div className={styles.MainCard__info}>
                 <div className={styles.MainCard__infoTitle}>{card.name}</div>
-                <div className={styles.MainCard__infoDesc}>{card.desc}</div>
+                <div className={styles.MainCard__infoDesc}>{card.description}</div>
                 <Button className={styles.MainCard__button}>Buy now</Button>
               </div>
             </div>
