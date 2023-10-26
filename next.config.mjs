@@ -28,4 +28,7 @@ export default withNextEnv({
   typescript: {
     ignoreBuildErrors: true,
   },
+  images: {
+    domains: ["s3.amazonaws.com"]
+  }
 });
