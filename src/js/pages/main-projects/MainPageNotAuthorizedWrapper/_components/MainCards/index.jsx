@@ -1,5 +1,4 @@
 import Image from 'next/image';
-
 import { connect } from 'react-redux';
 
 import SiteWrapperLayout from '@/components/layouts/SiteWrapperLayout';
@@ -39,15 +38,17 @@ function MainCards({ events }) {
         <Button className={styles.MainCards__button}>Find music</Button>
       </div>
       <div className={styles.MainCards__items}>
-        {events.map((card) => {
+        {events.slice(0, 5).map((card) => {
+          const artists = card.release.artists.map((item) => item.name).join(', ');
+
           return (
             <div key={card.id} className={styles.MainCard}>
               <div className={styles.MainCard__cover}>
                 <Image width={160} height={160} src={card.covers[1].path} alt={card.name} />
               </div>
               <div className={styles.MainCard__info}>
-                <div className={styles.MainCard__infoTitle}>{card.name}</div>
-                <div className={styles.MainCard__infoDesc}>{card.description}</div>
+                <div className={styles.MainCard__infoTitle}>{artists}</div>
+                <div className={styles.MainCard__infoDesc}>{card.name}</div>
                 <Button className={styles.MainCard__button}>Buy now</Button>
               </div>
             </div>
