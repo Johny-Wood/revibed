@@ -206,7 +206,9 @@
     font-size: convert-px2rem(30);
     line-height: 113.333%;
     letter-spacing: convert-px2rem(0.6);
-    font-family: var(--font-family__Inter-Black);
+    /*font-family: var(--font-family__Inter-Black);*/
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
     @include breakpoint($b-tabletS__max) {
       margin-top: convert-px2rem(26);
       font-size: convert-px2rem(22);
@@ -309,7 +311,9 @@
     border-radius: convert-px2rem(10);
     font-size: convert-px2rem(16);
     padding: convert-px2rem(15) convert-px2rem(40) !important;
-    font-family: var(--font-family__Inter-Bold);
+    /*font-family: var(--font-family__Inter-Bold);*/
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
     &::after {
       border-radius: inherit;
     }

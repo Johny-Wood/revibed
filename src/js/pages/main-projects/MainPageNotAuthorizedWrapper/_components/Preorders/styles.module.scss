@@ -20,7 +20,9 @@
 
   &__title {
     color: #000;
-    font-family: var(--font-family__Inter-SemiBold);
+    /*font-family: var(--font-family__Inter-SemiBold);*/
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
     font-size: convert-px2rem(16);
     line-height: 137.5%;
     letter-spacing: convert-px2rem(0.48);
@@ -53,7 +55,9 @@
     margin-top: convert-px2rem(46);
     align-self: center;
     font-size: convert-px2rem(16);
-    font-family: var(--font-family__Inter-Bold);
+    /*font-family: var(--font-family__Inter-Bold);*/
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
     border-radius: convert-px2rem(10);
     background: #ebebeb !important;
     color: #000;
@@ -100,7 +104,9 @@
 
   &__infoTitle {
     color: #1a1a1a;
-    font-family: var(--font-family__Inter-SemiBold);
+    /*font-family: var(--font-family__Inter-SemiBold);*/
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
     font-size: convert-px2rem(13);
     line-height: 123.077%;
     display: -webkit-box;

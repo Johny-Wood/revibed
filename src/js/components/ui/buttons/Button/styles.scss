@@ -219,7 +219,9 @@ button {
   background-color: var(--color__white);
   width: max-content;
   line-height: 1;
-  font-family: $font-family;
+  /*font-family: $font-family;*/
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
   align-items: center;
   justify-content: center;
   outline: none !important;
