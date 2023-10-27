@@ -49,7 +49,8 @@
     position: absolute;
     z-index: 1;
 
-    transition: translate 1s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    //transition: translate 1s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    transition: translate 1.2s cubic-bezier(0, 0, 0.05, 1) 0s;
     translate: -2.5rem 0;
     &.FanPovered__imageAnimate {
       translate: 0.5rem 0;
@@ -178,7 +179,8 @@
     transform: rotate(7deg);
     width: convert-px2rem(248);
     height: convert-px2rem(180);
-    transition: translate 1s cubic-bezier(0.19, 1, 0.22, 1) 0s, transform 1s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    //transition: translate 1s cubic-bezier(0.19, 1, 0.22, 1) 0s, transform 1s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    transition: translate 1.2s cubic-bezier(0, 0, 0.05, 1) 0s, transform 1.2s cubic-bezier(0, 0, 0.05, 1) 0s;
     translate: 1.2rem 0;
     margin-bottom: convert-px2rem(-10);
     margin-right: convert-px2rem(15);
