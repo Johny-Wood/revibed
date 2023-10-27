@@ -5,7 +5,7 @@
   padding-top: convert-px2rem(100);
   padding-bottom: convert-px2rem(100);
   position: relative;
-  background-color: #6297dc;
+  background-color: #F0F0F0;
   @include breakpoint($b-tabletS__max) {
     padding-top: convert-px2rem(100);
     padding-bottom: convert-px2rem(30);
@@ -40,7 +40,7 @@
       left: 0;
       width: 100%;
       height: convert-px2rem(25);
-      background-color: #6297dc;
+      background-color: #F0F0F0;
       border-top: convert-px2rem(1) solid #000;
     }
   }
