@@ -79,9 +79,7 @@ function MainBanner({ scrollValue }) {
           Digitalizing vinyl is legal. <br /> Get your lossless now!
         </h1>
         <div className={styles.MainBanner__desc}>
-          Revibed has forever transformed <br/> the lives of&nbsp;passionate music enthusiasts. Gone are the days of&nbsp;spending a
-          fortune on&nbsp;overpriced vinyl&nbsp;and&nbsp;ripping gear just to stay in the loop. <br/> Now, hi-res digitization of musical heritage
-          becomes legal and&nbsp;accessible to&nbsp;everyone.
+          Revibed has forever transformed <br className={styles.MainBanner__brmob}/>the lives <br className={styles.MainBanner__brdsk}/>of&nbsp;passionate music enthusiasts. Gone are <br className={styles.MainBanner__brmob}/>the days <br className={styles.MainBanner__brdsk}/>of&nbsp;spending a&nbsp;fortune on&nbsp;overpriced <br className={styles.MainBanner__brmob}/>vinyl&nbsp;and&nbsp;ripping gear just <br className={styles.MainBanner__brdsk}/>to stay in the loop. <br className={styles.MainBanner__brmob}/> Now, hi-res digitization of musical heritage <br className={styles.MainBanner__brdsk}/>becomes <br className={styles.MainBanner__brmob}/>legal and&nbsp;accessible to&nbsp;everyone.
         </div>
         <Button className={styles.MainBanner__button} onClick={() => setModal(true)}>
           Download Now

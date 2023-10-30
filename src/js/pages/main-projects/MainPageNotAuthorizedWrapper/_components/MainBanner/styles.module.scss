@@ -128,13 +128,10 @@
   &__desc {
     font-size: convert-px2rem(16);
     margin: convert-px2rem(30) auto 0;
-    max-width: convert-px2rem(508);
+    max-width: convert-px2rem(555);
     text-align: center;
     line-height: 137.5%;
     letter-spacing: convert-px2rem(0.8);
-    & br {
-      display: none;
-    }
     @include breakpoint($b-tabletS__max) {
       margin: convert-px2rem(20) auto 0;
       font-size: convert-px2rem(12);
@@ -145,10 +142,20 @@
     @include breakpoint($b-mobileS__max) { 
       margin: convert-px2rem(30) auto 0;
       line-height: 133%;
-      max-width: convert-px2rem(320);
-      & br {
-        display: block;
-      }
+      max-width: convert-px2rem(350);
+    }
+
+  }
+
+  &__brdsk {
+    @include breakpoint($b-mobileS__max) {
+      display: none;
+    }
+  } 
+  &__brmob {
+    display: none;
+    @include breakpoint($b-mobileS__max) {
+      display: inline;
     }
   }
 

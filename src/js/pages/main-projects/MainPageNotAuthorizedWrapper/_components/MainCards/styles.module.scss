@@ -4,9 +4,15 @@
 .MainCards {
   padding-top: convert-px2rem(72);
   padding-bottom: convert-px2rem(108);
-  @include breakpoint($b-tabletS__max) {
+
+  @include breakpoint($b-tablet__max) {
     padding-top: convert-px2rem(51);
-    padding-bottom: convert-px2rem(20);
+    padding-bottom: convert-px2rem(50);
+  }
+  @include breakpoint($b-mobileS__max) {
+   max-width: convert-px2rem(390);
+   padding-top: convert-px2rem(32);
+   padding-bottom: convert-px2rem(39);
   }
 
   &__header {
@@ -19,9 +25,36 @@
   &__input {
     max-width: convert-px2rem(390);
     border-radius: convert-px2rem(10);
+    font-size: convert-px2rem(18);
     overflow: hidden;
+    @include breakpoint($b-tablet__max) {
+      max-width: convert-px2rem(272);
+      font-size: convert-px2rem(12);
+    }
     @include breakpoint($b-mobileS__max) {
+      font-size: convert-px2rem(16);
+      max-width: none;
+      width: 100%;
       min-height: convert-px2rem(50);
+    }
+
+    span {
+        right: convert-px2rem(3) !important;
+
+        @include breakpoint($b-mobileS__max) {
+          right: convert-px2rem(8) !important;
+        }
+    }
+
+    svg {
+      width: convert-px2rem(20);
+
+      @include breakpoint($b-tablet__max) {
+        width: convert-px2rem(15);
+      }
+      @include breakpoint($b-mobileS__max) {
+        width: convert-px2rem(20);
+      }
     }
   }
 
@@ -32,6 +65,11 @@
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     border-radius: convert-px2rem(10);
+
+    @include breakpoint($b-tablet__max) {
+      min-width: convert-px2rem(137) !important;
+      font-size: convert-px2rem(12);
+    }
     @include breakpoint($b-mobileS__max) {
       display: none;
     }
@@ -45,6 +83,14 @@
     justify-content: center;
     column-gap: convert-px2rem(25);
     row-gap: convert-px2rem(33);
+
+    @include breakpoint($b-tablet__max) {
+      margin-top: convert-px2rem(47);
+    }
+
+    @include breakpoint($b-mobileS__max) {
+      margin-top: convert-px2rem(66);
+    }
   }
 
   &__more {
@@ -54,12 +100,23 @@
     /*font-family: var(--font-family__Inter-Bold);*/
     font-family: 'Inter', sans-serif;
     font-weight: 700;
+    padding: convert-px2rem(16) !important;
+    min-width: convert-px2rem(192) !important;
     border-radius: convert-px2rem(10);
     background: #ebebeb !important;
     color: #000;
+    @include breakpoint($b-tablet__max) {
+      margin-top: convert-px2rem(35);
+      font-size: convert-px2rem(12);
+      padding: convert-px2rem(12) !important;
+      min-width: convert-px2rem(136) !important;
+    }
     @include breakpoint($b-mobileS__max) {
       width: 100%;
       min-height: convert-px2rem(50);
+      margin-top: convert-px2rem(54);
+      margin-bottom: convert-px2rem(39);
+      font-size: convert-px2rem(14);
     }
   }
 }
@@ -67,6 +124,11 @@
 .MainCard {
   width: convert-px2rem(160);
   flex-shrink: 0;
+
+  @include breakpoint($b-tablet__max) {
+    width: convert-px2rem(114);
+  }
+
   @include breakpoint($b-mobileS__max) {
     width: calc(50% - convert-px2rem(15));
     &:nth-child(odd) {
@@ -84,15 +146,26 @@
       box-shadow: 0 convert-px2rem(4) convert-px2rem(20) 0 rgba(0, 0, 0, 0.15);
       // width: 100%;
       // height: 100%;
-      object-fit: cover;
-      width: 160px;
-      height: 160px;
+      //object-fit: cover;
+      width: convert-px2rem(160);
+      height: convert-px2rem(160);
+      display: block;
       object-fit: contain;
+
+      @include breakpoint($b-tablet__max) {
+        width: convert-px2rem(114);
+        height: convert-px2rem(114);
+      }
+
+      @include breakpoint($b-mobileS__max) {
+        width: convert-px2rem(160);
+        height: convert-px2rem(160);
+      }
     }
   }
 
   &__info {
-    margin-top: convert-px2rem(16);
+    margin-top: convert-px2rem(12);
   }
 
   &__infoTitle {
@@ -107,12 +180,33 @@
     -webkit-line-clamp: 1;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @include breakpoint($b-tablet__max) {
+      font-size: convert-px2rem(9);
+    }
+
+    @include breakpoint($b-mobileS__max) {
+      font-size: convert-px2rem(13);
+    }
   }
 
   &__infoDesc {
     margin-top: convert-px2rem(5);
     font-size: convert-px2rem(13);
     line-height: 123.077%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include breakpoint($b-tablet__max) {
+      font-size: convert-px2rem(9);
+    }
+
+    @include breakpoint($b-mobileS__max) {
+      font-size: convert-px2rem(13);
+    }
   }
 
   &__button {
@@ -121,6 +215,7 @@
     /*font-family: var(--font-family__Inter-Bold);*/
     font-family: 'Inter', sans-serif;
     font-weight: 700;
+    font-size: convert-px2rem(16);
     background-color: #fff !important;
     color: #000000;
     border: convert-px2rem(1) solid #000000;
@@ -131,6 +226,17 @@
     &:hover {
       background-color: #000000 !important;
       color: #fff;
+    }
+
+    @include breakpoint($b-tablet__max) {
+      margin-top: convert-px2rem(12);
+      font-size: convert-px2rem(12);
+      padding: convert-px2rem(8) !important;
+    }
+
+    @include breakpoint($b-mobileS__max) {
+      font-size: convert-px2rem(14);
+      padding: convert-px2rem(14) !important;
     }
   }
 }

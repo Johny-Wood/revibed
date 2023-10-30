@@ -3,7 +3,7 @@
 
 .FanPovered {
   padding-top: convert-px2rem(100);
-  padding-bottom: convert-px2rem(100);
+  padding-bottom: convert-px2rem(60);
   position: relative;
   background-color: #F0F0F0;
   @include breakpoint($b-tabletS__max) {
@@ -63,13 +63,13 @@
       bottom: convert-px2rem(-10);
       left: convert-px2rem(30);
       @include breakpoint($b-tabletS__max) {
-        bottom: convert-px2rem(-5);
+        bottom: convert-px2rem(-7);
         left: convert-px2rem(18);
         width: convert-px2rem(24);
         height: convert-px2rem(24);
       }
       @include breakpoint($b-mobileS__max) {
-        bottom: convert-px2rem(-5);
+        bottom: convert-px2rem(-8);
         left: convert-px2rem(10);
         width: convert-px2rem(24);
         height: convert-px2rem(24);
@@ -79,71 +79,72 @@
       bottom: convert-px2rem(12);
       left: convert-px2rem(3);
       @include breakpoint($b-tabletS__max) {
-        bottom: convert-px2rem(8);
+        bottom: convert-px2rem(6);
         left: convert-px2rem(0);
         width: convert-px2rem(42);
         height: convert-px2rem(42);
       }
       @include breakpoint($b-mobileS__max) {
-        left: convert-px2rem(-5);
+        left: convert-px2rem(-10);
+        bottom: convert-px2rem(4);
         width: convert-px2rem(42);
         height: convert-px2rem(42);
       }
     }
     &:nth-child(3) {
       bottom: convert-px2rem(34);
-      left: convert-px2rem(50);
+      left: convert-px2rem(51);
       @include breakpoint($b-tabletS__max) {
-        bottom: convert-px2rem(22);
-        left: convert-px2rem(32);
+        bottom: convert-px2rem(20);
+        left: convert-px2rem(31);
         width: convert-px2rem(30);
         height: convert-px2rem(30);
       }
       @include breakpoint($b-mobileS__max) {
-        bottom: convert-px2rem(22);
-        left: convert-px2rem(27);
-        width: convert-px2rem(26);
-        height: convert-px2rem(26);
+        bottom: convert-px2rem(20);
+        left: convert-px2rem(20);
+        width: convert-px2rem(30);
+        height: convert-px2rem(30);
       }
     }
     &:nth-child(4) {
-      bottom: convert-px2rem(18);
-      left: convert-px2rem(80);
+      bottom: convert-px2rem(19);
+      left: convert-px2rem(83);
       @include breakpoint($b-tabletS__max) {
-        bottom: convert-px2rem(12);
-        left: convert-px2rem(52);
+        bottom: convert-px2rem(9);
+        left: convert-px2rem(51);
         width: convert-px2rem(50);
         height: convert-px2rem(50);
       }
       @include breakpoint($b-mobileS__max) {
         bottom: convert-px2rem(12);
-        left: convert-px2rem(45);
+        left: convert-px2rem(41);
         width: convert-px2rem(42);
         height: convert-px2rem(42);
       }
     }
     &:nth-child(5) {
-      bottom: convert-px2rem(60);
+      bottom: convert-px2rem(62);
       left: convert-px2rem(30);
       @include breakpoint($b-tabletS__max) {
-        bottom: convert-px2rem(40);
-        left: convert-px2rem(14);
+        bottom: convert-px2rem(38);
+        left: convert-px2rem(11);
         width: convert-px2rem(75);
         height: convert-px2rem(75);
       }
       @include breakpoint($b-mobileS__max) {
-        bottom: convert-px2rem(35);
-        left: convert-px2rem(9);
+        bottom: convert-px2rem(38);
+        left: convert-px2rem(7);
         width: convert-px2rem(68);
         height: convert-px2rem(68);
       }
     }
     &:nth-child(6) {
-      bottom: convert-px2rem(115);
-      left: convert-px2rem(120);
+      bottom: convert-px2rem(126);
+      left: convert-px2rem(115);
       @include breakpoint($b-tabletS__max) {
-        bottom: convert-px2rem(80);
-        left: convert-px2rem(75);
+        bottom: convert-px2rem(78);
+        left: convert-px2rem(73);
         width: convert-px2rem(25);
         height: convert-px2rem(25);
       }
@@ -155,17 +156,17 @@
       }
     }
     &:nth-child(7) {
-      top: convert-px2rem(-10);
-      left: convert-px2rem(140);
+      top: convert-px2rem(-18);
+      left: convert-px2rem(142);
       @include breakpoint($b-tabletS__max) {
-        top: convert-px2rem(-12);
+        top: convert-px2rem(-10);
         left: convert-px2rem(90);
         width: convert-px2rem(42);
         height: convert-px2rem(42);
       }
       @include breakpoint($b-mobileS__max) {
         top: convert-px2rem(-10);
-        left: convert-px2rem(76);
+        left: convert-px2rem(77);
         width: convert-px2rem(36);
         height: convert-px2rem(36);
       }
@@ -189,7 +190,7 @@
       translate: 0 0;
     }
     @include breakpoint($b-tabletS__max) {
-      margin-bottom: convert-px2rem(-10);
+      margin-bottom: convert-px2rem(-12);
       width: convert-px2rem(180);
       height: convert-px2rem(125);
     }
@@ -218,6 +219,13 @@
     @include breakpoint($b-mobileS__max) {
       margin-top: convert-px2rem(26);
       font-size: convert-px2rem(22);
+    }
+  }
+
+  &__brmob {
+    display: none;
+    @include breakpoint($b-mobileS__max) {
+      display: inline;
     }
   }
 
@@ -312,10 +320,11 @@
     margin-top: auto;
     border-radius: convert-px2rem(10);
     font-size: convert-px2rem(16);
-    padding: convert-px2rem(15) convert-px2rem(40) !important;
+    padding: convert-px2rem(15) !important;
     /*font-family: var(--font-family__Inter-Bold);*/
     font-family: 'Inter', sans-serif;
     font-weight: 700;
+    min-width: convert-px2rem(227) !important;
     &::after {
       border-radius: inherit;
     }

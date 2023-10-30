@@ -41,13 +41,17 @@
     justify-content: center;
     gap: convert-px2rem(25);
     @include breakpoint($b-tablet__max) {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      gap: convert-px2rem(35);
+      //display: grid;
+      //grid-template-columns: repeat(2, 1fr);
     }
     @include breakpoint($b-mobileS__max) {
-      margin-top: convert-px2rem(23);
-      grid-template-columns: 1fr;
       gap: convert-px2rem(23);
+      max-width: convert-px2rem(390);
+      margin-top: convert-px2rem(23);
+      margin-left: auto !important;
+      margin-right: auto !important;
+      flex-direction: column;
     }
   }
 
@@ -58,12 +62,24 @@
     /*font-family: var(--font-family__Inter-Bold);*/
     font-family: 'Inter', sans-serif;
     font-weight: 700;
+    padding: convert-px2rem(16) !important;
+    min-width: convert-px2rem(192) !important;
     border-radius: convert-px2rem(10);
     background: #ebebeb !important;
     color: #000;
+    @include breakpoint($b-tablet__max) {
+      margin-top: convert-px2rem(35);
+      font-size: convert-px2rem(12);
+      padding: convert-px2rem(12) !important;
+      min-width: convert-px2rem(136) !important;
+    }
     @include breakpoint($b-mobileS__max) {
       width: 100%;
+      max-width: convert-px2rem(390);
       min-height: convert-px2rem(50);
+      margin-top: convert-px2rem(54);
+      margin-bottom: convert-px2rem(10);
+      font-size: convert-px2rem(14);
     }
   }
 }
@@ -71,10 +87,15 @@
 .PreordersCard {
   width: convert-px2rem(202);
   padding: convert-px2rem(10);
+
+  @include breakpoint($b-tablet__max) {
+    width: convert-px2rem(130);
+    padding: 0;
+    flex-shrink: 0;
+  }
   @include breakpoint($b-mobileS__max) {
     width: 100%;
     display: flex;
-    column-gap: convert-px2rem(15);
     padding: 0;
   }
 
@@ -84,21 +105,34 @@
       // width: 100%;
       // height: 100%;
       object-fit: cover;
+      display: block;
+
+      @include breakpoint($b-tablet__max) {
+        width: convert-px2rem(130);
+        height: convert-px2rem(130);
+      }
+
+      @include breakpoint($b-mobileS__max) {
+        width: convert-px2rem(85);
+        height: convert-px2rem(85);
+      }
     }
     @include breakpoint($b-mobileS__max) {
-      width: convert-px2rem(85);
-      height: convert-px2rem(85);
       flex-shrink: 0;
     }
   }
 
   &__info {
     margin-top: convert-px2rem(16);
+    @include breakpoint($b-tablet__max) {
+      margin-top: convert-px2rem(8);
+    }
     @include breakpoint($b-mobileS__max) {
       width: 100%;
       margin-top: convert-px2rem(0);
       display: flex;
       flex-direction: column;
+      margin-left: convert-px2rem(15);
     }
   }
 
@@ -114,12 +148,33 @@
     -webkit-line-clamp: 1;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @include breakpoint($b-tablet__max) {
+      font-size: convert-px2rem(11);
+    }
+
+    @include breakpoint($b-mobileS__max) {
+      font-size: convert-px2rem(14);
+    }
   }
 
   &__infoDesc {
     margin-top: convert-px2rem(5);
     font-size: convert-px2rem(13);
     line-height: 123.077%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include breakpoint($b-tablet__max) {
+      font-size: convert-px2rem(11);
+    }
+
+    @include breakpoint($b-mobileS__max) {
+      font-size: convert-px2rem(14);
+    }
   }
 
   &__footer {
@@ -129,9 +184,17 @@
     font-size: convert-px2rem(12);
     line-height: 133.333%;
     letter-spacing: convert-px2rem(0.24);
+
+    @include breakpoint($b-tablet__max) {
+      font-size: convert-px2rem(11);
+    }
     @include breakpoint($b-mobileS__max) {
-      margin-top: convert-px2rem(12);
+      margin-top: convert-px2rem(10);
       order: 1;
+    }
+
+    div {
+      white-space: nowrap;
     }
   }
 
@@ -153,6 +216,7 @@
       width: 70%;
       border-radius: inherit;
       background-color: #ca0000;
+      //background-color: #009444;
     }
   }
 }

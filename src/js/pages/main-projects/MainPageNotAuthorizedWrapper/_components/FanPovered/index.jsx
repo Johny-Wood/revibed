@@ -108,7 +108,7 @@ function FanPovered() {
             quality={100}
           ></Image>
         </div>
-        <h2 className={styles.FanPovered__title}>A fan-powered movement to&nbsp;save music!</h2>
+        <h2 className={styles.FanPovered__title}>A fan-powered movement <br className={styles.FanPovered__brmob}/>to&nbsp;save music!</h2>
         <div className={styles.FanPovered__desc}>
           All the records on Revibed have been unearthed <br/> thanks to&nbsp;a&nbsp;global community of music lovers, just&nbsp;like&nbsp;yourself. Every
           day, Revibers contribute their&nbsp;exciting and surprising musical discoveries that have yet to be reissued in digital
