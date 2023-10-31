@@ -8,16 +8,21 @@
   height: 100%;
   display: none;
   z-index: 30000;
-  padding: convert-px2rem(160) convert-px2rem(33) convert-px2rem(33) convert-px2rem(33);
-  @include breakpoint($b-tabletS__max) {
-    padding: convert-px2rem(95) convert-px2rem(33) convert-px2rem(33) convert-px2rem(33);
+  min-width: 320px;
+  padding-top: convert-px2rem(122);
+
+  @include breakpoint($adaptive-width-tablet2) {
+    padding: 11vh 0 0;
   }
-  @include breakpoint($b-tablet__max) {
-    padding: convert-px2rem(33);
+
+  @include breakpoint($adaptive-width-tablet3) {
+    padding: 13vh 0;
   }
-  @include breakpoint($b-mobileS__max) {
-    padding: convert-px2rem(90) convert-px2rem(0) convert-px2rem(33);
+
+  @include breakpoint($adaptive-width-desktop) {
+    padding: 13vh 10%;
   }
+
   overflow-y: auto;
   &.active {
     display: flex;
@@ -27,18 +32,46 @@
 .myModalContent {
   position: relative;
   margin: auto;
-  padding: convert-px2rem(37) convert-px2rem(83) convert-px2rem(43);
-  border-radius: convert-px2rem(10);
+  text-align: center;
+  font-size: convert-px2rem(16);
+  padding: convert-px2rem(46) convert-px2rem(26) convert-px2rem(20);
+  border-top-left-radius: convert-px2rem(10);
+  border-top-right-radius: convert-px2rem(10);
   background: #f3f3f3;
+  width: 100%;
+  color: #000; 
+  letter-spacing: convert-px2rem(0.6);
   max-width: convert-px2rem(1080);
-  @include breakpoint($b-tabletS__max) {
-    padding: convert-px2rem(22) convert-px2rem(26) convert-px2rem(20);
-    max-width: convert-px2rem(779);
-  }
-  @include breakpoint($b-mobileS__max) {
-    padding: convert-px2rem(64) convert-px2rem(25) convert-px2rem(81);
-    max-width: convert-px2rem(484);
-  }
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+
+  @include breakpoint($adaptive-width-tablet) {
+      font-size: convert-px2rem(14);
+      line-height: 1.33;
+      padding: convert-px2rem(36) convert-px2rem(26);
+      margin: auto;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+      max-width: convert-px2rem(484);
+    }
+
+    @include breakpoint($adaptive-width-tablet3) {
+      max-width: convert-px2rem(779);
+      border-radius: convert-px2rem(10);
+      padding: convert-px2rem(25) convert-px2rem(26) convert-px2rem(20);
+    }
+
+    @include breakpoint($adaptive-width-desktop-wide) {
+      max-width: convert-px2rem(1082);
+      padding: convert-px2rem(37) convert-px2rem(82) convert-px2rem(43);
+    }
+
+  // @include breakpoint($b-tabletS__max) {
+  //   padding: convert-px2rem(22) convert-px2rem(26) convert-px2rem(20);
+  //   max-width: convert-px2rem(779);
+  // }
+  // @include breakpoint($b-mobileS__max) {
+  //   padding: convert-px2rem(64) convert-px2rem(25) convert-px2rem(81);
+  //   max-width: convert-px2rem(484);
+  // }
+  // display: flex;
+  // flex-direction: column;
 }

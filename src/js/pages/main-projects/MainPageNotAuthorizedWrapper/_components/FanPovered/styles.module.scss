@@ -222,6 +222,11 @@
     }
   }
 
+  &__brdsk {
+    @include breakpoint($b-mobileS__max) {
+      display: none;
+    }
+  } 
   &__brmob {
     display: none;
     @include breakpoint($b-mobileS__max) {

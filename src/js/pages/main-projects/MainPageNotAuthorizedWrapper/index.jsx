@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import BaseWebsiteLayout from '@/components/layouts/BaseWebsiteLayout';
-import Footer from '@/js/components/global/Landing/Footer';
+import Footer from '@/js/components/global/Footer';
 import MainBanner from '@/pages/main-projects/MainPageNotAuthorizedWrapper/_components/MainBanner';
 
 import Collector from './_components/Collectors';

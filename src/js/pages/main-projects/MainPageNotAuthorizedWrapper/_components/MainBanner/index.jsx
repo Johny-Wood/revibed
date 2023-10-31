@@ -13,9 +13,9 @@ import styles from './styles.module.scss';
 
 import imageUrl from '../../_images/mainBanner.png';
 import imageVinil from '../../_images/mainVinil.png';
-import imageModal1 from '../../_images/Modal-1.png';
-import imageModal2 from '../../_images/Modal-2.png';
-import imageModal3 from '../../_images/Modal-3.png';
+import imageModal1 from '../../_images/card1_illustration.png';
+import imageModal2 from '../../_images/card2_illustration.png';
+import imageModal3 from '../../_images/card3_illustration.png';
 
 function MainBanner({ scrollValue }) {
   const [startAnimation, setStartAnimation] = useState(false);
@@ -34,15 +34,17 @@ function MainBanner({ scrollValue }) {
       title: '1. Join In',
       subtitle: <>Join or start pre-order <br/> (30&nbsp;fans needed for funding)</>,
       url: imageModal1,
-      footer: 'Up to 14 days of funding time',
-      bottom: <>Get your digital files cheaper <br/> and quicker than anyone else  <br/> <strong>(pay 7.5 eur instead of 10)</strong></>,
+      imgClass: styles.MainBanner__img1,
+      footer: <>Up to 14&nbsp;days of funding time</>,
+      bottom: <>Get your digital files cheaper <br className={styles.MainBanner__brmoddsk}/>and quicker than <br className={styles.MainBanner__brmodmob}/>anyone else  <br className={styles.MainBanner__brmoddsk}/><strong>(pay 7.5&nbsp;eur instead of&nbsp;10)</strong></>,
     },
     {
       id: '2',
       title: "2. Wait, it's coming",
-      subtitle: <>Securing, purchase, delivery &&nbsp;digitisation of the record</>,
+      subtitle: <>Securing, purchase, delivery <br/>&&nbsp;digitisation of the record</>,
       url: imageModal2,
-      footer: <>Average time from purchase <br/> to&nbsp;digitisation — X days</>,
+      imgClass: styles.MainBanner__img2,
+      footer: <>Average time from purchase <br className={styles.MainBanner__brmodmob}/>to <br className={styles.MainBanner__brmoddsk}/>digitisation — X days</>,
       bottom: false,
     },
     {
@@ -50,9 +52,10 @@ function MainBanner({ scrollValue }) {
       title: '3. Get the music',
       subtitle: 'The digital copy is ready',
       url: imageModal3,
-      footer: <>for the first 3 months, <br/> files&nbsp;will&nbsp;be exclusively available  <br/> to fans who pre-ordered</>,
+      imgClass: styles.MainBanner__img3,
+      footer: <>for the first 3&nbsp;months, <br/> files will be exclusively available <br/>to fans who pre-ordered</>,
       bottom:
-      <>Join 4 successful pre-orders and <strong>get&nbsp;7.5&nbsp;EUR in&nbsp;cashback</strong> (that's <br/> 1&nbsp;release  you get completely for free!)</>,
+      <>Join 4&nbsp;successful pre-orders and <br className={styles.MainBanner__brmoddsk}/><strong>get 7.5&nbsp;EUR <br className={styles.MainBanner__brmodmob}/>in cashback</strong> (that's 1&nbsp;release <br className={styles.MainBanner__brmoddsk}/>you get completely <br className={styles.MainBanner__brmodmob}/>for free!)</>,
     },
   ];
 
@@ -92,30 +95,30 @@ function MainBanner({ scrollValue }) {
             <path d="M7 8.4L1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4Z" fill="#1A1A1A" />
           </svg>
         </button>
-        <div className={styles.MainBanner__modalTitle}>Here's how <br /> pre-order works!</div>
+        <div className={styles.MainBanner__modalTitle}>Here's how <br className={styles.MainBanner__brmodtab}/> pre-order works!</div>
         <div className={styles.MainBanner__modalSubtitle}>
-          Three simple steps to get exclusive music before the crowds do. Anyone can start a pre-order.
+          Three simple steps to get exclusive music before <br className={styles.MainBanner__brmodmob}/>the crowds do. <br className={styles.MainBanner__brmoddsk}/>Anyone can start a pre-order.
         </div>
-        <div className={styles.MainBanner__modalCards}>
+        <ul className={styles.MainBanner__modalCards}>
           {modalCards.map((modalCard) => {
             return (
-              <div key={modalCard.id} className={styles.MainBanner__modalCard}>
+              <li key={modalCard.id} className={styles.MainBanner__modalCard}>
                 <div key={modalCard.id} className={styles.MainBanner__modalCardWrapper}>
                   <div className={styles.MainBanner__modalCardCaption}>{modalCard.title}</div>
                   <div className={styles.MainBanner__modalCardDesc}>{modalCard.subtitle}</div>
                   <div className={styles.MainBanner__modalCardImage}>
-                    <Image src={modalCard.url} alt={modalCard.title}></Image>
+                    <Image src={modalCard.url} alt={modalCard.title} className={modalCard.imgClass} style={{height:'auto'}}></Image>
                   </div>
                   <div className={styles.MainBanner__modalCardFooter}>{modalCard.footer}</div>
                 </div>
                 {modalCard.bottom !== false && <div className={styles.MainBanner__modalBottom}> {modalCard.bottom} </div>}
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
         <div className={styles.MainBanner__modalFooter}>
-            If a pre-order does not receive enough fan support during the funding stage, 
-            it&nbsp;will be cancelled. <strong>All participants will receive a full refund</strong>
+            If a&nbsp;pre-order does not receive enough fan support <br className={styles.MainBanner__brmodmob}/>during the funding stage, 
+            <br className={styles.MainBanner__brmoddsk}/>it&nbsp;will be cancelled. <br className={styles.MainBanner__brmodmob}/><strong>All participants will receive a&nbsp;full refund</strong>
         </div>
         <button className={styles.MainBanner__modalBtn} onClick={() => setModal(false)}>
           Close

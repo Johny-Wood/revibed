@@ -63,8 +63,10 @@
     max-width: convert-px2rem(920);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(convert-px2rem(172), 1fr));
-    @include breakpoint($b-tabletS__max) {
+
+    @include breakpoint($b-tablet__max) {
       margin: convert-px2rem(30) auto 0;
+      gap: convert-px2rem(7);
       grid-template-columns: repeat(auto-fit, minmax(convert-px2rem(122), 1fr));
       max-width: convert-px2rem(680);
     }
@@ -79,13 +81,15 @@
     flex-direction: column;
     width: convert-px2rem(172);
     height: convert-px2rem(172);
-    padding: convert-px2rem(7);
-    @include breakpoint($b-tabletS__max) {
-      width: convert-px2rem(122);
-      height: convert-px2rem(122);
+    padding: convert-px2rem(10) convert-px2rem(7) convert-px2rem(7) convert-px2rem(12);
+
+    @include breakpoint($b-tablet__max) {
+      width: convert-px2rem(123);
+      height: convert-px2rem(123);
+      padding: convert-px2rem(7) convert-px2rem(5) convert-px2rem(5) convert-px2rem(8);
     }
     @include breakpoint($b-mobileS__max) {
-      padding: convert-px2rem(10);
+      padding: convert-px2rem(10) convert-px2rem(8) convert-px2rem(8) convert-px2rem(11);
       aspect-ratio: 1;
       width: 100%;
       height: auto;
@@ -116,7 +120,7 @@
     font-weight: 700;
     line-height: convert-px2rem(20);
     letter-spacing: convert-px2rem(0.8);
-    @include breakpoint($b-tabletS__max) {
+    @include breakpoint($b-tablet__max) {
       padding: 0 convert-px2rem(10) 0 0;
       font-size: convert-px2rem(14);
     }

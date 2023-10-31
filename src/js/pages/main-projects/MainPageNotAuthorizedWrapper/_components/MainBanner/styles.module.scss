@@ -206,304 +206,609 @@
     }
   }
 
+  // &__modalTitle {
+  //   color: #000;
+  //   text-align: center;
+  //   font-size: convert-px2rem(30);
+  //   line-height: 100%;
+  //   letter-spacing: convert-px2rem(0.6);
+  //   /*font-family: var(--font-family__Inter-Black);*/
+  //   font-family: 'Inter', sans-serif;
+  //   font-weight: 900;
+  //   & br {
+  //     display: none;
+  //   }
+  //   @include breakpoint($b-tabletS__max) {
+  //     font-size: convert-px2rem(22);
+  //   }
+  //   @include breakpoint($b-mobileS__max) {
+  //     font-size: convert-px2rem(30);
+  //     & br {
+  //       display: block;
+  //     }
+  //   }
+  // }
+
   &__modalTitle {
-    color: #000;
     text-align: center;
-    font-size: convert-px2rem(30);
-    line-height: 100%;
+    font-size: convert-px2rem(30); 
+    font-weight: 900; 
+    line-height: 1;
     letter-spacing: convert-px2rem(0.6);
-    /*font-family: var(--font-family__Inter-Black);*/
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
-    & br {
-      display: none;
+    margin-bottom: convert-px2rem(20);
+
+    @include breakpoint($adaptive-width-tablet3) {
+      font-size: convert-px2rem(22); 
+      margin-bottom: convert-px2rem(15);
+      letter-spacing: convert-px2rem(0.44); 
     }
-    @include breakpoint($b-tabletS__max) {
-      font-size: convert-px2rem(22);
-    }
-    @include breakpoint($b-mobileS__max) {
+
+    @include breakpoint($adaptive-width-desktop-wide) {
       font-size: convert-px2rem(30);
-      & br {
-        display: block;
-      }
+      margin-bottom: convert-px2rem(30);
+      letter-spacing: convert-px2rem(0.6); 
     }
   }
 
-  &__modalSubtitle {
-    color: #000;
-    text-align: center;
-    font-size: convert-px2rem(16);
-    line-height: 137.5%;
-    letter-spacing: convert-px2rem(0.8);
-    max-width: convert-px2rem(580);
-    margin: convert-px2rem(34) auto 0;
-    @include breakpoint($b-tabletS__max) { 
-      margin: convert-px2rem(18) auto 0;
-      max-width: convert-px2rem(440);
-      font-size: convert-px2rem(12);
-      line-height: 125%;
-      letter-spacing: convert-px2rem(0.6);
+  &__brmoddsk {
+    display: none;
+
+    @include breakpoint($adaptive-width-tablet3) {
+      display: block;
     }
-    @include breakpoint($b-mobileS__max) {
-      margin: convert-px2rem(46) auto 0;
-      max-width: convert-px2rem(320);
-     }
   }
+  &__brmodmob {
+    display: block;
+
+    @include breakpoint($adaptive-width-tablet3) {
+      display: none;
+    }
+  }
+  &__brmodtab {
+    display: block;
+
+    @include breakpoint($adaptive-width-tablet3) {
+      display: none;
+    }
+  }
+
+  // &__modalSubtitle {
+  //   color: #000;
+  //   text-align: center;
+  //   font-size: convert-px2rem(16);
+  //   line-height: 137.5%;
+  //   letter-spacing: convert-px2rem(0.8);
+  //   max-width: convert-px2rem(580);
+  //   margin: convert-px2rem(34) auto 0;
+  //   @include breakpoint($b-tabletS__max) { 
+  //     margin: convert-px2rem(18) auto 0;
+  //     max-width: convert-px2rem(440);
+  //     font-size: convert-px2rem(12);
+  //     line-height: 125%;
+  //     letter-spacing: convert-px2rem(0.6);
+  //   }
+  //   @include breakpoint($b-mobileS__max) {
+  //     margin: convert-px2rem(46) auto 0;
+  //     max-width: convert-px2rem(320);
+  //    }
+  // }
+  &__modalSubtitle  {
+    text-align: center;
+    font-size: convert-px2rem(12); 
+    line-height: 1.33;
+    letter-spacing: convert-px2rem(0.6); 
+    margin-bottom: convert-px2rem(29);
+
+    @include breakpoint($adaptive-width-tablet3) {
+      line-height: 1.25;
+      margin-bottom: convert-px2rem(25);
+    }
+
+    @include breakpoint($adaptive-width-desktop-wide) {
+      font-size: convert-px2rem(16);
+      letter-spacing: convert-px2rem(0.8);
+      line-height: 1.37;
+      margin-bottom: convert-px2rem(29);
+    }
+  }
+
+  // &__modalCards {
+  //   margin: convert-px2rem(28) 0 0 0;
+  //   display: grid;
+  //   grid-template-columns: repeat(3, 1fr);
+  //   gap: convert-px2rem(6);
+  //   @include breakpoint($b-tabletS__max) { 
+  //     margin: convert-px2rem(23) 0 0 0;
+  //     gap: convert-px2rem(5);
+  //   }
+  //   @include breakpoint($b-mobileS__max) {
+  //     margin: convert-px2rem(50) 0 0 0;
+  //     grid-template-columns: 1fr;
+  //     gap: convert-px2rem(16);
+  //    }
+  // }
 
   &__modalCards {
-    margin: convert-px2rem(28) 0 0 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: convert-px2rem(6);
-    @include breakpoint($b-tabletS__max) { 
-      margin: convert-px2rem(23) 0 0 0;
-      gap: convert-px2rem(5);
+    display: block;
+    list-style-type: none;
+    padding-left: 0;
+
+    @include breakpoint($adaptive-width-tablet3) {
+      display: flex;
     }
-    @include breakpoint($b-mobileS__max) {
-      margin: convert-px2rem(50) 0 0 0;
-      grid-template-columns: 1fr;
-      gap: convert-px2rem(16);
-     }
   }
+
+  // &__modalCard {
+  //   display: flex;
+  //   flex-direction: column;
+  //   &:nth-child(1) {
+  //     .MainBanner__modalCardCaption {
+  //       @include breakpoint($b-tabletS__max) { 
+  //         font-size: convert-px2rem(16);
+  //         line-height: 125%;
+  //         letter-spacing: convert-px2rem(0.8);
+  //       }
+  //       @include breakpoint($b-mobileS__max) {
+  //         font-size: convert-px2rem(22);
+  //         line-height: 100%;
+  //         letter-spacing: convert-px2rem(0.44);
+  //       }
+  //     }
+  //     .MainBanner__modalCardImage {
+  //       @include breakpoint($b-tabletS__max) {  
+  //         & img {
+  //           max-width: 80%;
+  //           height: convert-px2rem(82);;
+  //         }
+  //       }
+  //       @include breakpoint($b-mobileS__max) {
+  //         height: auto;
+  //         & img {
+  //           max-width: 90%;
+  //           width: 100%;
+  //           height: auto;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   &__modalCard {
-    display: flex;
-    flex-direction: column;
-    &:nth-child(1) {
-      .MainBanner__modalCardCaption {
-        @include breakpoint($b-tabletS__max) { 
-          font-size: convert-px2rem(16);
-          line-height: 125%;
-          letter-spacing: convert-px2rem(0.8);
-        }
-        @include breakpoint($b-mobileS__max) {
-          font-size: convert-px2rem(22);
-          line-height: 100%;
-          letter-spacing: convert-px2rem(0.44);
-        }
-      }
-      .MainBanner__modalCardImage {
-        @include breakpoint($b-tabletS__max) {  
-          & img {
-            max-width: 80%;
-            height: convert-px2rem(82);;
-          }
-        }
-        @include breakpoint($b-mobileS__max) {
-          height: auto;
-          & img {
-            max-width: 90%;
-            width: 100%;
-            height: auto;
-          }
-        }
+    display: block;
+    margin-bottom: convert-px2rem(20);
+
+    @include breakpoint($adaptive-width-tablet3) {
+      width: 33%;
+      flex-basis: 33%;
+      margin-bottom: convert-px2rem(10);
+      margin-left: convert-px2rem(5);
+
+      &:first-child {
+        margin-left: 0;
       }
     }
+
+    @include breakpoint($adaptive-width-desktop-wide) {
+      margin-left: convert-px2rem(6);
+    }
   }
+
+  // &__modalCardWrapper {
+  //   border-radius: convert-px2rem(10);
+  //   background: #fff;
+  //   padding: convert-px2rem(24) convert-px2rem(20) convert-px2rem(40);
+  //   display: flex;
+  //   flex-direction: column;
+  //   @include breakpoint($b-tabletS__max) { 
+  //     padding: convert-px2rem(14) convert-px2rem(20) convert-px2rem(5);
+  //   }
+  //   @include breakpoint($b-mobileS__max) { 
+  //     padding: convert-px2rem(34) convert-px2rem(40) convert-px2rem(5);
+  //   }
+  // }
 
   &__modalCardWrapper {
+    text-align: center;
+    background-color: #fff;
+    padding: convert-px2rem(27) convert-px2rem(32) convert-px2rem(36);
     border-radius: convert-px2rem(10);
-    background: #fff;
-    padding: convert-px2rem(24) convert-px2rem(20) convert-px2rem(40);
-    display: flex;
-    flex-direction: column;
-    @include breakpoint($b-tabletS__max) { 
-      padding: convert-px2rem(14) convert-px2rem(20) convert-px2rem(5);
+    margin-bottom: convert-px2rem(13);
+
+    @include breakpoint($adaptive-width-tablet3) {
+      padding: convert-px2rem(14) convert-px2rem(22) convert-px2rem(20);
+      border-radius: convert-px2rem(5);
+      margin-bottom: convert-px2rem(10);
     }
-    @include breakpoint($b-mobileS__max) { 
-      padding: convert-px2rem(34) convert-px2rem(40) convert-px2rem(5);
+
+    @include breakpoint($adaptive-width-desktop-wide) {
+      padding: convert-px2rem(24) convert-px2rem(25) convert-px2rem(25);
+      border-radius: convert-px2rem(10);
     }
   }
+
+  // &__modalCardCaption {
+  //   color: #000;
+  //   text-align: center;
+  //   /*font-family: var(--font-family__Inter-Bold);*/
+  //   font-family: 'Inter', sans-serif;
+  //   font-weight: 700;
+  //   font-size: convert-px2rem(16);
+  //   line-height: 125%;
+  //   letter-spacing: convert-px2rem(0.8);
+  //   @include breakpoint($b-tabletS__max) { 
+  //     font-size: convert-px2rem(14);
+  //     line-height: 142.857%;
+  //     letter-spacing: convert-px2rem(0.7);
+  //   }
+  //   @include breakpoint($b-mobileS__max) {
+  //     font-size: convert-px2rem(22);
+  //     line-height: 100%;
+  //     letter-spacing: convert-px2rem(0.44);
+  //   }
+  // }
 
   &__modalCardCaption {
-    color: #000;
-    text-align: center;
-    /*font-family: var(--font-family__Inter-Bold);*/
-    font-family: 'Inter', sans-serif;
+    font-size: convert-px2rem(22); 
     font-weight: 700;
-    font-size: convert-px2rem(16);
-    line-height: 125%;
-    letter-spacing: convert-px2rem(0.8);
-    @include breakpoint($b-tabletS__max) { 
-      font-size: convert-px2rem(14);
-      line-height: 142.857%;
-      letter-spacing: convert-px2rem(0.7);
+    margin-bottom: convert-px2rem(20);
+    letter-spacing: convert-px2rem(0.44); 
+
+    @include breakpoint($adaptive-width-tablet3) {
+      font-size: convert-px2rem(16);
+      margin-bottom: convert-px2rem(18);
+      letter-spacing: convert-px2rem(0.8); 
     }
-    @include breakpoint($b-mobileS__max) {
-      font-size: convert-px2rem(22);
-      line-height: 100%;
-      letter-spacing: convert-px2rem(0.44);
+
+    @include breakpoint($adaptive-width-desktop-wide) {
+      margin-bottom: convert-px2rem(22);
     }
   }
 
+  // &__modalCardDesc {
+  //   margin: convert-px2rem(18) 0 auto 0;
+  //   color: #000;
+  //   text-align: center;
+  //   font-size: convert-px2rem(16);
+  //   line-height: 125%;
+  //   letter-spacing: convert-px2rem(0.8);
+  //   min-height: convert-px2rem(45);
+  //   & br {
+  //     display: none;
+  //   }
+  //   @include breakpoint($b-tabletS__max) { 
+  //     font-size: convert-px2rem(13);
+  //     line-height: 123%;
+  //     letter-spacing: convert-px2rem(0.65);
+  //   }
+  //   @include breakpoint($b-mobileS__max) {
+  //     font-size: convert-px2rem(16);
+  //     line-height: 125%;
+  //     letter-spacing: convert-px2rem(0.8);
+  //     max-width: convert-px2rem(320);
+  //     margin: convert-px2rem(24) auto auto;
+  //     & br {
+  //       display: block;
+  //     }
+  //   }
+  // }
   &__modalCardDesc {
-    margin: convert-px2rem(18) 0 auto 0;
-    color: #000;
-    text-align: center;
-    font-size: convert-px2rem(16);
-    line-height: 125%;
-    letter-spacing: convert-px2rem(0.8);
-    min-height: convert-px2rem(45);
-    & br {
-      display: none;
-    }
-    @include breakpoint($b-tabletS__max) { 
+    font-size: convert-px2rem(16); 
+    line-height: convert-px2rem(20); 
+    margin-bottom: convert-px2rem(40);
+    letter-spacing: convert-px2rem(0.8); 
+
+    @include breakpoint($adaptive-width-tablet3) {
       font-size: convert-px2rem(13);
-      line-height: 123%;
-      letter-spacing: convert-px2rem(0.65);
+      line-height: convert-px2rem(16);
+      min-height: convert-px2rem(32);
+      margin: 0 convert-px2rem(-10) convert-px2rem(25);
+      letter-spacing: convert-px2rem(0.65); 
     }
-    @include breakpoint($b-mobileS__max) {
+
+    @include breakpoint($adaptive-width-desktop-wide) {
       font-size: convert-px2rem(16);
-      line-height: 125%;
+      line-height: convert-px2rem(20);
       letter-spacing: convert-px2rem(0.8);
-      max-width: convert-px2rem(320);
-      margin: convert-px2rem(24) auto auto;
-      & br {
-        display: block;
-      }
+      min-height: convert-px2rem(40);
     }
   }
+
+  // &__modalCardImage {
+  //   margin-top: convert-px2rem(16);
+  //   height: convert-px2rem(127);
+  //   margin-left: auto;
+  //   margin-right: auto;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   border-bottom: convert-px2rem(1) solid #000;
+  //   text-align: center;
+  //   width: 100%;
+  //   @include breakpoint($b-tabletS__max) { 
+  //     margin-top: convert-px2rem(8);
+  //     height: convert-px2rem(101);
+  //   }
+  //   @include breakpoint($b-mobileS__max) { 
+  //     margin-top: convert-px2rem(60);
+  //     height: convert-px2rem(183);
+  //   }
+ 
+  //   & img {
+  //     max-width: 100%;
+  //     width: auto;
+  //     height: 100%;
+  //   }
+  // }
 
   &__modalCardImage {
-    margin-top: convert-px2rem(16);
-    height: convert-px2rem(127);
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: convert-px2rem(1) solid #000;
-    text-align: center;
-    width: 100%;
-    @include breakpoint($b-tabletS__max) { 
-      margin-top: convert-px2rem(8);
-      height: convert-px2rem(101);
+    border-bottom: 1px solid #000;
+    margin-bottom: convert-px2rem(36);
+
+    @include breakpoint($adaptive-width-tablet3) {
+      height: convert-px2rem(105);
     }
-    @include breakpoint($b-mobileS__max) { 
-      margin-top: convert-px2rem(60);
-      height: convert-px2rem(183);
+
+    @include breakpoint($adaptive-width-desktop-wide) {
+      height: convert-px2rem(132);
     }
- 
-    & img {
-      max-width: 100%;
-      width: auto;
-      height: 100%;
+
+    img {
+      width: 100%;
+      display: block;
+      margin: 0 auto;
     }
   }
+
+  &__img1 {
+        max-width: convert-px2rem(242);
+
+        @include breakpoint($adaptive-width-tablet3) {
+          max-width: convert-px2rem(155);
+          padding-top: convert-px2rem(15);
+        }
+
+        @include breakpoint($adaptive-width-desktop-wide) {
+          max-width: convert-px2rem(218);
+          padding-top: convert-px2rem(10);
+        }
+      }
+
+    &__img2 {
+        max-width: convert-px2rem(168);
+
+        @include breakpoint($adaptive-width-tablet3) {
+          max-width: convert-px2rem(120);
+        }
+
+        @include breakpoint($adaptive-width-desktop-wide) {
+          max-width: convert-px2rem(160);
+          position: relative;
+          top: convert-px2rem(-8);
+        }
+      }
+
+    &__img3 {
+        max-width: convert-px2rem(100);
+
+        @include breakpoint($adaptive-width-tablet3) {
+          max-width: convert-px2rem(76);
+          position: relative;
+          top: convert-px2rem(-3);
+        }
+
+        @include breakpoint($adaptive-width-desktop-wide) {
+          max-width: convert-px2rem(93);
+          top: 0;
+        }
+      }
+
+  // &__modalCardFooter {
+  //   margin-top: convert-px2rem(35);
+  //   color: #000;
+  //   text-align: center;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   font-size: convert-px2rem(15);
+  //   min-height: convert-px2rem(68);
+  //   line-height: 133.333%;
+  //   letter-spacing: convert-px2rem(0.75);
+  //   & br {
+  //     display: none;
+  //   }
+  //   @include breakpoint($b-tabletS__max) {   
+  //     margin-top: convert-px2rem(5);
+  //     margin-left: convert-px2rem(-5);
+  //     margin-right: convert-px2rem(-5);
+  //     line-height: 116.667%;
+  //     letter-spacing: convert-px2rem(0.6);
+  //     font-size: convert-px2rem(12);
+  //   }
+  //   @include breakpoint($b-tabletS__max) {   
+  //     margin-top: convert-px2rem(5);
+  //     margin-left: 0;
+  //     margin-right: 0;
+  //     line-height: 116.667%;
+  //     letter-spacing: convert-px2rem(0.6);
+  //     min-height: convert-px2rem(135);
+  //     font-size: convert-px2rem(15);
+  //     & br {
+  //       display: block;
+  //     }
+  //   }
+  // }
 
   &__modalCardFooter {
-    margin-top: convert-px2rem(35);
-    color: #000;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: convert-px2rem(15);
-    min-height: convert-px2rem(68);
-    line-height: 133.333%;
-    letter-spacing: convert-px2rem(0.75);
-    & br {
-      display: none;
-    }
-    @include breakpoint($b-tabletS__max) {   
-      margin-top: convert-px2rem(5);
-      margin-left: convert-px2rem(-5);
-      margin-right: convert-px2rem(-5);
-      line-height: 116.667%;
-      letter-spacing: convert-px2rem(0.6);
+    font-size: convert-px2rem(15); 
+    line-height: 1.46;
+    letter-spacing: convert-px2rem(0.75); 
+    margin: 0 convert-px2rem(-20);
+
+    @include breakpoint($adaptive-width-tablet3) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: convert-px2rem(12);
+      line-height: 1.16;
+      height: convert-px2rem(42);
+      letter-spacing: convert-px2rem(0.6); 
     }
-    @include breakpoint($b-tabletS__max) {   
-      margin-top: convert-px2rem(5);
-      margin-left: 0;
-      margin-right: 0;
-      line-height: 116.667%;
-      letter-spacing: convert-px2rem(0.6);
-      min-height: convert-px2rem(135);
+
+    @include breakpoint($adaptive-width-desktop-wide) {
       font-size: convert-px2rem(15);
-      & br {
-        display: block;
-      }
+      line-height: 1.13;
+      letter-spacing: convert-px2rem(0.75); 
+      height: convert-px2rem(51);
     }
   }
+
+  // &__modalBottom {
+  //   margin-top: convert-px2rem(12);
+  //   font-size: convert-px2rem(12);
+  //   line-height: 133.333%;
+  //   text-align: center;
+  //   letter-spacing: convert-px2rem(0.6);
+  //   & br {
+  //     display: none;
+  //   }
+  //   @include breakpoint($b-tabletS__max) { 
+  //     margin-top: convert-px2rem(10);
+  //     font-size: convert-px2rem(11);
+  //     letter-spacing: convert-px2rem(0.55);
+  //     & br {
+  //       display: block;
+  //     }
+  //   }
+  //   @include breakpoint($b-mobileS__max) { 
+  //     margin-top: convert-px2rem(15);
+  //     max-width: convert-px2rem(300);
+  //     font-size: convert-px2rem(12);
+  //     letter-spacing: convert-px2rem(0.6);
+  //     min-height: convert-px2rem(64);
+  //     margin-left: auto;
+  //     margin-right: auto;
+  //     & br {
+  //       display: none;
+  //     }
+  //   }
+  // }
 
   &__modalBottom {
-    margin-top: convert-px2rem(12);
-    font-size: convert-px2rem(12);
-    line-height: 133.333%;
     text-align: center;
-    letter-spacing: convert-px2rem(0.6);
-    & br {
-      display: none;
-    }
-    @include breakpoint($b-tabletS__max) { 
-      margin-top: convert-px2rem(10);
+    font-size: convert-px2rem(12); 
+    line-height: 1.33;
+    padding-bottom: convert-px2rem(15);
+    letter-spacing: convert-px2rem(0.6); 
+
+    @include breakpoint($adaptive-width-tablet3) {
       font-size: convert-px2rem(11);
-      letter-spacing: convert-px2rem(0.55);
-      & br {
-        display: block;
-      }
+      line-height: convert-px2rem(14);
+      letter-spacing: convert-px2rem(0.6); 
+      margin: 0 convert-px2rem(-10);
     }
-    @include breakpoint($b-mobileS__max) { 
-      margin-top: convert-px2rem(15);
-      max-width: convert-px2rem(300);
+
+    @include breakpoint($adaptive-width-desktop-wide) {
       font-size: convert-px2rem(12);
+      line-height: convert-px2rem(16);
       letter-spacing: convert-px2rem(0.6);
-      min-height: convert-px2rem(64);
-      margin-left: auto;
-      margin-right: auto;
-      & br {
-        display: none;
-      }
+    }
+
+    strong {
+      font-weight: 700;
     }
   }
+
+  // &__modalFooter {
+  //   margin: convert-px2rem(18) auto 0;
+  //   color: #000;
+  //   text-align: center;
+  //   font-size: convert-px2rem(14);
+  //   max-width: convert-px2rem(570);
+  //   line-height: 142.857%;
+  //   letter-spacing: convert-px2rem(0.7);
+  //   @include breakpoint($b-tabletS__max) { 
+  //     margin: convert-px2rem(14) auto 0;
+  //     font-size: convert-px2rem(12);
+  //     line-height: 133.33%;
+  //     max-width: convert-px2rem(500);
+  //     letter-spacing: convert-px2rem(0.6);
+  //   }
+  //   @include breakpoint($b-mobileS__max) { 
+  //    & strong {
+  //     display: block;
+  //    }
+  //   }
+  // }
 
   &__modalFooter {
-    margin: convert-px2rem(18) auto 0;
-    color: #000;
-    text-align: center;
-    font-size: convert-px2rem(14);
-    max-width: convert-px2rem(570);
-    line-height: 142.857%;
-    letter-spacing: convert-px2rem(0.7);
-    @include breakpoint($b-tabletS__max) { 
-      margin: convert-px2rem(14) auto 0;
-      font-size: convert-px2rem(12);
-      line-height: 133.33%;
-      max-width: convert-px2rem(500);
-      letter-spacing: convert-px2rem(0.6);
+    font-size: convert-px2rem(12); 
+    line-height: 1.33;
+    margin: convert-px2rem(-20) 0 convert-px2rem(20);
+
+    @include breakpoint($adaptive-width-tablet3) {
+      margin: convert-px2rem(-5) 0 convert-px2rem(20);
     }
-    @include breakpoint($b-mobileS__max) { 
-     & strong {
-      display: block;
-     }
+
+    @include breakpoint($adaptive-width-desktop-wide) {
+      font-size: convert-px2rem(14);
+      line-height: convert-px2rem(20);
+      margin-bottom: convert-px2rem(33);
+    }
+
+    strong {
+      font-weight: 700;
     }
   }
 
+  // &__modalBtn {
+  //   margin: convert-px2rem(30) auto 0;
+  //   width: convert-px2rem(204);
+  //   min-height: convert-px2rem(50);
+  //   color: #000;
+  //   text-align: center;
+  //   /*font-family: var(--font-family__Inter-Bold);*/
+  //   font-family: 'Inter', sans-serif;
+  //   font-weight: 700;
+  //   line-height: 168.75%;
+  //   letter-spacing: convert-px2rem(0.8);
+  //   border-radius: convert-px2rem(10);
+  //   background-color: #fff;
+  //   @include breakpoint($b-tabletS__max) { 
+  //     margin: convert-px2rem(20) auto 0;
+  //     width: convert-px2rem(106);
+  //     min-height: convert-px2rem(30);
+  //     font-size: convert-px2rem(12);
+  //   }
+  //   @include breakpoint($b-tabletS__max) { 
+  //     margin: convert-px2rem(40) auto 0;
+  //     width: 100%;
+  //     min-height: convert-px2rem(58);
+  //     font-size: convert-px2rem(14);
+  //   }
+  // }
+
   &__modalBtn {
-    margin: convert-px2rem(30) auto 0;
-    width: convert-px2rem(204);
-    min-height: convert-px2rem(50);
-    color: #000;
-    text-align: center;
-    /*font-family: var(--font-family__Inter-Bold);*/
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    line-height: 168.75%;
-    letter-spacing: convert-px2rem(0.8);
-    border-radius: convert-px2rem(10);
     background-color: #fff;
-    @include breakpoint($b-tabletS__max) { 
-      margin: convert-px2rem(20) auto 0;
-      width: convert-px2rem(106);
-      min-height: convert-px2rem(30);
+    font-size: convert-px2rem(14);
+    font-weight: 700;
+    letter-spacing: convert-px2rem(0.7); 
+    width: 100%;
+    padding: convert-px2rem(14) convert-px2rem(30);
+    border: 0;
+    cursor: pointer;
+    border-radius: convert-px2rem(10);
+
+    @include breakpoint($adaptive-width-tablet3) {
+      width: auto;
       font-size: convert-px2rem(12);
+      padding: convert-px2rem(8) convert-px2rem(34) convert-px2rem(7);
+      border-radius: convert-px2rem(5);
     }
-    @include breakpoint($b-tabletS__max) { 
-      margin: convert-px2rem(40) auto 0;
-      width: 100%;
-      min-height: convert-px2rem(58);
-      font-size: convert-px2rem(14);
+
+    @include breakpoint($adaptive-width-desktop-wide) {
+      font-size: convert-px2rem(16);
+      padding: convert-px2rem(15) convert-px2rem(78);
+      border-radius: convert-px2rem(10);
     }
   }
 }

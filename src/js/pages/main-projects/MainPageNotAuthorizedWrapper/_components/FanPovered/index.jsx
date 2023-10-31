@@ -117,7 +117,7 @@ function FanPovered() {
         <div className={styles.FanPovered__footer}>
           <div className={styles.FanPovered__footerCol}>
             <div className={styles.FanPovered__footerText}>
-              Kickstart your personal pre-order <br/>campaign&nbsp;and bring your desired <br/>music into the&nbsp;Revibed catalog!
+              Kickstart your personal pre-order <br/>campaign&nbsp;and bring your desired <br className={styles.FanPovered__brdsk}/>music <br className={styles.FanPovered__brmob}/>into the&nbsp;Revibed catalog!
             </div>
             <Button className={styles.FanPovered__button}>Start Pre-order</Button>
           </div>

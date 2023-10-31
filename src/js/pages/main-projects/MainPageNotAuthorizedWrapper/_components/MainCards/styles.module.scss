@@ -65,10 +65,14 @@
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     border-radius: convert-px2rem(10);
+    min-width: convert-px2rem(192) !important;
 
-    @include breakpoint($b-tablet__max) {
+    @include breakpoint($b-tabletS__max) {
       min-width: convert-px2rem(137) !important;
       font-size: convert-px2rem(12);
+      padding-top: convert-px2rem(9) !important;
+      padding-bottom: convert-px2rem(9) !important;
+      border-radius: convert-px2rem(7) !important;
     }
     @include breakpoint($b-mobileS__max) {
       display: none;
