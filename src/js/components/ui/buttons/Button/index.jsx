@@ -75,9 +75,7 @@ const Button = ({
         ref={innerRef}
         type="button"
         className={generateClasses}
-        onClick={(e) => {
-          onClick(e);
-        }}
+        onClick={onClick}
         disabled={disabled}
         // eslint-disable-next-line react/no-unknown-property
         gtm_button={gtmAttribute}

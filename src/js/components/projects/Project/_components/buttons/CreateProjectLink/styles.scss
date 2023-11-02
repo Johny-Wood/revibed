@@ -6,15 +6,21 @@
     padding: convert-px2rem(12.5) convert-px2rem(14) !important;
 
     &.active {
-      background-color: var(--color__black) !important;
+      @include breakpoint($b-laptop) {
+        background-color: var(--color__black) !important;
 
-      &:before {
-        opacity: 0 !important;
+        &:before {
+          opacity: 0 !important;
+        }
+
+        .text {
+          font-family: var(--font-family__Inter-Medium) !important;
+          color: var(--color__white) !important;
+        }
       }
 
       .text {
-        font-family: var(--font-family__Inter-Medium) !important;
-        color: var(--color__white) !important;
+        color: var(--color__blue);
       }
     }
 

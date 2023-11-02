@@ -93,7 +93,7 @@ export const getProjectsRequestAction =
       const localPageSize = pageSize || size;
 
       const {
-        MarketplaceAndPreOrdersFiltersReducer: { search } = {},
+        DefaultProjectsReducer: { search } = {},
         ProjectsSortAndFiltersReducer: { sortAndFilters: { filter: { filters = [] } = {} } = {} } = {},
       } = store.getState();
 
@@ -268,10 +268,8 @@ export const projectsUpdateProjectAction = ({ location, projectId, projectInfo }
     projectInfo,
   });
 
-export const changeProjectsCurrentPageAction = ({ location, currentNumber }) =>
-  createAction(`${location}_${ProjectsActionsConstants.CHANGE_PROJECTS_CURRENT_PAGE}`, {
-    currentNumber,
-  });
-
 export const resetProjectsCurrentParamsAction = ({ location }) =>
   createAction(`${location}_${ProjectsActionsConstants.RESET_PROJECTS_CURRENT_PARAMS}`);
+
+export const setProjectsSearchAction = ({ location, search }) =>
+  createAction(`${location}_${ProjectsActionsConstants.PROJECTS_SEARCH}`, { search });

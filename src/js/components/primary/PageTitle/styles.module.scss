@@ -19,18 +19,12 @@
     @include breakpoint($b-laptop) {
       font-size: convert-px2rem(20);
     }
-
-    :global {
-      .icon {
-        margin-right: convert-px2rem(10);
-      }
-    }
   }
 
   &__description {
     display: block;
     margin-top: convert-px2rem(8);
-    max-width: convert-px2rem(450);
+    max-width: convert-px2rem(800);
     @include breakpoint($b-tabletS__max) {
       font-size: convert-px2rem(12);
       line-height: convert-px2rem(18);

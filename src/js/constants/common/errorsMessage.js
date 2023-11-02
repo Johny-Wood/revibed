@@ -24,8 +24,8 @@ export const CommonErrorMessages = {
   MAX_LENGTH: 'No more than ',
   CHARACTERS: ' characters',
 
-  USE_GEM_FOR_CREATE_PROJECT_NOT_ALLOWED: 'Using a gem to create a project is not allowed',
-  USE_GOLDEN_COIN_FOR_CREATE_PROJECT_NOT_ALLOWED: 'Using Golden Coin to create a project is not allowed',
+  USE_GEM_FOR_CREATE_PROJECT_NOT_ALLOWED: 'Using a gem to create a pre-order is not allowed',
+  USE_GOLDEN_COIN_FOR_CREATE_PROJECT_NOT_ALLOWED: 'Using Golden Coin to create a pre-order is not allowed',
   CREATE_PROJECT_GEM_NOT_EXISTS: 'The gem does not exist',
 
   // FILES
@@ -41,6 +41,10 @@ export const CommonErrorMessages = {
   // USER
   NO_SUCH_USER: 'User with this email was not found',
   USER_BANNED: 'Your account is temporary locked',
+
+  ISCR_MAX_LENGTH: 12,
+  ISCR_MAX_LENGTH_ERROR: 'Must be 12 characters long',
+  ISCR_PATTERN: 'ISCR can only contain latin letters, numbers',
 
   // USER_NAME
   USER_NAME_PATTERN: 'Usernames can only contain latin letters, numbers, dashes, underscores, and periods',

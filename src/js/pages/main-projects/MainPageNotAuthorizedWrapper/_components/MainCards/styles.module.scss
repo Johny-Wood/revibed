@@ -61,9 +61,7 @@
   &__button {
     background: #5000fb !important;
     font-size: convert-px2rem(16);
-    /*font-family: var(--font-family__Inter-Bold);*/
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
+    font-family: var(--font-family__Inter-Bold);
     border-radius: convert-px2rem(10);
     min-width: convert-px2rem(192) !important;
 
@@ -101,9 +99,7 @@
     margin-top: convert-px2rem(46);
     align-self: center;
     font-size: convert-px2rem(16);
-    /*font-family: var(--font-family__Inter-Bold);*/
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
+    font-family: var(--font-family__Inter-Bold);
     padding: convert-px2rem(16) !important;
     min-width: convert-px2rem(192) !important;
     border-radius: convert-px2rem(10);
@@ -134,7 +130,7 @@
   }
 
   @include breakpoint($b-mobileS__max) {
-    width: calc(50% - convert-px2rem(15));
+    width: calc(50% - #{convert-px2rem(15)});
     &:nth-child(odd) {
       &:last-child {
         display: none;
@@ -148,9 +144,6 @@
 
     & img {
       box-shadow: 0 convert-px2rem(4) convert-px2rem(20) 0 rgba(0, 0, 0, 0.15);
-      // width: 100%;
-      // height: 100%;
-      //object-fit: cover;
       width: convert-px2rem(160);
       height: convert-px2rem(160);
       display: block;
@@ -174,9 +167,7 @@
 
   &__infoTitle {
     color: #1a1a1a;
-    /*font-family: var(--font-family__Inter-SemiBold);*/
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
+    font-family: var(--font-family__Inter-SemiBold);
     font-size: convert-px2rem(13);
     line-height: 123.077%;
     display: -webkit-box;
@@ -216,9 +207,7 @@
   &__button {
     margin-top: convert-px2rem(16);
     border-radius: convert-px2rem(5);
-    /*font-family: var(--font-family__Inter-Bold);*/
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
+    font-family: var(--font-family__Inter-Bold);
     font-size: convert-px2rem(16);
     background-color: #fff !important;
     color: #000000;

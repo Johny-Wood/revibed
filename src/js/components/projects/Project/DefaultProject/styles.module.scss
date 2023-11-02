@@ -111,7 +111,7 @@ $cover_size: 240;
       flex-direction: row;
       align-items: center;
       justify-content: flex-end;
-      margin-top: convert-px2rem(10);
+      margin-top: convert-px2rem(15);
     }
   }
 
@@ -298,6 +298,10 @@ $cover_size: 240;
         margin-top: 0;
       }
     }
+
+    .button-buy-cut {
+      width: 100%;
+    }
   }
 
   &_draft {
@@ -323,7 +327,7 @@ $cover_size: 240;
       }
 
       &Footer__info {
-        min-height: convert-px2rem(50);
+
       }
 
       &Cover {
@@ -369,11 +373,6 @@ $cover_size: 240;
           font-family: var(--font-family__Inter-Medium);
         }
       }
-
-      .button-buy-cut,
-      .button-start-project {
-        margin-left: convert-px2rem(12);
-      }
     }
   }
 
@@ -397,7 +396,6 @@ $cover_size: 240;
       }
 
       &Footer__info {
-        min-height: convert-px2rem(41);
       }
 
       &Names {
@@ -492,9 +490,10 @@ $cover_size: 240;
 
       .button-buy-cut,
       .button-start-project {
+        width: 100%;
+        height: convert-px2rem(50) !important;
         @include breakpoint($b-laptop) {
-          margin-left: convert-px2rem(8) !important;
-          height: convert-px2rem(41) !important;
+          max-width: none !important;
           min-width: convert-px2rem(102) !important;
           padding: convert-px2rem(12.5) convert-px2rem(14) !important;
         }

@@ -2,14 +2,28 @@
 @import '../../../../../../../../../../assets/styles/_mixins/convert-px2rem';
 
 .MarketplaceListControl {
-  display: inline-flex;
-  align-self: flex-end;
+  display: flex;
+  justify-content: space-between;
   height: convert-px2rem(32);
-  margin-top: convert-px2rem(-37);
   position: relative;
-  z-index: 20000;
+  margin-bottom: convert-px2rem(20);
+  @include breakpoint($b-laptop) {
+    margin-bottom: convert-px2rem(25);
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 0;
+    margin-right: convert-px2rem(40);
+  }
 
   &__button {
+    position: relative;
+    z-index: 2000;
     border-radius: convert-px2rem(6);
     padding: convert-px2rem(6) convert-px2rem(12) !important;
     height: convert-px2rem(32);
@@ -17,17 +31,7 @@
   }
 
   &__pagination {
-    @include breakpoint($b-tabletS__max) {
-      position: absolute;
-      top: convert-px2rem(132);
-      right: convert-px2rem(-10);
-      width: 100vw;
-      justify-content: space-between;
-      padding: 0 convert-px2rem(7);
-    }
-    @include breakpoint($b-laptop) {
-      margin-right: convert-px2rem(10);
-    }
+    margin-right: convert-px2rem(4);
 
     &_next, &_prev {
       border-radius: convert-px2rem(6);

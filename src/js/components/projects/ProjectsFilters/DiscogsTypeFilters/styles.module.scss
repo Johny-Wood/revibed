@@ -10,9 +10,6 @@
   flex-direction: column;
   min-height: convert-px2rem(100);
   padding-bottom: convert-px2rem(10);
-  @include breakpoint($b-laptop) {
-    min-height: convert-px2rem(600);
-  }
 
   &__title {
     padding: 0 convert-px2rem(10) convert-px2rem(17);

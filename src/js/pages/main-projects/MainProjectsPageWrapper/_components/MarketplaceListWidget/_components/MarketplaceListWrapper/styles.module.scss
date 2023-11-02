@@ -2,58 +2,115 @@
 @import '../../../../../../../../assets/styles/_mixins/convert-px2rem';
 
 .MarketplaceListWrapper {
-  width: 100%;
+  overflow: hidden;
+  width: calc(100% + #{convert-px2rem(35 * 2)});
+  max-width: convert-px2rem(555);
   display: flex;
   flex-direction: column;
+  margin: 0 convert-px2rem(-25);
+  padding: convert-px2rem(20) convert-px2rem(35);
+  border-radius: convert-px2rem(20);
 
-  &__scrolLayout {
-    height: convert-px2rem(280);
-    width: calc(100% + #{convert-px2rem(40)});
-    margin: 0 convert-px2rem(-40/2);
+  @include breakpoint($b-tablet) {
+    max-width: convert-px2rem(778);
+  }
+
+  @include breakpoint($b-laptop) {
+    width: calc(100% + #{convert-px2rem(30 * 2)});
+    margin: 0 convert-px2rem(-30);
+    padding: convert-px2rem(25) convert-px2rem(30) convert-px2rem(35);
+    max-width: convert-px2rem(873);
+  }
+
+  &_with_bg {
+    background: linear-gradient(90deg, rgba(128, 140, 204, 0.20) 0.03%, rgba(128, 204, 145, 0.20) 99.96%);
+    margin-bottom: convert-px2rem(15);
     @include breakpoint($b-laptop) {
-      height: convert-px2rem(299 + 15);
+      margin-bottom: convert-px2rem(10);
     }
   }
 
-  &__container {
-    flex-grow: 1;
-    position: relative;
-    margin-top: convert-px2rem(5);
-    @include breakpoint($b-laptop) {
-      margin-top: convert-px2rem(15);
+  .MarketplaceListWrapper {
+    &__content {
+      width: 100%;
+      position: relative;
+      min-height: convert-px2rem(279);
     }
-  }
 
-  &__scrolContent {
-    width: 100%;
-  }
-
-  &__wrapper {
-    min-height: convert-px2rem(280);
-    @include breakpoint($b-laptop) {
-      min-height: convert-px2rem(299 + 15);
+    &__container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: calc(100% + #{convert-px2rem(20)});
+      margin: convert-px2rem(-25 / 2) convert-px2rem(-10);
+      @include breakpoint($b-mobileS__max) {
+        justify-content: center;
+      }
     }
-  }
 
-  &__list {
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: center;
-    padding: 0;
-    width: calc(100% + #{convert-px2rem(-40 + 17)});
-    margin-left: convert-px2rem(40/2 - 17/2);
-    margin-right: convert-px2rem(40/2 - 17/2);
-    margin-top: 0;
-    @include breakpoint($b-laptop) {
-      justify-content: flex-start;
+    &__slide {
+      transition: opacity 0ms 500ms ease-in-out !important;
+      padding-left: convert-px2rem(35);
+
+      &:not(.MarketplaceListWrapper__slide_active) {
+        position: relative;
+      }
+
+      &_active {
+        transition: opacity 0ms 0ms ease-in-out !important;
+      }
+
+      &_next {
+
+      }
+
+      &_prev {
+
+      }
     }
-  }
 
-  &__block {
-    margin: convert-px2rem(10) convert-px2rem(10/2);
+    &__slider {
+      padding: convert-px2rem(32 + 20) 0 0;
+      margin: convert-px2rem(-32 - 20) 0 0 convert-px2rem(-35);
 
-    @include breakpoint($b-laptop) {
-      margin: convert-px2rem(10) convert-px2rem(17/2);
+      @include breakpoint($b-laptop) {
+        padding: convert-px2rem(32 + 25) 0 0;
+        margin: convert-px2rem(-32 - 25) 0 0 convert-px2rem(-35);
+      }
+    }
+
+    &__arrow {
+      $size: convert-px2rem(32);
+      width: $size;
+      height: $size;
+      background-color: var(--color__white);
+      border: 1px solid var(--color__gray-4);
+      border-radius: convert-px2rem(6);
+      transform: none !important;
+      top: 0;
+      z-index: 200;
+
+      svg {
+        width: auto !important;
+        height: convert-px2rem(9) !important;
+      }
+
+      &_left {
+        left: auto;
+        right: convert-px2rem(73 + 4 + 32 + 4);
+
+        svg {
+          margin-left: convert-px2rem(-2);
+        }
+      }
+
+      &_right {
+        right: convert-px2rem(73 + 4);
+
+        svg {
+          margin-right: convert-px2rem(-2);
+        }
+      }
     }
   }
 }

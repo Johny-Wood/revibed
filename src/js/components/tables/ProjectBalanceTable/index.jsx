@@ -34,7 +34,7 @@ const operationToActionName = ({ userName, userId, pct, ...payload }, comment, {
   PROJECT_MEDIA_PURCHASE_CUSTOMS_TAX: 'Taxes charge',
   PROJECT_FREEZING_COMMISSIONS_INSURANCE: 'Insurance fee',
   PROJECT_FREEZING_COMMISSIONS_COMMISSION: 'Commission fee',
-  PROJECT_RELEASE_COPYRIGHT_HOLDER_FUND: 'Project artist fund',
+  PROJECT_RELEASE_COPYRIGHT_HOLDER_FUND: 'Pre-order artist fund',
   PROJECT_SOLD_MEDIA_PRICE_SHIPPING: 'Charge for shipping record to buyer',
   PROJECT_SOLD_MEDIA_PRICE_SOLD: 'Record sold',
   PROJECT_SOLD_MEDIA_RIPPER_COMPENSATION_SHIPPING: 'Shipping',

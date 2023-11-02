@@ -1,0 +1,10 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.ListPageWrapper {
+  &__banner {
+    margin-top: convert-px2rem(10);
+    margin-left: convert-px2rem(10);
+    margin-right: convert-px2rem(13);
+  }
+}

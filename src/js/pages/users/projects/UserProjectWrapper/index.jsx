@@ -8,7 +8,7 @@ import { ProjectsLocationsConstants } from '@/constants/projects/location';
 import UserWrapperLayout from '@/pages/users/UserWrapperLayout';
 import { resetGetProjectsFromApiAction } from '@/redux-actions/projects/projectsActions';
 
-const TITLE = 'Projects';
+const TITLE = 'Pre-orders';
 
 function UserProjectWrapper({
   getProjectsInProcess,

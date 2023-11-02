@@ -2,4 +2,30 @@
 
 .projectContributorCount {
   margin-right: auto;
+
+  &_withDescription {
+    .projectContributorCount {
+      &__value {
+        font-family: var(--font-family__Inter-Bold);
+
+        span {
+          font-family: var(--font-family__Inter-Bold);
+        }
+      }
+    }
+  }
+
+  * {
+    letter-spacing: -0.005em;
+  }
+
+  &__value {
+    display: inline-flex;
+    align-items: flex-end;
+    font-family: var(--font-family__Inter-Bold);
+
+    span {
+      font-family: var(--font-family__Inter-Regular);
+    }
+  }
 }

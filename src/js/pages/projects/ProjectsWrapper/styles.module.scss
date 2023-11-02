@@ -2,9 +2,13 @@
 @import '../../../../assets/styles/_mixins/convert-px2rem';
 
 .ProjectsWrapper {
-  &__sideBar {
+  &__fullBanner {
+    align-self: flex-end;
+    margin-top: convert-px2rem(30);
+
     @include breakpoint($b-laptop) {
-      margin-top: convert-px2rem(-125);
+      margin-top: convert-px2rem(20);
+      max-width: convert-px2rem(910);
     }
   }
 }

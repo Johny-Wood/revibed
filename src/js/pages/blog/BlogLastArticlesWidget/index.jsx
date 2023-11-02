@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import NoResults from '@/components/common/NoResults';
 import SecondaryTitle from '@/components/common/titles/SecondaryTitle';
 import Preloader from '@/components/ui/Preloader';
+import TitlesConstants from '@/constants/titles/titlesConstants';
 import BlogList from '@/pages/blog/BlogList';
 import { loadBlogRequestAction } from '@/redux-actions/blog/blogActions';
 
@@ -20,13 +21,13 @@ function BlogLastArticlesWidget({ loadShortBlogFromApi, loadBlogInProcess, blogL
 
   return (
     <div className={classNames(styles.BlogLastArticlesWidget)}>
-      <SecondaryTitle title="Last posts" />
+      <SecondaryTitle title={TitlesConstants.BLOG} />
       <div className={classNames(styles.BlogLastArticlesWidget__wrapper)}>
         {loadShortBlogFromApi &&
           (blogList.length > 0 ? (
             <BlogList
               blogList={blogList}
-              coverSize={250}
+              coverSize={220}
               className={styles.BlogLastArticlesWidget__list}
               itemClassName={styles.BlogLastArticlesWidget__item}
               itemPreviewClassName={styles.BlogLastArticlesWidget__preview}

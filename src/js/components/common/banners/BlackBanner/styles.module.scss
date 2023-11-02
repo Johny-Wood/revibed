@@ -1,0 +1,87 @@
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
+
+.BlackBanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: convert-px2rem(115) convert-px2rem(20);
+  border: 1px solid var(--color__gray-4);
+  background: var(--color__black);
+  @include breakpoint($b-laptop) {
+    padding: convert-px2rem(24);
+  }
+
+  &_is_mobile {
+    @include breakpoint($b-laptop) {
+      padding: convert-px2rem(98) convert-px2rem(25);
+    }
+
+    .BlackBanner {
+      &__title {
+        @include breakpoint($b-laptop) {
+          font-size: convert-px2rem(28);
+          line-height: convert-px2rem(36);
+        }
+      }
+
+      &__button {
+        @include breakpoint($b-laptop) {
+          margin-top: convert-px2rem(85);
+        }
+      }
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: convert-px2rem(28);
+    line-height: convert-px2rem(36);
+    font-family: var(--font-family__Inter-SemiBold);
+    color: var(--color__white);
+    text-shadow: 0 convert-px2rem(4) convert-px2rem(34) var(--color__white);
+    letter-spacing: normal;
+    @include breakpoint($b-laptop) {
+      font-size: convert-px2rem(24);
+      line-height: convert-px2rem(46);
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    overflow: hidden;
+    margin-top: convert-px2rem(85);
+    background-color: transparent;
+    border: 1px solid var(--color__white) !important;
+    padding: convert-px2rem(10) convert-px2rem(35) !important;
+    font-family: var(--font-family__Inter-Medium);
+    @include breakpoint($b-laptop) {
+      margin-top: convert-px2rem(12);
+    }
+
+    &:hover {
+      @include breakpoint($b-laptop) {
+        background-color: var(--color__white) !important;
+
+        .BlackBanner {
+          &__button {
+            &__text {
+              color: var(--color__black) !important;
+            }
+          }
+        }
+      }
+    }
+
+    &__text {
+      letter-spacing: normal;
+      color: var(--color__white) !important;
+      font-size: convert-px2rem(15) !important;
+    }
+  }
+}

@@ -67,11 +67,13 @@ $header_padding-y: convert-px2rem(5);
   }
 
   &_transparent {
-    position: fixed;
+    @include breakpoint($b-laptop) {
+      position: fixed;
+    }
 
     :global {
       .link {
-        color: var(--color__white);
+        color: var(--color__black);
       }
     }
   }
@@ -119,9 +121,8 @@ $header_padding-y: convert-px2rem(5);
       }
 
       .link {
-        transition:
-          opacity var(--transition-duration) ease,
-          border-color var(--transition-duration) ease;
+        transition: opacity var(--transition-duration) ease,
+        border-color var(--transition-duration) ease;
       }
     }
   }
@@ -156,17 +157,7 @@ $header_padding-y: convert-px2rem(5);
   }
 
   &_mainLanding {
-    path {
-      fill: var(--color__black);
-    }
-    :global {
-      .link {
-        color: var(--color__black);
-      }
-      .button { 
-        background: transparent;
-      }
-    }
+
   }
 
   :global {
@@ -190,6 +181,9 @@ $header_padding-y: convert-px2rem(5);
     }
 
     .button-start-project {
+      min-width: convert-px2rem(166) !important;
+      max-width: none !important;
+
       &.button-only-icon {
         @include breakpoint($b-laptop) {
           $size: convert-px2rem(51);
@@ -223,7 +217,7 @@ $header_padding-y: convert-px2rem(5);
       justify-content: flex-start;
 
       svg {
-        width: convert-px2rem(151);
+        width: convert-px2rem(150);
         height: auto;
       }
     }

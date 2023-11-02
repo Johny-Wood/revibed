@@ -88,7 +88,7 @@ class ProjectInvitePopup extends Component {
             USER_IS_NOT_PROJECT_MEMBER: () => {
               closePopup(PopupProjectIdsConstants.ProjectInvitePopup);
               showMessage('ErrorMessage', {
-                messageText: 'You are not a participant in the project',
+                messageText: 'You are not a participant in the pre-order',
               });
             },
           });

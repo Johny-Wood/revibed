@@ -1,33 +1,26 @@
 @import '../../../../../../../../assets/styles/_mixins/breakpoint';
 @import '../../../../../../../../assets/styles/_mixins/convert-px2rem';
 
-$bigSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 7);
-$smallSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 7 - #{convert-px2rem(10)});
+$bigSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 8);
 
 .fundingNowCardContainer {
-  width: $smallSize;
+  width: $bigSize;
   padding: convert-px2rem(12) convert-px2rem(10);
-  @include breakpoint($b-laptop) {
-    width: $bigSize;
-  }
 }
 
 .fundingNowCard {
   transform-origin: 0 50%;
   width: 100%;
-  max-width: $smallSize;
+  max-width: $bigSize;
   border-radius: convert-px2rem(6);
   background-color: var(--color__white);
-  margin: 0 convert-px2rem(1.5);
-  @include breakpoint($b-laptop) {
-    max-width: $bigSize;
-  }
+  margin: 0 convert-px2rem(1);
 
   &_recommended {
     background-color: var(--color_PACKAGE_PURPLE);
 
     .nickname__name {
-      font-size: convert-px2rem(12) !important;
+      font-size: convert-px2rem(11) !important;
     }
   }
 
@@ -35,7 +28,7 @@ $smallSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 7 - #{convert-px2rem(10)});
     background-color: rgba(226, 190, 0, 0.15);
 
     .nickname__name {
-      font-size: convert-px2rem(12) !important;
+      font-size: convert-px2rem(11) !important;
     }
   }
 
@@ -94,10 +87,7 @@ $smallSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 7 - #{convert-px2rem(10)});
       font-size: convert-px2rem(11);
       line-height: convert-px2rem(14);
       width: auto;
-      max-width: convert-px2rem(80);
-      @include breakpoint($b-laptop) {
-        max-width: convert-px2rem(95);
-      }
+      max-width: convert-px2rem(95);
 
       &__flag {
         * {
@@ -117,10 +107,7 @@ $smallSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 7 - #{convert-px2rem(10)});
     :global {
       .link {
         width: auto;
-        max-width: convert-px2rem(80);
-        @include breakpoint($b-laptop) {
-          max-width: convert-px2rem(95);
-        }
+        max-width: convert-px2rem(95);
       }
     }
   }
@@ -158,18 +145,12 @@ $smallSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 7 - #{convert-px2rem(10)});
   }
 
   .projectCover {
-    $size: convert-px2rem(145);
+    $size: convert-px2rem(135);
     min-width: $size;
     width: $size;
     height: $size;
     margin: 0 auto;
     box-shadow: 0 convert-px2rem(4) convert-px2rem(10) rgba(0, 0, 0, 0.3);
-    @include breakpoint($b-laptop) {
-      $size: convert-px2rem(155);
-      min-width: $size;
-      width: $size;
-      height: $size;
-    }
 
     &Container {
       margin: 0;
@@ -185,7 +166,7 @@ $smallSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 7 - #{convert-px2rem(10)});
 
     &__project__title,
     &__project__album__title {
-      font-size: convert-px2rem(12);
+      font-size: convert-px2rem(11);
       line-height: convert-px2rem(16);
       margin-bottom: 0;
     }

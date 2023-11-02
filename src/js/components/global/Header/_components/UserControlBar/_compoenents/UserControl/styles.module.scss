@@ -13,9 +13,6 @@
     width: 100%;
     filter: drop-shadow(0 convert-px2rem(10) convert-px2rem(10) rgba(0, 0, 0, 0.03));
   }
-  @include breakpoint($b-laptop) {
-    padding-right: convert-px2rem(3);
-  }
 
   & > .notificationCount {
     position: absolute;
@@ -24,8 +21,8 @@
     right: convert-px2rem(-8);
     top: convert-px2rem(6);
     @include breakpoint($b-laptop) {
-      top: convert-px2rem(-5);
-      right: convert-px2rem(8);
+      top: convert-px2rem(0);
+      right: convert-px2rem(-5);
     }
   }
 }

@@ -4,7 +4,6 @@ const ProjectsListTypes = {
   location: PropTypes.string.isRequired,
   className: PropTypes.string,
   projectBlockClassName: PropTypes.string,
-  withRating: PropTypes.bool,
   projects: PropTypes.array,
   changeFilterProps: PropTypes.object,
   sortAndFilters: PropTypes.object,

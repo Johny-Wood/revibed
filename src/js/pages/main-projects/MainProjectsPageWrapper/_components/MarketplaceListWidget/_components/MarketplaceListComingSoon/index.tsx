@@ -9,27 +9,17 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type MarketplaceListComingSoonProps = PropsFromRedux;
 
-const MarketplaceListComingSoon = ({
-  getMarketplaceListInProcess,
-  getMarketplaceListFromApi,
-  marketplaceList,
-  pageSettings,
-}: MarketplaceListComingSoonProps) => (
+const MarketplaceListComingSoon = ({ marketplaceList, getMarketplaceListInProcess }: MarketplaceListComingSoonProps) => (
   <MarketplaceListWrapper
     location={MarketplaceLocationsConstants.COMING_SOON}
     items={marketplaceList}
-    query="inSale=false"
     inProcess={getMarketplaceListInProcess}
-    getFromApi={getMarketplaceListFromApi}
-    pageSettings={pageSettings}
   />
 );
 
 const connector = connect((state: RootState) => ({
-  getMarketplaceListInProcess: state.MarketplaceComingSoonListReducer.getMarketplaceListInProcess,
-  getMarketplaceListFromApi: state.MarketplaceComingSoonListReducer.getMarketplaceListFromApi,
   marketplaceList: state.MarketplaceComingSoonListReducer.list,
-  pageSettings: state.MarketplaceComingSoonListReducer.pageSettings,
+  getMarketplaceListInProcess: state.MarketplaceComingSoonListReducer.getMarketplaceListInProcess,
 }));
 
 export default connector(MarketplaceListComingSoon);

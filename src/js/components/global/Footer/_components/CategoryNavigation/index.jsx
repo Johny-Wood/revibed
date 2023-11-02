@@ -1,20 +1,24 @@
 import { useState } from 'react';
+
 import classNames from 'classnames';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 import { Collapse } from 'react-collapse';
 import { connect } from 'react-redux';
+
 import { MobileLayout } from '@/components/layouts/ViewportLayouts';
 import LinkDefault from '@/components/ui/links/LinkDefault';
 import LinkRoute from '@/components/ui/links/LinkRoute';
 import TranslateHook from '@/hooks/translate/TranslateHook';
 import ViewportHook from '@/hooks/viewport/ViewportHook';
 import ArrowIcon from '@/icons/arrows/ArrowIcon';
+
 import styles from './styles.module.scss';
 
 const renderCategoryLinks = ({ category, userIsAuthorized }) =>
   category.map((categoryItem) => {
     const { tKey, alt, href, external, disabled, image, notAuthorized, notNotAuthorized } = categoryItem;
+
     const elementKey = `nav-${href}`;
     const elementClassName = classNames([!!image && 'link_with_img']);
 
@@ -46,10 +50,13 @@ const renderCategoryLinks = ({ category, userIsAuthorized }) =>
 
 const CategoryNavigation = ({
   items,
+
   userIsAuthorized,
-  blackFooter
+  blackFooter,
+  children,
 }) => {
   const t = TranslateHook();
+
   const [showedCategory, setShowedCategory] = useState('');
   const { isNotDesktop } = ViewportHook();
 
@@ -99,6 +106,7 @@ const CategoryNavigation = ({
               </div>
             );
           })}
+          {children}
         </div>
       </div>
     </div>

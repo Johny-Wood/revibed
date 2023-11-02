@@ -7,13 +7,13 @@ function PhoneNumberInput({
   value,
   invalid,
   invalidMessage,
-  label = 'Phone',
+  label = 'Phone Number',
   onChange,
   onBlur,
   callback = () => {},
   disabled,
   disabledValue,
-  isValidCallback = () => {},
+  isValidCallback,
 }) {
   return (
     <CustomInputMask

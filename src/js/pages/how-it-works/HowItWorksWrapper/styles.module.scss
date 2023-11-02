@@ -113,42 +113,4 @@
       }
     }
   }
-
-  &__question {
-    padding: convert-px2rem(30) 0;
-    background-color: var(--color__gray-6);
-    @include breakpoint($b-laptop) {
-      padding: convert-px2rem(50) 0;
-    }
-
-    &__title {
-      font-family: var(--font-family__FuturaDemiC);
-      font-size: convert-px2rem(30);
-      margin: 0 0 convert-px2rem(20);
-      @include breakpoint($b-laptop) {
-        font-size: convert-px2rem(36);
-        margin: 0 0 convert-px2rem(20);
-      }
-    }
-
-    &__descript {
-      margin: 0 0 convert-px2rem(25);
-      max-width: convert-px2rem(450);
-    }
-
-    &__btnBox {
-      display: flex;
-    }
-
-    :global {
-      .question__btn {
-        padding-left: convert-px2rem(20) !important;
-        padding-right: convert-px2rem(20) !important;
-        min-width: auto !important;
-        border: 1px solid var(--color__SOLD) !important;
-        margin: 0 convert-px2rem(5);
-        background-color: transparent;
-      }
-    }
-  }
 }

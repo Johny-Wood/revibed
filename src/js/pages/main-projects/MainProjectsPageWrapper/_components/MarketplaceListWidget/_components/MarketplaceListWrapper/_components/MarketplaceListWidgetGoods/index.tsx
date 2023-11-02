@@ -9,7 +9,7 @@ const MarketplaceListWidgetGoods = (props: any) => {
   return (
     <MarketplaceGoods
       {...props}
-      coverSize={isNotDesktop ? 160 : 190}
+      coverSize={isNotDesktop ? 162 : 188}
       className={styles.MarketplaceListWidgetGoods}
       coverClassName={styles.MarketplaceListWidgetGoods__cover}
       namesClassName={styles.MarketplaceListWidgetGoods__names}

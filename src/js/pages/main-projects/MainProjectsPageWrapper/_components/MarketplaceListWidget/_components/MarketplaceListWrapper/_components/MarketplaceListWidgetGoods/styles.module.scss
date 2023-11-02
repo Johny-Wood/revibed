@@ -2,8 +2,10 @@
 @import '../../../../../../../../../../assets/styles/_mixins/convert-px2rem';
 
 .MarketplaceListWidgetGoods {
-  $size: convert-px2rem(190);
-  $sizeMobile: convert-px2rem(160);
+  $size: convert-px2rem(188);
+  $sizeMobile: convert-px2rem(162);
+
+  margin: convert-px2rem(27 / 2) convert-px2rem(20 / 2);
 
   width: $sizeMobile;
 
@@ -13,19 +15,26 @@
 
   .MarketplaceListWidgetGoods {
     &__cover {
+      box-shadow: 0 convert-px2rem(4) convert-px2rem(10) rgba(0, 0, 0, 0.25) !important;
       min-width: $sizeMobile;
+      max-width: $sizeMobile;
       width: $sizeMobile;
       height: $sizeMobile;
+      min-height: $sizeMobile;
+      max-height: $sizeMobile;
 
       @include breakpoint($b-laptop) {
         min-width: $size;
+        max-width: $size;
         width: $size;
         height: $size;
+        min-height: $size;
+        max-height: $size;
       }
     }
 
     &__names {
-      margin-top: convert-px2rem(10);
+      margin-top: convert-px2rem(12);
       min-height: convert-px2rem(36);
 
       @include breakpoint($b-laptop) {
@@ -43,6 +52,10 @@
         font-size: convert-px2rem(14);
         line-height: convert-px2rem(20);
       }
+    }
+
+    &__cutSize {
+      font-family: var(--font-family__Inter-Bold);
     }
 
     &__footer {

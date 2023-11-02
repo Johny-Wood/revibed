@@ -2,44 +2,39 @@ import Image from 'next/image';
 
 import SiteWrapperLayout from '@/js/components/layouts/SiteWrapperLayout';
 
+import CollectorsParallax from './Parallax';
 import styles from './styles.module.scss';
 
-import CollectorsParallax from './Parallax'
+import image1 from '../../_images/Collector-1.jpg';
+import image2 from '../../_images/Collector-2.jpg';
+import image3 from '../../_images/Collector-3.jpg';
+import image5 from '../../_images/Collector-4.jpg';
+import image4 from '../../_images/Collector-5.jpg';
 
-import image1 from "../../_images/Collector-1.jpg";
-import image2 from "../../_images/Collector-2.jpg";
-import image3 from "../../_images/Collector-3.jpg";
-import image4 from "../../_images/Collector-5.jpg";
-import image5 from "../../_images/Collector-4.jpg";
-
-function Collector({scrollObject}) {
-
-
+function Collector({ scrollObject }) {
   const collectorsData = [
     { id: '1', url: image1, title: 'Cybernetic Love' },
     { id: '2', url: image2, title: 'Funk Is Back In Town' },
     { id: '3', url: image3, title: 'Jalousie Forever' },
     { id: '4', url: image4, title: 'Bob’s Songs' },
-    { id: '5', url: image5, title: 'Bossanova Mbamina' }
+    { id: '5', url: image5, title: 'Bossanova Mbamina' },
   ];
-
 
   return (
     <div className={styles.Collector}>
       <SiteWrapperLayout className={styles.Collector__wrapper} direction="column">
         <h2 className={styles.Collector__title}>DJ & Collector!</h2>
         <p className={styles.Collector__desc}>
-          Join the party and elevate your DJ set or&nbsp;home collection with&nbsp;the&nbsp;freshest beats and rare finds, only available on&nbsp;Revibed! Don't miss out, check it out now!
+          Join the party and elevate your DJ set or&nbsp;home collection with&nbsp;the&nbsp;freshest beats and rare finds, only
+          available on&nbsp;Revibed! Don&apos;t miss out, check it out now!
         </p>
         <div className={styles.Collector__cards}>
-          {collectorsData.map((item) => {
-            return(
+          {collectorsData.map((item) => (
             <div key={item.id} className={styles.Collector__card}>
               <div className={styles.Collector__cardName}>{item.title}</div>
-              <Image className={styles.Collector__cardImage} src={item.url} width={75} height={75} alt={item.title}></Image>
+              <Image className={styles.Collector__cardImage} src={item.url} width={75} height={75} alt={item.title} />
             </div>
-            )
-          })}
+          ))}
         </div>
         <div className={styles.Collector__licensed}>
           licensed by

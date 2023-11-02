@@ -25,9 +25,7 @@ html {
 
 body {
   height: 100%;
-  /*font-family: var(--font-family__Inter-Regular);*/
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
+  font-family: var(--font-family__Inter-Regular);
   background-color: var(--color__white);
   color: var(--color__black);
   display: flex;
@@ -82,10 +80,8 @@ h6 {
 
 b,
 strong {
-  /*font-weight: normal !important;*/
-  /*font-family: var(--font-family__Inter-Bold);*/
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
+  font-weight: normal !important;
+  font-family: var(--font-family__Inter-Bold);
 }
 
 i,
@@ -317,8 +313,7 @@ nav {
 .wrapper__content {
   position: relative;
   flex-grow: 2;
-
-  @include breakpoint($b-desktop__max) {
+  @include breakpoint($b-tabletS__max) {
     width: 100%;
   }
 }

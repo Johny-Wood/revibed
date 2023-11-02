@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import classNames from 'classnames';
 
@@ -38,9 +38,10 @@ function MarketplaceCardTrack({
   onPlay,
   onPause,
 }) {
-  const canBuy = useMemo(() => copyrightHoldersPresent && !preOrder, [copyrightHoldersPresent, preOrder]);
-  const purchased = useMemo(() => alreadyPurchased || albumAlreadyPurchased, [alreadyPurchased, albumAlreadyPurchased]);
   const trackRef = useRef(null);
+  const canBuy = copyrightHoldersPresent && purchaseAvailable;
+  const purchased = alreadyPurchased || albumAlreadyPurchased;
+  const isOnlyAlbum = !purchased && !purchaseAvailable && !canBuy;
 
   useEffect(() => {
     if (isActive) {
@@ -84,30 +85,30 @@ function MarketplaceCardTrack({
           )}
         </div>
         <div className={classNames(styles.marketplaceCardTrack__info, styles.marketplaceCardTrack__name)}>
-          <span className={classNames(styles.marketplaceCardTrack__name__name, 't-ellipsis')}>
+          <span className={classNames(styles.marketplaceCardTrack__name__name)}>
             {idx + 1}.&nbsp;{title}
+            {duration && (
+              <DesktopLayout>
+                <span className={classNames(styles.marketplaceCardTrack__duration)}>&nbsp;{duration}</span>
+              </DesktopLayout>
+            )}
           </span>
-          {duration && (
-            <DesktopLayout>
-              <span className={classNames(styles.marketplaceCardTrack__info, styles.marketplaceCardTrack__duration)}>
-                {duration}
-              </span>
-            </DesktopLayout>
-          )}
         </div>
         <DesktopLayout>
           <div className={classNames(styles.marketplaceCardTrack__info, styles.marketplaceCardTrack__quality)}>
-            {canBuy && '192kHz · 24bit'}
+            44.1kHz · 16bit
           </div>
         </DesktopLayout>
         <div className={classNames(styles.marketplaceCardTrack__info, styles.marketplaceCardTrack__price)}>
-          {((canBuy && purchaseAvailable) || inCart) && price && !purchased && <Coin>{floatWithCommaFixedUtil(price)}</Coin>}
+          {!preOrder && price && (!isOnlyAlbum || inCart) && (
+            <Coin className="t-medium" afterText={floatWithCommaFixedUtil(price)} />
+          )}
         </div>
         <div className={classNames(styles.marketplaceCardTrack__info, styles.marketplaceCardTrack__buy)}>
-          {(canBuy || purchased) && (
+          {!preOrder && (
             <>
-              {!purchased && !purchaseAvailable && !inCart && !canBuy && <span className="c-red">Only album</span>}
-              {purchased && canBuy && (
+              {isOnlyAlbum && !inCart && <span className="c-red">Only album</span>}
+              {purchased && (
                 <Button
                   text="Purchased"
                   transparent
@@ -116,7 +117,7 @@ function MarketplaceCardTrack({
                   disabled
                 />
               )}
-              {!purchased && (inCart || (canBuy && purchaseAvailable)) && (
+              {!purchased && (purchaseAvailable || inCart) && (inCart || (canBuy && purchaseAvailable)) && (
                 <MarketplaceBuyButton
                   inCart={inCart}
                   goodsId={trackId}

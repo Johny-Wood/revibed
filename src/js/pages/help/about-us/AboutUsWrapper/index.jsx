@@ -63,7 +63,7 @@ const sections = [
       <>
         Our Fund for Original Music Artists is&nbsp;the first step in&nbsp;making long-lost music celebrated again, and
         a&nbsp;cornerstone of&nbsp;how {CommonHeadConstants.SITE_NAME} wants to&nbsp;revive and support forgotten music and the
-        artists that created&nbsp;it. With every completed project, the {CommonHeadConstants.SITE_NAME} community helps
+        artists that created&nbsp;it. With every completed pre-order, the {CommonHeadConstants.SITE_NAME} community helps
         to&nbsp;set funds aside that will go&nbsp;directly to&nbsp;the original artists or&nbsp;their relatives.
       </>
     ),
@@ -105,7 +105,7 @@ const sections = [
           textClassName={styles.wantlistTool__link}
         />{' '}
         you can continuously monitor those records you&rsquo;ve been after for a&nbsp;while and get instant notifications the
-        moment they become available. Be&nbsp;the first to&nbsp;secure a&nbsp;copy and start a&nbsp;new project.
+        moment they become available. Be&nbsp;the first to&nbsp;secure a&nbsp;copy and start a&nbsp;new pre-order.
       </>
     ),
     linkText: 'Learn more about our Wantlist Tool',
@@ -121,19 +121,19 @@ const sections = [
     ),
     text: () => (
       <>
-        Founders are community members who find an&nbsp;interesting record, CD&nbsp;or cassette tape and start a&nbsp;new project
-        to&nbsp;preserve and digitize it&nbsp;via{' '}
+        Founders are community members who find an&nbsp;interesting record, CD&nbsp;or cassette tape and start a&nbsp;new
+        pre-order to&nbsp;preserve and digitize it&nbsp;via{' '}
         <LinkRoute
           href={RoutePathsConstants.FAQ_CROWDFUNDING_PROJECTS}
-          text="Kollektiv funding"
+          text={`${CommonHeadConstants.SITE_NAME} funding`}
           className="underline c-gray-2"
           textClassName={styles.wantlistTool__link}
         />
-        . Contributors are members who support the project via crowdfunding. Cuts can be&nbsp;bought until the project
+        . Contributors are members who support the pre-order via crowdfunding. Cuts can be&nbsp;bought until the pre-order
         is&nbsp;100% funded. The roles of&nbsp;founder and contributor are not mutually exclusive.
         <br />
         <br />
-        All investments are returned to&nbsp;the founder &amp;&nbsp;contributors if&nbsp;the project doesn&rsquo;t fully fund
+        All investments are returned to&nbsp;the founder &amp;&nbsp;contributors if&nbsp;the pre-order doesn&rsquo;t fully fund
         or&nbsp;doesn&rsquo;t reach the.
       </>
     ),

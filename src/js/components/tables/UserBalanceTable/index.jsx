@@ -24,8 +24,8 @@ import styles from './styles.module.scss';
 const operationToActionName = {
   USER_TOP_UP_BALANCE: 'Top up',
   USER_BUY_CUT_IN_PROJECT: 'Cuts purchases',
-  FROZEN_FOUNDER_CUT_PRICE: 'Funds held on&nbsp;Project creation',
-  REFUND_FROZEN_FOUNDER_CUT: 'Project rejection refund',
+  FROZEN_FOUNDER_CUT_PRICE: 'Funds held on&nbsp;pre-order creation',
+  REFUND_FROZEN_FOUNDER_CUT: 'Pre-order rejection refund',
   SOLD_MEDIA: 'Media sold',
   RIPPER_REWARD: 'Archive copy fee',
   PROJECT_CLOSED: 'Funds distribution',

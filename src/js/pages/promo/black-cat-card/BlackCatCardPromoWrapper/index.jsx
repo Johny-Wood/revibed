@@ -40,7 +40,7 @@ function BlackCatCardPromoWrapper({ promoInfo: { lastInCode } = {} }) {
               <br />
               and&thinsp;
               <span className="c-gold">get 20&nbsp;Koins</span>
-              &thinsp;to&nbsp;spend on&nbsp;your first projects!
+              &thinsp;to&nbsp;spend on&nbsp;your first pre-orders!
             </h1>
             <BlackCatCardCodeForm />
             {!lastInCode && (
@@ -62,7 +62,7 @@ function BlackCatCardPromoWrapper({ promoInfo: { lastInCode } = {} }) {
                   placeholder="blur"
                   fill
                   sizes="(max-width: 1024px) 75%, 495px"
-                  alt="project"
+                  alt="pre-order"
                   quality={90}
                 />
               </LinkDefault>

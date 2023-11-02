@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import Gem from '@/components/ui/currency/Gem';
 import GoldenCoin from '@/components/ui/currency/GoldenCoin';
 import LinkDefault from '@/components/ui/links/LinkDefault';
-import LinkRoute from '@/components/ui/links/LinkRoute';
 import { RoutePathsConstants } from '@/constants/routes/routes';
-import ViewportHook from '@/hooks/viewport/ViewportHook';
 
 import styles from './styles.module.scss';
 
@@ -17,14 +15,11 @@ function CreateProjectBonus({
   className,
   iconSize,
   withDescription,
-  withButton,
   bonusLinkClassName,
   bonusInfoClassName,
   linkClass,
   children,
 }) {
-  const { isNotDesktop } = ViewportHook();
-
   return (
     <span
       className={classNames([
@@ -45,21 +40,13 @@ function CreateProjectBonus({
         <span className={classNames(styles.createProjectBonus__link, bonusLinkClassName)}>
           {withDescription && (
             <span>
-              Now you can start project for free
+              Now you can start Pre-order for free
               <span className="point">.&nbsp;</span>
             </span>
           )}
           <LinkDefault className={linkClass} text="View details" href={RoutePathsConstants[`${type}_DETAILS`]} />
         </span>
       </span>
-      {withButton && (
-        <LinkRoute
-          type="button"
-          text={`Wanted${!isNotDesktop ? ' projects' : ''}`}
-          href={RoutePathsConstants.WANTED}
-          size="small-45"
-        />
-      )}
       {children}
     </span>
   );
@@ -67,7 +54,6 @@ function CreateProjectBonus({
 
 CreateProjectBonus.defaultProps = {
   iconSize: 47,
-  withButton: true,
   withDescription: true,
   linkClass: 'c-gray-2 underline',
   className: '',
@@ -75,7 +61,6 @@ CreateProjectBonus.defaultProps = {
 
 CreateProjectBonus.propTypes = {
   iconSize: PropTypes.number,
-  withButton: PropTypes.bool,
   withDescription: PropTypes.bool,
   linkClass: PropTypes.string,
   className: PropTypes.string,

@@ -1,4 +1,4 @@
-import HeadTag from '@/components/document/head/HeadTag';
+import HeadTag from '@/components/document/head/HeadTag/headTag';
 import Preloader from '@/components/ui/Preloader';
 
 function SignUpReferralWrapper() {

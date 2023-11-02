@@ -123,10 +123,10 @@ function ProjectBuyCut({
       isUseGem={isUseGem}
       isUseGoldenCoinVisible={isWithoutBonus}
       transparent
-      rounded
       participationContributor={participationContributor}
       className="button-buy-cut"
       routeBefore={projectUrl}
+      borderColor="gray-3"
       type="BUY_CUT"
       onClick={() => {
         if (isLateEntryStatus && !isUseGem && !isUseGoldenCoin && !participationContributor) {

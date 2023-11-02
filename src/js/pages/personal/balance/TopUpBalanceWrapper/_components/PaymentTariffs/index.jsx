@@ -9,7 +9,7 @@ function PaymentTariffs({ list = {} }) {
 
   return (
     <>
-      <h1>Buy funds to&nbsp;contribute and publish pre-order</h1>
+      <h1>Top up&nbsp;your balance</h1>
       <PaymentMethod
         paymentTabs={paymentMethods}
         activePaymentMethod={activePaymentMethod}

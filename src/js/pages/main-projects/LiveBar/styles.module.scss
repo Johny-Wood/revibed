@@ -2,20 +2,20 @@
 @import '../../../../assets/styles/_mixins/convert-px2rem';
 
 .LiveBar {
-  $width: convert-px2rem(360 + 25);
+  $width: convert-px2rem(358);
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
-  max-width: $width;
-  margin: 0 auto;
-  @include breakpoint($b-tabletS__max) {
-    margin-top: convert-px2rem(5);
-  }
+  margin: 0;
+  padding-top: convert-px2rem(15);
   @include breakpoint($b-laptop) {
+    padding-top: convert-px2rem(26);
+    max-width: $width;
     width: $width;
     min-width: $width;
-    margin-left: convert-px2rem(25 + 50);
+    margin-left: convert-px2rem(24 + 30);
   }
 }

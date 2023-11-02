@@ -2,15 +2,15 @@ import { ProjectStatusesConstants } from '@/constants/projects/status';
 
 const statusesTooltips = {
   [ProjectStatusesConstants.OPEN]: {
-    text: 'The project is&nbsp;available for contribution',
+    text: 'The pre-order is&nbsp;available for contribution',
     maxWidth: 180,
   },
   [ProjectStatusesConstants.LAST_CALL]: {
-    text: 'Less than 24&nbsp;hours or&nbsp;less than&nbsp;25% remains before the end of&nbsp;the project funding',
+    text: 'Less than 24&nbsp;hours or&nbsp;less than&nbsp;25% remains before the end of&nbsp;the pre-order funding',
     maxWidth: 240,
   },
   [ProjectStatusesConstants.IN_TRANSIT]: {
-    text: 'Project was successfully funded, item purchased and it&rsquo;s heading to&nbsp;sound lab',
+    text: 'Pre-order was successfully funded, item purchased and it&rsquo;s heading to&nbsp;sound lab',
     maxWidth: 210,
   },
   [ProjectStatusesConstants.ARRIVED]: {
@@ -38,23 +38,23 @@ const statusesTooltips = {
     maxWidth: 240,
   },
   [ProjectStatusesConstants.CLOSED]: {
-    text: 'The funding was not successful, project is&nbsp;closed and contributions refunded',
+    text: 'The funding was not successful, pre-order is&nbsp;closed and contributions refunded',
     maxWidth: 230,
   },
   [ProjectStatusesConstants.LEGACY]: {
-    text: 'Project was announced/funded in&nbsp;the past',
+    text: 'Pre-order was announced/funded in&nbsp;the past',
     maxWidth: 180,
   },
   [ProjectStatusesConstants.IN_MODERATION]: {
-    text: 'Project is&nbsp;being moderated before funding starts',
+    text: 'Pre-order is&nbsp;being moderated before funding starts',
     maxWidth: 180,
   },
   [ProjectStatusesConstants.REJECTED]: {
-    text: 'Project has not passed the moderation',
+    text: 'Pre-order has not passed the moderation',
     maxWidth: 180,
   },
   [ProjectStatusesConstants.DRAFT]: {
-    text: 'Project not published',
+    text: 'Pre-order not published',
     maxWidth: 160,
   },
 };

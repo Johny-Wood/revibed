@@ -9,12 +9,6 @@
       padding-top: convert-px2rem(20 - 12);
     }
 
-    &__sideBar {
-      @include breakpoint($b-laptop) {
-        margin-top: convert-px2rem(-125);
-      }
-    }
-
     &__block {
       width: calc(100% / 2 - #{convert-px2rem(25)});
       @include breakpoint(600px) {

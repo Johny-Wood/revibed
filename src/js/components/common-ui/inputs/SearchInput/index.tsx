@@ -3,7 +3,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import classNames from 'classnames';
 
-import TransitionLayout from '@/components/layouts/TransitionLayouts/TransitionLayout';
 import Button from '@/components/ui/buttons/Button';
 import Input from '@/components/ui/inputs/Input';
 import CloseIcon from '@/icons/control/close/CloseIcon';
@@ -30,6 +29,8 @@ type SearchInputProps = {
 
   className?: string;
   inputClassName?: string;
+  searchUnitClassName?: string;
+  searchResetClassName?: string;
 };
 
 const SearchInput = ({
@@ -50,8 +51,12 @@ const SearchInput = ({
 
   className,
   inputClassName,
+  searchUnitClassName,
+  searchResetClassName,
 }: SearchInputProps) => {
   const [value, setValue] = useState<string>(initialValue);
+
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const canUpdateValue = useRef<boolean>(true);
 
@@ -81,7 +86,7 @@ const SearchInput = ({
         return;
       }
 
-      onSearch(newValue);
+      onSearch(newValue).then();
     },
     [disabled, onSearch, resetSearchState]
   );
@@ -95,6 +100,7 @@ const SearchInput = ({
   return (
     // @ts-ignore
     <Input
+      ref={inputRef}
       autoComplete="off"
       className={classNames(styles.searchInput, className)}
       inputClassName={classNames(inputClassName)}
@@ -125,17 +131,25 @@ const SearchInput = ({
       size={size}
       autoFocus={autoFocus}
     >
-      <TransitionLayout isShown={!searched}>
-        <span className={styles.searchInput__searchUnit}>
-          <SearchIcon color="black" />
-        </span>
-      </TransitionLayout>
-      <TransitionLayout isShown={!!searched}>
-        {/* @ts-ignore */}
-        <Button type="button_string" className={styles.searchInput__buttonSearchReset} onClick={resetSearchState}>
+      {searched ? (
+        // @ts-ignore
+        <Button
+          type="button_string"
+          className={classNames(styles.searchInput__buttonSearchReset, searchResetClassName)}
+          onClick={() => {
+            resetSearchState();
+            if (inputRef.current) {
+              inputRef.current.focus();
+            }
+          }}
+        >
           <CloseIcon />
         </Button>
-      </TransitionLayout>
+      ) : (
+        <span className={classNames(styles.searchInput__searchUnit, searchUnitClassName)}>
+          <SearchIcon color="black" />
+        </span>
+      )}
     </Input>
   );
 };

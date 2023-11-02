@@ -20,12 +20,6 @@ const HELP_GROUP = {
 
 const COMMON = [
   {
-    tKey: 'feed',
-    href: RoutePathsConstants.FEED,
-    keyMenuNotification: PersonalNotificationsSectionsConstants.CUSTOM_FEED,
-    notNotAuthorized: true,
-  },
-  {
     tKey: 'marketplace',
     href: RoutePathsConstants.MARKETPLACE,
     shown: ({ DIGITAL_MARKETPLACE_ENABLED }) => DIGITAL_MARKETPLACE_ENABLED,
@@ -35,7 +29,17 @@ const COMMON = [
     tKey: 'projects',
     href: RoutePathsConstants.PROJECTS,
   },
+  {
+    tKey: 'feed',
+    href: RoutePathsConstants.FEED,
+    keyMenuNotification: PersonalNotificationsSectionsConstants.CUSTOM_FEED,
+    notNotAuthorized: true,
+  },
   HELP_GROUP,
+  {
+    tKey: 'rightsholders',
+    href: RoutePathsConstants.RIGHTSHOLDERS,
+  },
 ];
 
 export const MobileMenuNavigationConstants = [

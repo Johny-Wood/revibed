@@ -2,11 +2,11 @@ import { MarketplaceLocationsConstants } from '@/constants/marketplace/location'
 import { MarketplaceReducersConstants } from '@/constants/marketplace/reducers';
 import { RoutePathsConstants } from '@/constants/routes/routes';
 import SortAndFiltersLocationsConstants from '@/constants/sortAndFilters/locations';
-import { changeSearchMarketplaceAndPreOrdersFiltersAction } from '@/redux-actions/marketplace-and-pre-orders/marketplaceAndPreOrdersFiltersActions';
 import {
   applyMarketplaceFilterAction,
   getMarketplaceListRequestAction,
   selectMarketplaceFilterAction,
+  setMarketplaceSearchAction,
   setMarketplaceSortSelectedAction,
 } from '@/redux-actions/marketplace/marketplaceActions';
 import { getMarketplaceCardRequestAction } from '@/redux-actions/marketplace/marketplaceCardActions';
@@ -100,6 +100,36 @@ export const SSRGetMarketPlaceSortAndFilter = async ({ query, store, store: { di
   }
 };
 
+export const SSRGetMarketplaceWithCookieAndWithoutSort = async ({ ctx, location, externalQuery }) => {
+  const { refreshedToken, store: { dispatch } = {}, req } = ctx;
+
+  if (req) {
+    await getMarketplaceListRequestAction({
+      pageFilters: {
+        ...externalQuery,
+      },
+      cookie: refreshedToken,
+      withCancel: false,
+      location,
+      dispatch,
+    })
+      .then()
+      .catch();
+  } else {
+    getMarketplaceListRequestAction({
+      pageFilters: {
+        ...externalQuery,
+      },
+      cookie: refreshedToken,
+      withCancel: false,
+      location,
+      dispatch,
+    })
+      .then()
+      .catch();
+  }
+};
+
 export const SSRGetMarketplaceWithCookie = async ({ ctx, location, externalQuery }) => {
   const { refreshedToken, store, store: { dispatch } = {}, query, req } = ctx;
 
@@ -107,6 +137,7 @@ export const SSRGetMarketplaceWithCookie = async ({ ctx, location, externalQuery
 
   await SSRGetMarketPlaceSortAndFilter(ctx).then(async () => {
     const queryParams = getQueryPageParamsUtil({ query: externalQuery || query });
+
     const {
       pageFilters = {},
       pageFilters: { query: querySearch = [] } = {},
@@ -157,7 +188,7 @@ export const SSRGetMarketplaceWithCookie = async ({ ctx, location, externalQuery
       });
 
       if (querySearch.length > 0 && location === MarketplaceLocationsConstants.MARKETPLACE) {
-        dispatch(changeSearchMarketplaceAndPreOrdersFiltersAction({ search: querySearch[0] }));
+        dispatch(setMarketplaceSearchAction({ search: querySearch[0], location }));
       }
 
       await getMarketplaceListRequestAction({

@@ -17,7 +17,7 @@ function ProjectCardArtistFund({
   return (
     <ArtistFund
       shown
-      description="Project Artist Fund"
+      description="Pre-order Artist Fund"
       value={
         containsInArtistFund
           ? artistFund

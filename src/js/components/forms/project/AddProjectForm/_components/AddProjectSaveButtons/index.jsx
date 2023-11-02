@@ -154,7 +154,7 @@ function AddProjectSaveButtons({
     <>
       <Button
         className="button_place_project"
-        text="Place your project"
+        text="Place your Pre-order"
         isInProcess={(createProjectInProcess || editProjectInProcess) && projectsStatusesUtil.isOpenStatus(status)}
         disabled={disabledPublishButton()}
         onClick={() =>

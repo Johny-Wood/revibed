@@ -54,7 +54,7 @@ function ProjectPriceDetails({
   return (
     <div className={styles.projectPriceDetails}>
       <div className={styles.projectPriceDetails__title}>
-        <b>Project price details</b>
+        <b>Pre-order price details</b>
         <TransitionSwitchLayout isShown={!estimatedPriceInfo}>
           <span className="c-gray-2">&nbsp;(estimated)</span>
         </TransitionSwitchLayout>
@@ -110,7 +110,7 @@ function ProjectPriceDetails({
           </div>
         </div>
         <div className={styles.projectPriceDetails__row}>
-          <div className={styles.projectPriceDetails__description}>Project artist fund</div>
+          <div className={styles.projectPriceDetails__description}>Pre-order artist fund</div>
           <div className={styles.projectPriceDetails__value}>
             {floatWithCommaFixedUtil(copyrightHoldersFundShareCoin)}
             <TransitionSwitchLayout

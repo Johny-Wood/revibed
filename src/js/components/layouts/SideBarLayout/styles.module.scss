@@ -22,7 +22,8 @@
   &_bottom_minus {
     @include breakpoint($b-tabletS__max) {
       padding-bottom: 0;
-      margin-bottom: convert-px2rem(-35);
+      margin-bottom: convert-px2rem(-105);
+      margin-top: convert-px2rem(60);
     }
   }
 }

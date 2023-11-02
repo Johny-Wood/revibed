@@ -209,9 +209,7 @@
     font-size: convert-px2rem(30);
     line-height: 113.333%;
     letter-spacing: convert-px2rem(0.6);
-    /*font-family: var(--font-family__Inter-Black);*/
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
+    font-family: var(--font-family__Inter-Black);
     @include breakpoint($b-tabletS__max) {
       margin-top: convert-px2rem(26);
       font-size: convert-px2rem(22);
@@ -226,7 +224,7 @@
     @include breakpoint($b-mobileS__max) {
       display: none;
     }
-  } 
+  }
   &__brmob {
     display: none;
     @include breakpoint($b-mobileS__max) {
@@ -238,7 +236,7 @@
     margin: convert-px2rem(40) auto 0;
     font-size: convert-px2rem(16);
     max-width: convert-px2rem(508);
-    font-weight: 400;
+    font-family: var(--font-family__Inter-Regular);
     text-align: center;
     line-height: 137.5%;
     letter-spacing: convert-px2rem(0.8);
@@ -326,9 +324,7 @@
     border-radius: convert-px2rem(10);
     font-size: convert-px2rem(16);
     padding: convert-px2rem(15) !important;
-    /*font-family: var(--font-family__Inter-Bold);*/
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
+    font-family: var(--font-family__Inter-Bold);
     min-width: convert-px2rem(227) !important;
     &::after {
       border-radius: inherit;

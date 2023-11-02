@@ -46,11 +46,7 @@
 
   .createProjectPrice {
     width: 100%;
-    max-width: convert-px2rem(450);
-    @include breakpoint($b-laptop) {
-      width: 50%;
-      margin-bottom: convert-px2rem(25);
-    }
+    max-width: convert-px2rem(615);
 
     &__sale {
       color: var(--color__gray-3);
@@ -115,8 +111,9 @@
   }
 
   .createProjectInstruction {
-    color: #000;
-    max-width: convert-px2rem(800);
+    color: var(--color__gray-2);
+    font-size: convert-px2rem(12);
+    max-width: convert-px2rem(615);
     margin-top: convert-px2rem(25);
   }
 

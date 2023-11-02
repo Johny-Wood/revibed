@@ -3,8 +3,7 @@
 
 $widthDuration: 160ms;
 $duration: 200ms;
-$bigSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 7);
-$smallSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 7 - #{convert-px2rem(16)});
+$bigSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 8);
 
 .zoomInFromLeftAnimation {
   &Enter {
@@ -13,13 +12,10 @@ $smallSize: calc(#{convert-px2rem(1265 - 40 + 3)} / 7 - #{convert-px2rem(16)});
 
     &_active {
       transform: scale(1) !important;
-      max-width: $smallSize !important;
+      max-width: $bigSize !important;
       transition:
         max-width $widthDuration ease,
         transform $duration ease !important;
-      @include breakpoint($b-laptop) {
-        max-width: $bigSize !important;
-      }
     }
   }
 }

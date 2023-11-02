@@ -25,7 +25,7 @@ import PromotionEventsConstants from '@/constants/promotion/events';
 import { RoutePathsConstants } from '@/constants/routes/routes';
 import UserNotificationsTargetTpeConstants from '@/constants/user-notifications/targetType';
 import { createProjectUrlUtil } from '@/utils/project/projectUrlUtil';
-import { parseReplaceTextUtil, splitTextUtil, textForLotsOfUtil } from '@/utils/textUtils';
+import { parseReplaceTextUtil, splitTextUtil } from '@/utils/textUtils';
 
 import styles from './styles.module.scss';
 
@@ -34,7 +34,6 @@ const typeContent = ({ to, owner, t }) => {
 
   const {
     type,
-    cutsCount,
     name,
     text,
     attachments,
@@ -46,7 +45,7 @@ const typeContent = ({ to, owner, t }) => {
 
   return {
     [ProjectBaseInfoConstants.PROJECT_REJECTED]: {
-      title: 'Project refused',
+      title: 'Pre-order refused',
     },
     [ProjectEventsConstants.PROJECT_RECORD_ON_THE_WAY]: {
       title: "The record is on it's way!",
@@ -55,32 +54,30 @@ const typeContent = ({ to, owner, t }) => {
       title: 'Media purchased',
     },
     [ProjectEventsConstants.PROJECT_PUBLISHED]: {
-      title: 'Project published',
+      title: 'Pre-order published',
     },
     [ProjectBaseInfoConstants.PROJECT_CREATED]: {
-      title: 'Project published',
+      title: 'Pre-order published',
     },
     [ProjectEventsConstants.PROJECT_NEW_CUT]: {
       children: (
         <>
           <NickName name={userName} userId={userId} country={titleEn} alias={alias} fontWeight="bold" />
           <br />
-          <span className="t-size_13">
-            bought {cutsCount} {textForLotsOfUtil(cutsCount, ['cut', 'cuts'])}
-          </span>
+          <span className="t-size_13">pre-ordered this release</span>
         </>
       ),
     },
     [ProjectEventsConstants.PROJECT_MEDIA_SECURED]: {
-      title: 'Project secured',
+      title: 'Pre-order secured',
     },
     [ProjectEventsConstants.PROJECT_FOUND_COMPLETED]: {
-      title: 'Project funded',
+      title: 'Pre-order funded',
     },
     [ProjectBaseInfoConstants.PROJECT_STATUS_CHANGED]: {
       children: (
         <b>
-          Project status:&nbsp;
+          Pre-order status:&nbsp;
           <span style={{ color: `var(--color__${name})` }}>{t(name)}</span>
         </b>
       ),
@@ -88,7 +85,7 @@ const typeContent = ({ to, owner, t }) => {
     [ProjectEventsConstants.PROJECT_STATUS_ARRIVED]: {
       children: (
         <b>
-          Project status:&nbsp;
+          Pre-order status:&nbsp;
           <span style={{ color: `var(--color__${name})` }}>{t(name)}</span>
         </b>
       ),
@@ -96,7 +93,7 @@ const typeContent = ({ to, owner, t }) => {
     [ProjectEventsConstants.PROJECT_STATUS_LAST_CALL]: {
       children: (
         <b>
-          Project status:&nbsp;
+          Pre-order status:&nbsp;
           <span style={{ color: `var(--color__${name})` }}>{t(name)}</span>
         </b>
       ),
@@ -173,11 +170,11 @@ const typeContent = ({ to, owner, t }) => {
     },
     [PromotionEventsConstants.PROMOTION_POINT_USER_GOT_GEM]: {
       title: 'You got a new gem',
-      text: <span className="t-size_13">You can spend it&nbsp;on&nbsp;project with any value</span>,
+      text: <span className="t-size_13">You can spend it&nbsp;on&nbsp;pre-order with any value</span>,
     },
     [PromotionEventsConstants.PROMOTION_POINT_USER_GOT_GOLDEN_COIN]: {
       title: 'You have a golden coin',
-      text: <span className="t-size_13">You can spend it&nbsp;on&nbsp;project with any value</span>,
+      text: <span className="t-size_13">You can spend it&nbsp;on&nbsp;pre-order with any value</span>,
     },
     [PromotionEventsConstants.PROMO_ACTION_CODE_USED_REFERRAL_AGENT_GOT_REWARD]: {
       title: 'Referral reward received',

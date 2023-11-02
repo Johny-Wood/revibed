@@ -4,9 +4,6 @@ import classNames from 'classnames';
 
 import RedirectComponent from '@/components/common/RedirectComponent';
 import ButtonIcon from '@/components/ui/buttons/ButtonIcon';
-import PlusThreeColorIcon from '@/icons/project/PlusThreeColorIcon';
-
-import styles from './styles.module.scss';
 
 function ProjectActionButton({
   withIcon,
@@ -40,11 +37,7 @@ function ProjectActionButton({
   );
 
   if (participationContributor) {
-    return (
-      <div className={classNames('project-action-button project-action-button_in button-buy-cut', styles.ProjectActionButton_in)}>
-        <span className={classNames('text', styles.ProjectActionButton_in__text)}>You&rsquo;re in</span>
-      </div>
-    );
+    return <ButtonIcon isActive={isActive} text="Pre-ordered" className={classNamesEnd} {...restProps} disabled />;
   }
 
   return (
@@ -54,13 +47,7 @@ function ProjectActionButton({
       callbackAfterRedirect={callbackAfterRedirect}
       query={query}
     >
-      <ButtonIcon
-        isActive={isActive}
-        text={text}
-        className={classNamesEnd}
-        icon={withIcon ? PlusThreeColorIcon : undefined}
-        {...restProps}
-      />
+      <ButtonIcon isActive={isActive} text={text} className={classNamesEnd} {...restProps} />
     </RedirectComponent>
   );
 }

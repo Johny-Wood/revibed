@@ -40,7 +40,6 @@ const ITEMS_OPTIONS = [
 
 function ProjectList({
   className,
-  withRating,
   projects,
   location,
   changeFilterProps,
@@ -65,6 +64,7 @@ function ProjectList({
   withReasons,
   noResults,
   customItem: CustomItem,
+  children,
 }) {
   const isLocationLive = useMemo(
     () => location === ProjectsLocationsConstants.NEW_ARRIVALS || location === ProjectsLocationsConstants.LATE_ENTRY,
@@ -97,7 +97,10 @@ function ProjectList({
     const projectsTmp = cloneDeep(projects);
 
     if (CustomItem) {
-      projectsTmp.splice(2, 0, { id: 'custom-item', isCustomItem: true });
+      projectsTmp.splice(2, 0, {
+        id: 'custom-item',
+        isCustomItem: true,
+      });
     }
 
     return projectsTmp;
@@ -105,6 +108,7 @@ function ProjectList({
 
   return (
     <div className={classNames([styles.projectsList, className])}>
+      {children}
       {(withFilters || withSort) && (
         <div
           className={classNames(
@@ -150,7 +154,6 @@ function ProjectList({
                       isLiveType={isLiveType}
                       userId={userId}
                       projectsCount={projectsLength || projects.length}
-                      withRating={withRating}
                       location={location}
                       changeFilterProps={changeFilterProps}
                       changeFilterCallBack={changeFilterCallBack}

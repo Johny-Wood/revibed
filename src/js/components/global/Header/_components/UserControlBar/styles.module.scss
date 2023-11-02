@@ -17,10 +17,7 @@
 
   &__item {
     @include breakpoint($b-laptop) {
-      margin-right: convert-px2rem(8);
-    }
-    @include breakpoint($b-desktop) {
-      margin-right: convert-px2rem(15);
+      margin-right: convert-px2rem(25);
     }
 
     &:last-child {

@@ -32,7 +32,7 @@ function FollowersPageWrapper({
           list={following}
           listPageSettings={followingPageSettings}
           request={getPersonalFollowingRequest}
-          noResultsText="Follow someone and be&nbsp;aware of&nbsp;their projects."
+          noResultsText="Follow someone and be&nbsp;aware of&nbsp;their pre-orders."
           location={FollowLocationsConstants.FOLLOWING}
           path={RoutePathsConstants.FOLLOWING}
           scrollId={ScrollBlockIdConstants.FOLLOWING}

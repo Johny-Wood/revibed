@@ -8,6 +8,7 @@ import TransitionSwitchLayout from '@/components/layouts/TransitionLayouts/Trans
 import MarketplaceBuyButton from '@/components/marketplace/MarketplaceBuyButton';
 import PlayerPlayPauseButton from '@/components/player/control/PlayerPlayPauseButton';
 import ProjectCutSize from '@/components/projects/Project/_components/ProjectCutSize';
+import LinkRoute from '@/components/ui/links/LinkRoute';
 import { CommonMessagesConstants } from '@/constants/common/message';
 import { RoutePathsConstants } from '@/constants/routes/routes';
 import { MarketplaceCardStatusHook } from '@/hooks/marketplace/MarketplaceCardStatusHook';
@@ -24,7 +25,7 @@ const MarketplaceGoods = memo(
       price,
       name,
       target: { tracksGoods = [] } = {},
-      release: { covers: releaseCovers, artists, tracks = [] } = {},
+      release: { covers: releaseCovers, artists } = {},
       covers = releaseCovers,
     } = {},
     itemRestProps: { playList: itemPlaylist = () => [] } = {},
@@ -73,8 +74,6 @@ const MarketplaceGoods = memo(
             goodsId={id}
             marketplaceCardId={id}
             inCart={inCart}
-            tracksGoods={tracksGoods}
-            tracks={tracks}
             styleProps={buttonConfig}
             targetType="ALBUM"
           />
@@ -86,11 +85,19 @@ const MarketplaceGoods = memo(
       }
 
       if (isOnlyTracks && !inCart) {
-        return <span {...labelConfig}>Only tracks</span>;
+        return (
+          <LinkRoute
+            className={styles.marketplaceGoods__button}
+            text="Buy tracks only"
+            href={{
+              pathname: parseReplaceTextUtil(RoutePathsConstants.MARKETPLACE_ITEM, id),
+            }}
+          />
+        );
       }
 
       return null;
-    }, [buttonConfig, id, inCart, isCanBuy, isOnlyTracks, isPreOrder, isPurchased, labelConfig, tracks, tracksGoods]);
+    }, [buttonConfig, id, inCart, isCanBuy, isOnlyTracks, isPreOrder, isPurchased, labelConfig]);
 
     return (
       <div className={classNames(styles.marketplaceGoods, className)}>
@@ -128,7 +135,6 @@ const MarketplaceGoods = memo(
           artists={artists}
           albumTitle={name}
           href={href}
-          isRoute
         />
         <div className={classNames(styles.marketplaceGoods__footer, footerClassName)}>
           {renderControlButton}

@@ -2,12 +2,9 @@ import cloneDeep from 'lodash/cloneDeep';
 
 import { EventsActionsConstants } from '@/constants/actions/common/events';
 import EventsLocationsConstants from '@/constants/events/location';
-import { ProjectsLocationsConstants } from '@/constants/projects/location';
 import { WebSocketGlobalEventsConstants } from '@/constants/websocket/globalEvents';
 import { getArtistFundRequestAction } from '@/redux-actions/artistFundActions';
-import { getShortProjectCardRequestAction } from '@/redux-actions/project/projectCardActions';
 import ReduxStoreService from '@/services/ReduxStoreService';
-import { unsubscribeProjectUtil } from '@/utils/project/projectsWebsocketUtil';
 
 import { createWebsocketEvent, createWebsocketHandlers } from '../websocketHandler';
 
@@ -50,51 +47,51 @@ const handlers = createWebsocketHandlers({
   [WebSocketGlobalEventsConstants.GLOBAL_EVENT_MARKETPLACE_GOODS_USER_PURCHASE_GOODS]: (data) => {
     fundingNowEvent({ data });
   },
-  [WebSocketGlobalEventsConstants.GLOBAL_EVENT_PROJECT_PUBLISHED]: (data) => {
-    const { store } = ReduxStoreService.getInstance();
-    const { value: { id: projectId } = {} } = data;
-    const awaitPromises = [];
-
-    awaitPromises.push(
-      getShortProjectCardRequestAction({
-        projectId,
-        type: 'SHORT',
-        dispatch: store.dispatch,
-      })
-    );
-
-    Promise.all(awaitPromises).then((promisePramsArray = []) => {
-      const [promisePrams] = promisePramsArray;
-      const { newProject } = promisePrams;
-      const { variablesList: { NEW_ARRIVALS_PROJECTS_LIMIT } = {} } = store.getState().VariablesReducer;
-      const { projects: projectsFromStore = [] } = store.getState().NewArrivalsProjectsReducer;
-      let removeId = -1;
-
-      if (!newProject) {
-        return;
-      }
-
-      const projects = cloneDeep(projectsFromStore);
-      projects.unshift(newProject);
-
-      if (NEW_ARRIVALS_PROJECTS_LIMIT && projects.length > NEW_ARRIVALS_PROJECTS_LIMIT) {
-        removeId = projects[projects.length - 1].id;
-        const webSocketSubscriptionIds = removeId >= 0 ? [removeId] : [];
-
-        projects.pop();
-        unsubscribeProjectUtil({ webSocketSubscriptionIds });
-      }
-
-      store.dispatch({
-        type: `${ProjectsLocationsConstants.NEW_ARRIVALS}_${EventsActionsConstants.PROJECT_PUBLISHED}`,
-        payload: {
-          projects,
-          newProject,
-          removeId,
-        },
-      });
-    });
-  },
+  // [WebSocketGlobalEventsConstants.GLOBAL_EVENT_PROJECT_PUBLISHED]: (data) => {
+  //   const { store } = ReduxStoreService.getInstance();
+  //   const { value: { id: projectId } = {} } = data;
+  //   const awaitPromises = [];
+  //
+  //   awaitPromises.push(
+  //     getShortProjectCardRequestAction({
+  //       projectId,
+  //       type: 'SHORT',
+  //       dispatch: store.dispatch,
+  //     })
+  //   );
+  //
+  //   Promise.all(awaitPromises).then((promisePramsArray = []) => {
+  //     const [promisePrams] = promisePramsArray;
+  //     const { newProject } = promisePrams;
+  //     const { variablesList: { NEW_ARRIVALS_PROJECTS_LIMIT } = {} } = store.getState().VariablesReducer;
+  //     const { projects: projectsFromStore = [] } = store.getState().NewArrivalsProjectsReducer;
+  //     let removeId = -1;
+  //
+  //     if (!newProject) {
+  //       return;
+  //     }
+  //
+  //     const projects = cloneDeep(projectsFromStore);
+  //     projects.unshift(newProject);
+  //
+  //     if (NEW_ARRIVALS_PROJECTS_LIMIT && projects.length > NEW_ARRIVALS_PROJECTS_LIMIT) {
+  //       removeId = projects[projects.length - 1].id;
+  //       const webSocketSubscriptionIds = removeId >= 0 ? [removeId] : [];
+  //
+  //       projects.pop();
+  //       unsubscribeProjectUtil({ webSocketSubscriptionIds });
+  //     }
+  //
+  //     store.dispatch({
+  //       type: `${ProjectsLocationsConstants.NEW_ARRIVALS}_${EventsActionsConstants.PROJECT_PUBLISHED}`,
+  //       payload: {
+  //         projects,
+  //         newProject,
+  //         removeId,
+  //       },
+  //     });
+  //   });
+  // },
   [WebSocketGlobalEventsConstants.GLOBAL_EVENT_NEW_LAST_RIPPED_PROJECT]: (data) => {
     const { store } = ReduxStoreService.getInstance();
     const { VariablesReducer: { variablesList: { LAST_RIPPED_PROJECTS_LIMIT } = {} } = {} } = store.getState();

@@ -81,13 +81,13 @@
   }
 
   &__duration {
-    margin-left: convert-px2rem(5);
     color: var(--color__gray-3);
   }
 
   &__quality {
-    width: 15%;
+    width: convert-px2rem(90);
     margin-left: auto;
+    font-size: convert-px2rem(12);
   }
 
   &__price {
@@ -118,6 +118,7 @@
       .button {
         width: 100%;
         min-width: auto !important;
+        padding: 0 !important;
 
         .text {
           text-transform: uppercase;

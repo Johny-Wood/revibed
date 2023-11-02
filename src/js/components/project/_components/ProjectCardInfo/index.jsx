@@ -22,6 +22,7 @@ import ProjectTags from '@/components/projects/Project/_components/ProjectTags';
 import ProjectTime from '@/components/projects/Project/_components/ProjectTime';
 import LinkDefault from '@/components/ui/links/LinkDefault';
 import ToolTip from '@/components/ui/ToolTip';
+import { CommonHeadConstants } from '@/constants/common/head';
 import ComponentsCommonConstants from '@/constants/components/common';
 import ViewportHook from '@/hooks/viewport/ViewportHook';
 import projectsStatusesUtil from '@/utils/project/projectsStatusesUtil';
@@ -97,15 +98,14 @@ const renderProjectStatusInfo = ({
   isLateEntryStatus,
   isComingSoonStatus,
 }) => {
-  let tooltipText =
-    "Currently not funding. To&nbsp;start a&nbsp;new Kollektiv, select an&nbsp;item then tap 'start&nbsp;project'.";
+  let tooltipText = `Currently not funding. To&nbsp;start a&nbsp;new ${CommonHeadConstants.SITE_NAME}, select an&nbsp;item then tap 'start&nbsp;project'.`;
 
   if (isLateEntryStatus) {
     tooltipText =
       'A&nbsp;unique opportunity to&nbsp;enter an&nbsp;already completed project with a&nbsp;Golden Koin or&nbsp;gem. Limited to&nbsp;maximum 3&nbsp;users.';
   } else if (isComingSoonStatus) {
     tooltipText =
-      'Record received. After digitization, a&nbsp;limited number of&nbsp;eligible users with a&nbsp;Golden Koin or&nbsp;gem can still enter the project.';
+      'Record received. After digitization, a&nbsp;limited number of&nbsp;eligible users with a&nbsp;Golden Koin or&nbsp;gem can still enter the pre-order.';
   }
 
   return (
@@ -124,6 +124,7 @@ function ProjectCardInfo({
     title,
     artists,
     albumTitle,
+    preview,
     covers,
     discogsLink,
     status,
@@ -147,36 +148,19 @@ function ProjectCardInfo({
   const { isNotDesktop, isTablet } = ViewportHook();
 
   const isOpenStatus = useMemo(() => projectsStatusesUtil.isOpenStatus(statusName), [statusName]);
-
   const isLastCallStatus = useMemo(() => projectsStatusesUtil.isLastCallStatus(statusName), [statusName]);
-
   const isLegacyStatus = useMemo(() => projectsStatusesUtil.isLegacyStatus(statusName), [statusName]);
-
   const isListedStatus = useMemo(() => projectsStatusesUtil.isListedStatus(statusName), [statusName]);
   const isSoldStatus = useMemo(() => projectsStatusesUtil.isSoldStatus(statusName), [statusName]);
 
-  const isCreatedProject = useMemo(
-    () =>
-      !projectsStatusesUtil.isDraftStatus(statusName) &&
-      !projectsStatusesUtil.isInModerationStatus(statusName) &&
-      !projectsStatusesUtil.isRejectedStatus(statusName),
-    [statusName]
-  );
+  const isCreatedProject =
+    !projectsStatusesUtil.isDraftStatus(statusName) &&
+    !projectsStatusesUtil.isInModerationStatus(statusName) &&
+    !projectsStatusesUtil.isRejectedStatus(statusName);
 
-  const canBeLateEntryStatus = useMemo(
-    () => projectsStatusesUtil.canBeLateEntryStatus(projectInfo, { userIsAuthorized }),
-    [projectInfo, userIsAuthorized]
-  );
-
-  const isLateEntryStatus = useMemo(
-    () => canBeLateEntryStatus && projectsStatusesUtil.isLateEntryStatus(lateEntryStatusName),
-    [canBeLateEntryStatus, lateEntryStatusName]
-  );
-
-  const isComingSoonStatus = useMemo(
-    () => canBeLateEntryStatus && projectsStatusesUtil.isComingSoonStatus(lateEntryStatusName),
-    [canBeLateEntryStatus, lateEntryStatusName]
-  );
+  const canBeLateEntryStatus = projectsStatusesUtil.canBeLateEntryStatus(projectInfo, { userIsAuthorized });
+  const isLateEntryStatus = canBeLateEntryStatus && projectsStatusesUtil.isLateEntryStatus(lateEntryStatusName);
+  const isComingSoonStatus = canBeLateEntryStatus && projectsStatusesUtil.isComingSoonStatus(lateEntryStatusName);
 
   return (
     <div className={styles.projectCard__card}>
@@ -198,6 +182,7 @@ function ProjectCardInfo({
           className={styles.projectCover}
           containerClassName={styles.projectCoverContainer}
           covers={covers}
+          preview={preview}
           withImageLiteBox={covers && covers.length > 0}
           isDefault={!covers || !covers.length > 0}
           projectInfo={{

@@ -1,5 +1,6 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -10,14 +11,7 @@ import { PopupPaymentsIdsConstants, PopupTokenIdsConstants } from '@/constants/p
 import { RoutePathsConstants } from '@/constants/routes/routes';
 import { showMessageAction } from '@/redux-actions/components/messageActions';
 import { showPopupAction } from '@/redux-actions/components/popupActions';
-import NextRouter from '@/services/NextRouter';
 import { handleErrorUtil } from '@/utils/apiUtils';
-
-const paymentSuccess = ({ router, showMessage }) => {
-  router.push(RoutePathsConstants.BALANCE);
-
-  showMessage(MessagesIdConstants.PaymentSuccessMessage);
-};
 
 function PaymentSuccessWrapper({
   inProcess,
@@ -29,8 +23,20 @@ function PaymentSuccessWrapper({
   showPopup,
   showMessage,
 }) {
+  const called = useRef(false);
+
+  const router = useRouter();
+
+  const { query: { token, paymentId, PayerID } = {} } = router;
+
+  const paymentSuccess = useCallback(() => {
+    router.push(RoutePathsConstants.BALANCE).then(() => {
+      showMessage(MessagesIdConstants.PaymentSuccessMessage);
+    });
+  }, [router, showMessage]);
+
   const getAction = useCallback(() => {
-    const { router = {}, router: { router: { query: { token, paymentId, PayerID } = {} } = {} } = {} } = NextRouter.getInstance();
+    called.current = true;
 
     if (token || !withToken) {
       if (inProcess) {
@@ -50,34 +56,51 @@ function PaymentSuccessWrapper({
       if (withRequest) {
         request(withToken ? requestData : null)
           .then(() => {
-            paymentSuccess({ router, showMessage });
+            paymentSuccess();
           })
           .catch(({ error = {}, payload: { redirectUrl } = {} }) => {
             if (error) {
               handleErrorUtil(error, {
                 PAYMENT_HELD: () => {
-                  showMessage(PopupPaymentsIdsConstants.PayPalPaymentHeldMessage);
-                  router.push(RoutePathsConstants.TOP_UP_BALANCE);
+                  router.push(RoutePathsConstants.TOP_UP_BALANCE).then(() => {
+                    showMessage(PopupPaymentsIdsConstants.PayPalPaymentHeldMessage);
+                  });
                 },
                 PAYMENT_ACTION_REQUIRED: () => {
-                  router.push(redirectUrl || RoutePathsConstants.TOP_UP_BALANCE);
+                  router.push(redirectUrl || RoutePathsConstants.TOP_UP_BALANCE).then();
                 },
               });
             } else {
-              router.push(RoutePathsConstants.TOP_UP_BALANCE);
+              router.push(RoutePathsConstants.TOP_UP_BALANCE).then();
             }
           });
       } else {
-        paymentSuccess({ router, showMessage });
+        paymentSuccess();
       }
     } else {
-      router.push(RoutePathsConstants.TOP_UP_BALANCE);
-      showPopup(PopupTokenIdsConstants.NoSuchTokenPopup);
+      router.push(RoutePathsConstants.TOP_UP_BALANCE).then(() => {
+        showPopup(PopupTokenIdsConstants.NoSuchTokenPopup);
+      });
     }
-  }, [inProcess, request, showMessage, showPopup, system, withRequest, withToken]);
+  }, [
+    PayerID,
+    inProcess,
+    paymentId,
+    paymentSuccess,
+    request,
+    router,
+    showMessage,
+    showPopup,
+    system,
+    token,
+    withRequest,
+    withToken,
+  ]);
 
   useEffect(() => {
-    getAction();
+    if (!called.current) {
+      getAction();
+    }
   }, [getAction]);
 
   return <Preloader id="payment-return" withOffsets={false} isShown color="gray" opacity={1} />;

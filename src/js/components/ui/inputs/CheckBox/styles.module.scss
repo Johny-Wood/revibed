@@ -98,6 +98,7 @@ $size-rounded: convert-px2rem(20);
     border: 1px solid var(--color__gray-3);
     position: relative;
     width: $size;
+    min-width: $size;
     height: $size;
     overflow: hidden;
     display: flex;

@@ -1,0 +1,85 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.RightsholdersForm {
+  padding-bottom: convert-px2rem(30);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  &__checkbox {
+    margin: 0 0 convert-px2rem(10) !important;
+
+    :global {
+      .checkbox__text {
+        font-size: convert-px2rem(14) !important;
+        color: var(--color__black) !important;
+      }
+    }
+  }
+
+  &__agree {
+    margin-bottom: convert-px2rem(10);
+  }
+
+  &__attach {
+    display: flex;
+    flex-direction: column;
+    margin-top: convert-px2rem(12.5);
+  }
+
+  &__attachItem {
+    margin: convert-px2rem(10) 0;
+  }
+
+  &__attachContent {
+    display: flex;
+
+    :global {
+      .input-block {
+        width: 100% !important;
+      }
+
+      .error-msg {
+        margin-top: convert-px2rem(10);
+        max-width: convert-px2rem(480);
+        width: 100%;
+      }
+    }
+  }
+
+  &__attachText {
+    cursor: pointer;
+    display: flex;
+    font-size: convert-px2rem(12);
+    margin-left: convert-px2rem(10);
+    line-height: 1.5;
+    transition: opacity var(--transition-duration);
+
+    &:hover {
+      @include breakpoint($b-laptop) {
+        opacity: var(--hover-opacity);
+      }
+    }
+  }
+
+  &__description {
+    color: var(--color__gray-2);
+    line-height: 1.5;
+  }
+
+  &__buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: convert-px2rem(15);
+
+    & > * {
+      flex-grow: 1;
+
+      &:first-child {
+        margin-right: convert-px2rem(11);
+      }
+    }
+  }
+}

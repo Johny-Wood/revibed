@@ -12,7 +12,6 @@ import ProjectContributorCount from '@/components/projects/Project/_components/P
 import ProjectCover from '@/components/projects/Project/_components/ProjectCover';
 import ProjectNames from '@/components/projects/Project/_components/ProjectNames';
 import ProjectProcess from '@/components/projects/Project/_components/ProjectProcess';
-import ProjectRating from '@/components/projects/Project/_components/ProjectRating';
 import ProjectShareButton from '@/components/projects/Project/_components/ProjectShareButton';
 import ProjectStatus from '@/components/projects/Project/_components/ProjectStatus';
 import ProjectTags from '@/components/projects/Project/_components/ProjectTags';
@@ -31,15 +30,11 @@ import styles from './styles.module.scss';
 
 function DefaultProject({
   isLiveType,
-  withRating,
   isFullType,
   location,
   tagsShowAll,
   project: {
     backgroundColor,
-    isNew,
-    currentPosition,
-    lastPosition,
     covers = [],
     status = {},
     status: { name: statusName = {} } = {},
@@ -247,6 +242,7 @@ function DefaultProject({
               <ProjectContributorCount
                 totalCount={totalCutsCount}
                 cutsCount={cutsCount}
+                withDescription={isLiveLocation || isFullType}
                 className={classNames([styles.projectContributorCount, isLegacyStatus && 'o-50'])}
                 valueClassName={styles.projectContributorCount__value}
               />
@@ -272,6 +268,7 @@ function DefaultProject({
                     projectInfo={projectInfo}
                     canBeLateEntryStatus={canBeLateEntryStatus}
                     cutSizeClassName={styles.projectCutSize}
+                    withCutSize={false}
                   />
                 </div>
                 <TransitionSwitchLayout isShown={isDraftStatus || isRejectedStatus}>
@@ -358,14 +355,6 @@ function DefaultProject({
         backgroundColor,
       }}
     >
-      {withRating && (
-        <ProjectRating
-          isNew={isNew}
-          number={currentPosition}
-          step={lastPosition && (lastPosition ? Math.abs(currentPosition - lastPosition) : 0)}
-          direction={lastPosition && (currentPosition - lastPosition < 0 ? 'UP' : 'DOWN')}
-        />
-      )}
       <div className={styles.projectIntro}>
         {(isLiveLocation || isFullType || isNotDesktop) && withShare && (
           <ProjectShareButton

@@ -79,8 +79,8 @@ const returnInitialVideoItem = (id = 0) => ({
 
 const projectAlreadyExistMessage = ({ link = '' }) => (
   <span>
-    The project for this release already exists.&nbsp;
-    <LinkRoute className="error-msg__link c-blue underline" href={link} text="Join the project" />
+    The Pre-order for this release already exists.&nbsp;
+    <LinkRoute className="error-msg__link c-blue underline" href={link} text="Join the Pre-order" />
   </span>
 );
 
@@ -1038,8 +1038,11 @@ class AddProjectForm extends Component {
           anchor="project-creation"
         />
         <p className={cStyles.createProjectInstruction}>
-          After admin&rsquo;s approvement, 72&nbsp;hours is&nbsp;left to&nbsp;complete funding. When underfunded within
-          72&nbsp;hours, project is&nbsp;closed.
+          The record will be&nbsp;purchased under the conditions outlined in&nbsp;the estimate shown above or&nbsp;better (record
+          quality will be&nbsp;equal to&nbsp;estimate or&nbsp;better). All pre-orders are subject to&nbsp;pre-moderation. This
+          review process can take up&nbsp;to&nbsp;8&nbsp;hours. Pre-orders not published after review will be&nbsp;saved
+          as&nbsp;drafts. All pre-order campaigns are open for a&nbsp;limited time. If&nbsp;a&nbsp;pre-order fails to&nbsp;attract
+          sufficient funding, all participants will be&nbsp;refunded.
         </p>
       </div>
     );
@@ -1332,7 +1335,7 @@ class AddProjectForm extends Component {
             {this.canFounderUseGem() && <CreateProjectBonusBanner type="GEM" />}
             {this.canFounderUseGoldenKoin() && <CreateProjectBonusBanner type="GOLDEN_COIN" />}
             <h2 className={cStyles.draftProject__title}>{pageTitle}</h2>
-            <div className="m-top-5 c-gray-2">To add a new project, fill in the form</div>
+            <div className="m-top-5 c-gray-2">To add a new pre-order, fill in the form</div>
             <AddProjectStep
               stepNumber={1}
               stepName={`${CommonMessagesConstants.PREORDER} details`}
@@ -1544,7 +1547,7 @@ class AddProjectForm extends Component {
                 <CheckBox
                   className="w-auto"
                   id="privateProject"
-                  label="Private project"
+                  label="Private pre-order"
                   checked={privateProject}
                   onChange={this.changeCheckBoxHandler}
                 />

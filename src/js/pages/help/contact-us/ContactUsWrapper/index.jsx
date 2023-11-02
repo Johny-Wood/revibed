@@ -6,11 +6,12 @@ import ContactUsForm from '@/components/forms/ContactUsForm';
 import BaseWebsiteLayout from '@/components/layouts/BaseWebsiteLayout';
 import SiteWrapperLayout from '@/components/layouts/SiteWrapperLayout';
 import TransitionSwitchLayout from '@/components/layouts/TransitionLayouts/TransitionSwitchLayout';
+import TitlesConstants from '@/constants/titles/titlesConstants';
 import ContactUsSuccess from '@/pages/help/contact-us/ContactUsWrapper/_components/ContactUsSuccess';
 
 import styles from './styles.module.scss';
 
-const TITLE = 'Ask Question';
+const metaTitle = TitlesConstants.CONTACT_US;
 
 function ContactUsWrapper({ goodsId, feedbackTopics }) {
   const [sentSupportMessage, setSentSupportMessage] = useState(false);
@@ -18,14 +19,14 @@ function ContactUsWrapper({ goodsId, feedbackTopics }) {
   return (
     <BaseWebsiteLayout
       headSettings={{
-        title: TITLE,
+        title: metaTitle,
       }}
       shownBanners
     >
       <SiteWrapperLayout className="t-center f-y-center f-x-center f-grow-1" direction="column">
         <div className={styles.contactUs}>
           <div className={styles.contactUs__header}>
-            <h1 className={styles.contactUs__title}>{TITLE}</h1>
+            <h1 className={styles.contactUs__title}>{metaTitle}</h1>
             <div className={styles.contactUs__description}>
               Questions, bug reports, feedback&nbsp;&mdash; we&rsquo;re here to&nbsp;help you.
             </div>

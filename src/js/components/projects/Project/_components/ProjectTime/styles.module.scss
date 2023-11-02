@@ -4,4 +4,8 @@
 .projectTime {
   margin-left: convert-px2rem(5);
   margin-top: convert-px2rem(1);
+
+  * {
+    letter-spacing: -0.005em;
+  }
 }

@@ -1,0 +1,20 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.FooterSabam {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-self: flex-end;
+  @include breakpoint($b-tabletS__max) {
+    width: 100%;
+    padding: convert-px2rem(15) convert-px2rem(10);
+    border-bottom: 1px solid var(--color__gray-4);
+  }
+
+  &__title {
+    color: var(--color__black);
+    font-size: convert-px2rem(14);
+    margin-bottom: convert-px2rem(5);
+  }
+}

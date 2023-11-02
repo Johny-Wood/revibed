@@ -529,7 +529,7 @@ class MultiCutPopup extends Component {
           {GOLDEN_COIN_PROJECT_PERCENTAGE} {textForLotsOfUtil(GOLDEN_COIN_PROJECT_PERCENTAGE, ['cut', 'cuts'])}
         </p>
         <p className="m-top-10 m-bottom-10 w-280_max">
-          Your Golden&nbsp;Koin will be&nbsp;returned if&nbsp;the project does not complete
+          Your Golden&nbsp;Koin will be&nbsp;returned if&nbsp;the pre-order does not complete
         </p>
       </>
     );
@@ -560,7 +560,7 @@ class MultiCutPopup extends Component {
         {!this.isLateEntryStatus() &&
           (!this.isUseGoldenCoin() ? (
             <div className="c-gray-2 m-top-15">
-              <h5>If&nbsp;the project is&nbsp;not funded, it&nbsp;will be&nbsp;closed and refund will be&nbsp;issued</h5>
+              <h5>If&nbsp;the pre-order is&nbsp;not funded, it&nbsp;will be&nbsp;closed and refund will be&nbsp;issued</h5>
             </div>
           ) : (
             <div className="golden-icon-bg">

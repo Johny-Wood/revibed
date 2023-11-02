@@ -1,0 +1,15 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.RightsholdersFormGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: convert-px2rem(30);
+
+  &__description {
+    margin-bottom: convert-px2rem(8);
+    font-size: convert-px2rem(16);
+    line-height: 1.5;
+  }
+}

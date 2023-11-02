@@ -27,7 +27,7 @@ export const getTrendingListRequestAction = ({ cookie, dispatch, setProjectPosit
     api
       .get('projects/trending', {
         params: {
-          size: 24,
+          size: 10,
         },
         headers: cookie
           ? {

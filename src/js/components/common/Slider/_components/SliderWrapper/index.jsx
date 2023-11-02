@@ -32,11 +32,15 @@ class SliderWrapper extends Component {
     this.autoPlayRef = createRef();
 
     this.autoPlayInterval = null;
+    this.delayTimer = createRef();
+    this.disabled = false;
 
     const { activeSlideIdx = 0 } = props;
 
     this.state = {
       activeId: activeSlideIdx,
+      inProcess: false,
+      inProcessCircle: false,
     };
   }
 
@@ -49,20 +53,67 @@ class SliderWrapper extends Component {
     this.addListeners();
   }
 
-  componentDidUpdate(prevProps) {
-    const { autoPlayDuration } = this.props;
+  componentDidUpdate(prevProps, prevState) {
+    const { activeSlideIdx = 0, customCircle, autoPlayDuration, items, duration = 0 } = this.props;
+
     const { autoPlayDuration: autoPlayDurationPrev } = prevProps;
+
+    const { activeId, inProcess } = this.state;
+
+    const { activeId: activeIdPrev } = prevState;
 
     if (autoPlayDuration !== autoPlayDurationPrev) {
       this.stopAutoPlay();
       this.startAutoPlay();
+    }
+
+    if (activeId !== activeIdPrev && inProcess && this.disabled) {
+      this.delayTimer.current = setTimeout(() => {
+        this.toggleInProcess(false);
+
+        if (customCircle) {
+          if (activeId === items.length - 1) {
+            this.setState(
+              {
+                inProcessCircle: true,
+                activeId: activeSlideIdx,
+              },
+              () => {
+                this.disabled = false;
+              }
+            );
+          } else if (activeId === 0) {
+            this.setState(
+              {
+                inProcessCircle: true,
+                activeId: items.length - 2,
+              },
+              () => {
+                this.disabled = false;
+              }
+            );
+          } else {
+            this.disabled = false;
+          }
+        } else {
+          this.disabled = false;
+        }
+      }, duration);
     }
   }
 
   componentWillUnmount() {
     this.stopAutoPlay();
     this.removeListeners();
+
+    clearTimeout(this.delayTimer.current);
   }
+
+  toggleInProcess = (inProcess) => {
+    this.setState({
+      inProcess,
+    });
+  };
 
   startAutoPlay = () => {
     const { autoPlay, autoPlayDuration, items } = this.props;
@@ -109,10 +160,21 @@ class SliderWrapper extends Component {
   };
 
   next = (clearInterval = true) => {
-    const { activeId } = this.state;
-    const { onChange } = this.props;
+    const { activeId, disabled } = this.state;
 
-    const { items, itemsOnPack } = this.props;
+    const { onChange, items, itemsOnPack } = this.props;
+
+    if (this.disabled || disabled) {
+      return;
+    }
+
+    this.setState({
+      inProcessCircle: false,
+    });
+
+    this.toggleInProcess(true);
+
+    this.disabled = true;
 
     if (clearInterval) {
       this.stopAutoPlay();
@@ -120,7 +182,8 @@ class SliderWrapper extends Component {
     }
 
     const newIndex = getNextIdx(activeId, Math.ceil(items.length / itemsOnPack));
-    onChange(newIndex);
+
+    onChange(newIndex, 'next');
 
     this.setState({
       activeId: newIndex,
@@ -129,9 +192,20 @@ class SliderWrapper extends Component {
 
   prev = (clearInterval = true) => {
     const { activeId } = this.state;
-    const { onChange } = this.props;
 
-    const { items, itemsOnPack } = this.props;
+    const { onChange, items, itemsOnPack, disabled } = this.props;
+
+    if (this.disabled || disabled) {
+      return;
+    }
+
+    this.setState({
+      inProcessCircle: false,
+    });
+
+    this.toggleInProcess(true);
+
+    this.disabled = true;
 
     if (clearInterval) {
       this.stopAutoPlay();
@@ -140,7 +214,7 @@ class SliderWrapper extends Component {
 
     const newIndex = getPrevIdx(activeId, Math.ceil(items.length / itemsOnPack));
 
-    onChange(newIndex);
+    onChange(newIndex, 'prev');
 
     this.setState({
       activeId: newIndex,
@@ -149,13 +223,11 @@ class SliderWrapper extends Component {
 
   render() {
     const {
+      duration = 0,
       id,
       itemsOnPack,
       items,
       titleComponent,
-      itemWidth,
-      isSmallMobile,
-      className,
       button,
       withControls,
       withCount,
@@ -163,19 +235,24 @@ class SliderWrapper extends Component {
       arrowIconType,
       isNotDesktop,
       height,
+      customCircle,
+      className,
       listClassNames,
       arrowClassNames,
       controlsClassName,
       controlClassName,
     } = this.props;
 
-    const { activeId } = this.state;
+    const { activeId, inProcessCircle } = this.state;
 
     const mobileType = isNotDesktop || (!isNotDesktop && height <= 736);
 
     return (
       <div className={classNames([styles.slider, globalStyles.breakWord, className])}>
         <SliderList
+          duration={duration}
+          inProcessCircle={inProcessCircle}
+          customCircle={customCircle}
           listClassNames={listClassNames}
           mobileType={mobileType}
           id={id}
@@ -184,8 +261,6 @@ class SliderWrapper extends Component {
           activeId={activeId}
           itemsOnPack={itemsOnPack}
           packCount={Math.ceil(items.length / itemsOnPack)}
-          isSmallMobile={isSmallMobile}
-          itemWidth={itemWidth}
         />
         {items.length > 1 && withControls && (
           <SliderControls

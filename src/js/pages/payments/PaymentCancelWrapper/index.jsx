@@ -1,5 +1,6 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -7,7 +8,6 @@ import Preloader from '@/components/ui/Preloader';
 import { PopupCommonIdsConstants, PopupTokenIdsConstants } from '@/constants/popups/id';
 import { RoutePathsConstants } from '@/constants/routes/routes';
 import { showPopupAction } from '@/redux-actions/components/popupActions';
-import NextRouter from '@/services/NextRouter';
 
 function PaymentCancelWrapper({
   inProcess,
@@ -16,11 +16,17 @@ function PaymentCancelWrapper({
 
   showPopup,
 }) {
+  const called = useRef(false);
+
+  const router = useRouter();
+
+  const { query: { token } = {} } = router;
+
   const getAction = useCallback(() => {
-    const { router = {}, router: { router: { query: { token } = {} } = {} } = {} } = NextRouter.getInstance();
+    called.current = true;
 
     if (token || !withToken) {
-      router.push(RoutePathsConstants.TOP_UP_BALANCE);
+      router.push(RoutePathsConstants.TOP_UP_BALANCE).then();
 
       if (inProcess) {
         return;
@@ -34,13 +40,16 @@ function PaymentCancelWrapper({
           showPopup(PopupCommonIdsConstants.DefaultWarningPopup);
         });
     } else {
-      router.push(RoutePathsConstants.TOP_UP_BALANCE);
-      showPopup(PopupTokenIdsConstants.NoSuchTokenPopup);
+      router.push(RoutePathsConstants.TOP_UP_BALANCE).then(() => {
+        showPopup(PopupTokenIdsConstants.NoSuchTokenPopup);
+      });
     }
-  }, [inProcess, request, showPopup, withToken]);
+  }, [inProcess, request, router, showPopup, token, withToken]);
 
   useEffect(() => {
-    getAction();
+    if (!called.current) {
+      getAction();
+    }
   }, [getAction]);
 
   return <Preloader id="payment-cancel" withOffsets={false} isShown color="gray" opacity={1} />;

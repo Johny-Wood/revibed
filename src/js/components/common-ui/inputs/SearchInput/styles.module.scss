@@ -12,7 +12,7 @@
     right: 0;
     z-index: 5;
     height: 100%;
-    padding: 0 convert-px2rem(10) !important;
+    padding: 0 convert-px2rem(10);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,27 +36,8 @@
 
   :global {
     .input {
+      padding-right: convert-px2rem(42) !important;
       justify-content: center !important;
-      padding-top: convert-px2rem(11) !important;
-      padding-bottom: convert-px2rem(12) !important;
-      padding-right: convert-px2rem(39) !important;
-      padding-left: convert-px2rem(17) !important;
-
-      @include breakpoint($b-tabletS__max) {
-        padding-top: convert-px2rem(8) !important;
-        padding-bottom: convert-px2rem(9) !important;
-        padding-right: convert-px2rem(36) !important;
-        padding-left: convert-px2rem(12) !important;
-        border-radius: convert-px2rem(7) !important;
-      }
-
-      @include breakpoint($b-mobileS__max) {
-        padding-top: convert-px2rem(14) !important;
-        padding-bottom: convert-px2rem(15) !important;
-        padding-right: convert-px2rem(50) !important;
-        padding-left: convert-px2rem(20) !important;
-        border-radius: convert-px2rem(7) !important;
-      }
     }
   }
 }

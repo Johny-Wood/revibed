@@ -43,7 +43,7 @@ function DeleteDraftProjectPopup({
       size={ComponentsCommonConstants.Size.LARGE}
       maxWidth={400}
     >
-      <PopupTextContent>You are about to&nbsp;delete your project. Proceed?</PopupTextContent>
+      <PopupTextContent>You are about to&nbsp;delete your pre-order. Proceed?</PopupTextContent>
       <PopupDoubleButtons
         popupId={popupId}
         closePopup={closePopup}

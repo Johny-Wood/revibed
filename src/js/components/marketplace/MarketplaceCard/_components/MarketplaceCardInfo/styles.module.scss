@@ -145,7 +145,7 @@
     :global {
       .button__content {
         position: relative;
-        min-width: convert-px2rem(160);
+        min-width: convert-px2rem(155);
       }
 
       .text {
@@ -156,25 +156,22 @@
   }
 
   &__purchasedButton {
-    min-width: convert-px2rem(160) !important;
+    min-width: convert-px2rem(155) !important;
   }
 
   &__buyPrice {
+    order: -1;
     padding-left: convert-px2rem(15) !important;
     padding-right: convert-px2rem(15) !important;
     min-width: auto !important;
     position: relative;
-    color: var(--color__white);
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: convert-px2rem(-18);
-      left: 0;
-      width: 1px;
-      height: convert-px2rem(50);
-      background-color: var(--color__gray-1);
-    }
+    display: flex;
+    height: convert-px2rem(50);
+    margin: convert-px2rem(-12.5) 0;
+    background-color: var(--color__white);
+    border: 2px solid var(--color__gray-4);
+    border-right: none;
+    color: var(--color__black);
   }
 
   &__value {

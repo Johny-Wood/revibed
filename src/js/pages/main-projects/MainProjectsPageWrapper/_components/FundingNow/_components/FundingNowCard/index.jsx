@@ -14,7 +14,6 @@ import { ProjectBaseInfoConstants } from '@/constants/projects/baseInfo';
 import { ProjectEventsConstants } from '@/constants/projects/events';
 import { ProjectsLocationsConstants } from '@/constants/projects/location';
 import UserNotificationsTargetTpeConstants from '@/constants/user-notifications/targetType';
-import ViewportHook from '@/hooks/viewport/ViewportHook';
 import { createGoodsUrlUtil } from '@/utils/project/goodsUrlUtil';
 import projectsStatusesUtil from '@/utils/project/projectsStatusesUtil';
 
@@ -56,8 +55,6 @@ function FundingNowCard({
     playButton: { activePlayingItemId, isPlaying, playingTime, playList, onClickPlay, ...playButtonProps } = {},
   } = {},
 }) {
-  const { isNotDesktop } = ViewportHook();
-
   const typeProject = targetType === UserNotificationsTargetTpeConstants.PROJECT;
 
   const eventUserId = useMemo(() => (typeProject ? userIdFromTo : userId), [typeProject, userId, userIdFromTo]);
@@ -106,7 +103,7 @@ function FundingNowCard({
             firstCut,
           }}
           avatar={{
-            size: 30,
+            size: 28,
             kollektivxAvatar: recommended || secured,
             backgroundColor: recommended || secured ? 'black' : undefined,
           }}
@@ -116,7 +113,7 @@ function FundingNowCard({
           withInfoDetails={false}
           withBought={!recommended && !secured}
           bought={cutsCount}
-          contributorDescription={recommended ? 'recommends project' : secured ? 'secured project' : ''}
+          contributorDescription={recommended ? 'recommends' : secured ? 'secured' : ''}
           boughtType={albumsCount > 0 ? ['album', 'albums'] : tracksCount > 0 ? ['track', 'tracks'] : ['pre-order', 'pre-orders']}
           boughtDescription={newCut ? 'joined' : undefined}
           boughtShownCount={tracksCount > 0}
@@ -157,7 +154,7 @@ function FundingNowCard({
           }}
           title={title}
           location={ProjectsLocationsConstants.FUNDING_NOW}
-          size={isNotDesktop ? 145 : 155}
+          size={135}
           loading="eager"
           href={href}
         >

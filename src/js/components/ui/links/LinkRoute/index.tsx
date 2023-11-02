@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import type { LinkDefaultProps } from '@/components/ui/links/LinkDefault';
 import LinkDefault from '@/components/ui/links/LinkDefault';
 
-type LinkRouteProps = Omit<LinkDefaultProps, 'href'> &
+export type LinkRouteProps = Omit<LinkDefaultProps, 'href'> &
   Pick<LinkProps, 'href'> & {
     asPathExclude?: string | { pathname: string; query?: unknown };
     backgroundColor?: string;

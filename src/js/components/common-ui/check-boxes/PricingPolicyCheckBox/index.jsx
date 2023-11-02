@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import PricingPolicyLink from '@/components/common-ui/links/terms/PricingPolicyLink';
+import TermsLink from '@/components/common-ui/links/terms/TermsLink';
 import CheckBox from '@/components/ui/inputs/CheckBox';
 import { CommonHeadConstants } from '@/constants/common/head';
 
@@ -29,10 +29,10 @@ function PricingPolicyCheckBox({
       {...props}
     >
       <span className="c-black">
-        Hereby I agree with&nbsp;
+        I agree with&nbsp;
         {CommonHeadConstants.SITE_NAME}
-        &nbsp;
-        <PricingPolicyLink anchor={anchor} />
+        &apos;s&nbsp;
+        <TermsLink anchor={anchor} />
       </span>
     </CheckBox>
   );

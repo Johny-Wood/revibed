@@ -8,7 +8,7 @@ import SuccessPopup from '../../common/SuccessPopup';
 
 function GoldenCoinPopup({ popupId = PopupPersonalIdsConstants.GoldenCoinPopup }) {
   return (
-    <SuccessPopup popupId={popupId} popupTitle="Join a&nbsp;project for FREE" maxWidth={425} className={styles.GoldenCoinPopup}>
+    <SuccessPopup popupId={popupId} popupTitle="Join a&nbsp;Pre-order for FREE" maxWidth={425} className={styles.GoldenCoinPopup}>
       <div className="golden-icon-bg">
         <GoldenCoinIconBigShadow />
       </div>

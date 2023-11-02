@@ -8,15 +8,16 @@ $navigation_font-size__footer: convert-px2rem(12);
 
 .headerNavLayout {
   margin-right: auto;
-  margin-left: auto;
+
+  &_center {
+    margin-left: auto;
+  }
 
   :global {
     .link {
       margin: 0 $navigation_margin-x__header;
       color: var(--color__black);
-      /*font-family: var(--font-family__Inter-Medium);*/
-      font-family: 'Inter', sans-serif;
-      font-weight: 500;
+      font-family: var(--font-family__Inter-Medium);
 
       .text {
         font-size: $navigation_font-size__header;

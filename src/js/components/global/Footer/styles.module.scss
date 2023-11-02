@@ -2,7 +2,6 @@
 @import '../../../../assets/styles/_mixins/convert-px2rem';
 
 $footer_padding_x: convert-px2rem(20);
-$footer_padding_y: convert-px2rem(20);
 $footer_max_width: convert-px2rem(1225);
 $footer_font_size: convert-px2rem(12);
 $navigation_margin-x__footer: convert-px2rem(5);
@@ -19,18 +18,40 @@ $copyright_margin_left: convert-px2rem(10);
   &.footer_black {
     background: #000;
     color: #fff;
+
     & svg {
       display: none;
     }
+
     .footer__navigation {
       margin-left: convert-px2rem(20);
       background-color: #000;
       color: #fff !important;
     }
+
     .footer__copyright {
       margin-left: auto;
       background-color: #000;
       color: #fff;
+    }
+
+    .footer {
+      &__copyright {
+        @include breakpoint($b-laptop) {
+          padding: convert-px2rem(48) $footer_padding_x;
+        }
+      }
+
+      &__container {
+        justify-content: flex-start;
+        column-gap: convert-px2rem(47);
+      }
+
+      &__category {
+        @include breakpoint($b-laptop) {
+          width: 100% !important;
+        }
+      }
     }
   }
 
@@ -66,25 +87,12 @@ $copyright_margin_left: convert-px2rem(10);
     }
   }
 
-  &__language {
-    display: flex;
-    align-items: center;
-    padding: $footer_padding_y $footer_padding_x;
-    @include breakpoint($b-tabletS__max) {
-      min-height: convert-px2rem(70);
-      padding: convert-px2rem(25) $footer_padding_x;
-    }
-    @include breakpoint($b-laptop) {
-      margin-left: convert-px2rem(11);
-    }
-  }
-
   &__copyright {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding: $footer_padding_y $footer_padding_x;
+    padding: convert-px2rem(20) $footer_padding_x;
     @include breakpoint($b-tabletS__max) {
       padding: convert-px2rem(10) $footer_padding_x convert-px2rem(5);
       order: 2;

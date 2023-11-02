@@ -6,8 +6,6 @@ const PERSONAL_NOTIFICATIONS_SETTINGS = `${PERSONAL_SETTINGS}/notifications`;
 
 export const RoutePathsConstants = {
   MAIN: '/',
-  TRENDING: '/?tab=trending',
-  NEW_ARRIVALS: '/?tab=new-arrivals',
   MAIN_MARKETPLACE_NEW_RELEASES: '/?tab=new-releases',
   MAIN_MARKETPLACE_COMING_SOON: '/?tab=coming-soon',
   FEED: '/feed',
@@ -18,8 +16,6 @@ export const RoutePathsConstants = {
   RESET_PASSWORD: '/reset-password',
   CONFIRM_EMAIL: '/confirm-email',
   UNSUBSCRIBE: '/unsubscribe',
-
-  WANTED: '/wanted',
 
   CART: '/cart',
 
@@ -78,6 +74,8 @@ export const RoutePathsConstants = {
   GOLDEN_COIN_DETAILS: '/faq/what-is-the-golden-koin',
   FAQ_CROWDFUNDING_PROJECTS: '/faq/crowdfunding-projects',
   CONTACT_US: '/contact-us',
+  RIGHTSHOLDERS: '/rightsholders',
+  RIGHTSHOLDERS_FORM: '/rightsholders/form',
   HOW_IT_WORKS: '/how-it-works-music-digitisation-crowdfunding',
   ABOUT_US: '/about-kollektivx',
   WANTLIST_TOOL: '/wantlist-tool-for-records-wanted',

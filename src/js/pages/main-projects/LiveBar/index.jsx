@@ -1,12 +1,10 @@
-import BlogLastArticlesWidget from '@/pages/blog/BlogLastArticlesWidget';
-import TopUsersWidget from '@/pages/main-projects/MainProjectsPageWrapper/_components/TopUsersWidget';
+import Trending from '@/pages/main-projects/MainProjectsPageWrapper/_components/Trending';
 
 import styles from './styles.module.scss';
 
 const LiveBar = () => (
   <div className={styles.LiveBar}>
-    <TopUsersWidget />
-    <BlogLastArticlesWidget />
+    <Trending />
   </div>
 );
 

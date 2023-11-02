@@ -4,22 +4,28 @@ import { listPartitionUtil } from '@/utils/listUtils';
 import styles from './styles.module.scss';
 
 function SliderList({
+  duration = 0,
+  inProcessCircle,
+  customCircle,
   listClassNames,
   mobileType,
   id,
   activeId,
   items,
   titleComponent,
-  isSmallMobile,
   itemsOnPack,
-  itemWidth,
   packCount,
 }) {
-  const averageListWidth = itemWidth * itemsOnPack;
-  const position = isSmallMobile ? -averageListWidth * activeId : 0;
+  const position = 100 * -activeId;
 
   return (
-    <div className={styles.sliderWrapper} style={{ transform: `translate(${position}px, 0px)` }}>
+    <div
+      className={styles.sliderWrapper}
+      style={{
+        transition: customCircle && !inProcessCircle ? `transform ${duration}ms ease` : 'none',
+        transform: customCircle ? `translate(${position}%, 0%)` : undefined,
+      }}
+    >
       {listPartitionUtil(items, itemsOnPack).map((slides, idx) => (
         <SliderItems
           // eslint-disable-next-line react/no-array-index-key

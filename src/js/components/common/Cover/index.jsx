@@ -17,6 +17,7 @@ import styles from './styles.module.scss';
 const StartPlayVideo = dynamic(() => import('@/components/player/video/StartPlayVideo'), { ssr: false });
 
 const Cover = ({
+  preview: { path: previewPath } = {},
   withPlayVideo,
   withPlayDisabled,
   projectInfo,
@@ -47,6 +48,7 @@ const Cover = ({
   className,
   loading,
   withoutNoCoverCircle,
+  startPlayVideoClassName,
 }) => {
   const coversSortMain = useCallback(
     ({ withPrefix } = {}) =>
@@ -67,7 +69,7 @@ const Cover = ({
     const classNameCover = classNames([styles.projectCover, className]);
     const classNameBlock = [classNameCover, withImageLiteBox && covers.length > 0 && globalStyles.cursorPointer];
 
-    const src = coversSortMain()[0]?.path;
+    const src = previewPath ?? coversSortMain()[0]?.path;
     const imgAlt = coversSortMain()[0]?.alt || alt;
 
     const renderContent = () => {
@@ -130,7 +132,7 @@ const Cover = ({
     return (
       <LinkRoute
         className={classNames(...classNameBlock)}
-        aria-label={`project-${id}`}
+        aria-label={`item-${id}`}
         href={href}
         onClick={(e) => {
           e.stopPropagation();
@@ -153,6 +155,7 @@ const Cover = ({
     loading,
     noCoverClassName,
     onClick,
+    previewPath,
     withImageLiteBox,
     withoutNoCoverCircle,
   ]);
@@ -185,14 +188,14 @@ const Cover = ({
             location={location}
             projectInfo={projectInfo}
             isPlayingProject={playingId === id && shown && (playing || videoInProcess)}
-            className={styles.startPlayVideo}
+            className={classNames(styles.startPlayVideo, startPlayVideoClassName)}
             disabledClassName={styles.startPlayVideo_disabled}
             contentClassName={styles.startPlayVideo__content}
           />
         ) : (
           <PlayButton
             disabled={withPlayDisabled}
-            className={styles.startPlayVideo}
+            className={classNames(styles.startPlayVideo, startPlayVideoClassName)}
             disabledClassName={styles.startPlayVideo_disabled}
             contentClassName={styles.startPlayVideo__content}
             isPlaying={isPlaying}

@@ -21,7 +21,6 @@ const ProjectsTypes = {
   withSort: PropTypes.bool,
 
   withPageSize: PropTypes.bool,
-  withRating: PropTypes.bool,
   isFullType: PropTypes.bool,
   withAnimation: PropTypes.bool,
   className: PropTypes.string,

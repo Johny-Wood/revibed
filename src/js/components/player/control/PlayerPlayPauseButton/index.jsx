@@ -31,7 +31,7 @@ const PlayerPlayPauseButton = memo(
           className={classNames(classNameButton, isPlaying && styles.startPlayVideo_playing)}
           disabled={disabled}
           onClick={onClickPause}
-          aria-label="pause project video"
+          aria-label="pause pre-order video"
         >
           <span className={classNames(styles.startPlayVideo__content, contentClassName)}>
             <ProgressCircleIcon value={playingTime} />
@@ -50,7 +50,7 @@ const PlayerPlayPauseButton = memo(
         className={classNameButton}
         disabled={disabled}
         onClick={onClickPlay}
-        aria-label="play project video"
+        aria-label="play pre-order video"
       >
         <span className={classNames(styles.startPlayVideo__content, contentClassName)}>
           <ProgressCircleIcon value={playingTime} />

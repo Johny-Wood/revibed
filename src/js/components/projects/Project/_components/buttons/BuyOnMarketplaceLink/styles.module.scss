@@ -2,12 +2,9 @@
 @import '../../../../../../../assets/styles/_mixins/breakpoint';
 
 .BuyOnMarketplaceLink {
-  padding: convert-px2rem(10.5) convert-px2rem(25) !important;
-
   .BuyOnMarketplaceLink {
     &__text {
-      min-width: convert-px2rem(142) !important;
-      font-family: var(--font-family__Inter-Regular) !important;
+
     }
   }
 }

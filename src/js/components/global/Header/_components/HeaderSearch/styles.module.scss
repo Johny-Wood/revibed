@@ -3,27 +3,23 @@
 
 .headerSearch {
   position: relative;
-  margin-left: convert-px2rem(15);
-  height: convert-px2rem(50);
-  min-width: convert-px2rem(50);
+  margin-left: convert-px2rem(20);
+  width: convert-px2rem(325);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 
-  &__content {
-    position: absolute;
-    height: convert-px2rem(50);
-    width: convert-px2rem(345);
-    min-width: convert-px2rem(345);
-    top: 0;
-    left: 0;
-    background-color: var(--color__gray-5);
-    transform-origin: 0 50%;
+  &__block {
+    height: convert-px2rem(54);
   }
 
-  &__block {
-    height: convert-px2rem(50);
+  &__searchUnit {
+    padding: 0 convert-px2rem(20) 0 0 !important;
+  }
+
+  &__searchReset {
+    padding: 0 convert-px2rem(20) 0 0 !important;
   }
 
   &__input {
@@ -53,48 +49,6 @@
       path {
         transition: fill var(--transition-duration) ease;
       }
-    }
-  }
-}
-
-.responseAnimation {
-  $durationOpacity: 200ms;
-  $initialOpacity: 0;
-  $opacity: 1;
-
-  $delay: 0ms;
-  $durationScale: 200ms;
-  $initialScale: scale(0);
-  $scale: scale(1);
-
-  &Enter {
-    transform: $initialScale !important;
-    opacity: $initialOpacity !important;
-
-    &_active {
-      transform: $scale !important;
-      opacity: $opacity !important;
-      transition:
-        transform $durationScale $delay ease-in-out,
-        opacity $durationOpacity $delay ease-in-out !important;
-    }
-
-    &_done {
-      transform: $scale !important;
-      opacity: $opacity !important;
-    }
-  }
-
-  &Exit {
-    transform: $scale !important;
-    opacity: $opacity !important;
-
-    &_active {
-      transform: $initialScale !important;
-      opacity: $initialOpacity !important;
-      transition:
-        transform $durationScale ease-in-out,
-        opacity $durationOpacity ease-in-out !important;
     }
   }
 }

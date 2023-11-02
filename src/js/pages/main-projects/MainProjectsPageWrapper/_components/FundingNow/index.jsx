@@ -14,7 +14,7 @@ import { RoutePathsConstants } from '@/constants/routes/routes';
 import ScrollBlockIdConstants from '@/constants/scroll/scrollBlockId';
 import TitlesConstants from '@/constants/titles/titlesConstants';
 import MarketplaceAudioPlayerHook from '@/hooks/marketplace/MarketplaceAudioPlayerHook';
-import LightningIcon from '@/icons/project/state/LightningIcon';
+import FundingNowIcon from '@/icons/FundingNowIcon';
 import FundingNowCard from '@/pages/main-projects/MainProjectsPageWrapper/_components/FundingNow/_components/FundingNowCard';
 import ScrollService from '@/services/scroll/ScrollService';
 import { marketplaceGetPlayListFundingNowUtil } from '@/utils/marketplace/marketplacePlayerUtil';
@@ -77,9 +77,7 @@ function FundingNow({ events, getEventsInProcessFromApi }) {
 
   return (
     <SiteWrapperLayout name={styles.fundingNow} direction="column">
-      <div className={styles.fundingNow__title} ref={fundingNowRef}>
-        <SecondaryTitle title={TitlesConstants.LIVE_NOW} icon={<LightningIcon color="REJECTED" />} />
-      </div>
+      <SecondaryTitle title={TitlesConstants.LIVE_NOW} icon={<FundingNowIcon />} className={styles.fundingNow__title} />
       <div className={styles.fundingNow__wrapper}>
         <Preloader isShown={events.length === 0 && !isReady} id="funding-now" withOffsets={false} opacity={1} withBgColor />
         <AudioPlayer

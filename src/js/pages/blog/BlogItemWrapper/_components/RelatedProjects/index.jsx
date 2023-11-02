@@ -41,7 +41,7 @@ function RelatedProjects({
       <div className={styles.relatedProjects__preload}>
         <Preloader isShown={inProcess} opacity={1} withOffsets={false} withBgColor />
       </div>
-      <div className={styles.relatedProjects__title}>Related projects</div>
+      <div className={styles.relatedProjects__title}>Related pre-orders</div>
       {blogItemRelatedProjectsList.map((project) => {
         const { id } = project;
         return (

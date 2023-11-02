@@ -36,7 +36,6 @@ function ProjectsWithFilters({
   className,
   sortAndFilters,
   sortSelected,
-  withRating,
   isFullType,
   withAnimation,
   projectsLength,
@@ -57,6 +56,8 @@ function ProjectsWithFilters({
   querySearch,
   listWithPadding,
   sideBarLayoutClassName,
+  customListPageBanner,
+  children,
 }) {
   const setQueryPageParams = useCallback(() => {
     if (
@@ -167,6 +168,11 @@ function ProjectsWithFilters({
             onGetProjects={onGetProjects}
           />
         </RetractableMenu>
+        {!!customListPageBanner && (
+          <DesktopLayout>
+            <div className={styles.projectList__banner}>{customListPageBanner}</div>
+          </DesktopLayout>
+        )}
       </SideBarLayout>
     );
   };
@@ -210,7 +216,6 @@ function ProjectsWithFilters({
       sortAndFilters={sortAndFilters}
       withSort
       withPageSize
-      withRating={withRating}
       isFullType={isFullType}
       withAnimation={withAnimation}
       projectsLength={projectsLength}
@@ -225,7 +230,9 @@ function ProjectsWithFilters({
       direction="row"
       listWithPadding={listWithPadding}
       loadedProjectsFromApi={loadedProjectsFromApi}
-    />
+    >
+      {children}
+    </Projects>
   );
 }
 

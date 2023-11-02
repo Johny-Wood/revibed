@@ -10,7 +10,7 @@
   }
   @include breakpoint($b-laptop) {
     position: absolute;
-    top: convert-px2rem(-12);
+    top: convert-px2rem(-14);
     left: auto;
     right: convert-px2rem(-12);
   }

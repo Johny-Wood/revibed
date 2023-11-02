@@ -9,27 +9,17 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type MarketplaceListNewReleasesProps = PropsFromRedux;
 
-const MarketplaceListNewReleases = ({
-  getMarketplaceListInProcess,
-  getMarketplaceListFromApi,
-  marketplaceList,
-  pageSettings,
-}: MarketplaceListNewReleasesProps) => (
+const MarketplaceListNewReleases = ({ marketplaceList, getMarketplaceListInProcess }: MarketplaceListNewReleasesProps) => (
   <MarketplaceListWrapper
     location={MarketplaceLocationsConstants.NEW_RELEASES}
     items={marketplaceList}
-    query="inSale=true"
     inProcess={getMarketplaceListInProcess}
-    getFromApi={getMarketplaceListFromApi}
-    pageSettings={pageSettings}
   />
 );
 
 const connector = connect((state: RootState) => ({
-  getMarketplaceListInProcess: state.MarketplaceNewReleasesListReducer.getMarketplaceListInProcess,
-  getMarketplaceListFromApi: state.MarketplaceNewReleasesListReducer.getMarketplaceListFromApi,
   marketplaceList: state.MarketplaceNewReleasesListReducer.list,
-  pageSettings: state.MarketplaceNewReleasesListReducer.pageSettings,
+  getMarketplaceListInProcess: state.MarketplaceNewReleasesListReducer.getMarketplaceListInProcess,
 }));
 
 export default connector(MarketplaceListNewReleases);

@@ -322,7 +322,7 @@ class SignUpForm extends Component {
             invalidMsg={acceptRulesErrorMsg}
             onChange={this.changeCheckBoxHandler}
           >
-            I have read and agree to <TermsLink /> and <PrivacyPolicyLink />
+            I have read and agree to the <TermsLink /> and <PrivacyPolicyLink />
           </CheckBox>
           <div className={classNames([authFormStyles.authForm__buttonBlock, 'm-top-5'])}>
             <Button

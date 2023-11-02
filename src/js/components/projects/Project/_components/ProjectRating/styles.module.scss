@@ -2,18 +2,21 @@
 @import '../../../../../../assets/styles/_mixins/breakpoint';
 
 .projectRating {
+  pointer-events: none;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  margin-bottom: convert-px2rem(5);
+  justify-content: center;
   position: absolute;
-  top: convert-px2rem(-32);
-  left: convert-px2rem(4);
+  top: 0;
+  left: 0;
+  background-color: var(--color__gray-1);
+  padding: convert-px2rem(1);
+  min-width: convert-px2rem(22);
 
   &__number {
+    color: var(--color__white);
     font-size: convert-px2rem(16);
-    margin-right: convert-px2rem(8);
   }
 
   &__triangle {

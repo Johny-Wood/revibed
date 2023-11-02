@@ -36,7 +36,6 @@ function Projects({
   sortAndFilters,
   withSort,
   withPageSize,
-  withRating,
   isFullType,
   infinityScroll,
   withAnimation,
@@ -58,6 +57,8 @@ function Projects({
   listWithPadding = true,
 
   customItem,
+
+  children,
 }) {
   const projectsRef = useRef(null);
 
@@ -157,7 +158,6 @@ function Projects({
             location={location}
             getProjectsInProcess={(getProjectsInProcess && !infinityScroll) || (getProjectsInProcess && !loadedProjectsFromApi)}
             loadedProjectsFromApi={loadedProjectsFromApi}
-            withRating={withRating}
             withFilters={withFilters}
             withPagination={withPagination}
             withPageSize={withPageSize}
@@ -176,7 +176,9 @@ function Projects({
             customItem={customItem}
             withReasons={withReasons}
             noResults={noResults}
-          />
+          >
+            {children}
+          </ProjectList>
         </InfinityScrollLayout>
       </WrapperContainerLayout>
     </SiteWrapperLayout>

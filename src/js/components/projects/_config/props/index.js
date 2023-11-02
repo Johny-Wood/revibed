@@ -17,7 +17,6 @@ const ProjectsProps = {
 
   withPageSize: true,
   withPagination: true,
-  withRating: false,
   isFullType: false,
   withAnimation: false,
   className: '',

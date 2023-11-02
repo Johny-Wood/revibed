@@ -1,5 +1,5 @@
-@import "../../../../../assets/styles/_mixins/breakpoint";
-@import "../../../../../assets/styles/_mixins/convert-px2rem";
+@import '../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../assets/styles/_mixins/convert-px2rem';
 
 $text-transform: none;
 $font-family: var(--font-family__Inter-Regular), sans-serif;
@@ -146,7 +146,7 @@ button {
       transform var(--transition-duration) ease;
 
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: convert-px2rem(-11);
@@ -219,9 +219,7 @@ button {
   background-color: var(--color__white);
   width: max-content;
   line-height: 1;
-  /*font-family: $font-family;*/
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
+  font-family: $font-family;
   align-items: center;
   justify-content: center;
   outline: none !important;
@@ -243,7 +241,7 @@ button {
     width: 100%;
     height: 100%;
     z-index: 5;
-    content: "";
+    content: '';
     transition: background-color var(--transition-duration) ease;
   }
 
@@ -719,8 +717,7 @@ button {
     letter-spacing: $letter-spacing_small;
 
     &.border {
-      padding: convert-px2rem($padding-y__small - $border-width_small)
-        convert-px2rem($padding-x__small - $border-width_small);
+      padding: convert-px2rem($padding-y__small - $border-width_small) convert-px2rem($padding-x__small - $border-width_small);
     }
 
     &:not(.rounded) {
@@ -771,8 +768,7 @@ button {
     letter-spacing: $letter-spacing_normal;
 
     &.border {
-      padding: convert-px2rem($padding-y__normal - $border-width_normal)
-        convert-px2rem($padding-x__normal - $border-width_normal);
+      padding: convert-px2rem($padding-y__normal - $border-width_normal) convert-px2rem($padding-x__normal - $border-width_normal);
     }
 
     &:not(.rounded) {
@@ -784,8 +780,7 @@ button {
     padding: convert-px2rem($padding-y__large) convert-px2rem($padding-x__large);
 
     &.border {
-      padding: convert-px2rem($padding-y__large - $border-width_large)
-        convert-px2rem($padding-x__large - $border-width_large);
+      padding: convert-px2rem($padding-y__large - $border-width_large) convert-px2rem($padding-x__large - $border-width_large);
     }
 
     .text {

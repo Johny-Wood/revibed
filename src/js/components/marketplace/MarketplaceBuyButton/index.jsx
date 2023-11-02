@@ -19,17 +19,8 @@ const MarketplaceBuyButton = memo(
     marketplaceCardId,
     goodsId,
     inCart,
-    tracksGoods,
     targetType = 'TRACK',
-    tracks,
-    buyText = targetType === 'TRACK'
-      ? 'Buy'
-      : `Buy ${
-          tracksGoods.filter(({ copyrightHoldersPresent: trackCopyrightHoldersPresent }) => trackCopyrightHoldersPresent)
-            .length !== tracks.length
-            ? 'partial'
-            : 'digital'
-        } album`,
+    buyText = targetType === 'TRACK' ? 'Buy track' : 'Buy album',
     styleProps: { transparent, size, borderColor, className, type } = {},
     disabled,
 

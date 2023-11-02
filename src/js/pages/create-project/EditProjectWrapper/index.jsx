@@ -15,12 +15,12 @@ function EditProjectWrapper({ projectCards, getProjectCardInProcess }) {
   const [projects] = projectCards || {};
   const project = projects[projectCardId];
 
-  const pageTitle = `Edit ${CommonHeadConstants.SITE_NAME} Project`;
+  const pageTitle = `Edit ${CommonHeadConstants.SITE_NAME} Pre-order`;
 
   return (
     <BaseWebsiteLayout
       headSettings={{
-        title: 'Edit Project',
+        title: 'Edit Pre-order',
       }}
       shownBanners
     >

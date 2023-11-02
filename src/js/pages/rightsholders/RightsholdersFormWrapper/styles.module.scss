@@ -1,0 +1,25 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.RightsholdersFormWrapper {
+  width: 100%;
+  max-width: convert-px2rem(460);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint($b-laptop) {
+    margin: convert-px2rem(-10) auto 0;
+  }
+
+  &__title {
+    font-family: var(--font-family__Inter-Bold);
+    font-size: convert-px2rem(24);
+    line-height: 1.25;
+    margin-bottom: convert-px2rem(30);
+    text-align: center;
+    @include breakpoint($b-laptop) {
+      text-align: left;
+    }
+  }
+}

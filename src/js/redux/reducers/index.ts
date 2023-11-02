@@ -2,7 +2,6 @@ import type { Action } from 'redux';
 import { combineReducers } from 'redux';
 
 import { AuthActionsConstants } from '@/constants/actions/auth/auth';
-import MarketplaceAndPreOrdersFiltersReducer from '@/js/redux/reducers/marketplace-and-pre-orders/marketplaceAndPreOrdersFiltersReducer';
 import CashbackReducer from '@/js/redux/reducers/personal/cashbackReducer';
 
 import AccountNotificationsSettingsEmailReducer from './account/accountNotificationsSettingsEmailReducer';
@@ -115,7 +114,6 @@ const dependentAuthReducers = {
   MarketplaceCardReducer,
   MarketplaceNewReleasesListReducer,
   MarketplaceComingSoonListReducer,
-  MarketplaceAndPreOrdersFiltersReducer,
   MarketplaceListReducer,
   HotOffersProjectsReducer,
   NewArrivalsProjectsReducer,

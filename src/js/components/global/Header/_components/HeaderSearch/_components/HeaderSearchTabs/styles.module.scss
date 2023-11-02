@@ -2,10 +2,10 @@
 @import '../../../../../../../../assets/styles/_mixins/breakpoint';
 
 .HeaderSearchTabs {
-  width: convert-px2rem(345);
+  width: convert-px2rem(325);
   position: absolute;
   left: 0;
-  top: calc(100% + #{convert-px2rem(9)});
+  top: calc(100% + #{convert-px2rem(5)});
   padding: convert-px2rem(10) 0 0;
   border: 1px solid var(--color__gray-6);
   background-color: var(--color__white);

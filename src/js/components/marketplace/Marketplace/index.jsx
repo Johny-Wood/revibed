@@ -15,7 +15,7 @@ import {
 
 import styles from './styles.module.scss';
 
-function Marketplace({ getMarketplaceListRequest, ...restProps }) {
+function Marketplace({ getMarketplaceListRequest, children, ...restProps }) {
   return (
     <ListPageWrapper
       {...restProps}
@@ -26,10 +26,11 @@ function Marketplace({ getMarketplaceListRequest, ...restProps }) {
       listWrapper={MarketplaceList}
       withMarginBottomMinus
       name={styles.marketplace}
-      sideBarLayoutClassName={styles.itemsList__sideBar}
       listClassName={styles.itemsList__list}
       blockClassName={styles.itemsList__block}
-    />
+    >
+      {children}
+    </ListPageWrapper>
   );
 }
 

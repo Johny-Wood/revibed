@@ -21,12 +21,12 @@ import { getFilterQueryUtil, getSortQueryUtil } from '@/utils/sort-and-filter/so
 
 import styles from './styles.module.scss';
 
-const scrollToProjects = ({ activeLocation, secondOffset = 100 }) => {
+const scrollToProjects = ({ activeLocation, secondOffset = 100, inRoute = true }) => {
   ScrollService.getInstance(CommonScrollbarLocationsConstants.MAIN_SCROLL)
     .scrollToElement({
       sectionId: `${ScrollBlockIdConstants.PROJECTS_BLOCK_ID}_${activeLocation}`,
       secondOffset,
-      inRoute: true,
+      inRoute,
     })
     .then();
 };
@@ -177,12 +177,6 @@ function PlayListLocation({
       title = blogItems[target]?.title || TitlesConstants.BLOG;
       break;
     }
-    case ProjectsLocationsConstants.NEW_ARRIVALS: {
-      href = RoutePathsConstants.NEW_ARRIVALS;
-      title = TitlesConstants.NEW_ARRIVALS;
-      routerChangeCallback = () => scrollToProjects({ activeLocation });
-      break;
-    }
     case ProjectsLocationsConstants.MY_FEED: {
       href = RoutePathsConstants.FEED;
       title = TitlesConstants.FEED;
@@ -209,20 +203,6 @@ function PlayListLocation({
       title = userInfo[userId].name;
       break;
     }
-    case ReleaseLocationConstants.SYSTEM_WANT_LIST_ITEMS: {
-      href = RoutePathsConstants.WANTED;
-      title = !hasFilters ? 'Wanted' : 'Filtered wanted';
-      routerChangeCallback = () => {
-        ScrollService.getInstance(CommonScrollbarLocationsConstants.MAIN_SCROLL)
-          .scrollToElement({
-            sectionId: ScrollBlockIdConstants.WANTED,
-            secondOffset: 100,
-            inRoute: true,
-          })
-          .then();
-      };
-      break;
-    }
     default: {
       break;
     }
@@ -242,16 +222,14 @@ function PlayListLocation({
         }
 
         if (pathname.replace('[userId]', userId) !== href) {
-          router.push(href, undefined, { shallow: true }).then();
-        }
-
-        if (!routerChangeCallback) {
-          return;
-        }
-
-        setTimeout(() => {
+          router.push(href, undefined, { shallow: true }).then(() => {
+            if (routerChangeCallback) {
+              routerChangeCallback();
+            }
+          });
+        } else if (routerChangeCallback) {
           routerChangeCallback();
-        }, 0);
+        }
       }}
     >
       <span className="t-uppercase">{title}</span> {!!name && `(${name})`}

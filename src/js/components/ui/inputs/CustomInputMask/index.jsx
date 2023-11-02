@@ -29,6 +29,19 @@ class CustomInputMask extends Component {
     this.hasValue();
   }
 
+  componentDidUpdate(prevProps) {
+    const { value } = this.props;
+    const { value: valuePrev } = prevProps;
+
+    if (value !== valuePrev) {
+      if (!value) {
+        this.setState({
+          activeLabel: false,
+        });
+      }
+    }
+  }
+
   hasValue = () => {
     const { value } = this.props;
 
@@ -73,6 +86,10 @@ class CustomInputMask extends Component {
 
   callValidateCallback = (isValid, format) => {
     const { isValidCallback } = this.props;
+
+    if (!isValidCallback) {
+      return;
+    }
 
     isValidCallback(isValid, format);
   };

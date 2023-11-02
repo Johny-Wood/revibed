@@ -1,15 +1,15 @@
 import classNames from 'classnames';
 
-import SecondaryTitle from '@/components/common/titles/SecondaryTitle';
-import MarketplaceTabs from '@/pages/main-projects/MainProjectsPageWrapper/_components/MarketplaceListWidget/_components/MarketplaceTabs';
+import MarketplaceListComingSoon from '@/pages/main-projects/MainProjectsPageWrapper/_components/MarketplaceListWidget/_components/MarketplaceListComingSoon';
+import MarketplaceListNewReleases from '@/pages/main-projects/MainProjectsPageWrapper/_components/MarketplaceListWidget/_components/MarketplaceListNewReleases';
 
 import styles from './styles.module.scss';
 
 function MarketplaceListWidget() {
   return (
     <div className={classNames(styles.MarketplaceList)}>
-      <SecondaryTitle title="Marketplace" />
-      <MarketplaceTabs />
+      <MarketplaceListNewReleases />
+      <MarketplaceListComingSoon />
     </div>
   );
 }

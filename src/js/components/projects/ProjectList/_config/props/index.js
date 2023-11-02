@@ -5,7 +5,6 @@ const ProjectsListProps = {
   projects: [],
 
   getProjectsInProcess: false,
-  withRating: false,
   withFilters: false,
   withPagination: true,
   withPageSize: true,

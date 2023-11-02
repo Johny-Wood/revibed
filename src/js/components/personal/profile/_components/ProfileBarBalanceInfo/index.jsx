@@ -13,7 +13,7 @@ function ProfileBarBalanceInfo() {
         textSize={20}
         withLabel
       />
-      <TopUpBalanceButton transparent={false} className="primary w-100pct m-top-10" />
+      <TopUpBalanceButton transparent={false} className="w-100pct m-top-10" />
     </div>
   );
 }

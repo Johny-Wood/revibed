@@ -10,10 +10,6 @@
     margin: 0 convert-px2rem(15) convert-px2rem(4) 0;
   }
 
-  @include breakpoint($b-desktop) {
-    margin: 0 convert-px2rem(24) convert-px2rem(4) 0;
-  }
-
   &__tooltip {
     &_all {
       :global {

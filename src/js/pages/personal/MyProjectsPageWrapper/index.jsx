@@ -6,7 +6,7 @@ import ProjectsWithFilters from '@/components/projects/list-wrappers/ProjectsWit
 import { ProjectsLocationsConstants } from '@/constants/projects/location';
 import TitlesConstants from '@/constants/titles/titlesConstants';
 
-const metaTitle = TitlesConstants.PRE_ORDERS;
+const metaTitle = TitlesConstants.MY_PRE_ORDERS;
 
 function MyProjectsPageWrapper({
   getProjectsInProcess,

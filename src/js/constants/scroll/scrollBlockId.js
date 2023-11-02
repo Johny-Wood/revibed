@@ -3,6 +3,7 @@ const ScrollBlockIdConstants = {
   FAQ: 'faqId',
   ABOUT_US: 'aboutUsId',
   FRIENDS: 'friendsId',
+  RIGHTSHOLDERS_PROJECT: 'rightsholdersId',
   CREATE_PROJECT: 'createProjectId',
   WANTLIST_RELEASES: 'wantlistReleasesId',
   WANTLIST_RELEASES_ITEMS: 'wantlistReleasesItemsId',
@@ -25,7 +26,6 @@ const ScrollBlockIdConstants = {
   CART_ID: 'cartId',
   MARKETPLACE_ID: 'marketplaceId',
   MARKETPLACE_TRACK_ID: 'marketplaceTrackId',
-  WANTED: 'wantedId',
   USER_FOLLOWERS: 'userFollowersId',
   USER_FOLLOWING: 'userFollowingId',
   FOLLOWERS: 'followersId',
@@ -37,6 +37,7 @@ const ScrollBlockIdConstants = {
   LANDING_TOOL_SECTION: 'LandingToolSectionId',
   LANDING_RIPS_SECTION: 'LandingRipsId',
   USER_PROJECTS: 'UserProjectsId',
+  TRENDING: 'TrendingId',
 };
 
 export default ScrollBlockIdConstants;

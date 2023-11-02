@@ -80,7 +80,7 @@ export const PersonalNavigationConstants = [
     links: [...PURCHASES_GROUP_LINKS],
   },
   {
-    group: 'projects',
+    group: 'myPreOrders',
     links: [...PROJECTS_GROUP_LINKS],
   },
   {

@@ -6,7 +6,7 @@
   position: absolute;
   background-color: var(--color__white);
   top: convert-px2rem(-6 + 61);
-  right: convert-px2rem(-50);
+  right: convert-px2rem(-49);
   width: 100vw;
 
   @include breakpoint($b-laptop) {
@@ -15,7 +15,7 @@
     top: convert-px2rem(-3 + 61);
     margin-left: 0;
     left: auto;
-    right: convert-px2rem(-5);
+    right: convert-px2rem(-50);
   }
 
   &__info {

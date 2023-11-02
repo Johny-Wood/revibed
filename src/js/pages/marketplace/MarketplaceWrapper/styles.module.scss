@@ -1,0 +1,13 @@
+@import '../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../assets/styles/_mixins/convert-px2rem';
+
+.MarketplaceWrapper {
+  &__fullBanner {
+    align-self: flex-end;
+    margin-top: convert-px2rem(30);
+
+    @include breakpoint($b-laptop) {
+      max-width: convert-px2rem(910);
+    }
+  }
+}

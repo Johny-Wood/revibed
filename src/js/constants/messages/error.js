@@ -14,11 +14,11 @@ export const MessagesErrorConstants = {
   TOKEN_INVALID: 'Invalid token',
   NO_SUCH_TOKEN: 'Token not found',
 
-  PROJECT_NOT_FOUND: 'Project not found',
+  PROJECT_NOT_FOUND: 'Pre-order not found',
 
-  JOIN_TO_PROJECT_NO_PLACES: "We're sorry but this project has no more cuts available for purchases",
-  JOIN_TO_PROJECT_STATUS_NOT_ALLOWED: 'Funding for this project is closed',
-  JOIN_TO_PROJECT_PERMISSION_DENIED: 'This is a private project. You need an invite to join',
+  JOIN_TO_PROJECT_NO_PLACES: "We're sorry but this pre-order has no more cuts available for purchases",
+  JOIN_TO_PROJECT_STATUS_NOT_ALLOWED: 'Funding for this pre-order is closed',
+  JOIN_TO_PROJECT_PERMISSION_DENIED: 'This is a private pre-order. You need an invite to join',
   JOIN_TO_PROJECT_GOLDEN_COIN_NOT_EXISTS: 'Purchasing with a gold coin is not possible',
   JOIN_TO_PROJECT_GOLDEN_COIN_NOT_ALLOWED: 'Purchasing with a gold coin is prohibited',
   JOIN_TO_PROJECT_GEM_NOT_EXISTS: 'Purchasing with a gem is not possible',
@@ -36,8 +36,8 @@ export const MessagesErrorConstants = {
     'third party payment system',
 
   NO_ACCESS_PROJECT:
-    "The crowdfunding for the project you are trying to access is completed. You've been redirected to the " +
-    "projects page. Check what's hot today here.",
+    "The crowdfunding for the pre-order you are trying to access is completed. You've been redirected to the " +
+    "pre-orders page. Check what's hot today here.",
 
   USER_COMMENT_DISABLED: 'Sorry, you cannot write messages',
   USER_BANNED_TITLE: 'Banned',

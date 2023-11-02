@@ -17,7 +17,7 @@ function BuyOnMarketplaceLink({ goodsId }: BuyOnMarketplaceLinkProps) {
       text="Buy on Marketplace"
       type="button"
       transparent
-      rounded
+      borderColor="gray-3"
       className={classNames('project-action-button button-buy-cut', styles.BuyOnMarketplaceLink)}
       textClassName={classNames(styles.BuyOnMarketplaceLink__text)}
     />

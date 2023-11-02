@@ -19,10 +19,8 @@ import { MarketplaceLocationsConstants } from '@/constants/marketplace/location'
 import { ProjectsLocationsConstants } from '@/constants/projects/location';
 import { RoutePathsConstants } from '@/constants/routes/routes';
 import TitlesConstants from '@/constants/titles/titlesConstants';
-import type { ChangeSearchMarketplaceAndPreOrdersFiltersActionConfig } from '@/redux-actions/marketplace-and-pre-orders/marketplaceAndPreOrdersFiltersActions';
-import { changeSearchMarketplaceAndPreOrdersFiltersAction } from '@/redux-actions/marketplace-and-pre-orders/marketplaceAndPreOrdersFiltersActions';
-import { resetMarketplaceCurrentParamsAction } from '@/redux-actions/marketplace/marketplaceActions';
-import { resetProjectsCurrentParamsAction } from '@/redux-actions/projects/projectsActions';
+import { resetMarketplaceCurrentParamsAction, setMarketplaceSearchAction } from '@/redux-actions/marketplace/marketplaceActions';
+import { resetProjectsCurrentParamsAction, setProjectsSearchAction } from '@/redux-actions/projects/projectsActions';
 import { createGoodsUrlUtil } from '@/utils/project/goodsUrlUtil';
 import { createProjectUrlUtil } from '@/utils/project/projectUrlUtil';
 import { textForLotsOfUtil } from '@/utils/textUtils';
@@ -71,7 +69,8 @@ const HeaderSearchTabs = ({
 
   resetMarketplaceCurrentParams,
   resetProjectsCurrentParams,
-  changeSearchMarketplaceAndPreOrdersFilters,
+  setMarketplaceSearch,
+  setProjectsSearch,
 }: HeaderSearchTabsProps) => {
   const router = useRouter();
 
@@ -100,15 +99,21 @@ const HeaderSearchTabs = ({
             .then();
         }
       } else {
-        changeSearchMarketplaceAndPreOrdersFilters({ search: query });
+        if (location === 0) {
+          resetMarketplaceCurrentParams({
+            location: MarketplaceLocationsConstants.MARKETPLACE,
+          });
 
-        resetMarketplaceCurrentParams({
-          location: MarketplaceLocationsConstants.MARKETPLACE,
-        });
+          setMarketplaceSearch({ search: query, location: MarketplaceLocationsConstants.MARKETPLACE });
+        }
 
-        resetProjectsCurrentParams({
-          location: ProjectsLocationsConstants.PROJECTS,
-        });
+        if (location === 1) {
+          resetProjectsCurrentParams({
+            location: ProjectsLocationsConstants.PROJECTS,
+          });
+
+          setProjectsSearch({ search: query, location: ProjectsLocationsConstants.PROJECTS });
+        }
 
         router
           .push({
@@ -119,7 +124,6 @@ const HeaderSearchTabs = ({
       }
     },
     [
-      changeSearchMarketplaceAndPreOrdersFilters,
       focusedOption,
       list,
       location,
@@ -129,6 +133,8 @@ const HeaderSearchTabs = ({
       resetProjectsCurrentParams,
       resetSearch,
       router,
+      setMarketplaceSearch,
+      setProjectsSearch,
     ]
   );
 
@@ -291,14 +297,17 @@ const HeaderSearchTabs = ({
 const connector = connect(
   () => ({}),
   (dispatch) => ({
-    changeSearchMarketplaceAndPreOrdersFilters: (params: ChangeSearchMarketplaceAndPreOrdersFiltersActionConfig) => {
-      dispatch(changeSearchMarketplaceAndPreOrdersFiltersAction(params));
-    },
     resetMarketplaceCurrentParams: (params: { location: any }) => {
       dispatch(resetMarketplaceCurrentParamsAction(params));
     },
     resetProjectsCurrentParams: (params: { location: any }) => {
       dispatch(resetProjectsCurrentParamsAction(params));
+    },
+    setMarketplaceSearch: (params: { location: any; search: any }) => {
+      dispatch(setMarketplaceSearchAction(params));
+    },
+    setProjectsSearch: (params: { location: any; search: any }) => {
+      dispatch(setProjectsSearchAction(params));
     },
   })
 );

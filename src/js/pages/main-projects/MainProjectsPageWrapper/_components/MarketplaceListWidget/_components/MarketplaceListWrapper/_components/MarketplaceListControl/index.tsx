@@ -1,43 +1,99 @@
 import classNames from 'classnames';
+import type { ConnectedProps } from 'react-redux';
+import { connect } from 'react-redux';
 
-import Pagination from '@/components/pagination/Pagination';
-import type { PageSettings } from '@/components/pagination/Pagination/types';
+import SecondaryTitle from '@/components/common/titles/SecondaryTitle';
 import LinkRoute from '@/components/ui/links/LinkRoute';
+import { MarketplaceLocationsConstants } from '@/constants/marketplace/location';
 import { RoutePathsConstants } from '@/constants/routes/routes';
+import TitlesConstants from '@/constants/titles/titlesConstants';
+import {
+  applyMarketplaceFilterAction,
+  resetMarketplaceCurrentParamsAction,
+  selectMarketplaceFilterAction,
+} from '@/redux-actions/marketplace/marketplaceActions';
 
 import styles from './styles.module.scss';
 
-export type MarketplaceListControlProps = {
-  pageSettings: PageSettings;
-  changePage: () => void;
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+export type MarketplaceListControlProps = PropsFromRedux & {
+  location: string;
 };
 
 const MarketplaceListControl = ({
-  pageSettings: { totalPages, currentNumber: currentPage },
-  changePage,
-}: MarketplaceListControlProps) => (
-  <div className={classNames(styles.MarketplaceListControl)}>
-    <Pagination
-      className={styles.MarketplaceListControl__pagination}
-      prevClassName={styles.MarketplaceListControl__pagination_prev}
-      nextClassName={styles.MarketplaceListControl__pagination_next}
-      onChangePage={changePage}
-      currentPage={currentPage}
-      totalPage={totalPages}
-      withArrows={totalPages > 1}
-      type="short"
-      borderColor="gray-4"
-      isCircle
-    />
-    <LinkRoute
-      text="View All"
-      href={RoutePathsConstants.MARKETPLACE}
-      type="button"
-      size="small-25"
-      borderColor="gray-4"
-      className={styles.MarketplaceListControl__button}
-    />
-  </div>
+  location,
+  filterSelectAction,
+  filterApplyAction,
+  filterResetCurrentParamsAction,
+}: MarketplaceListControlProps) => {
+  const isInSale = location === MarketplaceLocationsConstants.NEW_RELEASES;
+
+  return (
+    <div className={classNames(styles.MarketplaceListControl)}>
+      <SecondaryTitle
+        title={isInSale ? TitlesConstants.NEW_RELEASES : TitlesConstants.COMING_SOON}
+        className={classNames(styles.MarketplaceListControl__title)}
+      />
+      <div className={classNames(styles.MarketplaceListControl__control)}>
+        <LinkRoute
+          text="View All"
+          href={{
+            pathname: RoutePathsConstants.MARKETPLACE,
+            query: { inSale: isInSale },
+          }}
+          onClick={() => {
+            filterResetCurrentParamsAction({ location: MarketplaceLocationsConstants.MARKETPLACE });
+
+            filterSelectAction({
+              location: MarketplaceLocationsConstants.MARKETPLACE,
+              beforeResetCategory: false,
+              selected: [
+                {
+                  id: isInSale ? 1 : 2,
+                  value: isInSale ? 1 : 2,
+                  label: isInSale ? 'In sale' : 'Coming soon',
+                  queryParam: isInSale ? 'true' : 'false',
+                  disabled: false,
+                },
+              ],
+              beforeResetCategoryNow: true,
+              categoryId: 'MARKETPLACE_IN_SALE_STATUS',
+              multi: false,
+            });
+
+            filterApplyAction(MarketplaceLocationsConstants.MARKETPLACE);
+          }}
+          type="button"
+          size="small-25"
+          borderColor="gray-4"
+          className={styles.MarketplaceListControl__button}
+        />
+      </div>
+    </div>
+  );
+};
+
+const connector = connect(
+  () => ({}),
+  (dispatch) => ({
+    filterSelectAction: (params: {
+      location: any;
+      categoryId: any;
+      selected: any;
+      multi: any;
+      beforeResetCategory: any;
+      beforeResetCategoryNow: any;
+    }) => {
+      dispatch(selectMarketplaceFilterAction(params));
+    },
+    filterApplyAction: (params: any) => {
+      dispatch(applyMarketplaceFilterAction(params));
+    },
+    filterResetCurrentParamsAction: (params: any) => {
+      dispatch(resetMarketplaceCurrentParamsAction(params));
+    },
+  })
 );
 
-export default MarketplaceListControl;
+export default connector(MarketplaceListControl);

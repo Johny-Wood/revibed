@@ -37,7 +37,7 @@ const Comments = ({
                 setShowedNewMessageInput(!showedNewMessageInput);
               }}
             >
-              What do you think about project?
+              What do you think about pre-order?
             </div>
           </div>
         </MobileLayout>
@@ -60,7 +60,7 @@ const Comments = ({
           cancelCallback={() => {
             setShowedNewMessageInput(false);
           }}
-          placeholder="What do you think about project?"
+          placeholder="What do you think about Pre-order?"
           introText="Comments are moderated. Please write correct and friendly."
           withSendButtonIcon={false}
         />

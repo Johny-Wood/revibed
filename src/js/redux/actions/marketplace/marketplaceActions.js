@@ -40,6 +40,7 @@ const getMarketplaceListSuccessAction = ({ location, marketplaceList, pageSettin
 let getMarketplaceListRequestActionCancelToken;
 
 export const getMarketplaceListRequestAction = ({
+  withCancel = true,
   location,
   pageSize,
   pageNumber,
@@ -55,11 +56,13 @@ export const getMarketplaceListRequestAction = ({
   dispatch,
 }) =>
   new Promise((resolve) => {
-    if (getMarketplaceListRequestActionCancelToken) {
-      getMarketplaceListRequestActionCancelToken.cancel();
-    }
+    if (withCancel) {
+      if (getMarketplaceListRequestActionCancelToken) {
+        getMarketplaceListRequestActionCancelToken.cancel();
+      }
 
-    getMarketplaceListRequestActionCancelToken = axios.CancelToken.source();
+      getMarketplaceListRequestActionCancelToken = axios.CancelToken.source();
+    }
 
     const { store } = ReduxStoreService.getInstance();
 
@@ -73,15 +76,15 @@ export const getMarketplaceListRequestAction = ({
     }
 
     const {
-      MarketplaceAndPreOrdersFiltersReducer: { search } = {},
+      MarketplaceListReducer: { search } = {},
       MarketplaceSortAndFiltersReducer: { sortAndFilters: { filter: { filters = [] } = {} } = {} } = {},
     } = store.getState();
 
     const {
-      filtersApplied,
+      filtersApplied = {},
       sortSelected,
       pageSettings: { currentNumber: page = 0, size = 25 } = {},
-    } = store.getState()[MarketplaceReducersConstants[location]];
+    } = store.getState()[MarketplaceReducersConstants[location]] ?? {};
 
     const localPageSize = pageSize || size;
 
@@ -96,14 +99,14 @@ export const getMarketplaceListRequestAction = ({
 
     api
       .get('goods', {
-        cancelToken: getMarketplaceListRequestActionCancelToken.token,
+        cancelToken: withCancel ? getMarketplaceListRequestActionCancelToken.token : undefined,
         headers: cookie
           ? {
               [CommonVariablesConstants.AUTH_TOKEN_COOKIE_NAME]: cookie,
             }
           : undefined,
         params: {
-          size: location !== MarketplaceLocationsConstants.MARKETPLACE ? 6 : localPageSize,
+          size: location !== MarketplaceLocationsConstants.MARKETPLACE ? 8 * 5 : localPageSize,
           page: pageNumber >= 0 ? pageNumber : page,
           ...{ query: location === MarketplaceLocationsConstants.MARKETPLACE ? querySearch || search || undefined : undefined },
           ...(withFilters ? filtersQuery : {}),
@@ -194,10 +197,8 @@ export const setMarketplaceSortSelectedAction = (categoryId, selected, location)
   });
 };
 
-export const changeMarketplaceCurrentPageAction = ({ currentNumber, location }) =>
-  createAction(`${location}_${MarketplaceListActionsConstants.CHANGE_MARKETPLACE_CURRENT_PAGE}`, {
-    currentNumber,
-  });
-
 export const resetMarketplaceCurrentParamsAction = ({ location }) =>
   createAction(`${location}_${MarketplaceListActionsConstants.RESET_MARKETPLACE_CURRENT_PARAMS}`);
+
+export const setMarketplaceSearchAction = ({ location, search }) =>
+  createAction(`${location}_${MarketplaceListActionsConstants.MARKETPLACE_SEARCH}`, { search });

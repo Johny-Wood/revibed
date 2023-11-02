@@ -52,7 +52,7 @@ api.interceptors.response.use(
     if (['PROJECT_STATUS_WRONG'].includes(errorMessage)) {
       store.dispatch(
         showMessageAction('ErrorMessage', {
-          messageText: 'Project status wrong',
+          messageText: 'Pre-order status wrong',
         })
       );
 

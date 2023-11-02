@@ -11,10 +11,6 @@
     margin: convert-px2rem(4) convert-px2rem(15) 0 0;
   }
 
-  @include breakpoint($b-desktop) {
-    margin: convert-px2rem(4) convert-px2rem(24) 0 0;
-  }
-
   :global {
     .notification-icon {
       transform-origin: 50% 0;

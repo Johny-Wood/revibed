@@ -25,7 +25,7 @@ function ShareButton({
       onClick={() => {
         showPopup(PopupProjectIdsConstants.ProjectSharePopup, { href });
       }}
-      aria-label="share project"
+      aria-label="share pre-order"
     />
   );
 }

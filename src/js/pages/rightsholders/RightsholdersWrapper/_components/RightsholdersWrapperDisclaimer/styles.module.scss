@@ -1,0 +1,26 @@
+@import '../../../../../../assets/styles/_mixins/breakpoint';
+@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+
+.RightsholdersWrapperDisclaimer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: convert-px2rem(50);
+  margin-top: convert-px2rem(40);
+
+  &__title {
+    font-family: var(--font-family__Inter-Black);
+    margin-bottom: convert-px2rem(15);
+    line-height: 1.25;
+    font-size: convert-px2rem(40);
+  }
+
+  &__description {
+    letter-spacing: convert-px2rem(.4);
+    font-size: convert-px2rem(20);
+    line-height: 1.5;
+    max-width: convert-px2rem(501);
+    margin: 0 auto;
+  }
+}

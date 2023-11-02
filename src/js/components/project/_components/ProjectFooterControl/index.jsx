@@ -24,6 +24,7 @@ const ProjectFooterControl = ({
     freeBonuses,
     lateEntryInfo,
   } = {},
+  withCutSize = true,
   cutSizeClassName,
 }) => {
   const participationContributor = projectParticipationInfoUtil(requestedUserInfo);
@@ -51,7 +52,8 @@ const ProjectFooterControl = ({
           ((isActiveProject && !participationContributor) || !isActiveProject) &&
           !isDraftStatus &&
           !isInModerationStatus &&
-          !isRejectedStatus
+          !isRejectedStatus &&
+          withCutSize
         }
       >
         <ProjectCutSize className={classNames(cutSizeClassName)} size={minCuts * priceCut} count={minCuts} />

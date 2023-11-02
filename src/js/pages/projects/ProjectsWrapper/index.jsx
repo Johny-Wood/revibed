@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
+import MarketplaceAndPreOrdersSearch from 'src/js/components/MarketplaceAndPreOrdersSearch';
 
+import ToStartPreOrderBlackBanner from '@/components/common/banners/ToStartPreOrderBlackBanner';
 import BaseWebsiteLayout from '@/components/layouts/BaseWebsiteLayout';
 import PageLayout from '@/components/layouts/PageLayout';
-import MarketplaceAndPreOrdersPageWrapper from '@/components/MarketplaceAndPreOrdersPageWrapper';
+import SiteWrapperLayout from '@/components/layouts/SiteWrapperLayout';
 import ProjectsWithFilters from '@/components/projects/list-wrappers/ProjectsWithFilters';
 import { ProjectsLocationsConstants } from '@/constants/projects/location';
 import TitlesConstants from '@/constants/titles/titlesConstants';
 import ViewportHook from '@/hooks/viewport/ViewportHook';
-import { getProjectsRequestAction } from '@/redux-actions/projects/projectsActions';
+import { getProjectsRequestAction, setProjectsSearchAction } from '@/redux-actions/projects/projectsActions';
 
 import styles from './styles.module.scss';
 
@@ -31,6 +33,7 @@ function ProjectsWrapper({
   previewType,
 
   getProjects,
+  setProjectsSearch,
 }) {
   const { isNotDesktop } = ViewportHook();
 
@@ -43,7 +46,7 @@ function ProjectsWrapper({
       shownBanners
     >
       <PageLayout pageTitle={metaTitle} pageDescription={metaDescription}>
-        <MarketplaceAndPreOrdersPageWrapper location={ProjectsLocationsConstants.PROJECTS} onGetProjects={getProjects}>
+        <SiteWrapperLayout direction="column" firstInPage>
           <ProjectsWithFilters
             location={ProjectsLocationsConstants.PROJECTS}
             projects={projects}
@@ -61,10 +64,23 @@ function ProjectsWrapper({
             secondOffset={!isNotDesktop ? 150 : 160}
             withSearch
             listWithPadding={false}
-            sideBarLayoutClassName={styles.ProjectsWrapper__sideBar}
             querySearch={search}
-          />
-        </MarketplaceAndPreOrdersPageWrapper>
+            customListPageBanner={<ToStartPreOrderBlackBanner isMobile />}
+          >
+            <MarketplaceAndPreOrdersSearch
+              location={ProjectsLocationsConstants.PROJECTS}
+              onGetProjects={getProjects}
+              search={search}
+              onChangeSearch={(newSearch) => {
+                setProjectsSearch({
+                  search: newSearch,
+                  location: ProjectsLocationsConstants.PROJECTS,
+                });
+              }}
+            />
+          </ProjectsWithFilters>
+          <ToStartPreOrderBlackBanner className={styles.ProjectsWrapper__fullBanner} />
+        </SiteWrapperLayout>
       </PageLayout>
     </BaseWebsiteLayout>
   );
@@ -72,7 +88,7 @@ function ProjectsWrapper({
 
 export default connect(
   (state) => ({
-    search: state.MarketplaceAndPreOrdersFiltersReducer.search,
+    search: state.DefaultProjectsReducer.search,
 
     getProjectsInProcess: state.DefaultProjectsReducer.getProjectsInProcess,
     loadedProjectsFromApi: state.DefaultProjectsReducer.loadedProjectsFromApi,
@@ -89,5 +105,8 @@ export default connect(
   }),
   (dispatch) => ({
     getProjects: (params) => getProjectsRequestAction(params)(dispatch),
+    setProjectsSearch: (params) => {
+      dispatch(setProjectsSearchAction(params));
+    },
   })
 )(ProjectsWrapper);

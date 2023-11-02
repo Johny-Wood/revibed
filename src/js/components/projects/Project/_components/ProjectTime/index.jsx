@@ -4,7 +4,16 @@ import RenewableDate from '@/components/common/date/RenewableDate';
 
 import styles from './styles.module.scss';
 
-function ProjectTime({ className, leftTimeClassName, isOpenStatus, isLastCallStatus, startDate, closeDate, withDescriptions }) {
+function ProjectTime({
+  withIcon = true,
+  className,
+  leftTimeClassName,
+  isOpenStatus,
+  isLastCallStatus,
+  startDate,
+  closeDate,
+  withDescriptions,
+}) {
   const isLeftDate = closeDate && (isOpenStatus || isLastCallStatus);
   const isLeftDateLastCall = closeDate && isLastCallStatus;
   const isLeftDateLastOpen = closeDate && isOpenStatus;
@@ -26,6 +35,7 @@ function ProjectTime({ className, leftTimeClassName, isOpenStatus, isLastCallSta
         withDescriptions={withDescriptions}
         direction={isLeftDate ? 'LEFT' : 'AGO'}
         color={color}
+        withIcon={withIcon}
         isTimer={isLeftDateLastCall}
       />
     </div>

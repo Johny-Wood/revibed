@@ -128,7 +128,7 @@ class FavoriteStylesPopup extends Component {
         popupHeaderClassName={Styles.popupHeader}
       >
         <PopupTextContent className={classNames('c-gray-2', Styles.popupInfoText)}>
-          Keeping your favorite styles up&nbsp;to&nbsp;date helps you get the projects you want.
+          Keeping your favorite styles up&nbsp;to&nbsp;date helps you get the pre-orders you want.
         </PopupTextContent>
         <PopularGenresAndStyles changeStyles={this.changeStyles} selectedStyles={selectedStyles} />
         <GenresAndStylesInput

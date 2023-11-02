@@ -1,12 +1,11 @@
 import classNames from 'classnames';
 import Image from 'next/image';
 
+import HelpBlock from '@/components/common/HelpBlock';
 import BaseWebsiteLayout from '@/components/layouts/BaseWebsiteLayout';
 import SiteWrapperLayout from '@/components/layouts/SiteWrapperLayout';
-import LinkRoute from '@/components/ui/links/LinkRoute';
 import { youTubeEnableJsapiLinkUtil } from '@/utils/linkUtils';
 
-import buttonsData from './_data/buttons';
 import videosData from './_data/videos';
 import howItWorksImg from './_images/how_it_works.png';
 import styles from './styles.module.scss';
@@ -27,18 +26,6 @@ const renderVideo = ({ id, title, src }) => (
   </div>
 );
 
-const renderButtons = ({ translateKey, href }) => (
-  <LinkRoute
-    key={`button-support-link-${translateKey}`}
-    translateKey={translateKey}
-    href={href}
-    transparent
-    type="button"
-    size="small-45"
-    className="question__btn"
-  />
-);
-
 function HowItWorksWrapper() {
   return (
     <BaseWebsiteLayout
@@ -57,7 +44,7 @@ function HowItWorksWrapper() {
             </p>
             <p className={classNames([styles.howItWorks__description, 'c-last-call t-medium m-top-10'])}>
               It&nbsp;is&nbsp;important to&nbsp;know and remember that the digital versions of&nbsp;the records belong to&nbsp;the
-              project contributors under the terms of&nbsp;their ownership of&nbsp;the physical media.
+              pre-order contributors under the terms of&nbsp;their ownership of&nbsp;the physical media.
             </p>
           </section>
         </SiteWrapperLayout>
@@ -87,19 +74,7 @@ function HowItWorksWrapper() {
             </div>
           </SiteWrapperLayout>
         </div>
-        <div className={styles.howItWorks__question}>
-          <SiteWrapperLayout className="t-center f-y-center f-x-center f-grow-1" direction="column" withYPadding={false}>
-            <h2 className={styles.howItWorks__question__title}>Have a question?</h2>
-            <div className={styles.howItWorks__question__btnBox}>
-              {buttonsData.map(({ translateKey, href }) =>
-                renderButtons({
-                  translateKey,
-                  href,
-                })
-              )}
-            </div>
-          </SiteWrapperLayout>
-        </div>
+        <HelpBlock />
       </div>
     </BaseWebsiteLayout>
   );

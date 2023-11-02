@@ -23,7 +23,7 @@ function TopUpBalanceWrapper({ loadPersonalTopUpBalanceFromApi, loadPersonalTopU
   return (
     <BaseWebsiteLayout
       headSettings={{
-        title: 'Top Up',
+        title: 'Top up your balance',
       }}
       shownBanners
     >

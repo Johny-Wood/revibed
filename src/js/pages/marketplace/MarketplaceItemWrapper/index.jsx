@@ -13,7 +13,7 @@ import { createMetaImageUtil } from '@/utils/coverUtils';
 import { projectNameUtil } from '@/utils/project/projectDetailsUtil';
 import { createMetaTitleUtil } from '@/utils/titleUtils';
 
-const TITLE = `Marketplace - ${CommonHeadConstants.SITE_NAME}`;
+const TITLE = `Buy now - ${CommonHeadConstants.SITE_NAME}`;
 const DESCRIPTION = `Buy the album on ${CommonHeadConstants.SITE_NAME}`;
 
 function MarketplaceItemWrapper({

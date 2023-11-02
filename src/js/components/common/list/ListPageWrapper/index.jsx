@@ -7,6 +7,7 @@ import ListWrapper, { ListWrapperDefaultProps, ListWrapperPropTypes } from '@/co
 import RetractableMenu from '@/components/common/RetractableMenu';
 import SideBarLayout from '@/components/layouts/SideBarLayout';
 import SiteWrapperLayout from '@/components/layouts/SiteWrapperLayout';
+import { DesktopLayout } from '@/components/layouts/ViewportLayouts';
 import WrapperContainerLayout from '@/components/layouts/WrapperContainerLayout';
 import DiscogsTypeFilters from '@/components/projects/ProjectsFilters/DiscogsTypeFilters';
 import { CommonScrollbarLocationsConstants } from '@/constants/common/scrollBar';
@@ -14,6 +15,8 @@ import FilterIcon from '@/icons/FilterIcon';
 import ScrollService from '@/services/scroll/ScrollService';
 import { setQueryPageParamsUtil } from '@/utils/routeUtils';
 import { getFilterQueryUtil, getSortQueryUtil } from '@/utils/sort-and-filter/sortAndFilterQueryUtils';
+
+import styles from './styles.module.scss';
 
 const ListPageWrapper = memo(
   ({
@@ -48,6 +51,8 @@ const ListPageWrapper = memo(
     filterApplyAction,
 
     sideBarLayoutClassName,
+    children,
+    customListPageBanner,
 
     ...restProps
   }) => {
@@ -168,6 +173,11 @@ const ListPageWrapper = memo(
               location={location}
             />
           </RetractableMenu>
+          {!!customListPageBanner && (
+            <DesktopLayout>
+              <div className={styles.ListPageWrapper__banner}>{customListPageBanner}</div>
+            </DesktopLayout>
+          )}
         </SideBarLayout>
       );
     };
@@ -194,7 +204,9 @@ const ListPageWrapper = memo(
             withFiltersAndSort={withFiltersAndSort}
             inProcess={inProcess}
             {...restProps}
-          />
+          >
+            {children}
+          </ListWrapperContainer>
         </WrapperContainerLayout>
       </SiteWrapperLayout>
     );

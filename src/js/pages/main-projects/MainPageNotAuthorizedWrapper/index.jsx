@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import BaseWebsiteLayout from '@/components/layouts/BaseWebsiteLayout';
 import Footer from '@/js/components/global/Footer';
@@ -16,10 +16,6 @@ const metaDescription =
 function MainPageNotAuthorizedWrapper({ userIsAuthorized, isNotDesktop }) {
   const [scrollValue, setScrollValue] = useState(0);
 
-  const footerProps = {
-    blackFooter: true,
-  };
-
   return (
     <BaseWebsiteLayout
       headSettings={{
@@ -28,20 +24,19 @@ function MainPageNotAuthorizedWrapper({ userIsAuthorized, isNotDesktop }) {
       }}
       headerProps={{
         transparent: !userIsAuthorized && !isNotDesktop,
-        withTransparent: true,
+        withTransparent: !isNotDesktop,
         mainLanding: true,
       }}
       withoutPaddingTop={!userIsAuthorized && !isNotDesktop}
       onScrollHandler={setScrollValue}
       withoutFooter
-      // footerProps={footerProps}
     >
       <MainBanner scrollValue={scrollValue.scrollTop} />
       <MainCards />
       <FanPovered />
       <Preorders />
       <Collector scrollObject={scrollValue} />
-      <Footer footerProps={{blackFooter: true}}/>
+      <Footer footerProps={{ blackFooter: true }} />
     </BaseWebsiteLayout>
   );
 }

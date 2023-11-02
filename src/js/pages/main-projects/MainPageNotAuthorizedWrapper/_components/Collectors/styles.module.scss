@@ -28,9 +28,7 @@
     font-size: convert-px2rem(30);
     line-height: 113.333%;
     letter-spacing: convert-px2rem(0.6);
-    /*font-family: var(--font-family__Inter-Black);*/
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
+    font-family: var(--font-family__Inter-Black);
     @include breakpoint($b-mobileS__max) {
       font-size: convert-px2rem(22);
     }
@@ -115,9 +113,7 @@
   &__cardName {
     color: #000;
     font-size: convert-px2rem(16);
-    /*font-family: var(--font-family__Inter-Bold);*/
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
+    font-family: var(--font-family__Inter-Bold);
     line-height: convert-px2rem(20);
     letter-spacing: convert-px2rem(0.8);
     @include breakpoint($b-tablet__max) {
@@ -149,14 +145,14 @@
     display: flex;
     align-items: flex-end;
     column-gap: convert-px2rem(10);
-    @include breakpoint($b-tabletS__max) { 
+    @include breakpoint($b-tabletS__max) {
       margin-top: convert-px2rem(111);
       font-size:  convert-px2rem(12);
       & svg {
         width: convert-px2rem(120);
       }
     }
-    @include breakpoint($b-mobileS__max) { 
+    @include breakpoint($b-mobileS__max) {
       margin-top: convert-px2rem(142);
       & svg {
         width: convert-px2rem(128);

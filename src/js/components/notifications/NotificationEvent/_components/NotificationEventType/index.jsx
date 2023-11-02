@@ -25,7 +25,6 @@ const eventContent = ({ to, owner, target, payload = {} } = {}, typeContent = ()
     type,
     userName,
     userId,
-    cutsCount,
     title = '',
     shortTitle = '',
     leftTimeBeforeVoting = 336,
@@ -44,24 +43,13 @@ const eventContent = ({ to, owner, target, payload = {} } = {}, typeContent = ()
       component: <Voting votingId={to} />,
     },
     [ProjectEventsConstants.PROJECT_RECORD_ON_THE_WAY]: {
-      text: (
-        <>
-          <b>The record is on it&apos;s way!</b>
-          {!!to && (
-            <>
-              <br />
-              You can track it&nbsp;
-              <LinkDefault text="here" href={to} className="c-blue" />
-            </>
-          )}
-        </>
-      ),
+      text: <b>The record is on it&apos;s way!</b>,
     },
     [ProjectBaseInfoConstants.PROJECT_STATUS_CHANGED]: {
       text: (
         <>
           <b>Update!</b>
-          &nbsp;Project status:&nbsp;
+          &nbsp;Pre-order status:&nbsp;
           <b style={{ color: `var(--color__${name})` }}>{t(name)}</b>
           {!!closedReason && (
             <>
@@ -76,7 +64,7 @@ const eventContent = ({ to, owner, target, payload = {} } = {}, typeContent = ()
       text: (
         <>
           <b>Update!</b>
-          &nbsp;Project status:&nbsp;
+          &nbsp;Pre-order status:&nbsp;
           <b style={{ color: `var(--color__${name})` }}>{t(name)}</b>
           {!!closedReason && (
             <>
@@ -91,7 +79,7 @@ const eventContent = ({ to, owner, target, payload = {} } = {}, typeContent = ()
       text: (
         <>
           <b>Update!</b>
-          &nbsp;Project status:&nbsp;
+          &nbsp;Pre-order status:&nbsp;
           <b style={{ color: `var(--color__${name})` }}>{t(name)}</b>
           {!!closedReason && (
             <>
@@ -103,9 +91,11 @@ const eventContent = ({ to, owner, target, payload = {} } = {}, typeContent = ()
       ),
     },
     [ProjectEventsConstants.PROJECT_FOUND_COMPLETED]: {
-      title: <>Project funded!</>,
+      title: <>Pre-order funded!</>,
       text: (
-        <>The project&apos;s status is&nbsp;now In&nbsp;Transit. We&nbsp;are making arrangements to&nbsp;purchase your record</>
+        <>
+          The Pre-order&rsquo;s status is&nbsp;now In&nbsp;Transit. We&nbsp;are making arrangements to&nbsp;purchase your record
+        </>
       ),
     },
     [ProjectBaseInfoConstants.PROJECT_MEDIA_ON_SALE]: {
@@ -121,7 +111,7 @@ const eventContent = ({ to, owner, target, payload = {} } = {}, typeContent = ()
       text: (
         <>
           <b>Record sold!</b>
-          &nbsp;Tap balance for details. Please delete your archived copy of this project
+          &nbsp;Tap balance for details. Please delete your archived copy of this pre-order
         </>
       ),
     },
@@ -149,7 +139,7 @@ const eventContent = ({ to, owner, target, payload = {} } = {}, typeContent = ()
       children: (
         <>
           <NickName name={userName} userId={userId} withFlag={false} isRoute fontWeight="semi-bold" />
-          &nbsp;has bought {cutsCount} {textForLotsOfUtil(cutsCount, ['cut', 'cuts'])}
+          &nbsp;pre-ordered this release
         </>
       ),
     },
@@ -158,7 +148,7 @@ const eventContent = ({ to, owner, target, payload = {} } = {}, typeContent = ()
         <div className="w-100pct">
           <b>Media purchased!</b>
           <br />
-          The record was successfully purchased. It&nbsp;should ship soon. Tap balance for more details
+          The record was successfully purchased. It&nbsp;should ship soon.
         </div>
       ),
     },
@@ -168,7 +158,7 @@ const eventContent = ({ to, owner, target, payload = {} } = {}, typeContent = ()
           <Coin size={14} offset={false}>
             <span className="t-semi-bold p-top-1">{floatWithCommaFixedUtil(to)}</span>
           </Coin>
-          <span>&nbsp;was debited to&nbsp;project balance from insurance fund</span>
+          <span>&nbsp;was debited to&nbsp;pre-order balance from insurance fund</span>
         </div>
       ),
     },
@@ -241,15 +231,15 @@ const eventContent = ({ to, owner, target, payload = {} } = {}, typeContent = ()
       ),
     },
     [ProjectEventsConstants.PROJECT_PUBLISHED]: {
-      title: 'Project published!',
+      title: 'Pre-order published!',
     },
     [ProjectBaseInfoConstants.PROJECT_CREATED]: {
-      title: 'Project published!',
+      title: 'Pre-order published!',
     },
     [ProjectEventsConstants.PROJECT_MEDIA_SECURED]: {
-      title: 'Project Update.',
+      title: 'Pre-order Update.',
       text: (
-        <EmojiReplaceWrapper text="The copy is&nbsp;secured and ready to&nbsp;ship once funding completed. Stay tuned for more Kollektivs! ♽" />
+        <EmojiReplaceWrapper text="The copy is&nbsp;secured and ready to&nbsp;ship once funding completed. Keep Revibing music!" />
       ),
     },
     [ProjectBaseInfoConstants.PROJECT_RESERVED_FOR_LATE_ENTRY]: {
@@ -257,12 +247,7 @@ const eventContent = ({ to, owner, target, payload = {} } = {}, typeContent = ()
     },
     [ProjectEventsConstants.PROJECT_MEDIA_RECEIVED_BY_RIPPER]: {
       title: 'Awaiting approval',
-      text: (
-        <>
-          Record is&nbsp;undergoing visual inspection and play testing as&nbsp;part of&nbsp;the grading confirmation. Once
-          approved, the record will enter the digitization phase
-        </>
-      ),
+      text: <>Once approved, the record will enter the digitization phase</>,
     },
     [ProjectBaseInfoConstants.PROJECT_MEDIA_TRACKING_NUMBER_LINK_CHANGED]: {
       text: (

@@ -21,6 +21,8 @@ const initialState = {
   filtersSelected: {},
   filtersApplied: {},
   filterApplied: false,
+
+  search: '',
 };
 
 const createLocalHandlers = (location) =>
@@ -137,14 +139,6 @@ const createLocalHandlers = (location) =>
       }),
     }),
 
-    [`${location}_${MarketplaceListActionsConstants.CHANGE_MARKETPLACE_CURRENT_PAGE}`]: (state, { currentNumber }) => ({
-      ...state,
-      pageSettings: {
-        ...state.pageSettings,
-        currentNumber,
-      },
-    }),
-
     [`${location}_${MarketplaceListActionsConstants.RESET_MARKETPLACE_CURRENT_PARAMS}`]: (state) => ({
       ...state,
       pageSettings: {
@@ -152,11 +146,18 @@ const createLocalHandlers = (location) =>
         size: 25,
       },
 
+      search: '',
+
       sortSelected: {},
 
       filtersSelected: {},
       filtersApplied: {},
       filterApplied: false,
+    }),
+
+    [`${location}_${MarketplaceListActionsConstants.MARKETPLACE_SEARCH}`]: (state, { search = '' }) => ({
+      ...state,
+      search,
     }),
   });
 

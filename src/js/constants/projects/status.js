@@ -6,7 +6,6 @@ export const ProjectStatusesConstants = {
   LAST_CALL: 'LAST_CALL',
   IN_TRANSIT: 'IN_TRANSIT',
   LISTED: 'LISTED',
-  WANTED: 'WANTED',
   ARRIVED: 'ARRIVED',
   REFUND_PENDING: 'REFUND_PENDING',
   SOLD: 'SOLD',

@@ -16,12 +16,16 @@ $font-size-label__active: convert-px2rem(9);
 $font-size-error: convert-px2rem(10);
 $offset-top-error: convert-px2rem(2);
 
-$margin-y: convert-px2rem(5);
+$margin-y: convert-px2rem(2.5);
 
-textarea::-webkit-outer-spin-button,
-textarea::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+input[type='date']::-webkit-outer-spin-button,
+input[type='date']::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -88,11 +92,10 @@ textarea {
   border: none;
   outline: none;
   background-color: var(--color__gray-5);
-  transition:
-    box-shadow var(--transition-duration) ease,
-    background-color var(--transition-duration) ease,
-    opacity var(--transition-duration) ease,
-    border-color var(--transition-duration) ease;
+  transition: box-shadow var(--transition-duration) ease,
+  background-color var(--transition-duration) ease,
+  opacity var(--transition-duration) ease,
+  border-color var(--transition-duration) ease;
 }
 
 .input,
@@ -102,11 +105,10 @@ textarea {
   border-style: solid;
   font-size: 1em;
   line-height: 145% !important;
-  transition:
-    box-shadow var(--transition-duration) ease,
-    background-color var(--transition-duration) ease,
-    opacity var(--transition-duration) ease,
-    border-color var(--transition-duration) ease;
+  transition: box-shadow var(--transition-duration) ease,
+  background-color var(--transition-duration) ease,
+  opacity var(--transition-duration) ease,
+  border-color var(--transition-duration) ease;
   cursor: text;
 
   &:disabled,
@@ -207,6 +209,15 @@ textarea {
 }
 
 .input-block {
+  &:not(.focus) {
+    input[type='date']:in-range::-webkit-datetime-edit-year-field,
+    input[type='date']:in-range::-webkit-datetime-edit-month-field,
+    input[type='date']:in-range::-webkit-datetime-edit-day-field,
+    input[type='date']:in-range::-webkit-datetime-edit-text {
+      color: transparent;
+    }
+  }
+
   &.normal {
     .input,
     .textarea {

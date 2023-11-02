@@ -30,6 +30,8 @@ const initialState = {
   filterApplied: false,
 
   sortSelected: {},
+
+  search: '',
 };
 
 const createLocalHandlers = (location) =>
@@ -72,6 +74,7 @@ const createLocalHandlers = (location) =>
       if (resetPageSettings) {
         return {
           ...state,
+          search: '',
           loadedProjectsFromApi: false,
           pageSettings: {},
 
@@ -276,16 +279,9 @@ const createLocalHandlers = (location) =>
       pageSettings,
     }),
 
-    [`${location}_${ProjectsActionsConstants.CHANGE_PROJECTS_CURRENT_PAGE}`]: (state, { currentNumber }) => ({
-      ...state,
-      pageSettings: {
-        ...state.pageSettings,
-        currentNumber,
-      },
-    }),
-
     [`${location}_${ProjectsActionsConstants.RESET_PROJECTS_CURRENT_PARAMS}`]: (state) => ({
       ...state,
+      search: '',
       projects: [],
       pageSettings: {
         currentNumber: 0,
@@ -299,6 +295,11 @@ const createLocalHandlers = (location) =>
       filterApplied: false,
 
       sortSelected: {},
+    }),
+
+    [`${location}_${ProjectsActionsConstants.PROJECTS_SEARCH}`]: (state, { search = '' }) => ({
+      ...state,
+      search,
     }),
 
     [ProjectsActionsConstants.PROJECT_PREVIEW_DELETE_FREE_BONUS_SLOT]: (state, { type, projectCardId, removeAll }) => {

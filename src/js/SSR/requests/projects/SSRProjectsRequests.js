@@ -7,12 +7,12 @@ import { ProjectsNotificationLocationsConstants } from '@/constants/projects/not
 import { RoutePathsConstants } from '@/constants/routes/routes';
 import SortAndFiltersLocationsConstants from '@/constants/sortAndFilters/locations';
 import { showMessageAction } from '@/redux-actions/components/messageActions';
-import { changeSearchMarketplaceAndPreOrdersFiltersAction } from '@/redux-actions/marketplace-and-pre-orders/marketplaceAndPreOrdersFiltersActions';
 import { getProjectCardRequestAction } from '@/redux-actions/project/projectCardActions';
 import {
   applyProjectsFilterAction,
   getProjectsRequestAction,
   selectProjectsFilterAction,
+  setProjectsSearchAction,
   setProjectsSortSelectedAction,
 } from '@/redux-actions/projects/projectsActions';
 import { getSortAndFiltersRequestAction } from '@/redux-actions/sort-and-filter/sortAndFiltersActions';
@@ -174,7 +174,7 @@ export const SSRGetProjectsWithCookie = async ({ ctx, location, reducerName, wit
     } else {
       await new Promise((resolve) => {
         if (querySearch.length > 0 && location === ProjectsLocationsConstants.PROJECTS) {
-          dispatch(changeSearchMarketplaceAndPreOrdersFiltersAction({ search: querySearch[0] }));
+          dispatch(setProjectsSearchAction({ search: querySearch[0], location }));
         }
 
         getSortAndFiltersRequestAction({

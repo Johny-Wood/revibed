@@ -38,6 +38,12 @@
     }
   }
 
+  &__banner {
+    margin-top: convert-px2rem(10);
+    margin-left: convert-px2rem(10);
+    margin-right: convert-px2rem(13);
+  }
+
   &__footer {
     width: 100%;
     @include breakpoint($b-laptop) {

@@ -32,8 +32,6 @@ $cover_size: 150;
       }
 
       .button-buy-cut {
-        margin-left: convert-px2rem(20);
-
         svg {
           @include breakpoint($b-tabletS__max) {
             width: convert-px2rem(24) !important;
@@ -296,7 +294,7 @@ $cover_size: 150;
     }
 
     .projectCutSize {
-      margin-right: 0;
+      margin-right: convert-px2rem(15);
       @include breakpoint($b-tabletS__max) {
         margin-right: convert-px2rem(12);
         flex-grow: 8;

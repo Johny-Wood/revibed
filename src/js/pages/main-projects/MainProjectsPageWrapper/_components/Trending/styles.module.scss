@@ -1,13 +1,88 @@
 @import '../../../../../../assets/styles/_mixins/breakpoint';
 @import '../../../../../../assets/styles/_mixins/convert-px2rem';
 
-.trending {
+.Trending {
   width: 100%;
-  @include breakpoint($b-laptop) {
-    margin-top: convert-px2rem(10);
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    min-height: convert-px2rem(85);
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
-  &__projectBlock {
-    margin-top: convert-px2rem(40);
+  &__items {
+    padding-top: convert-px2rem(12);
+    padding-bottom: convert-px2rem(29);
+    width: calc(100% + #{convert-px2rem(29)});
+    display: flex;
+    flex-direction: column;
+    margin: convert-px2rem(-29 / 2);
+    @include breakpoint($b-tablet) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    @include breakpoint($b-laptop) {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    width: calc(100% - #{convert-px2rem(29)});
+    display: flex;
+    margin: convert-px2rem(29 / 2);
+    @include breakpoint($b-tablet) {
+      width: calc(100% / 2 - #{convert-px2rem(29)});
+    }
+    @include breakpoint($b-laptop) {
+      width: calc(100% - #{convert-px2rem(29)});
+    }
+  }
+
+  &__info {
+    width: calc(100% - #{convert-px2rem(85 + 15)});
+  }
+
+  &__projectCover {
+    $size: convert-px2rem(85);
+
+    min-width: $size;
+    width: $size;
+    height: $size;
+    box-shadow: 0 convert-px2rem(4) convert-px2rem(15) 0 rgba(0, 0, 0, 0.15);
+
+    &Container {
+      margin-right: convert-px2rem(10);
+      @include breakpoint($b-laptop) {
+        margin-right: convert-px2rem(15);
+      }
+    }
+  }
+
+  &__footer {
+    margin-top: convert-px2rem(8);
+    display: flex;
+    align-content: center;
+  }
+
+  &__projectCount, &__projectTime {
+    margin-top: 0;
+    font-size: convert-px2rem(12);
+  }
+
+  &__projectProcess {
+    margin-top: convert-px2rem(13);
+    height: convert-px2rem(4);
+  }
+
+  &__projectNames {
+    &__title,
+    &__album__title {
+      font-size: convert-px2rem(14);
+      margin: 0;
+    }
   }
 }

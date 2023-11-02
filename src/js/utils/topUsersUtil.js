@@ -25,14 +25,14 @@ export const getTopUserInfoUtil = ({ type }) => {
     case CommonRatingTypesConstants.DIGGER: {
       return {
         title: 'Digger of the day',
-        description: 'Opened the rarest project',
+        description: 'Opened the rarest pre-order',
         icon: () => <DiggerIcon className="m-bottom-2 m-right-7" />,
       };
     }
     case CommonRatingTypesConstants.ANGEL: {
       return {
         title: 'Angel of the day',
-        description: 'Bought the last cuts in more projects',
+        description: 'Bought the last cuts in more pre-orders',
         icon: () => <AngelIcon className="m-bottom-2 w-28" />,
       };
     }

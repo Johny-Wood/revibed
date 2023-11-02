@@ -15,7 +15,7 @@ function ProjectBalance({ projectId, balance, priceInfo, lateEntryInfo, estimate
     <div className={styles.projectCardBalance}>
       <div className={styles.projectCardBalance__info}>
         <div className={styles.projectCardBalance__price}>
-          <div>Project price:&nbsp;</div>
+          <div>Pre-order price:&nbsp;</div>
           <div className={styles.projectCardBalance__value}>
             <Coin size={15} type="xl">
               <b>{floatWithCommaFixedUtil(total)}</b>
@@ -30,7 +30,7 @@ function ProjectBalance({ projectId, balance, priceInfo, lateEntryInfo, estimate
           </div>
         </div>
         <div className={styles.projectCardBalance__balance}>
-          <div>Project balance:&nbsp;</div>
+          <div>Pre-order balance:&nbsp;</div>
           <Coin size={15} type="xl">
             <b>{floatWithCommaFixedUtil(balance)}</b>
           </Coin>

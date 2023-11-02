@@ -8,11 +8,11 @@ import { DesktopLayout, MobileLayout } from '@/components/layouts/ViewportLayout
 import MarketplaceAddToWantButton from '@/components/marketplace/MarketplaceAddToWantButton';
 import MarketplaceBuyButton from '@/components/marketplace/MarketplaceBuyButton';
 import MarketplaceCardInfoStatus from '@/components/marketplace/MarketplaceCard/_components/MarketplaceCardInfo/_components/MarketplaceCardInfoStatus';
-import ProjectFormats from '@/components/projects/Project/_components/ProjectFormats';
 import ProjectTags from '@/components/projects/Project/_components/ProjectTags';
 import Button from '@/components/ui/buttons/Button';
 import Coin from '@/components/ui/currency/Coin';
 import LinkRoute from '@/components/ui/links/LinkRoute';
+import { CommonHeadConstants } from '@/constants/common/head';
 import { MarketplaceCardStatusHook } from '@/hooks/marketplace/MarketplaceCardStatusHook';
 import { createProjectUrlUtil } from '@/utils/project/projectUrlUtil';
 import { floatWithCommaFixedUtil } from '@/utils/textUtils';
@@ -31,11 +31,11 @@ function MarketplaceCardInfo({
     projectId,
     title,
     name,
-    target: { tracksGoods = [] } = {},
-    release: { tracks = [], covers: releaseCovers, artists, tags = [], formats = [] } = {},
+    tags = [],
+    release: { covers: releaseCovers, artists } = {},
     covers = releaseCovers,
-    mediaCondition,
     price,
+    preview,
   },
 }) {
   const { isPreOrder, isPurchased, isOnlyTracks, isGoodsInCart, isCanBuy } = MarketplaceCardStatusHook(info);
@@ -52,8 +52,6 @@ function MarketplaceCardInfo({
           goodsId={id}
           targetType="ALBUM"
           marketplaceCardId={marketplaceCardId}
-          tracksGoods={tracksGoods}
-          tracks={tracks}
           disabled={!purchaseAvailable && !isGoodsInCart}
           styleProps={{
             className: styles.marketplaceCardInfo__buyButton,
@@ -61,9 +59,7 @@ function MarketplaceCardInfo({
         >
           {(purchaseAvailable || isGoodsInCart) && (
             <span className={classNames(styles.marketplaceCardInfo__buyPrice, 'not-hide')}>
-              <Coin size={14} color="white">
-                {floatWithCommaFixedUtil(price)}
-              </Coin>
+              <Coin afterText={floatWithCommaFixedUtil(price)} />
             </span>
           )}
         </MarketplaceBuyButton>
@@ -79,20 +75,7 @@ function MarketplaceCardInfo({
     }
 
     return null;
-  }, [
-    id,
-    inCart,
-    isCanBuy,
-    isGoodsInCart,
-    isOnlyTracks,
-    isPreOrder,
-    isPurchased,
-    marketplaceCardId,
-    price,
-    purchaseAvailable,
-    tracks,
-    tracksGoods,
-  ]);
+  }, [id, inCart, isCanBuy, isGoodsInCart, isOnlyTracks, isPreOrder, isPurchased, marketplaceCardId, price, purchaseAvailable]);
 
   return (
     <div className={classNames([styles.marketplaceCardInfo, isPreOrder && styles.marketplaceCardInfo_preorder])}>
@@ -102,6 +85,7 @@ function MarketplaceCardInfo({
         </MobileLayout>
         <Cover
           covers={covers}
+          preview={preview}
           withImageLiteBox={covers && covers.length > 0}
           isDefault={!covers || !covers.length > 0}
           className={styles.projectCover}
@@ -136,29 +120,16 @@ function MarketplaceCardInfo({
             <b>Wanted:</b> {wantCount}
           </div>
           <div className={styles.marketplaceCardInfo__wait__owner}>
-            We&nbsp;are currently locating the copyright owner of&nbsp;this wonderful piece of&nbsp;music before we&nbsp;can add
-            it&nbsp;to&nbsp;our marketplace. Click <b>Notify me</b> to&nbsp;be&nbsp;notified as&nbsp;soon as&nbsp;digital copies
-            of&nbsp;this release are available for purchase in&nbsp;audiophile quality.
+            This release has recently been digitised and is&nbsp;currently only available to&nbsp;those who joined the Pre-order.
+            It&nbsp;will become available through the {CommonHeadConstants.SITE_NAME} catalogue soon. Click <b>Notify me</b>{' '}
+            to&nbsp;receive an&nbsp;update when the music can be&nbsp;purchased.
           </div>
         </>
       )}
       <div className={styles.marketplaceCardInfo__footer}>
         <div className={styles.marketplaceCardInfo__value}>
-          <b>Quality:</b> FLAC / 192kHz · 24bit
+          <b>Format:</b> FLAC / 44.1kHz · 16bit
         </div>
-        {(!!mediaCondition || formats.length > 0) && (
-          <div className={styles.marketplaceCardInfo__value}>
-            <b>Source:</b>
-            &nbsp;
-            {formats.length > 0 && (
-              <>
-                <ProjectFormats items={formats} />
-                &nbsp;/&nbsp;
-              </>
-            )}
-            {!!mediaCondition && `${mediaCondition.title} (${mediaCondition.shortTitle})`}
-          </div>
-        )}
         {!!projectId && (
           <LinkRoute
             className={classNames(styles.marketplaceCardInfo__value, 'underline')}

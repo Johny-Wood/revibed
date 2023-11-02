@@ -1,8 +1,6 @@
 import { RoutePathsConstants } from '@/constants/routes/routes';
 
-import BlackCatCardImg from '../../../assets/images/promo/black-cat-card/black-cat-card_small.png';
-
-export const FooterNavigationConstants = ({ variablesList: { INTERNAL_BLOG_LINK_ENABLED } = {} }) => [
+export const FooterNavigationConstants = [
   {
     categoryName: 'title',
     links: [
@@ -17,8 +15,7 @@ export const FooterNavigationConstants = ({ variablesList: { INTERNAL_BLOG_LINK_
       },
       {
         tKey: 'blog',
-        href: INTERNAL_BLOG_LINK_ENABLED ? RoutePathsConstants.BLOG : 'https://kollektivx.medium.com/',
-        external: !INTERNAL_BLOG_LINK_ENABLED,
+        href: RoutePathsConstants.BLOG,
       },
     ],
   },
@@ -79,17 +76,3 @@ export const FooterNavigationConstants = ({ variablesList: { INTERNAL_BLOG_LINK_
     ],
   },
 ];
-
-export const FooterBlackCatCardCategoryNavigationConstants = {
-  categoryName: 'getFreeKoins',
-  width: 'auto',
-  align: 'right',
-  toggle: false,
-  links: [
-    {
-      image: BlackCatCardImg,
-      href: RoutePathsConstants.PROMO_BLACK_CAT_CARD,
-      alt: 'getFreeKoins',
-    },
-  ],
-};

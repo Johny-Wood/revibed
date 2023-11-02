@@ -15,10 +15,6 @@
     "en": "Listed",
     "ru": "Listed"
   },
-  "WANTED": {
-    "en": "Wanted",
-    "ru": "Wanted"
-  },
   "CLOSED": {
     "en": "Closed",
     "ru": "Closed"
@@ -64,8 +60,8 @@
     "ru": "Archived"
   },
   "RECORD_KEPT": {
-    "en": "Holding/Kept",
-    "ru": "Holding/Kept"
+    "en": "Ready",
+    "ru": "Ready"
   },
   "FOUND_CLOSED": {
     "en": "Found closed",

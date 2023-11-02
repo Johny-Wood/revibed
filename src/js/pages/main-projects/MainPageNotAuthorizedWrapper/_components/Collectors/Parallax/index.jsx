@@ -1,9 +1,10 @@
 import { createRef, useEffect, useState } from 'react';
 
+import classNames from 'classnames';
 import Image from 'next/image';
 
 import ScrollService from '@/js/services/scroll/ScrollService';
-import classNames from 'classnames';
+
 import styles from './styles.module.scss';
 
 import imageMain from '../../../_images/Vinill-1.png';
@@ -17,9 +18,8 @@ import imageSm2 from '../../../_images/Vinill-sm-2.png';
 import imageSm3 from '../../../_images/Vinill-sm-3.png';
 import imageSm4 from '../../../_images/Vinill-sm-4.png';
 
-
 function CollectorsParallax({ scrollObject }) {
-  let { scrollTop, contentScrollHeight } = scrollObject;
+  const { scrollTop } = scrollObject;
 
   const parallaxRef = createRef();
   const [topParallaxBlock, setTopParallaxBlock] = useState(0);
@@ -29,41 +29,36 @@ function CollectorsParallax({ scrollObject }) {
   }, [parallaxRef]);
 
   function getParallaxValue(value) {
-    let topElement = topParallaxBlock;
+    const topElement = topParallaxBlock;
+    const ParallaxCoeff = topElement - scrollTop > 0 ? topElement - window.innerHeight + 977 - scrollTop : 0;
+    const transformValue = value * ParallaxCoeff;
 
-    let ParallaxCoeff = (topElement - scrollTop) > 0 ? (topElement - window.innerHeight + 977 - scrollTop) : 0;
-  
-    let transformValue = value * ParallaxCoeff;
-
-
-    const myStyle = {
+    return {
       transform: `translateY(${transformValue}px)`,
     };
-
-    return myStyle;
   }
 
   return (
     <div ref={parallaxRef} className={styles.Parallax}>
-      <Image src={imageMain} width={483} height={239} className={styles.Parallax__mainImage} alt="vinill"></Image>
+      <Image src={imageMain} width={483} height={239} className={styles.Parallax__mainImage} alt="vinill" />
       <div className={classNames(styles.Parallax__image, styles.Parallax__imageXl)} style={getParallaxValue(-0.1)}>
-        <Image src={imageLg1} className={styles.Parallax__imageItem} alt="vinill"></Image>
+        <Image src={imageLg1} className={styles.Parallax__imageItem} alt="vinill" />
       </div>
       <div className={classNames(styles.Parallax__image, styles.Parallax__imageLg)} style={getParallaxValue(-0.2)}>
-        <Image src={imageLg2} className={styles.Parallax__imageItem} alt="vinill"></Image>
+        <Image src={imageLg2} className={styles.Parallax__imageItem} alt="vinill" />
       </div>
       <div className={classNames(styles.Parallax__image, styles.Parallax__imageMd)} style={getParallaxValue(-0.25)}>
-        <Image src={imageMd1} className={styles.Parallax__imageItem} alt="vinill"></Image>
-        <Image src={imageMd2} className={styles.Parallax__imageItem} alt="vinill"></Image>
-        <Image src={imageMd3} className={styles.Parallax__imageItem} alt="vinill"></Image>
+        <Image src={imageMd1} className={styles.Parallax__imageItem} alt="vinill" />
+        <Image src={imageMd2} className={styles.Parallax__imageItem} alt="vinill" />
+        <Image src={imageMd3} className={styles.Parallax__imageItem} alt="vinill" />
       </div>
       <div className={classNames(styles.Parallax__image, styles.Parallax__imageSm)} style={getParallaxValue(-0.3)}>
-        <Image src={imageSm2} className={styles.Parallax__imageItem} alt="vinill"></Image>
-        <Image src={imageSm3} className={styles.Parallax__imageItem} alt="vinill"></Image>
-        <Image src={imageSm4} className={styles.Parallax__imageItem} alt="vinill"></Image>
+        <Image src={imageSm2} className={styles.Parallax__imageItem} alt="vinill" />
+        <Image src={imageSm3} className={styles.Parallax__imageItem} alt="vinill" />
+        <Image src={imageSm4} className={styles.Parallax__imageItem} alt="vinill" />
       </div>
       <div className={classNames(styles.Parallax__image, styles.Parallax__imageXs)} style={getParallaxValue(-0.4)}>
-        <Image src={imageSm1} className={styles.Parallax__imageItem} alt="vinill"></Image>
+        <Image src={imageSm1} className={styles.Parallax__imageItem} alt="vinill" />
       </div>
     </div>
   );

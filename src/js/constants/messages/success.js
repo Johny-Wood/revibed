@@ -43,13 +43,13 @@ export const MessagesSuccessConstants = {
   SUBSCRIPTION_FRIEND_SUCCESS: 'You have successfully subscribed to',
   UNSUBSCRIPTION_FRIEND_SUCCESS: 'You have successfully unsubscribed from',
 
-  JOIN_PROJECT: 'You have successfully paid for the cut and are now participating in the project',
-  MULTI_CUT: 'You have successfully paid for the cut',
+  JOIN_PROJECT: 'You have successfully paid for the Pre-order',
+  MULTI_CUT: 'You have successfully paid for the Pre-order',
 
-  PUBLISH_PROJECT_SUCCESS: 'Your project has been sent for moderation. It will appear in your projects list soon!',
-  DRAFT_PROJECT_SUCCESS: 'Your project has been saved in Drafts',
-  DRAFT_PROJECT_EDIT_SUCCESS: 'Your project has been successfully modified',
-  DELETE_PROJECT_SUCCESS: 'Project deleted successfully',
+  PUBLISH_PROJECT_SUCCESS: 'Your pre-order has been sent for moderation. It will appear in your pre-orders list soon!',
+  DRAFT_PROJECT_SUCCESS: 'Your pre-order has been saved in Drafts',
+  DRAFT_PROJECT_EDIT_SUCCESS: 'Your pre-order has been successfully modified',
+  DELETE_PROJECT_SUCCESS: 'Pre-order deleted successfully',
 
   CONFIRM_ROYALTY_WITHDRAW_SUCCESS: 'Your royalty request was accepted',
 };

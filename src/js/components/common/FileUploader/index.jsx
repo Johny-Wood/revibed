@@ -224,6 +224,7 @@ class FileUploader extends Component {
       listItemClassName,
       listImageClassName,
       uploaderInputBlockClassName,
+      children,
     } = this.props;
 
     return (
@@ -274,7 +275,9 @@ class FileUploader extends Component {
             onClick(e);
           }}
           multiple={maxFiles > 1 ? multiple : false}
-        />
+        >
+          {children}
+        </Input>
       </>
     );
   };

@@ -24,18 +24,21 @@
   }
 
   &__button {
-    font-family: var(--font-family__Inter-SemiBold);
+    font-family: var(--font-family__Inter-Bold);
     text-align: left;
+    border: none;
 
     :global {
       .text {
+        line-height: convert-px2rem(20);
         letter-spacing: 0.02em;
       }
     }
   }
 
   &__label {
-    color: var(--color__gray-2);
+    color: var(--color__gray-3);
+    font-family: var(--font-family__Inter-Regular);
   }
 
   .project {
@@ -83,7 +86,6 @@
       margin: 0 0 0 convert-px2rem(8);
       font-size: convert-px2rem(12);
       line-height: convert-px2rem(16);
-      font-family: var(--font-family__Inter-SemiBold);
     }
   }
 }
