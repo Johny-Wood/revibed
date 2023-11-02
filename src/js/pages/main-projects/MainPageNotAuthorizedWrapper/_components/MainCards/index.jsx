@@ -47,7 +47,7 @@ function MainCards({ events }) {
                 <Image width={160} height={160} src={card.covers[1].path} alt={card.name} />
               </div>
               <div className={styles.MainCard__info}>
-                <div className={styles.MainCard__infoTitle}>{artists ? artists : ' '}</div>
+                <div className={styles.MainCard__infoTitle}>{artists}</div>
                 <div className={styles.MainCard__infoDesc}>{card.name}</div>
                 <Button className={styles.MainCard__button}>Buy now</Button>
               </div>
