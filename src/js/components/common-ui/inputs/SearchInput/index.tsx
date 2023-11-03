@@ -86,7 +86,7 @@ const SearchInput = ({
         return;
       }
 
-      onSearch(newValue).then();
+      onSearch(newValue);
     },
     [disabled, onSearch, resetSearchState]
   );

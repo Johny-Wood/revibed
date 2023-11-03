@@ -5,6 +5,8 @@ import MainProjectsPageWrapper from '@/pages/main-projects/MainProjectsPageWrapp
 import { SSRFundingNow } from '@/SSR/requests/common/SSREventsRequests';
 import { SSRGetMarketplaceWithCookieAndWithoutSort } from '@/SSR/requests/marketplace/SSRMarketplaceRequests';
 import { SSRTrendingRequests } from '@/SSR/requests/trending/SSRTrendingRequests';
+import { SSRCollectionsRequests } from '@/SSR/requests/collections/SSRCollectionsRequest';
+
 
 function IndexPage() {
   return (
@@ -41,6 +43,9 @@ IndexPage.getInitialProps = async (ctx) => {
   );
 
   awaitPromises.push(SSRTrendingRequests(ctx));
+
+  awaitPromises.push(SSRCollectionsRequests(ctx));
+
 
   await Promise.all(awaitPromises);
 

@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { useRouter } from 'next/navigation'
+
 import { connect } from 'react-redux';
 
 import SiteWrapperLayout from '@/components/layouts/SiteWrapperLayout';
@@ -8,12 +10,21 @@ import Button from '@/js/components/ui/buttons/Button';
 import styles from './styles.module.scss';
 
 function MainCards({ events }) {
+    const router = useRouter()
+
+  const onSearch = (value) => {
+    router.push({
+      pathname: "/marketplace",
+      query: {query: value}
+    })
+  }
+
   return (
     <SiteWrapperLayout direction="column" className={styles.MainCards}>
       <div className={styles.MainCards__header}>
         <SearchInput
           id="MainLandingSearch"
-          onSearch={() => {}}
+          onSearch={onSearch}
           border={false}
           className={styles.MainCards__input}
           size="large"
@@ -39,7 +50,7 @@ function MainCards({ events }) {
           );
         })}
       </div>
-      <Button className={styles.MainCards__more}>Find More</Button>
+      <Button className={styles.MainCards__more} onClick={() => router.push("/marketplace")}>Find More</Button>
     </SiteWrapperLayout>
   );
 }

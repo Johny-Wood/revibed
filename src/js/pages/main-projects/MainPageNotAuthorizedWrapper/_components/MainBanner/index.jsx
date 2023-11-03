@@ -1,4 +1,5 @@
 import { createRef, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation'
 
 import classNames from 'classnames';
 import Image from 'next/image';
@@ -19,6 +20,8 @@ function MainBanner({ scrollValue }) {
   const [startAnimation, setStartAnimation] = useState(false);
   const [modal, setModal] = useState(false);
   const mainAnimationRef = createRef();
+
+  const router = useRouter()
 
   useEffect(() => {
     setStartAnimation(true);
@@ -126,7 +129,7 @@ function MainBanner({ scrollValue }) {
           becomes <br className={styles.MainBanner__brmob} />
           legal and&nbsp;accessible to&nbsp;everyone.
         </div>
-        <Button className={styles.MainBanner__button} onClick={() => setModal(true)}>
+        <Button className={styles.MainBanner__button} onClick={() => router.push("/main")}>
           Download Now
         </Button>
         <VinilParallax scrollValue={scrollValue} />

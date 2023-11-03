@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { connect } from 'react-redux';
 
 import SiteWrapperLayout from '@/js/components/layouts/SiteWrapperLayout';
 
@@ -10,15 +11,17 @@ import image2 from '../../_images/Collector-2.jpg';
 import image3 from '../../_images/Collector-3.jpg';
 import image5 from '../../_images/Collector-4.jpg';
 import image4 from '../../_images/Collector-5.jpg';
+import Link from 'next/link';
 
-function Collector({ scrollObject }) {
-  const collectorsData = [
-    { id: '1', url: image1, title: 'Cybernetic Love' },
-    { id: '2', url: image2, title: 'Funk Is Back In Town' },
-    { id: '3', url: image3, title: 'Jalousie Forever' },
-    { id: '4', url: image4, title: 'Bob’s Songs' },
-    { id: '5', url: image5, title: 'Bossanova Mbamina' },
-  ];
+function Collector({ scrollObject, collections}) {
+  // const collectorsData = [
+  //   { id: '1', url: image1, title: 'Cybernetic Love' },
+  //   { id: '2', url: image2, title: 'Funk Is Back In Town' },
+  //   { id: '3', url: image3, title: 'Jalousie Forever' },
+  //   { id: '4', url: image4, title: 'Bob’s Songs' },
+  //   { id: '5', url: image5, title: 'Bossanova Mbamina' },
+  // ];
+
 
   return (
     <div className={styles.Collector}>
@@ -29,11 +32,11 @@ function Collector({ scrollObject }) {
           available on&nbsp;Revibed! Don&apos;t miss out, check it out now!
         </p>
         <div className={styles.Collector__cards}>
-          {collectorsData.map((item) => (
-            <div key={item.id} className={styles.Collector__card}>
-              <div className={styles.Collector__cardName}>{item.title}</div>
-              <Image className={styles.Collector__cardImage} src={item.url} width={75} height={75} alt={item.title} />
-            </div>
+          {collections.map((item) => (
+              <Link key={item.sort} href={item.link} className={styles.Collector__card}>
+                <div className={styles.Collector__cardName}>{item.name}</div>
+                <Image className={styles.Collector__cardImage} src={item.cover} width={75} height={75} alt={item.name} />
+              </Link>
           ))}
         </div>
         <div className={styles.Collector__licensed}>
@@ -98,4 +101,7 @@ function Collector({ scrollObject }) {
   );
 }
 
-export default Collector;
+export default connect((state) => ({
+  collections: state.CollectionsListReducer.list,
+  getCollectionsListFromApi: state.CollectionsListReducer.getCollectionsListFromApi,
+}))(Collector);

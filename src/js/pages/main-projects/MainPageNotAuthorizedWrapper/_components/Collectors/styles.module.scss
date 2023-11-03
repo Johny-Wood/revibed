@@ -11,7 +11,7 @@
   }
   overflow: hidden;
   position: relative;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
 
   &__wrapper {
     align-items: center;
@@ -147,7 +147,7 @@
     column-gap: convert-px2rem(10);
     @include breakpoint($b-tabletS__max) {
       margin-top: convert-px2rem(111);
-      font-size:  convert-px2rem(12);
+      font-size: convert-px2rem(12);
       & svg {
         width: convert-px2rem(120);
       }
