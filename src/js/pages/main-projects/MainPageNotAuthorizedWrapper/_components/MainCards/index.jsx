@@ -44,7 +44,7 @@ function MainCards({ events }) {
               <div className={styles.MainCard__info}>
                 <div className={styles.MainCard__infoTitle}>{artists || ''}</div>
                 <div className={styles.MainCard__infoDesc}>{card.name}</div>
-                <Button className={styles.MainCard__button}>Buy now</Button>
+                <Button className={styles.MainCard__button} onClick={() => router.push("/marketplace/" + card.id)}>Buy now</Button>
               </div>
             </div>
           );
