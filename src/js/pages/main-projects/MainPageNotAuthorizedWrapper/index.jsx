@@ -20,20 +20,20 @@ function MainPageNotAuthorizedWrapper({ userIsAuthorized, isNotDesktop }) {
 
 
   return (
-    <BaseWebsiteLayout
-      headSettings={{
-        title: metaTitle,
-        description: metaDescription,
-      }}
-      headerProps={{
-        transparent: !userIsAuthorized && !isNotDesktop,
-        withTransparent: !isNotDesktop,
-        mainLanding: true,
-      }}
-      withoutPaddingTop={!userIsAuthorized && !isNotDesktop}
-      onScrollHandler={setScrollValue}
-      withoutFooter
-    >
+      <BaseWebsiteLayout
+        headSettings={{
+          title: metaTitle,
+          description: metaDescription,
+        }}
+        headerProps={{
+          transparent: !userIsAuthorized && !isNotDesktop,
+          withTransparent: !isNotDesktop,
+          mainLanding: true,
+        }}
+        withoutPaddingTop={!userIsAuthorized && !isNotDesktop}
+        onScrollHandler={setScrollValue}
+        withoutFooter
+      >
       <div className={styles.cont}>
         <div className={styles.cont__child}>
           <MainBanner scrollValue={scrollValue.scrollTop} />
@@ -49,12 +49,11 @@ function MainPageNotAuthorizedWrapper({ userIsAuthorized, isNotDesktop }) {
         </div>
         <div className={styles.cont__child}>
           <Collector scrollObject={scrollValue} />
-        </div>
-        <div className={styles.cont__child}>
           <Footer footerProps={{ blackFooter: true }} />
         </div>
       </div>
-    </BaseWebsiteLayout>
+      </BaseWebsiteLayout>
+
   );
 }
 

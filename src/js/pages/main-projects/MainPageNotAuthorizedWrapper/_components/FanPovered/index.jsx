@@ -32,6 +32,9 @@ function FanPovered() {
     if (condition) {
       setStartAnimation(true);
     }
+
+    console.log(animationRef.current.getBoundingClientRect().top)
+    console.log(2 * animationRef.current.getBoundingClientRect().height)
   }, [animationRef]);
 
   return (

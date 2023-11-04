@@ -38,6 +38,7 @@ function MainBanner({ scrollValue,
   useEffect(() => {
     setModal(true);
   }, [])
+    console.log(scrollValue)
 
   const modalCards = [
     {
