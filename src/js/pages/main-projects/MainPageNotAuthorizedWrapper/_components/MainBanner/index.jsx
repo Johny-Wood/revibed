@@ -15,8 +15,16 @@ import imageModal2 from '../../_images/card2_illustration.png';
 import imageModal3 from '../../_images/card3_illustration.png';
 import imageUrl from '../../_images/mainBanner.png';
 import imageVinil from '../../_images/mainVinil.png';
+import { connect } from 'react-redux';
 
-function MainBanner({ scrollValue }) {
+function MainBanner({ scrollValue,
+  variablesList: {
+    DEFAULT_PROJECT_EXPIRATION_HOURS,
+    PROMOTION_FOUNDER_POINT_TO_COINS_COEFFICIENT,
+    PROJECT_FOUNDER_CONTRIBUTION_PRICE,
+    PROMOTION_CONTRIBUTOR_POINT_TO_COINS_COEFFICIENT,
+    PROJECT_CONTRIBUTOR_CONTRIBUTION_PRICE,
+  } = {}, }) {
   const [startAnimation, setStartAnimation] = useState(false);
   const [modal, setModal] = useState(false);
   const mainAnimationRef = createRef();
@@ -25,6 +33,7 @@ function MainBanner({ scrollValue }) {
 
   useEffect(() => {
     setStartAnimation(true);
+    setModal(true);
   }, [mainAnimationRef]);
 
   const modalCards = [
@@ -38,13 +47,13 @@ function MainBanner({ scrollValue }) {
       ),
       url: imageModal1,
       imgClass: styles.MainBanner__img1,
-      footer: <>Up to 14&nbsp;days of funding time</>,
+      footer: <>Up to {Math.floor(DEFAULT_PROJECT_EXPIRATION_HOURS / 24)}&nbsp;days of funding time</>,
       bottom: (
         <>
           Get your digital files cheaper <br className={styles.MainBanner__brmoddsk} />
           and quicker than <br className={styles.MainBanner__brmodmob} />
           anyone else <br className={styles.MainBanner__brmoddsk} />
-          <strong>(pay 7.5&nbsp;eur instead of&nbsp;10)</strong>
+          <strong>(pay {PROJECT_CONTRIBUTOR_CONTRIBUTION_PRICE}&nbsp;eur instead of&nbsp;12.99)</strong>
         </>
       ),
     },
@@ -63,7 +72,7 @@ function MainBanner({ scrollValue }) {
         <>
           Average time from purchase <br className={styles.MainBanner__brmodmob} />
           to <br className={styles.MainBanner__brmoddsk} />
-          digitisation — X days
+          digitisation — 14 days
         </>
       ),
       bottom: false,
@@ -82,9 +91,9 @@ function MainBanner({ scrollValue }) {
       ),
       bottom: (
         <>
-          Join 4&nbsp;successful pre-orders and <br className={styles.MainBanner__brmoddsk} />
+          Join {PROMOTION_CONTRIBUTOR_POINT_TO_COINS_COEFFICIENT}&nbsp;successful pre-orders and <br className={styles.MainBanner__brmoddsk} />
           <strong>
-            get 7.5&nbsp;EUR <br className={styles.MainBanner__brmodmob} />
+            get {PROJECT_CONTRIBUTOR_CONTRIBUTION_PRICE}&nbsp;EUR <br className={styles.MainBanner__brmodmob} />
             in cashback
           </strong>
           &nbsp;(that&apos;s 1&nbsp;release <br className={styles.MainBanner__brmoddsk} />
@@ -179,4 +188,9 @@ function MainBanner({ scrollValue }) {
   );
 }
 
-export default MainBanner;
+const connector = connect((state) => ({
+  variablesList: state.VariablesReducer.variablesList,
+}));
+
+export default connector(MainBanner);
+// export default MainBanner;
