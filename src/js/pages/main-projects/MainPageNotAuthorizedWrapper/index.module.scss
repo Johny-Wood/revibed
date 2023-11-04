@@ -1,0 +1,9 @@
+.cont {
+  overflow-y: scroll;
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+
+  &__child {
+    scroll-snap-align: center;
+  }
+}
