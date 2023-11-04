@@ -33,8 +33,11 @@ function MainBanner({ scrollValue,
 
   useEffect(() => {
     setStartAnimation(true);
-    setModal(true);
   }, [mainAnimationRef]);
+
+  useEffect(() => {
+    setModal(true);
+  }, [])
 
   const modalCards = [
     {
