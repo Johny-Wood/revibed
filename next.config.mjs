@@ -35,7 +35,7 @@ export default withNextEnv({
     return [
       {
         source: '/api/:path*',
-        destination: 'https://api.example.com/:path*',
+        destination: 'https://new-kollektive.undv.ru/api/:path*',
       },
     ];
   },
