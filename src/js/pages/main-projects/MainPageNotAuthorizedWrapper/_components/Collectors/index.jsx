@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { connect } from 'react-redux';
 
 import SiteWrapperLayout from '@/js/components/layouts/SiteWrapperLayout';
@@ -6,14 +7,13 @@ import SiteWrapperLayout from '@/js/components/layouts/SiteWrapperLayout';
 import CollectorsParallax from './Parallax';
 import styles from './styles.module.scss';
 
-import image1 from '../../_images/Collector-1.jpg';
-import image2 from '../../_images/Collector-2.jpg';
-import image3 from '../../_images/Collector-3.jpg';
-import image5 from '../../_images/Collector-4.jpg';
-import image4 from '../../_images/Collector-5.jpg';
-import Link from 'next/link';
+// import image1 from '../../_images/Collector-1.jpg';
+// import image2 from '../../_images/Collector-2.jpg';
+// import image3 from '../../_images/Collector-3.jpg';
+// import image5 from '../../_images/Collector-4.jpg';
+// import image4 from '../../_images/Collector-5.jpg';
 
-function Collector({ scrollObject, collections}) {
+function Collector({ scrollValue, collections }) {
   // const collectorsData = [
   //   { id: '1', url: image1, title: 'Cybernetic Love' },
   //   { id: '2', url: image2, title: 'Funk Is Back In Town' },
@@ -21,7 +21,6 @@ function Collector({ scrollObject, collections}) {
   //   { id: '4', url: image4, title: 'Bob’s Songs' },
   //   { id: '5', url: image5, title: 'Bossanova Mbamina' },
   // ];
-
 
   return (
     <div className={styles.Collector}>
@@ -33,10 +32,10 @@ function Collector({ scrollObject, collections}) {
         </p>
         <div className={styles.Collector__cards}>
           {collections.map((item) => (
-              <Link key={item.sort} href={item.link} className={styles.Collector__card}>
-                <div className={styles.Collector__cardName}>{item.name}</div>
-                <Image className={styles.Collector__cardImage} src={item.cover} width={75} height={75} alt={item.name} />
-              </Link>
+            <Link key={item.sort} href={item.link} className={styles.Collector__card}>
+              <div className={styles.Collector__cardName}>{item.name}</div>
+              <Image className={styles.Collector__cardImage} src={item.cover} width={75} height={75} alt={item.name} />
+            </Link>
           ))}
         </div>
         <div className={styles.Collector__licensed}>
@@ -95,7 +94,7 @@ function Collector({ scrollObject, collections}) {
             </defs>
           </svg>
         </div>
-        <CollectorsParallax scrollObject={scrollObject} />
+        <CollectorsParallax scrollValue={scrollValue} />
       </SiteWrapperLayout>
     </div>
   );

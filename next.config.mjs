@@ -29,6 +29,14 @@ export default withNextEnv({
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ["s3.amazonaws.com"]
-  }
+    domains: ['s3.amazonaws.com'],
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://api.example.com/:path*',
+      },
+    ];
+  },
 });

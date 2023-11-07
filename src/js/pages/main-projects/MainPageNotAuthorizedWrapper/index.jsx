@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import BaseWebsiteLayout from '@/components/layouts/BaseWebsiteLayout';
 import Footer from '@/js/components/global/Footer';
@@ -9,7 +9,7 @@ import FanPovered from './_components/FanPovered';
 import MainCards from './_components/MainCards';
 import Preorders from './_components/Preorders';
 
-import styles from './index.module.scss'
+import styles from './index.module.scss';
 
 const metaTitle = 'Wanted Vinyl Records, CDs & Cassette Tapes In High Resolution';
 const metaDescription =
@@ -17,26 +17,30 @@ const metaDescription =
 
 function MainPageNotAuthorizedWrapper({ userIsAuthorized, isNotDesktop }) {
   const [scrollValue, setScrollValue] = useState(0);
+  const scrollSnapContainerRef = useRef(null);
 
+  const handleScroll = () => {
+    setScrollValue(scrollSnapContainerRef.current.scrollTop);
+  };
 
   return (
-      <BaseWebsiteLayout
-        headSettings={{
-          title: metaTitle,
-          description: metaDescription,
-        }}
-        headerProps={{
-          transparent: !userIsAuthorized && !isNotDesktop,
-          withTransparent: !isNotDesktop,
-          mainLanding: true,
-        }}
-        withoutPaddingTop={!userIsAuthorized && !isNotDesktop}
-        onScrollHandler={setScrollValue}
-        withoutFooter
-      >
-      <div className={styles.cont}>
+    <BaseWebsiteLayout
+      headSettings={{
+        title: metaTitle,
+        description: metaDescription,
+      }}
+      headerProps={{
+        transparent: !userIsAuthorized && !isNotDesktop,
+        withTransparent: !isNotDesktop,
+        mainLanding: true,
+      }}
+      withoutPaddingTop={!userIsAuthorized && !isNotDesktop}
+      // onScrollHandler={setScrollValue}
+      withoutFooter
+    >
+      <div className={styles.cont} ref={scrollSnapContainerRef} onScroll={handleScroll}>
         <div className={styles.cont__child}>
-          <MainBanner scrollValue={scrollValue.scrollTop} />
+          <MainBanner scrollValue={scrollValue} />
         </div>
         <div className={styles.cont__child}>
           <MainCards />
@@ -48,12 +52,11 @@ function MainPageNotAuthorizedWrapper({ userIsAuthorized, isNotDesktop }) {
           <Preorders />
         </div>
         <div className={styles.cont__child}>
-          <Collector scrollObject={scrollValue} />
+          <Collector scrollValue={scrollValue} />
           <Footer footerProps={{ blackFooter: true }} />
         </div>
       </div>
-      </BaseWebsiteLayout>
-
+    </BaseWebsiteLayout>
   );
 }
 

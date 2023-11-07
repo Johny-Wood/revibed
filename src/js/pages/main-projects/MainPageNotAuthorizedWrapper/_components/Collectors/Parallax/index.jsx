@@ -3,7 +3,7 @@ import { createRef, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
 
-import ScrollService from '@/js/services/scroll/ScrollService';
+// import ScrollService from '@/js/services/scroll/ScrollService';
 
 import styles from './styles.module.scss';
 
@@ -18,19 +18,17 @@ import imageSm2 from '../../../_images/Vinill-sm-2.png';
 import imageSm3 from '../../../_images/Vinill-sm-3.png';
 import imageSm4 from '../../../_images/Vinill-sm-4.png';
 
-function CollectorsParallax({ scrollObject }) {
-  const { scrollTop } = scrollObject;
-
+function CollectorsParallax({ scrollValue }) {
   const parallaxRef = createRef();
   const [topParallaxBlock, setTopParallaxBlock] = useState(0);
 
   useEffect(() => {
-    setTopParallaxBlock(parallaxRef.current.getBoundingClientRect().top + ScrollService.getScrollPosition());
-  }, [parallaxRef]);
+    setTopParallaxBlock(parallaxRef.current.getBoundingClientRect().top + scrollValue);
+  }, [parallaxRef, scrollValue]);
 
   function getParallaxValue(value) {
     const topElement = topParallaxBlock;
-    const ParallaxCoeff = topElement - scrollTop > 0 ? topElement - window.innerHeight + 977 - scrollTop : 0;
+    const ParallaxCoeff = topElement - scrollValue > 0 ? topElement - window.innerHeight + 977 - scrollValue : 0;
     const transformValue = value * ParallaxCoeff;
 
     return {

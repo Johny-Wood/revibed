@@ -1,9 +1,8 @@
 import { createRef, useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation'
-
 
 import classNames from 'classnames';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import SiteWrapperLayout from '@/js/components/layouts/SiteWrapperLayout';
 import Button from '@/js/components/ui/buttons/Button';
@@ -23,18 +22,15 @@ function FanPovered() {
   const [startAnimation, setStartAnimation] = useState(false);
   const animationRef = createRef();
 
-  const router = useRouter()
-
+  const router = useRouter();
 
   useEffect(() => {
-    const condition = animationRef.current.getBoundingClientRect().top < 2 * animationRef.current.getBoundingClientRect().height;
+    const condition =
+      animationRef.current.getBoundingClientRect().top - 277 < 2 * animationRef.current.getBoundingClientRect().height;
 
     if (condition) {
       setStartAnimation(true);
     }
-
-    console.log(animationRef.current.getBoundingClientRect().top)
-    console.log(2 * animationRef.current.getBoundingClientRect().height)
   }, [animationRef]);
 
   return (
@@ -121,12 +117,16 @@ function FanPovered() {
               music <br className={styles.FanPovered__brmob} />
               into the&nbsp;Revibed catalog!
             </div>
-            <Button className={styles.FanPovered__button} onClick={() => router.push("/personal/drafts/add")}>Start Pre-order</Button>
+            <Button className={styles.FanPovered__button} onClick={() => router.push('/personal/drafts/add')}>
+              Start Pre-order
+            </Button>
           </div>
           <span className={styles.FanPovered__footerSeparator} />
           <div className={styles.FanPovered__footerCol}>
             <div className={styles.FanPovered__footerText}>Join the vibe digger&apos;s world is into!</div>
-            <Button className={styles.FanPovered__button} onClick={() => router.push("/music-legacy-projects")}>Browse Pre-orders</Button>
+            <Button className={styles.FanPovered__button} onClick={() => router.push('/music-legacy-projects')}>
+              Browse Pre-orders
+            </Button>
           </div>
         </div>
       </SiteWrapperLayout>

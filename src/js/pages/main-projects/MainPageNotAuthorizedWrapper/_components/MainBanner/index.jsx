@@ -1,5 +1,6 @@
 import { createRef, useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation'
+import { connect } from 'react-redux';
+import { useRouter } from 'next/navigation';
 
 import classNames from 'classnames';
 import Image from 'next/image';
@@ -15,7 +16,6 @@ import imageModal2 from '../../_images/card2_illustration.png';
 import imageModal3 from '../../_images/card3_illustration.png';
 import imageUrl from '../../_images/mainBanner.png';
 import imageVinil from '../../_images/mainVinil.png';
-import { connect } from 'react-redux';
 
 function MainBanner({ scrollValue,
   variablesList: {
@@ -38,7 +38,6 @@ function MainBanner({ scrollValue,
   useEffect(() => {
     setModal(true);
   }, [])
-    console.log(scrollValue)
 
   const modalCards = [
     {
