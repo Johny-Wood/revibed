@@ -11,14 +11,16 @@ const Vinil = ({ src, width, height, alt = 'vinil', quality = 100, className }) 
   const [isUnHovered, setIsUnhovered] = useState(false);
 
   return (
-    <Image
+    <div
       className={classNames(
         className,
         styles.vinil,
         isClicked && styles['vinil--stop'],
         isHovered && styles['vinil--zoom'],
         isUnHovered && styles['vinil--out']
-      )}
+      )}>
+    <Image
+      
       src={src}
       width={width}
       height={height}
@@ -35,6 +37,7 @@ const Vinil = ({ src, width, height, alt = 'vinil', quality = 100, className }) 
         setIsUnhovered((prev) => !prev);
       }}
     />
+    </div>
   );
 };
 

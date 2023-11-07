@@ -34,7 +34,7 @@ function CollectorsParallax({ scrollValue }) {
     // const topValue = value * ParallaxCoeff;
 
     return {
-      // top: `top: calc(55% + ${topValue})`
+       //top: `calc(55% + ${transformValue}px)`
       transform: `translateY(${transformValue}px)`,
     };
   }
