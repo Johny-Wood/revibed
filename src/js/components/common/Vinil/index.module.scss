@@ -1,0 +1,15 @@
+.vinil {
+  pointer-events: all;
+
+  &--stop {
+    animation-play-state: paused !important;
+  }
+
+  &--zoom {
+    scale: 110%;
+  }
+
+  &--out {
+    scale: 100%;
+  }
+}
