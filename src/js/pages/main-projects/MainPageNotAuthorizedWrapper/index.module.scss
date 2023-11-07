@@ -2,9 +2,10 @@
   overflow-y: scroll;
   height: 100vh;
   scroll-snap-type: y mandatory;
+  scroll-padding: calc(1rem * 71 / var(--font-size__small-int));
 
   &__child {
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     overflow: hidden;
   }
 }
