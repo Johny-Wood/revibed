@@ -37,6 +37,7 @@ function MainPageNotAuthorizedWrapper({ userIsAuthorized, isNotDesktop }) {
       withoutPaddingTop={!userIsAuthorized && !isNotDesktop}
       // onScrollHandler={setScrollValue}
       withoutFooter
+      disableScrollbar
     >
       <div className={styles.cont} ref={scrollSnapContainerRef} onScroll={handleScroll}>
         <div className={styles.cont__child}>
