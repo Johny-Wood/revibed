@@ -1,11 +1,11 @@
 import { createRef, useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { useRouter } from 'next/navigation';
 
 import classNames from 'classnames';
 import Image from 'next/image';
+import { connect } from 'react-redux';
 
-import Button from '@/js/components/ui/buttons/Button';
+import { RoutePathsConstants } from '@/constants/routes/routes';
+import LinkRoute from '@/js/components/ui/links/LinkRoute';
 
 import Modal from './Modal';
 import VinilParallax from './Parallax';
@@ -17,27 +17,21 @@ import imageModal3 from '../../_images/card3_illustration.png';
 import imageUrl from '../../_images/mainBanner.png';
 import imageVinil from '../../_images/mainVinil.png';
 
-function MainBanner({ scrollValue,
+function MainBanner({
+  scrollValue,
   variablesList: {
     DEFAULT_PROJECT_EXPIRATION_HOURS,
-    PROMOTION_FOUNDER_POINT_TO_COINS_COEFFICIENT,
-    PROJECT_FOUNDER_CONTRIBUTION_PRICE,
     PROMOTION_CONTRIBUTOR_POINT_TO_COINS_COEFFICIENT,
     PROJECT_CONTRIBUTOR_CONTRIBUTION_PRICE,
-  } = {}, }) {
+  } = {},
+}) {
   const [startAnimation, setStartAnimation] = useState(false);
   const [modal, setModal] = useState(false);
   const mainAnimationRef = createRef();
 
-  const router = useRouter()
-
   useEffect(() => {
     setStartAnimation(true);
   }, [mainAnimationRef]);
-
-  useEffect(() => {
-    // setModal(true);
-  }, []);
 
   const modalCards = [
     {
@@ -94,7 +88,8 @@ function MainBanner({ scrollValue,
       ),
       bottom: (
         <>
-          Join {PROMOTION_CONTRIBUTOR_POINT_TO_COINS_COEFFICIENT}&nbsp;successful pre-orders and <br className={styles.MainBanner__brmoddsk} />
+          Join {PROMOTION_CONTRIBUTOR_POINT_TO_COINS_COEFFICIENT}&nbsp;successful pre-orders and{' '}
+          <br className={styles.MainBanner__brmoddsk} />
           <strong>
             get {PROJECT_CONTRIBUTOR_CONTRIBUTION_PRICE}&nbsp;EUR <br className={styles.MainBanner__brmodmob} />
             in cashback
@@ -141,9 +136,10 @@ function MainBanner({ scrollValue,
           becomes <br className={styles.MainBanner__brmob} />
           legal and&nbsp;accessible to&nbsp;everyone.
         </div>
-        <Button className={styles.MainBanner__button} onClick={() => router.push("/main")}>
+
+        <LinkRoute className={classNames("button", styles.MainBanner__button)} href={RoutePathsConstants.MARKETPLACE}>
           Download Now
-        </Button>
+        </LinkRoute>
         <VinilParallax scrollValue={scrollValue} />
       </div>
       <Modal visible={modal} setVisible={setModal}>
@@ -196,4 +192,3 @@ const connector = connect((state) => ({
 }));
 
 export default connector(MainBanner);
-// export default MainBanner;

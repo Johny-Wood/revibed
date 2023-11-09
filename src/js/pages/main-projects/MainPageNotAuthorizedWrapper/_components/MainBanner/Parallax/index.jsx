@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import Image from 'next/image';
+
+import Vinil from '@/js/components/common/Vinil';
 
 import styles from './styles.module.scss';
 
@@ -17,7 +18,6 @@ import imageSm5 from '../../../_images/Main-sm-5.png';
 import imageSm6 from '../../../_images/Main-sm-6.png';
 import imageSm7 from '../../../_images/Main-sm-7.png';
 import imageSm8 from '../../../_images/Main-sm-8.png';
-import Vinil from '@/js/components/common/Vinil';
 
 function VinilParallax({ scrollValue }) {
   function getParallaxValue(value) {
@@ -31,81 +31,24 @@ function VinilParallax({ scrollValue }) {
   return (
     <div className={styles.Parallax}>
       <div className={classNames(styles.Parallax__image, styles.Parallax__imageLg)} style={getParallaxValue(0.2)}>
-        <Vinil
-          src={imageLg1}
-          className={styles.Parallax__imageItem}
-        />
-        <Vinil
-          src={imageLg2}
-          className={styles.Parallax__imageItem}
-        />
-        {/* <Image src={imageLg1} className={styles.Parallax__imageItem} alt="vinill" /> */}
-        {/* <Image src={imageLg2} className={styles.Parallax__imageItem} alt="vinill" /> */}
+        <Vinil src={imageLg1} className={styles.Parallax__imageItem} />
+        <Vinil src={imageLg2} className={styles.Parallax__imageItem} />
       </div>
       <div className={classNames(styles.Parallax__image, styles.Parallax__imageMd)} style={getParallaxValue(0.5)}>
-        <Vinil
-          src={imageMd1}
-          className={styles.Parallax__imageItem}
-        />
-        <Vinil
-          src={imageMd2}
-          className={styles.Parallax__imageItem}
-        />
-        <Vinil
-          src={imageMd3}
-          className={styles.Parallax__imageItem}
-        />
-        <Vinil
-          src={imageMd4}
-          className={styles.Parallax__imageItem}
-        />
-        {/* <Image src={imageMd1} className={styles.Parallax__imageItem} alt="vinill" /> */}
-        {/* <Image src={imageMd2} className={styles.Parallax__imageItem} alt="vinill" /> */}
-        {/* <Image src={imageMd3} className={styles.Parallax__imageItem} alt="vinill" /> */}
-        {/* <Image src={imageMd4} className={styles.Parallax__imageItem} alt="vinill" /> */}
+        <Vinil src={imageMd1} className={styles.Parallax__imageItem} />
+        <Vinil src={imageMd2} className={styles.Parallax__imageItem} />
+        <Vinil src={imageMd3} className={styles.Parallax__imageItem} />
+        <Vinil src={imageMd4} className={styles.Parallax__imageItem} />
       </div>
       <div className={classNames(styles.Parallax__image, styles.Parallax__imageSm)} style={getParallaxValue(0.6)}>
-        <Vinil
-          src={imageSm1}
-          className={styles.Parallax__imageItem}
-        />
-        <Vinil
-          src={imageSm2}
-          className={styles.Parallax__imageItem}
-        />
-        <Vinil
-          src={imageSm3}
-          className={styles.Parallax__imageItem}
-        />
-        <Vinil
-          src={imageSm4}
-          className={styles.Parallax__imageItem}
-        />
-        <Vinil
-          src={imageSm5}
-          className={styles.Parallax__imageItem}
-        />
-        <Vinil
-          src={imageSm6}
-          className={styles.Parallax__imageItem}
-        />
-        <Vinil
-          src={imageSm7}
-          className={styles.Parallax__imageItem}
-        />
-        <Vinil
-          src={imageSm8}
-          className={styles.Parallax__imageItem}
-        />
-
-        {/* <Image src={imageSm1} className={styles.Parallax__imageItem} alt="vinill" /> */}
-        {/* <Image src={imageSm2} className={styles.Parallax__imageItem} alt="vinill" /> */}
-        {/* <Image src={imageSm3} className={styles.Parallax__imageItem} alt="vinill" /> */}
-        {/* <Image src={imageSm4} className={styles.Parallax__imageItem} alt="vinill" /> */}
-        {/* <Image src={imageSm5} className={styles.Parallax__imageItem} alt="vinill" /> */}
-        {/* <Image src={imageSm6} className={styles.Parallax__imageItem} alt="vinill" /> */}
-        {/* <Image src={imageSm7} className={styles.Parallax__imageItem} alt="vinill" /> */}
-        {/* <Image src={imageSm8} className={styles.Parallax__imageItem} alt="vinill" /> */}
+        <Vinil src={imageSm1} className={styles.Parallax__imageItem} />
+        <Vinil src={imageSm2} className={styles.Parallax__imageItem} />
+        <Vinil src={imageSm3} className={styles.Parallax__imageItem} />
+        <Vinil src={imageSm4} className={styles.Parallax__imageItem} />
+        <Vinil src={imageSm5} className={styles.Parallax__imageItem} />
+        <Vinil src={imageSm6} className={styles.Parallax__imageItem} />
+        <Vinil src={imageSm7} className={styles.Parallax__imageItem} />
+        <Vinil src={imageSm8} className={styles.Parallax__imageItem} />
       </div>
     </div>
   );

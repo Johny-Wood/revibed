@@ -8,7 +8,6 @@ import Collector from './_components/Collectors';
 import FanPovered from './_components/FanPovered';
 import MainCards from './_components/MainCards';
 import Preorders from './_components/Preorders';
-
 import styles from './index.module.scss';
 
 const metaTitle = 'Wanted Vinyl Records, CDs & Cassette Tapes In High Resolution';
@@ -35,7 +34,6 @@ function MainPageNotAuthorizedWrapper({ userIsAuthorized, isNotDesktop }) {
         mainLanding: true,
       }}
       withoutPaddingTop={!userIsAuthorized && !isNotDesktop}
-      // onScrollHandler={setScrollValue}
       withoutFooter
       disableScrollbar
     >

@@ -1,16 +1,16 @@
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import { connect } from 'react-redux';
-import { useRouter } from 'next/navigation'
+import classNames from 'classnames';
+
+import { RoutePathsConstants } from '@/constants/routes/routes';
 
 import SiteWrapperLayout from '@/components/layouts/SiteWrapperLayout';
-import Button from '@/js/components/ui/buttons/Button';
+import LinkRoute from '@/js/components/ui/links/LinkRoute';
 
 import styles from './styles.module.scss';
 
 function Preorders({ projectsInfo }) {
-  const router = useRouter()
-
   return (
     <SiteWrapperLayout direction="column" className={styles.Preorders}>
       <div className={styles.Preorders__content}>
@@ -45,7 +45,9 @@ function Preorders({ projectsInfo }) {
           })}
         </div>
       </div>
-      <Button className={styles.Preorders__more} onClick={() => router.push("/music-legacy-projects")}>Find More</Button>
+      <LinkRoute className={classNames("button", styles.Preorders__more)} href={RoutePathsConstants.PROJECTS}>
+        Find more
+      </LinkRoute>
     </SiteWrapperLayout>
   );
 }

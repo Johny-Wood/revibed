@@ -7,21 +7,7 @@ import SiteWrapperLayout from '@/js/components/layouts/SiteWrapperLayout';
 import CollectorsParallax from './Parallax';
 import styles from './styles.module.scss';
 
-// import image1 from '../../_images/Collector-1.jpg';
-// import image2 from '../../_images/Collector-2.jpg';
-// import image3 from '../../_images/Collector-3.jpg';
-// import image5 from '../../_images/Collector-4.jpg';
-// import image4 from '../../_images/Collector-5.jpg';
-
 function Collector({ scrollValue, collections }) {
-  // const collectorsData = [
-  //   { id: '1', url: image1, title: 'Cybernetic Love' },
-  //   { id: '2', url: image2, title: 'Funk Is Back In Town' },
-  //   { id: '3', url: image3, title: 'Jalousie Forever' },
-  //   { id: '4', url: image4, title: 'Bob’s Songs' },
-  //   { id: '5', url: image5, title: 'Bossanova Mbamina' },
-  // ];
-
   return (
     <div className={styles.Collector}>
       <SiteWrapperLayout className={styles.Collector__wrapper} direction="column">

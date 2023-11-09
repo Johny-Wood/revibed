@@ -4,8 +4,10 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import { RoutePathsConstants } from '@/constants/routes/routes';
+
 import SiteWrapperLayout from '@/js/components/layouts/SiteWrapperLayout';
-import Button from '@/js/components/ui/buttons/Button';
+import LinkRoute from '@/js/components/ui/links/LinkRoute';
 
 import styles from './styles.module.scss';
 
@@ -117,16 +119,16 @@ function FanPovered() {
               music <br className={styles.FanPovered__brmob} />
               into the&nbsp;Revibed catalog!
             </div>
-            <Button className={styles.FanPovered__button} onClick={() => router.push('/personal/drafts/add')}>
+            <LinkRoute className={styles.FanPovered__button} href={RoutePathsConstants.DRAFTS_ADD}>
               Start Pre-order
-            </Button>
+            </LinkRoute>
           </div>
           <span className={styles.FanPovered__footerSeparator} />
           <div className={styles.FanPovered__footerCol}>
             <div className={styles.FanPovered__footerText}>Join the vibe digger&apos;s world is into!</div>
-            <Button className={styles.FanPovered__button} onClick={() => router.push('/music-legacy-projects')}>
+            <LinkRoute className={styles.FanPovered__button} href={RoutePathsConstants.PROJECTS}>
               Browse Pre-orders
-            </Button>
+            </LinkRoute>
           </div>
         </div>
       </SiteWrapperLayout>

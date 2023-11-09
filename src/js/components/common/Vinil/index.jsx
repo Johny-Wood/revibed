@@ -18,26 +18,27 @@ const Vinil = ({ src, width, height, alt = 'vinil', quality = 100, className }) 
         isClicked && styles['vinil--stop'],
         isHovered && styles['vinil--zoom'],
         isUnHovered && styles['vinil--out']
-      )}>
-    <Image
-      
-      src={src}
-      width={width}
-      height={height}
-      alt={alt}
-      quality={quality}
-      onMouseDown={() => setIsClicked((prev) => true)}
-      onMouseUp={() => setIsClicked((prev) => false)}
-      onMouseEnter={() => {
-        setIsUnhovered(false);
-        setIsHovered((prev) => !prev);
-      }}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        setIsClicked(false);
-        setIsUnhovered((prev) => !prev);
-      }}
-    />
+      )}
+    >
+      <Image
+        className={styles.vinil__img}
+        src={src}
+        width={width}
+        height={height}
+        alt={alt}
+        quality={quality}
+        onMouseDown={() => setIsClicked((prev) => true)}
+        onMouseUp={() => setIsClicked((prev) => false)}
+        onMouseEnter={() => {
+          setIsUnhovered(false);
+          setIsHovered((prev) => !prev);
+        }}
+        onMouseLeave={() => {
+          setIsHovered(false);
+          setIsClicked(false);
+          setIsUnhovered((prev) => !prev);
+        }}
+      />
     </div>
   );
 };
