@@ -78,7 +78,7 @@ import WantListReducer from './wantList/wantListReducer';
 import WantListReleaseItemReducer from './wantList/wantListReleaseItemReducer';
 import WantListReleasesItemsReducer from './wantList/wantListReleasesItemsReducer';
 import WebsocketSubscribeReducer from './websocket/subscribeReducer';
-import CollectionsListReducer from './collections/collectionsReducer';
+import GoodsCollectionsListReducer from './collections/goodsCollectionsReducer';
 
 const dependentLogOutReducers = {
   AuthReducer,
@@ -135,7 +135,7 @@ const dependentAuthReducers = {
   MarketplaceSortAndFiltersReducer,
   BlogReducer,
   CashbackReducer,
-  CollectionsListReducer
+  GoodsCollectionsListReducer
 };
 
 const commonReducers = {

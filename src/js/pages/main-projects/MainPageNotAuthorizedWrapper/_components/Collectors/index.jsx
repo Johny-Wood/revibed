@@ -17,7 +17,7 @@ function Collector({ scrollValue, collections }) {
           available on&nbsp;Revibed! Don&apos;t miss out, check it out now!
         </p>
         <div className={styles.Collector__cards}>
-          {collections.map((item) => (
+          {collections?.map((item) => (
             <Link key={item.sort} href={item.link} className={styles.Collector__card}>
               <div className={styles.Collector__cardName}>{item.name}</div>
               <Image className={styles.Collector__cardImage} src={item.cover} width={75} height={75} alt={item.name} />
@@ -87,6 +87,6 @@ function Collector({ scrollValue, collections }) {
 }
 
 export default connect((state) => ({
-  collections: state.CollectionsListReducer.list,
-  getCollectionsListFromApi: state.CollectionsListReducer.getCollectionsListFromApi,
+  collections: state.GoodsCollectionsListReducer.list,
+  getGoodsCollectionsListFromApi: state.GoodsCollectionsListReducer.getGoodsCollectionsListFromApi,
 }))(Collector);

@@ -1,4 +1,4 @@
-import { getCollectionsListRequestAction } from '@/redux-actions/collections/collectionsActions';
+import { getGoodsCollectionsListRequestAction } from '@/js/redux/actions/collections/goodsCollectionsActions';
 
 export const SSRCollectionsRequests = async (ctx) => {
   const {
@@ -8,12 +8,12 @@ export const SSRCollectionsRequests = async (ctx) => {
   } = ctx;
 
   if (req) {
-    await getCollectionsListRequestAction({ dispatch }).then().catch();
+    await getGoodsCollectionsListRequestAction({ dispatch }).then().catch();
   } else {
     const { CollectionsListReducer: { getCollectionsListFromApi } = {} } = getState();
 
     if (!getCollectionsListFromApi) {
-      getCollectionsListRequestAction({ dispatch }).then().catch();
+      getGoodsCollectionsListRequestAction({ dispatch }).then().catch();
     }
   }
 };

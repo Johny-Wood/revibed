@@ -1,4 +1,4 @@
-export const CollectionsActionsConstants = {
+export const GoodsCollectionsActionsConstants = {
   GET_COLLECTIONS_IN_PROCESS: 'GET_COLLECTIONS_IN_PROCESS',
   GET_COLLECTIONS_SUCCESS: 'GET_COLLECTIONS_SUCCESS',
 };
