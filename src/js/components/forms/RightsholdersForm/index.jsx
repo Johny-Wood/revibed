@@ -17,23 +17,31 @@ import { CommonRegExpConstants } from '@/constants/common/regExp';
 import { CommonScrollbarLocationsConstants } from '@/constants/common/scrollBar';
 import FilesTypesConstants from '@/constants/files/types';
 import { FormFieldsPersonalInformationConstants } from '@/constants/form/fields';
+import { PopupCommonIdsConstants } from '@/constants/popups/id';
 import { RoutePathsConstants } from '@/constants/routes/routes';
 import ScrollBlockIdConstants from '@/constants/scroll/scrollBlockId';
 import { showPopupAction } from '@/redux-actions/components/popupActions';
+import { sendFeedbackOwnerShipTicketRequestAction } from '@/redux-actions/feedback/feedbackActions';
 import ScrollService from '@/services/scroll/ScrollService';
+import { handleErrorUtil } from '@/utils/apiUtils';
 import { changeCheckBoxHandler, changeInputHandler, pressEnterKeyInputHandler, validateField } from '@/utils/inputHandlersUtil';
-import { ValidateMaxLengthUtil, ValidateMinLengthUtil, ValidateRegularTestUtil } from '@/utils/validate/inputCheckValidate';
+import {
+  ValidateBadRequestUtil,
+  ValidateMaxLengthUtil,
+  ValidateMinLengthUtil,
+  ValidateRegularTestUtil,
+} from '@/utils/validate/inputCheckValidate';
 
 import styles from './styles.module.scss';
 
 const initialState = {
-  company: '',
-  companyError: false,
-  companyErrorMsg: '',
+  companyName: '',
+  companyNameError: false,
+  companyNameErrorMsg: '',
 
-  email: '',
-  emailError: false,
-  emailErrorMsg: '',
+  contactEmail: '',
+  contactEmailError: false,
+  contactEmailErrorMsg: '',
 
   address: '',
   addressError: false,
@@ -43,42 +51,50 @@ const initialState = {
   phoneError: false,
   phoneErrorMsg: '',
 
-  recording: '',
-  recordingError: false,
-  recordingErrorMsg: '',
+  titleOfRecord: '',
+  titleOfRecordError: false,
+  titleOfRecordErrorMsg: '',
 
-  artist: '',
-  artistError: false,
-  artistErrorMsg: '',
+  nameOfArtist: '',
+  nameOfArtistError: false,
+  nameOfArtistErrorMsg: '',
 
-  composer: '',
-  composerError: false,
-  composerErrorMsg: '',
+  nameOfCompress: '',
+  nameOfCompressError: false,
+  nameOfCompressErrorMsg: '',
 
   label: '',
   labelError: false,
   labelErrorMsg: '',
 
-  date: '',
-  dateError: false,
-  dateErrorMsg: '',
+  dateOfRelease: '',
+  dateOfReleaseError: false,
+  dateOfReleaseErrorMsg: '',
 
   isrc: '',
   isrcError: false,
   isrcErrorMsg: '',
 
-  acceptRules: false,
-  acceptRulesError: false,
-  acceptRulesErrorMsg: '',
+  knowledgeAgree: false,
+  knowledgeAgreeError: false,
+  knowledgeAgreeErrorMsg: '',
 
-  agree: false,
-  agreeError: false,
-  agreeErrorMsg: '',
+  licenseAgree: false,
+  licenseAgreeError: false,
+  licenseAgreeErrorMsg: '',
 
-  files: [],
-  filesError: false,
-  filesErrorMsg: '',
+  attachments: [],
+  attachmentsError: false,
+  attachmentsErrorMsg: '',
+
+  attachmentsBlob: [],
+  attachmentsBlobError: false,
+  attachmentsBlobErrorMsg: '',
 };
+
+function padDate(num) {
+  return num < 10 ? `0${num}` : num;
+}
 
 class RightsholdersForm extends Component {
   constructor(props) {
@@ -89,6 +105,7 @@ class RightsholdersForm extends Component {
     this.changeInputHandler = changeInputHandler.bind(this);
     this.validateField = validateField.bind(this);
     this.changeCheckBoxHandler = changeCheckBoxHandler.bind(this);
+    this.badRequest = ValidateBadRequestUtil.bind(this);
 
     this.isValidPhone = true;
     this.format = '';
@@ -133,12 +150,14 @@ class RightsholdersForm extends Component {
   };
 
   disabledRequest = () => {
-    const {
-      email,
-      emailError,
+    const { sendFeedbackOwnerShipTicketInProcess } = this.props;
 
-      company,
-      companyError,
+    const {
+      contactEmail,
+      contactEmailError,
+
+      companyName,
+      companyNameError,
 
       address,
       addressError,
@@ -146,70 +165,138 @@ class RightsholdersForm extends Component {
       phone,
       phoneError,
 
-      recording,
-      recordingError,
+      titleOfRecord,
+      titleOfRecordError,
 
-      artist,
-      artistError,
+      nameOfArtist,
+      nameOfArtistError,
 
-      composer,
-      composerError,
+      nameOfCompress,
+      nameOfCompressError,
 
       label,
       labelError,
 
-      date,
-      dateError,
+      dateOfRelease,
+      dateOfReleaseError,
 
       isrc,
       isrcError,
 
-      acceptRules,
-      acceptRulesError,
+      knowledgeAgree,
+      knowledgeAgreeError,
 
-      agree,
-      agreeError,
+      licenseAgree,
+      licenseAgreeError,
 
-      files,
-      filesError,
+      attachments,
+      attachmentsError,
+
+      attachmentsBlob,
+      attachmentsBlobError,
     } = this.state;
 
     return (
-      !email ||
-      emailError ||
-      !company ||
-      companyError ||
+      sendFeedbackOwnerShipTicketInProcess ||
+      !contactEmail ||
+      contactEmailError ||
+      !companyName ||
+      companyNameError ||
       !address ||
       addressError ||
       !phone ||
       phoneError ||
-      !recording ||
-      recordingError ||
-      !artist ||
-      artistError ||
-      !composer ||
-      composerError ||
+      !titleOfRecord ||
+      titleOfRecordError ||
+      !nameOfArtist ||
+      nameOfArtistError ||
+      !nameOfCompress ||
+      nameOfCompressError ||
       !label ||
       labelError ||
-      !date ||
-      dateError ||
+      !dateOfRelease ||
+      dateOfReleaseError ||
       !isrc ||
       isrcError ||
-      !acceptRules ||
-      acceptRulesError ||
-      !agree ||
-      agreeError ||
-      files.length === 0 ||
-      filesError
+      !knowledgeAgree ||
+      knowledgeAgreeError ||
+      !licenseAgree ||
+      licenseAgreeError ||
+      attachments.length === 0 ||
+      attachmentsError ||
+      attachmentsBlob.length === 0 ||
+      attachmentsBlobError
     );
   };
 
   sendRequest = () => {
-    if (!this.disabledRequest()) {
+    if (this.disabledRequest()) {
       return;
     }
 
-    console.log('sendRequest');
+    const { sendFeedbackOwnerShipTicketRequest, showPopup } = this.props;
+
+    const {
+      contactEmail,
+      companyName,
+      address,
+      phone,
+      titleOfRecord,
+      nameOfArtist,
+      nameOfCompress,
+      label,
+      dateOfRelease,
+      isrc,
+      knowledgeAgree,
+      licenseAgree,
+      attachmentsBlob,
+    } = this.state;
+
+    const date = new Date(dateOfRelease);
+    const transformedDateFormat = `${padDate(date.getMonth() + 1)}/${padDate(date.getDate())}/${date.getFullYear() % 100}`;
+
+    const formData = new FormData();
+
+    formData.append('contactEmail', contactEmail || '');
+    formData.append('companyName', companyName || '');
+    formData.append('address', address || '');
+    formData.append('phone', phone ? phone.replace('+', '') : '');
+    formData.append('titleOfRecord', titleOfRecord || '');
+    formData.append('nameOfArtist', nameOfArtist || '');
+    formData.append('nameOfCompress', nameOfCompress || '');
+    formData.append('label', label || '');
+    formData.append('dateOfRelease', transformedDateFormat || '');
+    formData.append('isrc', isrc || '');
+    formData.append('knowledgeAgree', knowledgeAgree || '');
+    formData.append('licenseAgree', licenseAgree || '');
+
+    for (let i = 0; i < attachmentsBlob.length; i++) {
+      const { file } = attachmentsBlob[i];
+
+      formData.append('attachments', file || '');
+    }
+
+    sendFeedbackOwnerShipTicketRequest(formData)
+      .then(() => {
+        showPopup(PopupCommonIdsConstants.SuccessPopup, {
+          text: 'Thank you for your commitment to&nbsp;the preservation and appreciation of&nbsp;musical heritage.',
+        });
+
+        this.clear();
+      })
+      .catch(({ error, payload: { errorField } = {} }) => {
+        if (error) {
+          handleErrorUtil(error, {
+            BAD_REQUEST: () => {
+              this.badRequest(errorField);
+            },
+            NEED_AGREEMENT: () => {
+              this.setInputError('knowledgeAgree', CommonErrorMessages.AGREE);
+              this.setInputError('licenseAgree', CommonErrorMessages.AGREE);
+            },
+          });
+        }
+      });
   };
 
   clear = () => {
@@ -227,28 +314,34 @@ class RightsholdersForm extends Component {
   };
 
   onRemoveFiles = (id) => {
-    const { files } = this.state;
+    const { attachments, attachmentsBlob } = this.state;
 
-    const tmpFiles = cloneDeep(files);
+    const tmpFiles = cloneDeep(attachments);
+    const tmpFilesBlob = cloneDeep(attachmentsBlob);
 
     const findFilesIdx = tmpFiles.findIndex((f) => f.id === id);
+    const findFilesBlobIdx = tmpFilesBlob.findIndex((f) => f.id === id);
 
     tmpFiles.splice(findFilesIdx, 1);
+    tmpFilesBlob.splice(findFilesBlobIdx, 1);
 
     this.setState({
-      files: tmpFiles,
+      attachments: tmpFiles,
+      attachmentsBlob: tmpFilesBlob,
     });
   };
 
   render() {
-    const {
-      email,
-      emailError,
-      emailErrorMsg,
+    const { sendFeedbackOwnerShipTicketInProcess } = this.props;
 
-      company,
-      companyError,
-      companyErrorMsg,
+    const {
+      contactEmail,
+      contactEmailError,
+      contactEmailErrorMsg,
+
+      companyName,
+      companyNameError,
+      companyNameErrorMsg,
 
       address,
       addressError,
@@ -258,56 +351,56 @@ class RightsholdersForm extends Component {
       phoneError,
       phoneErrorMsg,
 
-      recording,
-      recordingError,
-      recordingErrorMsg,
+      titleOfRecord,
+      titleOfRecordError,
+      titleOfRecordErrorMsg,
 
-      artist,
-      artistError,
-      artistErrorMsg,
+      nameOfArtist,
+      nameOfArtistError,
+      nameOfArtistErrorMsg,
 
-      composer,
-      composerError,
-      composerErrorMsg,
+      nameOfCompress,
+      nameOfCompressError,
+      nameOfCompressErrorMsg,
 
       label,
       labelError,
       labelErrorMsg,
 
-      date,
-      dateError,
-      dateErrorMsg,
+      dateOfRelease,
+      dateOfReleaseError,
+      dateOfReleaseErrorMsg,
 
       isrc,
       isrcError,
       isrcErrorMsg,
 
-      acceptRules,
-      acceptRulesError,
-      acceptRulesErrorMsg,
+      knowledgeAgree,
+      knowledgeAgreeError,
+      knowledgeAgreeErrorMsg,
 
-      agree,
-      agreeError,
-      agreeErrorMsg,
+      licenseAgree,
+      licenseAgreeError,
+      licenseAgreeErrorMsg,
 
-      files,
-      filesError,
-      filesErrorMsg,
+      attachments,
+      attachmentsError,
+      attachmentsErrorMsg,
     } = this.state;
 
     return (
       <div className={classNames(styles.RightsholdersForm)} ref={this.sectionRef}>
         <RightsholdersFormGroup description="Company Information:">
           <Input
-            id="company"
+            id="companyName"
             label="Company Name"
-            value={company}
-            invalid={companyError}
-            invalidMessage={companyErrorMsg}
+            value={companyName}
+            invalid={companyNameError}
+            invalidMessage={companyNameErrorMsg}
             onChange={this.changeInputHandler}
             onBlur={(e) => {
               this.validateField(e, {
-                fieldIsValid: (fieldValue) => ValidateRegularTestUtil(fieldValue, CommonRegExpConstants.NAME_VALIDATE),
+                fieldIsValid: (fieldValue) => ValidateRegularTestUtil(fieldValue, CommonRegExpConstants.FIELD_VALIDATE),
                 invalidMessage: CommonErrorMessages.USER_NAME_PATTERN,
                 validateEmptyField: true,
               });
@@ -329,11 +422,11 @@ class RightsholdersForm extends Component {
             fields={[
               {
                 type: FormFieldsPersonalInformationConstants.email,
-                id: FormFieldsPersonalInformationConstants.email,
+                id: 'contactEmail',
                 label: 'Contact Email',
-                value: email,
-                invalid: emailError,
-                invalidMessage: emailErrorMsg,
+                value: contactEmail,
+                invalid: contactEmailError,
+                invalidMessage: contactEmailErrorMsg,
               },
             ]}
           />
@@ -346,7 +439,7 @@ class RightsholdersForm extends Component {
             onChange={this.changeInputHandler}
             onBlur={(e) => {
               this.validateField(e, {
-                fieldIsValid: (fieldValue) => ValidateRegularTestUtil(fieldValue, CommonRegExpConstants.NAME_VALIDATE),
+                fieldIsValid: (fieldValue) => ValidateRegularTestUtil(fieldValue, CommonRegExpConstants.FIELD_VALIDATE),
                 invalidMessage: CommonErrorMessages.USER_NAME_PATTERN,
                 validateEmptyField: true,
               });
@@ -368,19 +461,20 @@ class RightsholdersForm extends Component {
             onChange={this.onChangePhone}
             onBlur={this.onBlurPhone}
             isValidCallback={this.phoneIsValid}
+            callback={this.sendRequest}
           />
         </RightsholdersFormGroup>
         <RightsholdersFormGroup description="Recording Information:">
           <Input
-            id="recording"
+            id="titleOfRecord"
             label="Title of the Recording(s)"
-            value={recording}
-            invalid={recordingError}
-            invalidMessage={recordingErrorMsg}
+            value={titleOfRecord}
+            invalid={titleOfRecordError}
+            invalidMessage={titleOfRecordErrorMsg}
             onChange={this.changeInputHandler}
             onBlur={(e) => {
               this.validateField(e, {
-                fieldIsValid: (fieldValue) => ValidateRegularTestUtil(fieldValue, CommonRegExpConstants.NAME_VALIDATE),
+                fieldIsValid: (fieldValue) => ValidateRegularTestUtil(fieldValue, CommonRegExpConstants.FIELD_VALIDATE),
                 invalidMessage: CommonErrorMessages.USER_NAME_PATTERN,
                 validateEmptyField: true,
               });
@@ -396,15 +490,15 @@ class RightsholdersForm extends Component {
             }}
           />
           <Input
-            id="artist"
+            id="nameOfArtist"
             label="Name of the Artist(s)"
-            value={artist}
-            invalid={artistError}
-            invalidMessage={artistErrorMsg}
+            value={nameOfArtist}
+            invalid={nameOfArtistError}
+            invalidMessage={nameOfArtistErrorMsg}
             onChange={this.changeInputHandler}
             onBlur={(e) => {
               this.validateField(e, {
-                fieldIsValid: (fieldValue) => ValidateRegularTestUtil(fieldValue, CommonRegExpConstants.NAME_VALIDATE),
+                fieldIsValid: (fieldValue) => ValidateRegularTestUtil(fieldValue, CommonRegExpConstants.FIELD_VALIDATE),
                 invalidMessage: CommonErrorMessages.USER_NAME_PATTERN,
                 validateEmptyField: true,
               });
@@ -420,15 +514,15 @@ class RightsholdersForm extends Component {
             }}
           />
           <Input
-            id="composer"
+            id="nameOfCompress"
             label="Name of the Composer(s)"
-            value={composer}
-            invalid={composerError}
-            invalidMessage={composerErrorMsg}
+            value={nameOfCompress}
+            invalid={nameOfCompressError}
+            invalidMessage={nameOfCompressErrorMsg}
             onChange={this.changeInputHandler}
             onBlur={(e) => {
               this.validateField(e, {
-                fieldIsValid: (fieldValue) => ValidateRegularTestUtil(fieldValue, CommonRegExpConstants.NAME_VALIDATE),
+                fieldIsValid: (fieldValue) => ValidateRegularTestUtil(fieldValue, CommonRegExpConstants.FIELD_VALIDATE),
                 invalidMessage: CommonErrorMessages.USER_NAME_PATTERN,
                 validateEmptyField: true,
               });
@@ -452,7 +546,7 @@ class RightsholdersForm extends Component {
             onChange={this.changeInputHandler}
             onBlur={(e) => {
               this.validateField(e, {
-                fieldIsValid: (fieldValue) => ValidateRegularTestUtil(fieldValue, CommonRegExpConstants.NAME_VALIDATE),
+                fieldIsValid: (fieldValue) => ValidateRegularTestUtil(fieldValue, CommonRegExpConstants.FIELD_VALIDATE),
                 invalidMessage: CommonErrorMessages.USER_NAME_PATTERN,
                 validateEmptyField: true,
               });
@@ -468,11 +562,11 @@ class RightsholdersForm extends Component {
             }}
           />
           <Input
-            id="date"
+            id="dateOfRelease"
             label="Date of Release"
-            value={date}
-            invalid={dateError}
-            invalidMessage={dateErrorMsg}
+            value={dateOfRelease}
+            invalid={dateOfReleaseError}
+            invalidMessage={dateOfReleaseErrorMsg}
             onChange={this.changeInputHandler}
             type="date"
             onBlur={(e) => {
@@ -530,25 +624,30 @@ class RightsholdersForm extends Component {
                   FilesTypesConstants.IMAGE.PNG,
                   FilesTypesConstants.APPLICATION.PDF,
                 ]}
-                inputId="files"
-                files={files}
-                invalid={filesError}
-                invalidMessage={filesErrorMsg}
+                inputId="attachments"
+                files={attachments}
+                invalid={attachmentsError}
+                invalidMessage={attachmentsErrorMsg}
                 callBackUploadFiles={(filesList) => {
                   this.setState({
-                    files: filesList,
+                    attachments: filesList,
+                  });
+                }}
+                callBackUploadBlobFiles={(filesList) => {
+                  this.setState({
+                    attachmentsBlob: filesList,
                   });
                 }}
               >
                 {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                <label htmlFor="files" className={styles.RightsholdersForm__attachText}>
+                <label htmlFor="attachments" className={styles.RightsholdersForm__attachText}>
                   Attach any relevant documents that confirm your master ownership or&nbsp;license, such as&nbsp;contracts,
                   registrations, or&nbsp;other supporting material
                 </label>
               </FileUploader>
             </div>
             <FileUploaderListNames
-              files={files}
+              files={attachments}
               onRemove={this.onRemoveFiles}
               itemClassName={classNames(styles.RightsholdersForm__attachItem)}
             />
@@ -560,10 +659,10 @@ class RightsholdersForm extends Component {
           </div>
           <CheckBox
             className={classNames(styles.RightsholdersForm__checkbox)}
-            id="acceptRules"
-            checked={acceptRules}
-            invalid={acceptRulesError}
-            invalidMsg={acceptRulesErrorMsg}
+            id="knowledgeAgree"
+            checked={knowledgeAgree}
+            invalid={knowledgeAgreeError}
+            invalidMsg={knowledgeAgreeErrorMsg}
             onChange={this.changeCheckBoxHandler}
           >
             I&nbsp;am the rightful master owner or&nbsp;licensee of&nbsp;the aforementioned recording(s)
@@ -571,10 +670,10 @@ class RightsholdersForm extends Component {
           </CheckBox>
           <CheckBox
             className={classNames(styles.RightsholdersForm__checkbox)}
-            id="agree"
-            checked={agree}
-            invalid={agreeError}
-            invalidMsg={agreeErrorMsg}
+            id="licenseAgree"
+            checked={licenseAgree}
+            invalid={licenseAgreeError}
+            invalidMsg={licenseAgreeErrorMsg}
             onChange={this.changeCheckBoxHandler}
           >
             The information provided in&nbsp;this form is&nbsp;accurate and complete to&nbsp;the best of&nbsp;my&nbsp;knowledge.
@@ -586,7 +685,12 @@ class RightsholdersForm extends Component {
           establishment of&nbsp;an&nbsp;arrangement.
         </div>
         <div className={classNames(styles.RightsholdersForm__buttons)}>
-          <Button text="Submit from" disabled={this.disabledRequest()} onClick={this.sendRequest} />
+          <Button
+            text="Submit from"
+            isInProcess={sendFeedbackOwnerShipTicketInProcess}
+            disabled={this.disabledRequest()}
+            onClick={this.sendRequest}
+          />
           <Button text="Clear from" borderColor="gray-3" transparent onClick={this.clear} />
         </div>
       </div>
@@ -595,8 +699,11 @@ class RightsholdersForm extends Component {
 }
 
 export default connect(
-  () => ({}),
+  (state) => ({
+    sendFeedbackOwnerShipTicketInProcess: state.FeedbackReducer.sendFeedbackOwnerShipTicketInProcess,
+  }),
   (dispatch) => ({
+    sendFeedbackOwnerShipTicketRequest: (params) => sendFeedbackOwnerShipTicketRequestAction(params)(dispatch),
     showPopup: (popupId, popupData = {}, closeOtherPopups = true) => {
       dispatch(showPopupAction(popupId, popupData, closeOtherPopups));
     },

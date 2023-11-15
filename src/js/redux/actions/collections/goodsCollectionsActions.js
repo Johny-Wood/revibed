@@ -43,7 +43,7 @@ export const getGoodsCollectionsListRequestAction = ({
     }
 
     api
-      .get('collections', {})
+      .get('collections')
       .then(({ data: { data: goodsCollectionsList = [], payload, payload: { page: pageSettings = {} } = {} } = {} }) => {
         if (useCustomResponseHandler) {
           resolve({
@@ -59,6 +59,7 @@ export const getGoodsCollectionsListRequestAction = ({
             pageSettings,
           })
         );
+
         resolve({
           length: goodsCollectionsList.length,
         });

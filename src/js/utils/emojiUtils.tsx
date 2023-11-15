@@ -8,7 +8,7 @@ type GenerateEmojiToImgProps = {
 };
 
 export const generateEmojiToImg = ({ shortName = '' }: GenerateEmojiToImgProps) => {
-  const { unified, image } = emojiData.find(({ short_name: foundShortName }) => shortName === foundShortName) ?? {};
+  const { unified, image } = emojiData.find(({ short_names: foundShortNames }) => foundShortNames.includes(shortName)) ?? {};
 
   return shortName
     ? `<img src='/emoji-datasource-twitter/img/64/${image}' class='emoji' data-codepoints='${unified?.toLowerCase()}'  alt='${unified?.toLowerCase()}'/>`
@@ -23,6 +23,7 @@ export const parseEmojiToImgUtil = ({ text = '' }: ParseEmojiToImgUtilProps) =>
   parse(text, {
     // eslint-disable-next-line consistent-return
     replace: (domNode) => {
+      // @ts-ignore
       const { type, name, attribs } = domNode ?? {};
 
       const { src, class: className, dataCodepoints } = attribs ?? {};

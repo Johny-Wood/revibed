@@ -58,17 +58,21 @@ function MainCards({ events, setMarketplaceSearch }) {
               <div className={styles.MainCard__info}>
                 <div className={styles.MainCard__infoTitle}>{artists || ''}</div>
                 <div className={styles.MainCard__infoDesc}>{card.name}</div>
-                <LinkRoute className={classNames("button", styles.MainCard__button)} href={`${RoutePathsConstants.MARKETPLACE}/${card.id}`}>
-                  Buy now
-                </LinkRoute>
+                <LinkRoute
+                  className={classNames('button', styles.MainCard__button)}
+                  href={`${RoutePathsConstants.MARKETPLACE}/${card.id}`}
+                  text=" Buy now"
+                />
               </div>
             </div>
           );
         })}
       </div>
-      <LinkRoute className={classNames('button', styles.MainCards__more)} href={RoutePathsConstants.MARKETPLACE}>
-        Find More
-      </LinkRoute>
+      <LinkRoute
+        className={classNames('button', styles.MainCards__more)}
+        href={RoutePathsConstants.MARKETPLACE}
+        text="Find More"
+      />
     </SiteWrapperLayout>
   );
 }

@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import { CommonHeadConstants } from '@/constants/common/head';
 
-const promoImg = 'https://kollektivx-resources.s3.amazonaws.com/images/promo-revibed.jpg';
+const promoImg = 'https://dm8eqzspg5hb2.cloudfront.net/images/promo-revibed.jpg';
 
 export type HeadTagProps = {
   headSettings: {

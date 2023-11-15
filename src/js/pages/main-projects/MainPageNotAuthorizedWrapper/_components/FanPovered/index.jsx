@@ -2,10 +2,8 @@ import { createRef, useEffect, useState } from 'react';
 
 import classNames from 'classnames';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
 import { RoutePathsConstants } from '@/constants/routes/routes';
-
 import SiteWrapperLayout from '@/js/components/layouts/SiteWrapperLayout';
 import LinkRoute from '@/js/components/ui/links/LinkRoute';
 
@@ -23,8 +21,6 @@ import MainImageUrl from '../../_images/FanPovered.png';
 function FanPovered() {
   const [startAnimation, setStartAnimation] = useState(false);
   const animationRef = createRef();
-
-  const router = useRouter();
 
   useEffect(() => {
     const condition =
@@ -119,16 +115,12 @@ function FanPovered() {
               music <br className={styles.FanPovered__brmob} />
               into the&nbsp;Revibed catalog!
             </div>
-            <LinkRoute className={styles.FanPovered__button} href={RoutePathsConstants.DRAFTS_ADD}>
-              Start Pre-order
-            </LinkRoute>
+            <LinkRoute className={styles.FanPovered__button} href={RoutePathsConstants.DRAFTS_ADD} text="Start Pre-order" />
           </div>
           <span className={styles.FanPovered__footerSeparator} />
           <div className={styles.FanPovered__footerCol}>
             <div className={styles.FanPovered__footerText}>Join the vibe digger&apos;s world is into!</div>
-            <LinkRoute className={styles.FanPovered__button} href={RoutePathsConstants.PROJECTS}>
-              Browse Pre-orders
-            </LinkRoute>
+            <LinkRoute className={styles.FanPovered__button} href={RoutePathsConstants.PROJECTS} text="Browse Pre-orders" />
           </div>
         </div>
       </SiteWrapperLayout>

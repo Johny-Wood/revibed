@@ -24,8 +24,8 @@ export const RoutePathsConstants = {
 
   HOT_OFFERS: '/hot-offers',
 
-  PROJECTS: '/music-legacy-projects',
-  PROJECT: '/music-legacy-projects/%X',
+  PROJECTS: '/music-legacy-pre-orders',
+  PROJECT: '/music-legacy-pre-orders/%X',
 
   WANTLIST: WANTLIST_GROUP,
   WANTLIST_ADD: `${WANTLIST_GROUP}/add`,
@@ -62,7 +62,7 @@ export const RoutePathsConstants = {
   CASHBACK: `${PERSONAL_GROUP}/balance/cashback`,
   TOP_UP_BALANCE: `${PERSONAL_GROUP}/balance/top-up`,
 
-  USER_PROJECTS: `${USERS_GROUP}/%X/projects`,
+  USER_PROJECTS: `${USERS_GROUP}/%X/pre-orders`,
   USER_FOLLOWING: `${USERS_GROUP}/%X/following`,
   USER_FOLLOWERS: `${USERS_GROUP}/%X/followers`,
 
@@ -70,14 +70,14 @@ export const RoutePathsConstants = {
   RELEASE_AVAILABLE: '/release/%X/available',
 
   FAQ: '/faq',
-  FAQ_PROJECT_ARTIST_FUND: '/faq/project-artist-fund',
+  FAQ_PROJECT_ARTIST_FUND: '/faq/pre-order-artist-fund',
   GOLDEN_COIN_DETAILS: '/faq/what-is-the-golden-koin',
-  FAQ_CROWDFUNDING_PROJECTS: '/faq/crowdfunding-projects',
+  FAQ_CROWDFUNDING_PROJECTS: '/faq/crowdfunding-pre-orders',
   CONTACT_US: '/contact-us',
   RIGHTSHOLDERS: '/rightsholders',
   RIGHTSHOLDERS_FORM: '/rightsholders/form',
   HOW_IT_WORKS: '/how-it-works-music-digitisation-crowdfunding',
-  ABOUT_US: '/about-kollektivx',
+  ABOUT_US: '/about-revibed',
   WANTLIST_TOOL: '/wantlist-tool-for-records-wanted',
 
   COOKIES_POLICY: '/cookies-policy',

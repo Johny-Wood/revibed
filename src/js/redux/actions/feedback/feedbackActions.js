@@ -64,3 +64,33 @@ export const sendFeedbackTicketRequestAction = (params) => (dispatch) =>
         reject(errorData);
       });
   });
+
+const sendFeedbackOwnerShipTicketInProcessAction = (sendFeedbackOwnerShipTicketInProcess) =>
+  createAction(FeedbackActionsConstants.SEND_FEEDBACK_OWNER_SHIP_TICKET_IN_PROCESS, {
+    sendFeedbackOwnerShipTicketInProcess,
+  });
+
+const sendFeedbackOwnerShipTicketSuccessAction = () =>
+  createAction(FeedbackActionsConstants.SEND_FEEDBACK_OWNER_SHIP_TICKET_SUCCESS);
+
+export const sendFeedbackOwnerShipTicketRequestAction = (formData) => (dispatch) =>
+  new Promise((resolve, reject) => {
+    dispatch(sendFeedbackOwnerShipTicketInProcessAction(true));
+
+    api
+      .post('feedback/master_ownership', formData)
+      .then(({ data: { data: responseData = {} } = {} }) => {
+        dispatch(sendFeedbackOwnerShipTicketSuccessAction(responseData));
+
+        resolve();
+      })
+      .catch((error) => {
+        console.error(error);
+
+        const { data: errorData } = extractErrorDataFromResponseApiUtil(error);
+
+        dispatch(sendFeedbackOwnerShipTicketInProcessAction(false));
+
+        reject(errorData);
+      });
+  });

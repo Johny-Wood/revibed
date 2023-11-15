@@ -27,8 +27,8 @@ const Vinil = ({ src, width, height, alt = 'vinil', quality = 100, className }) 
         height={height}
         alt={alt}
         quality={quality}
-        onMouseDown={() => setIsClicked((prev) => true)}
-        onMouseUp={() => setIsClicked((prev) => false)}
+        onMouseDown={() => setIsClicked(() => true)}
+        onMouseUp={() => setIsClicked(() => false)}
         onMouseEnter={() => {
           setIsUnhovered(false);
           setIsHovered((prev) => !prev);

@@ -136,10 +136,12 @@ function MainBanner({
           becomes <br className={styles.MainBanner__brmob} />
           legal and&nbsp;accessible to&nbsp;everyone.
         </div>
-
-        <LinkRoute className={classNames("button", styles.MainBanner__button)} href={RoutePathsConstants.MARKETPLACE}>
-          Download Now
-        </LinkRoute>
+        <LinkRoute
+          type="button"
+          href={RoutePathsConstants.MARKETPLACE}
+          text="Download Now"
+          className={classNames(styles.MainBanner__button)}
+        />
         <VinilParallax scrollValue={scrollValue} />
       </div>
       <Modal visible={modal} setVisible={setModal}>

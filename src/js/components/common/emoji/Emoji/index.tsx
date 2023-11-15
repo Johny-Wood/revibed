@@ -5,7 +5,7 @@ type EmojiProps = {
 };
 
 function Emoji({ shortName }: EmojiProps) {
-  return parseEmojiToImgUtil({ text: generateEmojiToImg({ shortName }) });
+  return parseEmojiToImgUtil({ text: generateEmojiToImg({ shortName: shortName.toLowerCase() }) });
 }
 
 export default Emoji;

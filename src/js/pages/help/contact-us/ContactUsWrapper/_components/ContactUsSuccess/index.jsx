@@ -19,10 +19,10 @@ function ContactUsSuccess() {
         time range please allow more time for reply.
       </div>
       <div className={styles.contactUsSuccess__buttons}>
-        {renderContactUsFromLinks({
-          href: RoutePathsConstants.ABOUT_US,
-          translateKey: 'aboutUs',
-        })}
+        {/* {renderContactUsFromLinks({ */}
+        {/*  href: RoutePathsConstants.ABOUT_US, */}
+        {/*  translateKey: 'aboutUs', */}
+        {/* })} */}
         {renderContactUsFromLinks({
           href: RoutePathsConstants.FAQ,
           translateKey: 'faq',

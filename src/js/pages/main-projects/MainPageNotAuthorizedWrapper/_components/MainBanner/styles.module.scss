@@ -180,6 +180,12 @@
       min-width: convert-px2rem(215) !important;
     }
 
+    :global {
+      .text {
+        color: var(--color__white);
+      }
+    }
+
     &::after {
       border-radius: inherit;
     }

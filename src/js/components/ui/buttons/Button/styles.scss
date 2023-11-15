@@ -505,7 +505,7 @@ button {
 
         .text {
           @include breakpoint($b-laptop) {
-            color: var(--color__black) !important;
+            color: var(--color__black);
           }
         }
       }
@@ -621,6 +621,53 @@ button {
         @include breakpoint($b-laptop) {
           background-color: #fff;
           border-color: var(--color__gray-3);
+        }
+
+        .text {
+          @include breakpoint($b-laptop) {
+            color: var(--color__black) !important;
+          }
+        }
+      }
+    }
+
+    &-black {
+      &.small {
+        border: calc(#{$border-width_small} * 1px) solid var(--color__black);
+
+        &-25 {
+          border: calc(#{$border-width_small} * 1px) solid var(--color__black);
+        }
+
+        &-30 {
+          border: calc(#{$border-width_small} * 1px) solid var(--color__black);
+        }
+
+        &-35 {
+          border: calc(#{$border-width_small} * 1px) solid var(--color__black);
+        }
+
+        &-40 {
+          border: calc(#{$border-width_small} * 1px) solid var(--color__black);
+        }
+
+        &-45 {
+          border: calc(#{$border-width_large} * 1px) solid var(--color__black);
+        }
+      }
+
+      &.large {
+        border: calc(#{$border-width_large} * 1px) solid var(--color__black);
+      }
+
+      &.normal {
+        border: calc(#{$border-width_large} * 1px) solid var(--color__black);
+      }
+
+      &:not(.in_process):not(:disabled):not(.disabled):not(.active):hover {
+        @include breakpoint($b-laptop) {
+          background-color: #fff;
+          border-color: var(--color__gray-2);
         }
 
         .text {

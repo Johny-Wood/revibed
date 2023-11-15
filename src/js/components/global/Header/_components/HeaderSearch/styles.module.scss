@@ -9,6 +9,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  @include breakpoint($b-laptop) {
+    @include breakpoint(max-width 1340px) {
+      width: convert-px2rem(265);
+    }
+  }
 
   &__block {
     height: convert-px2rem(54);

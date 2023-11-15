@@ -1,11 +1,10 @@
+import classNames from 'classnames';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
-
-import { RoutePathsConstants } from '@/constants/routes/routes';
 
 import SiteWrapperLayout from '@/components/layouts/SiteWrapperLayout';
+import { RoutePathsConstants } from '@/constants/routes/routes';
 import LinkRoute from '@/js/components/ui/links/LinkRoute';
 
 import styles from './styles.module.scss';
@@ -45,9 +44,12 @@ function Preorders({ projectsInfo }) {
           })}
         </div>
       </div>
-      <LinkRoute className={classNames("button", styles.Preorders__more)} href={RoutePathsConstants.PROJECTS}>
-        Find more
-      </LinkRoute>
+      <LinkRoute
+        type="button"
+        href={RoutePathsConstants.PROJECTS}
+        text="Find more"
+        className={classNames(styles.Preorders__more)}
+      />
     </SiteWrapperLayout>
   );
 }

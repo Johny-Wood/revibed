@@ -81,6 +81,10 @@ class SignUpForm extends Component {
       acceptRulesError: false,
       acceptRulesErrorMsg: '',
 
+      acceptNewsletter: false,
+      acceptNewsletterError: false,
+      acceptNewsletterErrorMsg: '',
+
       haveReferralCode: !!referralCode || !!referralCodeFromCookie || false,
       referralUser: {},
     };
@@ -145,7 +149,7 @@ class SignUpForm extends Component {
 
   onSignUpRequest = () => {
     const { signUpRequest, languageSelected: { id: languageId } = {}, showPopup } = this.props;
-    const { username, email, password, countryId, referralCode, acceptRules } = this.state;
+    const { username, email, password, countryId, referralCode, acceptRules, acceptNewsletter } = this.state;
 
     if (this.disabledSignUpRequest()) {
       return;
@@ -157,6 +161,7 @@ class SignUpForm extends Component {
       password,
       countryId,
       acceptRules,
+      acceptNewsletter,
       languageId,
       referralCode: referralCode || undefined,
     })
@@ -228,6 +233,10 @@ class SignUpForm extends Component {
       acceptRules,
       acceptRulesError,
       acceptRulesErrorMsg,
+
+      acceptNewsletter,
+      acceptNewsletterError,
+      acceptNewsletterErrorMsg,
 
       referralCode,
       referralCodeError,
@@ -323,6 +332,15 @@ class SignUpForm extends Component {
             onChange={this.changeCheckBoxHandler}
           >
             I have read and agree to the <TermsLink /> and <PrivacyPolicyLink />
+          </CheckBox>
+          <CheckBox
+            id="acceptNewsletter"
+            checked={acceptNewsletter}
+            invalid={acceptNewsletterError}
+            invalidMsg={acceptNewsletterErrorMsg}
+            onChange={this.changeCheckBoxHandler}
+          >
+            Newsletter
           </CheckBox>
           <div className={classNames([authFormStyles.authForm__buttonBlock, 'm-top-5'])}>
             <Button

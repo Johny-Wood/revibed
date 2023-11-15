@@ -4,10 +4,10 @@ export const FooterNavigationConstants = [
   {
     categoryName: 'title',
     links: [
-      {
-        tKey: 'aboutUs',
-        href: RoutePathsConstants.ABOUT_US,
-      },
+      // {
+      //   tKey: 'aboutUs',
+      //   href: RoutePathsConstants.ABOUT_US,
+      // },
       {
         tKey: 'news',
         href: RoutePathsConstants.NEWS,
@@ -55,24 +55,24 @@ export const FooterNavigationConstants = [
       },
     ],
   },
-  {
-    categoryName: 'follow',
-    links: [
-      {
-        tKey: 'facebook',
-        href: 'https://www.facebook.com/kollektivx',
-        external: true,
-      },
-      {
-        tKey: 'instagram',
-        href: 'https://www.instagram.com/kollektiv_x/',
-        external: true,
-      },
-      {
-        tKey: 'soundcloud',
-        href: 'https://soundcloud.com/kollektiv_x',
-        external: true,
-      },
-    ],
-  },
+  // {
+  //   categoryName: 'follow',
+  //   links: [
+  //     {
+  //       tKey: 'facebook',
+  //       href: 'https://www.facebook.com/kollektivx',
+  //       external: true,
+  //     },
+  //     {
+  //       tKey: 'instagram',
+  //       href: 'https://www.instagram.com/kollektiv_x/',
+  //       external: true,
+  //     },
+  //     {
+  //       tKey: 'soundcloud',
+  //       href: 'https://soundcloud.com/kollektiv_x',
+  //       external: true,
+  //     },
+  //   ],
+  // },
 ];

@@ -289,7 +289,7 @@ $cover_size: 150;
       background-color: var(--color__white);
       z-index: 500;
       padding: convert-px2rem(15);
-      justify-content: space-between !important;
+      justify-content: center !important;
       box-shadow: 0 convert-px2rem(-1) convert-px2rem(6) rgba(0, 0, 0, 0.25);
     }
 
@@ -305,7 +305,8 @@ $cover_size: 150;
       .button-start-project,
       .button-buy-cut {
         @include breakpoint($b-tabletS__max) {
-          margin-left: 0;
+          max-width: convert-px2rem(480) !important;
+          width: 100% !important;
           flex-grow: 1;
         }
       }

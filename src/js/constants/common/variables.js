@@ -7,5 +7,5 @@ export const CommonVariablesConstants = {
   REFERRAL_CODE: 'referralCode',
   BANNER_ID_COOKIES: 'bannerIdCookie',
 
-  NO_COVER_IMG: 'https://kollektivx-resources.s3.amazonaws.com/images/no-cover.jpg',
+  NO_COVER_IMG: 'https://dm8eqzspg5hb2.cloudfront.net/images/no-cover.jpg',
 };

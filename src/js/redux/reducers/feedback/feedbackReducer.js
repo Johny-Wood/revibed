@@ -8,6 +8,8 @@ const initialState = {
   feedbackTopics: [],
 
   sendFeedbackTicketInProcess: false,
+
+  sendFeedbackOwnerShipTicketInProcess: false,
 };
 
 const handlers = createHandlers({
@@ -29,6 +31,18 @@ const handlers = createHandlers({
   [FeedbackActionsConstants.SEND_FEEDBACK_TICKET_SUCCESS]: (state) => ({
     ...state,
     sendFeedbackTicketInProcess: false,
+  }),
+
+  [FeedbackActionsConstants.SEND_FEEDBACK_OWNER_SHIP_TICKET_IN_PROCESS]: (
+    state,
+    { sendFeedbackOwnerShipTicketInProcess = false }
+  ) => ({
+    ...state,
+    sendFeedbackOwnerShipTicketInProcess,
+  }),
+  [FeedbackActionsConstants.SEND_FEEDBACK_OWNER_SHIP_TICKET_SUCCESS]: (state) => ({
+    ...state,
+    sendFeedbackOwnerShipTicketInProcess: false,
   }),
 });
 

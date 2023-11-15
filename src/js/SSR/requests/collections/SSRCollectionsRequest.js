@@ -3,7 +3,6 @@ import { getGoodsCollectionsListRequestAction } from '@/js/redux/actions/collect
 export const SSRCollectionsRequests = async (ctx) => {
   const {
     req,
-    refreshedToken,
     store: { dispatch, getState },
   } = ctx;
 

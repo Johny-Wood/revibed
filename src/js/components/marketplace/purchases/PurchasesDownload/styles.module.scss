@@ -3,6 +3,7 @@
 
 .purchaseDownloadButton {
   min-width: convert-px2rem(105) !important;
+  height: convert-px2rem(50);
 
   &_large {
     min-width: convert-px2rem(160) !important;

@@ -42,6 +42,7 @@ const operationToActionName = {
   PARTNER_PROGRAM_PROMO_REWARD: 'Reward for',
   ADDED_ADDITIONAL_EXPENSES: 'Additional costs',
   CASHBACK_FOR_PROJECTS: 'Cashback',
+  USER_WAY_OUT_FROM_PROJECT: 'Way out pre-order',
 };
 
 const prefixByOperation = (type) => {
