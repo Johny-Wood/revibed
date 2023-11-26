@@ -9,7 +9,7 @@ import ScrollService from '@/services/scroll/ScrollService';
 
 function ProjectHeaderSearchLink() {
   useEffect(() => {
-    ScrollService.getInstance(CommonScrollbarLocationsConstants.MAIN_SCROLL).addSection(
+    ScrollService.getInstance(CommonScrollbarLocationsConstants.MAIN_SCROLL)?.addSection(
       ScrollBlockIdConstants.MARKETPLACE_ID,
       RoutePathsConstants.MARKETPLACE,
       null

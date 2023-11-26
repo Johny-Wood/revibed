@@ -1,5 +1,5 @@
-@import '../../../../../../assets/styles/_mixins/breakpoint';
-@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import "../../../../../../assets/styles/_mixins/breakpoint";
+@import "../../../../../../assets/styles/_mixins/convert-px2rem";
 
 .Collector {
   padding-top: convert-px2rem(100);
@@ -69,6 +69,8 @@
       max-width: convert-px2rem(680);
     }
     @include breakpoint($b-mobileS__max) {
+      width: 100%;
+      max-width: 344px;
       gap: convert-px2rem(20);
       grid-template-columns: repeat(2, 1fr);
     }

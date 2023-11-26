@@ -33,6 +33,7 @@ function CollectorsParallax({ scrollValue }) {
 
     return {
       transform: `translateY(${transformValue}px)`,
+      transition: 'transform 0.1s easy-in-out',
     };
   }
 

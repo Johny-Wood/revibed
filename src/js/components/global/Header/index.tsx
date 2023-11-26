@@ -41,7 +41,7 @@ const Header = ({
     if (headerRef && headerRef.current) {
       const { height } = headerRef.current.getBoundingClientRect();
 
-      ScrollService.getInstance(CommonScrollbarLocationsConstants.MAIN_SCROLL).setTopOffset(height);
+      ScrollService.getInstance(CommonScrollbarLocationsConstants.MAIN_SCROLL)?.setTopOffset(height);
     }
   }, []);
 

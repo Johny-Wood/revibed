@@ -1,5 +1,5 @@
-@import '../../../../../../assets/styles/_mixins/breakpoint';
-@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import "../../../../../../assets/styles/_mixins/breakpoint";
+@import "../../../../../../assets/styles/_mixins/convert-px2rem";
 
 .mainScrollbar {
   position: relative;
@@ -23,4 +23,8 @@
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
+
+  &_native {
+    width: 100% !important;
+  }
 }

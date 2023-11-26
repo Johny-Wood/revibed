@@ -1,220 +1,61 @@
-@import '../../../../../../assets/styles/_mixins/breakpoint';
-@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import "../../../../../../assets/styles/_mixins/breakpoint";
+@import "../../../../../../assets/styles/_mixins/convert-px2rem";
 
-.MainBanner {
-  background-color: #F0F0F0;
-  overflow: hidden;
-  min-height: 100dvh;
-  display: flex;
-
-  &__wrapper {
-    position: relative;
-    width: 100%;
-    padding-top: convert-px2rem(50);
-    padding-bottom: convert-px2rem(97);
-    @include breakpoint($b-tabletS__max) {
-      padding: convert-px2rem(10) convert-px2rem(15) convert-px2rem(53);
-    }
-    align-items: center;
-    max-width: 100vw;
-    min-height: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  &__images {
-    padding-top: convert-px2rem(70);
-    position: relative;
-    border-bottom: convert-px2rem(1) solid #000;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    width: convert-px2rem(445);
-    @include breakpoint($b-tabletS__max) {
-      padding-top: convert-px2rem(35);
-      width: convert-px2rem(307);
-    }
-    @include breakpoint($b-mobileS__max) {
-      width: convert-px2rem(282);
-    }
-  }
-
-  &__vinil {
-    position: absolute;
-    top: 50%;
-    translate: 0 -25%;
-    width: convert-px2rem(222);
-    height: convert-px2rem(222);
-    left: convert-px2rem(3);
-    transform: rotate(90deg);
-    margin-top: convert-px2rem(-6);
-    margin-left: convert-px2rem(4);
-
-    &.MainBanner__vinilAnimation {
-      animation: animationVinil 1s cubic-bezier(0, 0, 0.05, 1) 0.3s forwards;
-    }
-
-    @include breakpoint($b-tabletS__max) {
-      translate: 0 -37%;
-      width: convert-px2rem(153);
-      height: convert-px2rem(153);
-      margin-top: convert-px2rem(6);
-      margin-left: convert-px2rem(3);
-    }
-
-    @include breakpoint($b-mobileS__max) {
-      translate: 0 -37%;
-      width: convert-px2rem(153);
-      height: convert-px2rem(153);
-      margin-top: convert-px2rem(8);
-      margin-left: convert-px2rem(0);
-    }
-  }
-
-  &__image {
-    position: relative;
-    z-index: 2;
-    width: convert-px2rem(195);
-    height: convert-px2rem(395);
-    text-align: center;
-    margin-bottom: convert-px2rem(-115);
-    right: -24%;
-    transform: rotate(8deg);
-
-    &.MainBanner__imageAnimation {
-      animation: animationPhone 1s cubic-bezier(0, 0, 0.05, 1) 0.3s forwards;
-    }
-
-    @include breakpoint($b-tabletS__max) {
-      margin-bottom: convert-px2rem(-80);
-      width: convert-px2rem(135);
-      height: convert-px2rem(273);
-    }
-    @include breakpoint($b-mobileS__max) {
-      margin-bottom: convert-px2rem(-80);
-      width: convert-px2rem(135);
-      height: convert-px2rem(273);
-      margin-left: convert-px2rem(18);
-    }
-  }
-
-  &__title {
-    margin-top: convert-px2rem(37);
-    color: #000;
-    text-align: center;
-    font-size: convert-px2rem(45);
-    line-height: 100%;
-    letter-spacing: convert-px2rem(1.5);
-    font-family: var(--font-family__Inter-Black);
-    @include breakpoint($b-tabletS__max) {
-      margin-top: convert-px2rem(24);
-      font-size: convert-px2rem(35);
-      line-height: 108.571%;
-    }
-    @include breakpoint($b-mobileS__max) {
-      margin-top: convert-px2rem(22);
-      font-size: convert-px2rem(24);
-      letter-spacing: convert-px2rem(0.48);
-      line-height: 125%;
-    }
-  }
-
-  &__desc {
-    font-size: convert-px2rem(16);
-    margin: convert-px2rem(30) auto 0;
-    max-width: convert-px2rem(555);
-    text-align: center;
-    line-height: 137.5%;
-    letter-spacing: convert-px2rem(0.8);
-    @include breakpoint($b-tabletS__max) {
-      margin: convert-px2rem(20) auto 0;
-      font-size: convert-px2rem(12);
-      max-width: convert-px2rem(392);
-      letter-spacing: convert-px2rem(0.6);
-      line-height: 125%;
-    }
-    @include breakpoint($b-mobileS__max) {
-      margin: convert-px2rem(30) auto 0;
-      line-height: 133%;
-      max-width: convert-px2rem(350);
-    }
-
-  }
-
-  &__brdsk {
-    @include breakpoint($b-mobileS__max) {
-      display: none;
-    }
-  }
-
-  &__brmob {
-    display: none;
-    @include breakpoint($b-mobileS__max) {
-      display: inline;
-    }
-  }
-
-  &__button {
-    margin-top: convert-px2rem(36);
+.HowPreOrderWorksPopup {
+  &__popupIn {
+    padding: 0;
     border-radius: convert-px2rem(10);
-    font-size: convert-px2rem(16);
-    padding: convert-px2rem(15) convert-px2rem(40) !important;
-    font-family: var(--font-family__Inter-Bold);
-    background-color: var(--color__black);
-    border-color: var(--color__black);
 
-    @include breakpoint($b-tabletS__max) {
-      margin-top: convert-px2rem(20);
-      font-size: convert-px2rem(12);
-      min-height: convert-px2rem(35);
-      min-width: convert-px2rem(135) !important;
-      padding: convert-px2rem(5) convert-px2rem(20) !important;
-    }
-    @include breakpoint($b-mobileS__max) {
-      margin-top: convert-px2rem(30);
-      font-size: convert-px2rem(14);
-      letter-spacing: convert-px2rem(0.7);
-      min-height: convert-px2rem(50);
-      min-width: convert-px2rem(215) !important;
+    @media (max-width: 1352px) {
+      max-width: convert-px2rem(779) !important;
     }
 
-    :global {
-      .text {
-        color: var(--color__white);
-
-        @include breakpoint($b-tabletS__max) {
-          font-size: convert-px2rem(12) !important;
-        }
-
-        @include breakpoint($b-mobileS__max) {
-          font-size: convert-px2rem(14) !important;
-        }
-      }
-    }
-
-    &::after {
-      border-radius: inherit;
+    @media (max-width: 778px) {
+      max-width: convert-px2rem(484) !important;
     }
   }
 
-  &__modalClose {
-    position: absolute;
-    top: convert-px2rem(30);
-    right: convert-px2rem(30);
-    @include breakpoint($b-tabletS__max) {
-      top: convert-px2rem(20);
-      right: convert-px2rem(20);
-    }
-    @include breakpoint($b-mobileS__max) {
-      top: convert-px2rem(30);
-      right: convert-px2rem(25);
-      & svg {
-        width: convert-px2rem(18);
-        height: convert-px2rem(18);
+  &__popupContent {
+    padding: 0;
+  }
 
-      }
+  &__popupHeader {
+    display: none;
+  }
+
+  &__content {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    font-size: convert-px2rem(16);
+    padding: convert-px2rem(46) convert-px2rem(26) convert-px2rem(20);
+    border-top-left-radius: convert-px2rem(10);
+    border-top-right-radius: convert-px2rem(10);
+    background: #f3f3f3;
+    width: 100%;
+    color: #000;
+    letter-spacing: convert-px2rem(0.6);
+    max-width: convert-px2rem(1080);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+
+    @include breakpoint($adaptive-width-tablet) {
+      font-size: convert-px2rem(14);
+      line-height: 1.33;
+      padding: convert-px2rem(36) convert-px2rem(26);
+      margin: auto;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+      max-width: convert-px2rem(484);
+    }
+
+    @include breakpoint($adaptive-width-tablet3) {
+      max-width: convert-px2rem(779);
+      border-radius: convert-px2rem(10);
+      padding: convert-px2rem(25) convert-px2rem(26) convert-px2rem(20);
+    }
+
+    @include breakpoint($adaptive-width-desktop-wide) {
+      max-width: convert-px2rem(1082);
+      padding: convert-px2rem(37) convert-px2rem(82) convert-px2rem(43);
     }
   }
 
@@ -525,44 +366,5 @@
       padding: convert-px2rem(15) convert-px2rem(78);
       border-radius: convert-px2rem(10);
     }
-  }
-}
-
-@keyframes animationPhone {
-  0% {
-    right: -24%;
-    transform: rotate(8deg);
-  }
-  100% {
-    transform: rotate(14deg);
-    right: -7%;
-  }
-}
-
-@keyframes animationVinil {
-  0% {
-    left: convert-px2rem(1);
-    transform: rotate(90deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    left: 11%;
-  }
-}
-
-@keyframes infiniteRotate {
-  from {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  to {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
   }
 }

@@ -72,6 +72,9 @@ const ShareInvitePopup = dynamic(() => import('@/components/global/Popups/person
 const AddAdditionalExpensesPopup = dynamic(() => import('@/components/global/Popups/project/AddAdditionalExpensesPopup'), {
   ssr: false,
 });
+const HowPreOrderWorksPopup = dynamic(() => import('@/components/global/Popups/project/HowPreOrderWorksPopup/index'), {
+  ssr: false,
+});
 const ContributorsPopup = dynamic(() => import('@/components/global/Popups/project/contributors/ContributorsPopup'), {
   ssr: false,
 });
@@ -210,6 +213,7 @@ const popupComponents = () => ({
   ChangePlanWantListPopup: () => ChangePlanWantListPopup,
   FileInvalidMimeTypePopup: () => FileInvalidMimeTypePopup,
   FileInvalidSizePopup: () => FileInvalidSizePopup,
+  HowPreOrderWorksPopup: () => HowPreOrderWorksPopup,
 });
 
 const popupComponentProps = {};

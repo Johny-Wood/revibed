@@ -1,26 +1,52 @@
-import { useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { motion } from 'framer-motion';
+import { ScrollerMotion, useScrollerMotion } from 'scroller-motion';
 
 import BaseWebsiteLayout from '@/components/layouts/BaseWebsiteLayout';
-import Footer from '@/js/components/global/Footer';
-import MainBanner from '@/pages/main-projects/MainPageNotAuthorizedWrapper/_components/MainBanner';
+import ViewportHook from '@/js/hooks/viewport/ViewportHook';
 
-import Collector from './_components/Collectors';
-import FanPovered from './_components/FanPovered';
-import MainCards from './_components/MainCards';
-import Preorders from './_components/Preorders';
-import styles from './index.module.scss';
+import MainContent from './_components/MainContent';
 
 const metaTitle = 'Wanted Vinyl Records, CDs & Cassette Tapes In High Resolution';
 const metaDescription =
   'Rediscover some of the most forgotten and wanted music records of all time and support the original artists. Welcome to the most innovative tool to collect rare music.';
 
-function MainPageNotAuthorizedWrapper({ userIsAuthorized, isNotDesktop }) {
-  const [scrollValue, setScrollValue] = useState(0);
-  const scrollSnapContainerRef = useRef(null);
+const ContextScrollMainContent = ({ isMobile }) => {
+  const { scrollY } = useScrollerMotion();
 
-  const handleScroll = () => {
-    setScrollValue(scrollSnapContainerRef.current.scrollTop);
-  };
+  return (
+    <motion.div className="motiondiv">
+      <MainContent isMobile={isMobile} scrollY={scrollY} />
+    </motion.div>
+  );
+};
+
+function MainPageNotAuthorizedWrapper({ userIsAuthorized }) {
+  const { isNotDesktop } = ViewportHook();
+  const [isMobile, setIsMobile] = useState();
+
+  useEffect(() => {
+    // setIsMobile(
+    //   navigator.userAgent.match(/Android/i) ||
+    //     navigator.userAgent.match(/BlackBerry/i) ||
+    //     navigator.userAgent.match(/iPhone|iPad|iPod/i) ||
+    //     navigator.userAgent.match(/Opera Mini/i) ||
+    //     navigator.userAgent.match(/IEMobile/i)
+    // );
+    setIsMobile(window.matchMedia('(max-width: 999px)').matches);
+    window.onresize = (event) => {
+      console.log(event);
+      console.log('is mobile = ', window.matchMedia('(max-width: 999px)').matches);
+      setIsMobile(window.matchMedia('(max-width: 999px)').matches);
+    };
+  }, []);
+
+  console.log('isMobile = ', isMobile);
+  if (isMobile === undefined) {
+    console.log('is undefined... ');
+    return <></>;
+  }
 
   return (
     <BaseWebsiteLayout
@@ -33,28 +59,19 @@ function MainPageNotAuthorizedWrapper({ userIsAuthorized, isNotDesktop }) {
         withTransparent: !isNotDesktop,
         mainLanding: true,
       }}
+      withoutHeader
       withoutPaddingTop={!userIsAuthorized && !isNotDesktop}
       withoutFooter
       disableScrollbar
+      withoutCustomScrollbar
     >
-      <div className={styles.cont} ref={scrollSnapContainerRef} onScroll={handleScroll}>
-        <div className={styles.cont__child}>
-          <MainBanner scrollValue={scrollValue} />
-        </div>
-        <div className={styles.cont__child}>
-          <MainCards />
-        </div>
-        <div className={styles.cont__child}>
-          <FanPovered />
-        </div>
-        <div className={styles.cont__child}>
-          <Preorders />
-        </div>
-        <div className={styles.cont__child}>
-          <Collector scrollValue={scrollValue} />
-          <Footer footerProps={{ blackFooter: true }} />
-        </div>
-      </div>
+      {!isMobile ? (
+        <ScrollerMotion className="scrollermotion">
+          <ContextScrollMainContent isMobile={isMobile} />
+        </ScrollerMotion>
+      ) : (
+        <MainContent isMobile={isMobile} />
+      )}
     </BaseWebsiteLayout>
   );
 }

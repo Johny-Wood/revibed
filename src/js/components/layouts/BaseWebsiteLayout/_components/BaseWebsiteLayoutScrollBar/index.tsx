@@ -1,26 +1,19 @@
 import type { PropsWithChildren } from 'react';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import classNames from 'classnames';
-import dynamic from 'next/dynamic';
+
 import type { ConnectedProps } from 'react-redux';
 import { connect } from 'react-redux';
 import Scrollbar from 'react-scrollbars-custom';
 
-import Banners from '@/components/global/Banners';
-import type { FooterExternalProps } from '@/components/global/Footer';
-import Footer from '@/components/global/Footer';
-import Preloader from '@/components/ui/Preloader';
 import { CommonScrollbarLocationsConstants } from '@/constants/common/scrollBar';
 import { UseHistory } from '@/contexts/history/History';
 import ViewportHook from '@/hooks/viewport/ViewportHook';
 import type { RootState } from '@/js/redux/reducers';
 import ScrollService from '@/services/scroll/ScrollService';
-import { covertPx2RemUtil } from '@/utils/covertPx2RemUtil';
 
 import styles from './styles.module.scss';
-
-const Messages = dynamic(() => import('@/components/global/Messages'), { ssr: false });
 
 type ScrollValues = {
   scrollTop: number;
@@ -31,20 +24,14 @@ type ScrollValues = {
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 export type BaseWebsiteLayoutScrollBarProps = PropsWithChildren &
-  PropsFromRedux &
-  FooterExternalProps & {
-    withoutFooter?: boolean;
-    withoutFullFooter?: boolean;
-    withoutHeader?: boolean;
+
+  PropsFromRedux & {
+    pageHeight?: string | number;
     hideScrollbar?: boolean;
-    preloadInProcess?: boolean;
-    shownBanners?: boolean;
+
     transparent?: boolean;
     disableScrollbar?: boolean;
-    pageName?: string;
-
     className?: string;
-
     setFixedHeader?: (isFixed: boolean) => void;
     onScrollHandler?: (scrollValues: ScrollValues) => void;
     onWheelHandler?: () => void;
@@ -53,16 +40,9 @@ export type BaseWebsiteLayoutScrollBarProps = PropsWithChildren &
 function BaseWebsiteLayoutScrollBar({
   className,
   transparent,
-  pageName,
-  footerProps,
-  withoutHeader,
-  withoutFooter,
-  withoutFullFooter,
-  hideScrollbar,
-  preloadInProcess,
-  shownBanners,
 
-  children,
+  pageHeight,
+  hideScrollbar,
 
   onWheelHandler,
 
@@ -73,10 +53,12 @@ function BaseWebsiteLayoutScrollBar({
   setFixedHeader,
 
   userIsAuthorized,
+  children,
+
 }: BaseWebsiteLayoutScrollBarProps) {
   const [isReady, setIsReady] = useState<boolean>(false);
 
-  const { isNotDesktop, height } = ViewportHook();
+  const { isNotDesktop } = ViewportHook();
 
   const {
     unsetActiveScrollPosition,
@@ -95,25 +77,6 @@ function BaseWebsiteLayoutScrollBar({
   useEffect(() => {
     setIsReady(true);
   }, []);
-
-  const pageHeight = useMemo(() => {
-    if (isNotDesktop) {
-      return `calc(${height}px - (1rem * ${!withoutHeader ? 61 : 0} / var(--font-size__small-int)))`;
-    }
-    if ((transparent && !isNotDesktop) || withoutHeader) {
-      return height;
-    }
-
-    return `calc(${height}px - (1rem * ${!withoutHeader ? 71 : 0} / var(--font-size__small-int)))`;
-  }, [height, withoutHeader, transparent, isNotDesktop]);
-
-  const footerHeight = useMemo(() => {
-    if (withoutFooter) {
-      return 0;
-    }
-
-    return covertPx2RemUtil(70 + (!withoutFullFooter ? (isNotDesktop ? 145 : 183) : 0));
-  }, [withoutFullFooter, withoutFooter, isNotDesktop]);
 
   const scrollToPrevPagePosition = useCallback(() => {
     if (!previousScrollIsActive) {
@@ -186,21 +149,7 @@ function BaseWebsiteLayoutScrollBar({
       onWheel={onWheelHandler}
       style={{ height: pageHeight }}
     >
-      <>
-        <div className={classNames([styles.page, pageName])}>
-          <Banners isShown={shownBanners} />
-          <Messages />
-          {children}
-        </div>
-        <Preloader
-          id={`page-${pageName}`}
-          isShown={preloadInProcess}
-          opacity={1}
-          fullScreen
-          pageHeight={`calc(${pageHeight} - ${footerHeight})`}
-        />
-        {!withoutFooter && <Footer footerProps={footerProps} />}
-      </>
+      {children}
     </Scrollbar>
   );
 }

@@ -2,105 +2,24 @@ import { createRef, useEffect, useState } from 'react';
 
 import classNames from 'classnames';
 import Image from 'next/image';
-import { connect } from 'react-redux';
 
 import { RoutePathsConstants } from '@/constants/routes/routes';
 import LinkRoute from '@/js/components/ui/links/LinkRoute';
 
-import Modal from './Modal';
 import VinilParallax from './Parallax';
 import styles from './styles.module.scss';
 
-import imageModal1 from '../../_images/card1_illustration.png';
-import imageModal2 from '../../_images/card2_illustration.png';
-import imageModal3 from '../../_images/card3_illustration.png';
 import imageUrl from '../../_images/mainBanner.png';
 import imageVinil from '../../_images/mainVinil.png';
 
-function MainBanner({
-  scrollValue,
-  variablesList: {
-    DEFAULT_PROJECT_EXPIRATION_HOURS,
-    PROMOTION_CONTRIBUTOR_POINT_TO_COINS_COEFFICIENT,
-    PROJECT_CONTRIBUTOR_CONTRIBUTION_PRICE,
-  } = {},
-}) {
+function MainBanner({ scrollValue }) {
   const [startAnimation, setStartAnimation] = useState(false);
-  const [modal, setModal] = useState(false);
+
   const mainAnimationRef = createRef();
 
   useEffect(() => {
     setStartAnimation(true);
   }, [mainAnimationRef]);
-
-  const modalCards = [
-    {
-      id: '1',
-      title: '1. Join In',
-      subtitle: (
-        <>
-          Join or start pre-order <br /> (30&nbsp;fans needed for funding)
-        </>
-      ),
-      url: imageModal1,
-      imgClass: styles.MainBanner__img1,
-      footer: <>Up to {Math.floor(DEFAULT_PROJECT_EXPIRATION_HOURS / 24)}&nbsp;days of funding time</>,
-      bottom: (
-        <>
-          Get your digital files cheaper <br className={styles.MainBanner__brmoddsk} />
-          and quicker than <br className={styles.MainBanner__brmodmob} />
-          anyone else <br className={styles.MainBanner__brmoddsk} />
-          <strong>(pay {PROJECT_CONTRIBUTOR_CONTRIBUTION_PRICE}&nbsp;eur instead of&nbsp;12.99)</strong>
-        </>
-      ),
-    },
-    {
-      id: '2',
-      title: "2. Wait, it's coming",
-      subtitle: (
-        <>
-          Securing, purchase, delivery <br />
-          &&nbsp;digitisation of the record
-        </>
-      ),
-      url: imageModal2,
-      imgClass: styles.MainBanner__img2,
-      footer: (
-        <>
-          Average time from purchase <br className={styles.MainBanner__brmodmob} />
-          to <br className={styles.MainBanner__brmoddsk} />
-          digitisation — 14 days
-        </>
-      ),
-      bottom: false,
-    },
-    {
-      id: '3',
-      title: '3. Get the music',
-      subtitle: 'The digital copy is ready',
-      url: imageModal3,
-      imgClass: styles.MainBanner__img3,
-      footer: (
-        <>
-          for the first 3&nbsp;months, <br /> files will be exclusively available <br />
-          to fans who pre-ordered
-        </>
-      ),
-      bottom: (
-        <>
-          Join {PROMOTION_CONTRIBUTOR_POINT_TO_COINS_COEFFICIENT}&nbsp;successful pre-orders and{' '}
-          <br className={styles.MainBanner__brmoddsk} />
-          <strong>
-            get {PROJECT_CONTRIBUTOR_CONTRIBUTION_PRICE}&nbsp;EUR <br className={styles.MainBanner__brmodmob} />
-            in cashback
-          </strong>
-          &nbsp;(that&apos;s 1&nbsp;release <br className={styles.MainBanner__brmoddsk} />
-          you get completely <br className={styles.MainBanner__brmodmob} />
-          for free!)
-        </>
-      ),
-    },
-  ];
 
   return (
     <div className={styles.MainBanner}>
@@ -144,53 +63,8 @@ function MainBanner({
         />
         <VinilParallax scrollValue={scrollValue} />
       </div>
-      <Modal visible={modal} setVisible={setModal}>
-        <button className={styles.MainBanner__modalClose} onClick={() => setModal(false)} type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M7 8.4L1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4Z" fill="#1A1A1A" />
-          </svg>
-        </button>
-        <div className={styles.MainBanner__modalTitle}>
-          Here&apos;s how <br className={styles.MainBanner__brmodtab} /> pre-order works!
-        </div>
-        <div className={styles.MainBanner__modalSubtitle}>
-          Three simple steps to get exclusive music before <br className={styles.MainBanner__brmodmob} />
-          the crowds do. <br className={styles.MainBanner__brmoddsk} />
-          Anyone can start a pre-order.
-        </div>
-        <ul className={styles.MainBanner__modalCards}>
-          {modalCards.map((modalCard) => (
-            <li key={modalCard.id} className={styles.MainBanner__modalCard}>
-              <div key={modalCard.id} className={styles.MainBanner__modalCardWrapper}>
-                <div className={styles.MainBanner__modalCardCaption}>{modalCard.title}</div>
-                <div className={styles.MainBanner__modalCardDesc}>{modalCard.subtitle}</div>
-                <div className={styles.MainBanner__modalCardImage}>
-                  <Image src={modalCard.url} alt={modalCard.title} className={modalCard.imgClass} style={{ height: 'auto' }} />
-                </div>
-                <div className={styles.MainBanner__modalCardFooter}>{modalCard.footer}</div>
-              </div>
-              {modalCard.bottom !== false && <div className={styles.MainBanner__modalBottom}> {modalCard.bottom} </div>}
-            </li>
-          ))}
-        </ul>
-        <div className={styles.MainBanner__modalFooter}>
-          If a&nbsp;pre-order does not receive enough fan support <br className={styles.MainBanner__brmodmob} />
-          during the funding stage,
-          <br className={styles.MainBanner__brmoddsk} />
-          it&nbsp;will be cancelled.&nbsp;
-          <br className={styles.MainBanner__brmodmob} />
-          <strong>All participants will receive a&nbsp;full refund</strong>
-        </div>
-        <button className={styles.MainBanner__modalBtn} onClick={() => setModal(false)} type="button">
-          Close
-        </button>
-      </Modal>
     </div>
   );
 }
 
-const connector = connect((state) => ({
-  variablesList: state.VariablesReducer.variablesList,
-}));
-
-export default connector(MainBanner);
+export default MainBanner;

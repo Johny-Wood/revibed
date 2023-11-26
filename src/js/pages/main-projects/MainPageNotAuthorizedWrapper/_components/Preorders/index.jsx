@@ -47,7 +47,7 @@ function Preorders({ projectsInfo }) {
       <LinkRoute
         type="button"
         href={RoutePathsConstants.PROJECTS}
-        text="Find more"
+        text="Find More"
         className={classNames(styles.Preorders__more)}
       />
     </SiteWrapperLayout>

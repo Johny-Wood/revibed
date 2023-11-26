@@ -1,11 +1,11 @@
-@import '../../../../../../assets/styles/_mixins/breakpoint';
-@import '../../../../../../assets/styles/_mixins/convert-px2rem';
+@import "../../../../../../assets/styles/_mixins/breakpoint";
+@import "../../../../../../assets/styles/_mixins/convert-px2rem";
 
 .FanPovered {
   padding-top: convert-px2rem(100);
   padding-bottom: convert-px2rem(60);
   position: relative;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   @include breakpoint($b-tabletS__max) {
     padding-top: convert-px2rem(100);
     padding-bottom: convert-px2rem(30);
@@ -33,14 +33,14 @@
     text-align: right;
     margin: 0 auto;
     &::before {
-      content: '';
+      content: "";
       z-index: 3;
       position: absolute;
       top: 100%;
       left: 0;
       width: 100%;
       height: convert-px2rem(25);
-      background-color: #F0F0F0;
+      background-color: #f0f0f0;
       border-top: convert-px2rem(1) solid #000;
     }
   }
@@ -181,7 +181,9 @@
     width: convert-px2rem(248);
     height: convert-px2rem(180);
     //transition: translate 1s cubic-bezier(0.19, 1, 0.22, 1) 0s, transform 1s cubic-bezier(0.19, 1, 0.22, 1) 0s;
-    transition: translate 1.2s cubic-bezier(0, 0, 0.05, 1) 0s, transform 1.2s cubic-bezier(0, 0, 0.05, 1) 0s;
+    transition:
+      translate 1.2s cubic-bezier(0, 0, 0.05, 1) 0s,
+      transform 1.2s cubic-bezier(0, 0, 0.05, 1) 0s;
     translate: 1.2rem 0;
     margin-bottom: convert-px2rem(-10);
     margin-right: convert-px2rem(15);
@@ -333,7 +335,7 @@
     }
     background-color: #000 !important;
     @include breakpoint($b-tabletS__max) {
-      padding: convert-px2rem(10) convert-px2rem(20) !important;
+      padding: convert-px2rem(15) convert-px2rem(20) !important;
       min-width: convert-px2rem(160) !important;
       min-height: convert-px2rem(35);
       font-size: convert-px2rem(12);

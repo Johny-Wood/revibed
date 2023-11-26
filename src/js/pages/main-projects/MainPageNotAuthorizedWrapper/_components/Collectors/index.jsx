@@ -80,6 +80,7 @@ function Collector({ scrollValue, collections }) {
             </defs>
           </svg>
         </div>
+
         <CollectorsParallax scrollValue={scrollValue} />
       </SiteWrapperLayout>
     </div>

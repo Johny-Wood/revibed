@@ -1,5 +1,5 @@
-@import '../../../../assets/styles/_mixins/breakpoint';
-@import '../../../../assets/styles/_mixins/convert-px2rem';
+@import "../../../../assets/styles/_mixins/breakpoint";
+@import "../../../../assets/styles/_mixins/convert-px2rem";
 
 $footer_padding_x: convert-px2rem(20);
 $footer_max_width: convert-px2rem(1225);
@@ -9,7 +9,7 @@ $navigation_font-size__footer: convert-px2rem(12);
 $copyright_margin_left: convert-px2rem(10);
 
 .footer {
-  width: 100vw;
+  width: 100%;
   background-color: var(--color__gray-4);
   color: var(--color__gray-2);
   letter-spacing: 0.01em;
@@ -56,6 +56,7 @@ $copyright_margin_left: convert-px2rem(10);
   }
 
   &__wrapper {
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;

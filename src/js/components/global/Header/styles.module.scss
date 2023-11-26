@@ -11,7 +11,7 @@ $header_padding-y: convert-px2rem(5);
 
   z-index: 20000;
   position: relative;
-  width: 100%;
+  width: 100vw;
   top: 0;
   left: 0;
   height: $heightMobile;
@@ -121,8 +121,9 @@ $header_padding-y: convert-px2rem(5);
       }
 
       .link {
-        transition: opacity var(--transition-duration) ease,
-        border-color var(--transition-duration) ease;
+        transition:
+          opacity var(--transition-duration) ease,
+          border-color var(--transition-duration) ease;
       }
     }
   }
@@ -157,7 +158,6 @@ $header_padding-y: convert-px2rem(5);
   }
 
   &_mainLanding {
-
   }
 
   :global {

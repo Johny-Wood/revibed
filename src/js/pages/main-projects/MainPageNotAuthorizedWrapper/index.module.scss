@@ -1,13 +1,9 @@
-@import '../../../../assets/styles/_mixins/convert-px2rem';
+@import "../../../../assets/styles/_mixins/convert-px2rem";
+@import "../../../../assets/styles/_mixins/breakpoint";
 
-.cont {
-  overflow-y: scroll;
-  height: 100vh;
-  scroll-snap-type: y mandatory;
-  scroll-padding: convert-px2rem(71);
-
-  &__child {
-    scroll-snap-align: start;
-    overflow: hidden;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
 }
